@@ -24,19 +24,19 @@
         }
         .title {
             position: absolute;
-            top: 40%; /* Slightly above the middle */
+            top: 38%; /* Lowered slightly */
             font-size: 32px;
             font-weight: bold;
-            text-transform: uppercase;
+            text-transform: lowercase;
         }
         .header {
             position: absolute;
-            top: 20px; /* Adjust this to move the search bar higher or lower */
+            top: 20px; 
             left: 5%;
             width: 90%;
             height: 60px;
-            background: black; /* Solid black background */
-            border: 2px solid white; /* Small white border */
+            background: black;
+            border: 2px solid white;
             border-radius: 20px;
             display: flex;
             align-items: center;
@@ -54,12 +54,46 @@
             color: white;
             opacity: 0.7;
         }
+        .icons-container {
+            position: absolute;
+            top: 50%; /* Positioned below the title */
+            display: flex;
+            gap: 15px;
+        }
+        .icon {
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+        .icon:hover {
+            transform: scale(1.2); /* Zoom in on hover */
+        }
     </style>
+    <script>
+        function handleSearch(event) {
+            if (event.key === "Enter") {
+                let query = event.target.value.trim();
+                if (query) {
+                    window.location.href = `https://yourcustomsearchurl.com/search?q=${encodeURIComponent(query)}`;
+                }
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="title">unblockzone v3</div>
+
     <div class="header">
-        <input type="text" class="search-bar" placeholder="search...">
+        <input type="text" class="search-bar" placeholder="Search..." onkeydown="handleSearch(event)">
+    </div>
+
+    <div class="icons-container">
+        <img class="icon" src="https://via.placeholder.com/50" onclick="window.open('https://customurl1.com', '_blank')">
+        <img class="icon" src="https://via.placeholder.com/50" onclick="window.open('https://customurl2.com', '_blank')">
+        <img class="icon" src="https://via.placeholder.com/50" onclick="window.open('https://customurl3.com', '_blank')">
+        <img class="icon" src="https://via.placeholder.com/50" onclick="window.open('https://customurl4.com', '_blank')">
+        <img class="icon" src="https://via.placeholder.com/50" onclick="window.open('https://customurl5.com', '_blank')">
     </div>
 </body>
 </html>
