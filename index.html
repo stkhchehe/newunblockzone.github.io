@@ -37,8 +37,8 @@
         }
         .header {
             position: absolute;
-            top: 48px;  /* Moved down slightly */
-            left: 12%;  /* Moved more to the right */
+            top: 48px;  
+            left: 12%;
             width: 80%;
             height: 60px;
             background: black;
@@ -66,14 +66,25 @@
             display: flex;
             gap: 25px; /* More spacing between icons */
         }
-        .icon {
-            width: 80px; /* Increased size */
-            height: 80px; /* Increased size */
-            cursor: pointer;
-            transition: transform 0.3s ease-in-out;
+        .icon-container {
+            width: 100px; /* Adjusted for better layout */
+            height: 100px;
+            background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+            border: 3px solid white; /* White border */
+            border-radius: 20px; /* Rounded square */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
         }
-        .icon:hover {
+        .icon-container:hover {
             transform: scale(1.2); /* Zoom in effect */
+            background: rgba(255, 255, 255, 0.3); /* Slightly brighter on hover */
+        }
+        .icon {
+            width: 60px; /* Icon size inside container */
+            height: 60px;
+            cursor: pointer;
         }
     </style>
     <script>
@@ -95,11 +106,21 @@
     </div>
 
     <div class="icons-container">
-        <img class="icon" src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" onclick="window.open('https://customurl1.com', '_blank')">
-        <img class="icon" src="https://img.icons8.com/ios7/600/FFFFFF/apple-app-store--v2.png" onclick="window.open('https://customurl2.com', '_blank')">
-        <img class="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" onclick="window.open('https://customurl3.com', '_blank')">
-        <img class="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRclWJCEIPuuU-0DeRx9HfoSWM4y8Ei59lGhQ&s" onclick="window.open('https://customurl4.com', '_blank')">
-        <img class="icon" src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" onclick="window.open('https://customurl5.com', '_blank')">
+        <div class="icon-container">
+            <img class="icon" src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" onclick="window.open('https://customurl1.com', '_blank')">
+        </div>
+        <div class="icon-container">
+            <img class="icon" src="https://img.icons8.com/ios7/600/FFFFFF/apple-app-store--v2.png" onclick="window.open('https://customurl2.com', '_blank')">
+        </div>
+        <div class="icon-container">
+            <img class="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" onclick="window.open('https://customurl3.com', '_blank')">
+        </div>
+        <div class="icon-container">
+            <img class="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRclWJCEIPuuU-0DeRx9HfoSWM4y8Ei59lGhQ&s" onclick="window.open('https://customurl4.com', '_blank')">
+        </div>
+        <div class="icon-container">
+            <img class="icon" src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" onclick="window.open('https://customurl5.com', '_blank')">
+        </div>
     </div>
 </body>
 </html>
