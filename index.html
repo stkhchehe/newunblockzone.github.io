@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +12,6 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            cursor: none; /* Hide default cursor */
         }
         body {
             background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROdNIejFmjeKC5u6Xq2yqOCa5y-uJseTCTfA&s') no-repeat center center fixed;
@@ -126,18 +126,6 @@
             z-index: -1;
         }
 
-        /* Custom Cursor */
-        .custom-cursor {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: white;
-            border-radius: 50%;
-            pointer-events: none;
-            transition: transform 0.08s ease-out;
-            z-index: 9999;
-        }
-
         /* Particle Background */
         #particles-js {
             position: absolute;
@@ -163,10 +151,7 @@
 <body>
     <!-- Particle Background -->
     <div id="particles-js"></div>
-
-    <!-- Custom Cursor -->
-    <div class="custom-cursor"></div>
-
+    
     <!-- Floating Shape Effect -->
     <div class="coolBlobIdk"></div>
 
@@ -185,6 +170,18 @@
             <img class="icon" src="https://img.icons8.com/ios7/600/FFFFFF/apple-app-store--v2.png" onclick="window.open('https://customurl2.com', '_blank')">
             <div class="icon-label">apps</div>
         </div>
+        <div class="icon-container">
+            <img class="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" onclick="window.open('https://customurl3.com', '_blank')">
+            <div class="icon-label">exploits</div>
+        </div>
+        <div class="icon-container">
+            <img class="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRclWJCEIPuuU-0DeRx9HfoSWM4y8Ei59lGhQ&s" onclick="window.open('https://customurl4.com', '_blank')">
+            <div class="icon-label">extras</div>
+        </div>
+        <div class="icon-container">
+            <img class="icon" src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" onclick="window.open('https://customurl5.com', '_blank')">
+            <div class="icon-label">settings</div>
+        </div>
     </div>
 
     <!-- Particle.js Library -->
@@ -192,22 +189,16 @@
     <script>
         particlesJS("particles-js", {
             "particles": {
-                "number": { "value": 100, "density": { "enable": false, "value_area": 800 } },
+                "number": { "value": 100, "density": { "enable": true, "value_area": 800 } },
                 "color": { "value": "#aaa" },
                 "shape": { "type": "circle" },
                 "opacity": { "value": 0.5, "random": true },
                 "size": { "value": 4, "random": true },
-                "move": { "enable": true, "speed": 3, "direction": "none" }
+                "move": { "enable": true, "speed": 8, "direction": "random" }
             },
             "interactivity": {
                 "events": { "onhover": { "enable": true, "mode": "repulse" } }
             }
-        });
-
-        // Custom Cursor Movement
-        const cursor = document.querySelector(".custom-cursor");
-        document.addEventListener("mousemove", (e) => {
-            cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
         });
     </script>
 </body>
