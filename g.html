@@ -36,17 +36,18 @@
         .header-container {
             position: absolute;
             top: 5%;
+            left: 0;
             right: 2%;
             display: flex;
             align-items: center;
             gap: 10px;
-            width: auto;
+            width: 100%;
+            padding-left: 10px; /* Small padding to avoid touching the edge */
         }
 
         .header {
-            flex: 1;
+            flex-grow: 1;
             height: 50px;
-            max-width: 600px; /* Keeps the same width */
             background: black;
             border: 2px solid white;
             border-radius: 20px;
