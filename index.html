@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>unblockzone v3</title>
-    <link rel="icon" href="https://cdn.discordapp.com/attachments/1338272726317797406/1339364856289296535/unblockzone_v3_logo.png?ex=67ae7439&is=67ad22b9&hm=164611ac3bb002b57ea96e3871f7374ee759518156194329f88aa0f2842919ea&" type="image/png">
+    <link rel="icon" href="https://cdn.discordapp.com/attachments/1338272726317797406/1339364856289296535/unblockzone_v3_logo.png" type="image/png">
+    
+    <!-- Google Font: Pacifico -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
     <style>
         * {
             margin: 0;
@@ -25,18 +29,55 @@
         .title {
             position: absolute;
             top: 38%;
-            font-size: 32px;
+            font-size: 36px;
             font-weight: bold;
             text-transform: lowercase;
-            transition: transform 0.3s ease-in-out;
+            font-family: 'Pacifico', cursive;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 2px solid white;
+            width: 0;
+            animation: typing 2.5s steps(15, end) forwards, blink 0.6s infinite step-end alternate;
+            text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8), 0px 0px 20px rgba(255, 255, 255, 0.6);
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink {
+            50% { border-color: transparent }
         }
         .title:hover {
-            transform: scale(1.2); /* Zoom in effect */
+            transform: scale(1.2);
+            transition: transform 0.3s ease-in-out;
+        }
+        .new-tab-btn {
+            position: absolute;
+            top: 58%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40%;
+            height: 40px;
+            background: white;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: black;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+        }
+        .new-tab-btn:hover {
+            background: #ddd;
+            transform: scale(1.05);
         }
         .header {
             position: absolute;
-            top: 40px;  /* Moved further down */
-            left: 12%;  /* Moved more to the right */
+            top: 70%;
+            left: 55%;
+            transform: translateX(-50%);
             width: 80%;
             height: 60px;
             background: black;
@@ -71,7 +112,7 @@
             transition: transform 0.3s ease-in-out;
         }
         .icon:hover {
-            transform: scale(1.2); /* Zoom in effect */
+            transform: scale(1.2);
         }
     </style>
     <script>
@@ -88,16 +129,18 @@
 <body>
     <div class="title">unblockzone v3</div>
 
-    <div class="header">
-        <input type="text" class="search-bar" placeholder="search..." onkeydown="handleSearch(event)">
-    </div>
-
     <div class="icons-container">
         <img class="icon" src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" onclick="window.open('https://customurl1.com', '_blank')">
         <img class="icon" src="https://img.icons8.com/ios7/600/FFFFFF/apple-app-store--v2.png" onclick="window.open('https://customurl2.com', '_blank')">
         <img class="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" onclick="window.open('https://customurl3.com', '_blank')">
         <img class="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRclWJCEIPuuU-0DeRx9HfoSWM4y8Ei59lGhQ&s" onclick="window.open('https://customurl4.com', '_blank')">
         <img class="icon" src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" onclick="window.open('https://customurl5.com', '_blank')">
+    </div>
+
+    <div class="new-tab-btn">new tab</div>
+
+    <div class="header">
+        <input type="text" class="search-bar" placeholder="search..." onkeydown="handleSearch(event)">
     </div>
 </body>
 </html>
