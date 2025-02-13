@@ -24,16 +24,20 @@
         }
         .title {
             position: absolute;
-            top: 38%; /* Lowered slightly */
+            top: 38%;
             font-size: 32px;
             font-weight: bold;
             text-transform: lowercase;
+            transition: transform 0.3s ease-in-out;
+        }
+        .title:hover {
+            transform: scale(1.2); /* Zoom in effect */
         }
         .header {
             position: absolute;
-            top: 20px; 
-            left: 5%;
-            width: 90%;
+            top: 25px; /* Moved down slightly */
+            left: 8%;  /* Moved to the right */
+            width: 85%;
             height: 60px;
             background: black;
             border: 2px solid white;
@@ -56,7 +60,7 @@
         }
         .icons-container {
             position: absolute;
-            top: 50%; /* Positioned below the title */
+            top: 50%;
             display: flex;
             gap: 15px;
         }
@@ -67,7 +71,7 @@
             transition: transform 0.3s ease-in-out;
         }
         .icon:hover {
-            transform: scale(1.2); /* Zoom in on hover */
+            transform: scale(1.2); /* Zoom in effect */
         }
     </style>
     <script>
