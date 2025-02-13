@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>unblockzone v3</title>
-    <link rel="icon" href="https://cdnjo/attachments/1338272726317797406/1339364856289296535/unblockzone_v3_logo.png?ex=67ae7439&is=67ad22b9&hm=164611ac3bb002b57ea96e3871f7374ee759518156194329f88aa0f2842919ea&" type="image/png">
+    <link rel="icon" href="https://cdn.discordapp.com/attachments/1338272726317797406/1339364856289296535/unblockzone_v3_logo.png?ex=67ae7439&is=67ad22b9&hm=164611ac3bb002b57ea96e3871f7374ee759518156194329f88aa0f2842919ea&" type="image/png">
     <style>
         * {
             margin: 0;
@@ -81,11 +81,11 @@
             transform: translateX(-50%);
             width: 80%;
             max-width: 400px;
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: #333; /* Dark grey background */
             padding: 20px;
-            border-radius: 15px;
+            border-radius: 20px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-            color: white;
+            color: black; /* Black text */
             font-size: 18px;
             display: none;
             opacity: 0;
@@ -99,17 +99,31 @@
             font-size: 24px;
             font-weight: bold;
             margin-bottom: 10px;
+            color: white; /* White text for the header */
         }
         .popup-description {
             margin-bottom: 15px;
+            color: white; /* White text for the description */
         }
         .close-btn {
             position: absolute;
-            top: 5px;
-            right: 5px;
-            font-size: 20px;
-            cursor: pointer;
+            top: -10px;
+            right: -10px;
+            width: 30px;
+            height: 30px;
+            background-color: #f44336; /* Red background */
             color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .close-btn:hover {
+            background-color: #e53935; /* Darker red on hover */
         }
     </style>
     <script>
@@ -142,7 +156,7 @@
 
     <!-- Popup for Latest Updates -->
     <div id="update-popup" class="popup">
-        <span class="close-btn" onclick="closePopup()">X</span>
+        <button class="close-btn" onclick="closePopup()">X</button>
         <div class="popup-header">Latest Updates 📣</div>
         <div class="popup-description">
             <ul>
