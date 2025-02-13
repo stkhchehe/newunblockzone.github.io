@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,35 +32,12 @@
             transition: transform 0.3s ease-in-out;
         }
         .title:hover {
-            transform: scale(1.2);
-        }
-        .new-tab-btn {
-            position: absolute;
-            top: 58%; /* Positioned above search bar */
-            left: 50%;
-            transform: translateX(-50%);
-            width: 40%; /* Less than half the width of the search bar */
-            height: 40px;
-            background: white;
-            border-radius: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 18px;
-            font-weight: bold;
-            color: black;
-            cursor: pointer;
-            transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
-        }
-        .new-tab-btn:hover {
-            background: #ddd;
-            transform: scale(1.05);
+            transform: scale(1.2); /* Zoom in effect */
         }
         .header {
             position: absolute;
-            top: 65%;  /* Moved search bar further down */
-            left: 50%;
-            transform: translateX(-50%);
+            top: 40px;  /* Moved further down */
+            left: 12%;  /* Moved more to the right */
             width: 80%;
             height: 60px;
             background: black;
@@ -94,7 +72,7 @@
             transition: transform 0.3s ease-in-out;
         }
         .icon:hover {
-            transform: scale(1.2);
+            transform: scale(1.2); /* Zoom in effect */
         }
     </style>
     <script>
@@ -111,18 +89,16 @@
 <body>
     <div class="title">unblockzone v3</div>
 
+    <div class="header">
+        <input type="text" class="search-bar" placeholder="search..." onkeydown="handleSearch(event)">
+    </div>
+
     <div class="icons-container">
         <img class="icon" src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" onclick="window.open('https://customurl1.com', '_blank')">
         <img class="icon" src="https://img.icons8.com/ios7/600/FFFFFF/apple-app-store--v2.png" onclick="window.open('https://customurl2.com', '_blank')">
         <img class="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" onclick="window.open('https://customurl3.com', '_blank')">
         <img class="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRclWJCEIPuuU-0DeRx9HfoSWM4y8Ei59lGhQ&s" onclick="window.open('https://customurl4.com', '_blank')">
         <img class="icon" src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" onclick="window.open('https://customurl5.com', '_blank')">
-    </div>
-
-    <div class="new-tab-btn">new tab</div>
-
-    <div class="header">
-        <input type="text" class="search-bar" placeholder="search..." onkeydown="handleSearch(event)">
     </div>
 </body>
 </html>
