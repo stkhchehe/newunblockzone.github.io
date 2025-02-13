@@ -29,13 +29,15 @@
             font-weight: bold;
             text-transform: lowercase;
             transition: transform 0.3s ease-in-out;
+            color: white;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Light glow around text */
         }
         .title:hover {
             transform: scale(1.2); /* Zoom in effect */
         }
         .header {
             position: absolute;
-            top: 40px;  /* Moved further down */
+            top: 48px;  /* Moved down slightly */
             left: 12%;  /* Moved more to the right */
             width: 80%;
             height: 60px;
@@ -73,58 +75,6 @@
         .icon:hover {
             transform: scale(1.2); /* Zoom in effect */
         }
-        /* Popup Styles */
-        .popup {
-            position: absolute;
-            top: 30%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80%;
-            max-width: 400px;
-            background-color: #333; /* Dark grey background */
-            padding: 20px;
-            border-radius: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-            color: black; /* Black text */
-            font-size: 18px;
-            display: none;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
-        .popup.show {
-            display: block;
-            opacity: 1;
-        }
-        .popup-header {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: white; /* White text for the header */
-        }
-        .popup-description {
-            margin-bottom: 15px;
-            color: white; /* White text for the description */
-        }
-        .close-btn {
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            width: 30px;
-            height: 30px;
-            background-color: #f44336; /* Red background */
-            color: white;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 50%;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .close-btn:hover {
-            background-color: #e53935; /* Darker red on hover */
-        }
     </style>
     <script>
         function handleSearch(event) {
@@ -135,16 +85,6 @@
                 }
             }
         }
-
-        window.onload = function() {
-            const popup = document.getElementById('update-popup');
-            popup.classList.add('show');
-        }
-
-        function closePopup() {
-            const popup = document.getElementById('update-popup');
-            popup.classList.remove('show');
-        }
     </script>
 </head>
 <body>
@@ -152,20 +92,6 @@
 
     <div class="header">
         <input type="text" class="search-bar" placeholder="search..." onkeydown="handleSearch(event)">
-    </div>
-
-    <!-- Popup for Latest Updates -->
-    <div id="update-popup" class="popup">
-        <button class="close-btn" onclick="closePopup()">X</button>
-        <div class="popup-header">Latest Updates 📣</div>
-        <div class="popup-description">
-            <ul>
-                <li>- placeholder</li>
-                <li>- placeholder</li>
-                <li>- placeholder</li>
-                <li>- placeholder</li>
-            </ul>
-        </div>
     </div>
 
     <div class="icons-container">
