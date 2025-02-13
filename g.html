@@ -36,15 +36,17 @@
         .header-container {
             position: absolute;
             top: 5%;
-            left: 2%; /* Positioned to the left but not touching the edge */
+            left: 2%;
             display: flex;
             align-items: center;
             gap: 10px;
+            width: 60%; /* More than halfway across */
         }
 
         .header {
-            width: 300px;
+            flex: 1;
             height: 50px;
+            max-width: 600px; /* Keeps the same width */
             background: black;
             border: 2px solid white;
             border-radius: 20px;
@@ -124,6 +126,7 @@
             color: white;
             text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
             text-align: center;
+            transition: transform 0.3s ease-in-out;
         }
         .title:hover {
             transform: scale(1.2);
