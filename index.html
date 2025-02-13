@@ -57,6 +57,44 @@
             align-items: center;
             padding: 0 15px;
         }
+
+        /* Header container for the buttons */
+        .header-buttons {
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Space between buttons */
+        }
+
+        /* Arrows */
+        .arrow-left, .arrow-right {
+            width: 20px;
+            height: 20px;
+            border: solid white;
+            border-width: 0 5px 5px 0;
+            display: inline-block;
+            padding: 3px;
+        }
+
+        .arrow-left {
+            transform: rotate(-135deg);
+            cursor: pointer;
+        }
+
+        .arrow-right {
+            transform: rotate(45deg);
+            cursor: pointer;
+        }
+
+        /* Refresh button */
+        .refresh-btn {
+            width: 20px;
+            height: 20px;
+            background: white;
+            display: inline-block;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
         .search-bar {
             width: 100%;
             background: transparent;
@@ -65,6 +103,7 @@
             color: white;
             font-size: 18px;
         }
+
         .icons-container {
             position: absolute;
             top: 40%;
@@ -185,6 +224,13 @@
     <div class="title">unblockzone v3</div>
 
     <div class="header">
+        <!-- Header Buttons -->
+        <div class="header-buttons">
+            <div class="arrow-left" onclick="console.log('Left arrow clicked')"></div>
+            <div class="arrow-right" onclick="console.log('Right arrow clicked')"></div>
+            <div class="refresh-btn" onclick="window.location.reload()"></div>
+        </div>
+
         <input type="text" class="search-bar" placeholder="search..." onkeydown="handleSearch(event)">
     </div>
 
@@ -211,7 +257,6 @@
         </div>
     </div>
 
-    <!-- Version Text - Adjusted to be below the icons -->
     <div class="version-text">version 3 // release</div>
 
     <!-- Glowy Support Text -->
