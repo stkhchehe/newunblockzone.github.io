@@ -107,7 +107,7 @@
             color: white;
             text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
             position: absolute;
-            top: 75%; /* Adjusted position to be just below icons */
+            top: 65%; /* Adjusted position to be directly below icons */
         }
 
         /* Glowy Support Text */
@@ -115,19 +115,6 @@
             position: absolute;
             bottom: 20px;
             left: 20px;
-            font-size: 20px;
-            font-weight: bold;
-            color: white;
-            text-transform: lowercase;
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
-            cursor: pointer;
-        }
-
-        /* New Glowy "open about:blank" text */
-        .aboutblank-text {
-            position: absolute;
-            bottom: 20px;
-            left: 140px; /* Closer to "support" text */
             font-size: 20px;
             font-weight: bold;
             color: white;
@@ -186,10 +173,6 @@
         function openSupportPage() {
             window.open('https://yourcustomsupporturl.com', '_blank');
         }
-
-        function openAboutBlank() {
-            window.location.href = 'about:blank'; // Opens about:blank in the same tab
-        }
     </script>
 </head>
 <body>
@@ -228,20 +211,18 @@
         </div>
     </div>
 
+    <!-- Version Text - Adjusted to be below the icons -->
     <div class="version-text">version 3 // release</div>
 
     <!-- Glowy Support Text -->
     <div class="support-text" onclick="openSupportPage()">support</div>
-
-    <!-- Glowy "open about:blank" Text -->
-    <div class="aboutblank-text" onclick="openAboutBlank()">open about:blank</div>
 
     <!-- Particle.js Library -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         particlesJS("particles-js", {
             "particles": {
-                "number": { "value": 100, "density": { "enable": false } }, // Fixed particle count
+                "number": { "value": 100, "density": { "enable": false } },
                 "color": { "value": "#aaa" },
                 "shape": { "type": "circle" },
                 "opacity": { "value": 0.5, "random": true },
