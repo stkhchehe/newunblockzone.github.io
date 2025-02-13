@@ -123,6 +123,19 @@
             cursor: pointer;
         }
 
+        /* New Glowy "open about:blank" text */
+        .aboutblank-text {
+            position: absolute;
+            bottom: 20px;
+            left: 140px; /* Slightly adjusted to place it next to "support" */
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            text-transform: lowercase;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+            cursor: pointer;
+        }
+
         /* Floating Shapes */
         .coolBlobIdk {
             position: absolute;
@@ -173,6 +186,10 @@
         function openSupportPage() {
             window.open('https://yourcustomsupporturl.com', '_blank');
         }
+
+        function openAboutBlank() {
+            window.open('about:blank', '_blank').location = 'https://unblockzone.github.io/ubzv3.github.io/';
+        }
     </script>
 </head>
 <body>
@@ -215,6 +232,9 @@
 
     <!-- Glowy Support Text -->
     <div class="support-text" onclick="openSupportPage()">support</div>
+
+    <!-- Glowy "open about:blank" Text -->
+    <div class="aboutblank-text" onclick="openAboutBlank()">open about:blank</div>
 
     <!-- Particle.js Library -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
