@@ -15,7 +15,7 @@
         body {
             background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROdNIejFmjeKC5u6Xq2yqOCa5y-uJseTCTfA&s') no-repeat center center fixed;
             background-size: cover;
-            min-height: 100vh;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -31,104 +31,57 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
-
-        /* Search Bar Container */
-        .header-container {
-            position: absolute;
-            top: 5%;
-            left: 2%; /* Positioned to the left but not touching the edge */
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .header {
-            width: 300px;
-            height: 50px;
-            background: black;
-            border: 2px solid white;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            padding: 0 15px;
-        }
-
-        .search-bar {
-            width: 100%;
-            background: transparent;
-            border: none;
-            outline: none;
-            color: white;
-            font-size: 18px;
-        }
-
-        /* Small Icons */
-        .icons {
-            display: flex;
-            gap: 10px;
-        }
-
-        .icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .icon:hover {
-            transform: scale(1.2);
-        }
-
-        /* Floating Shapes */
-        .coolBlobIdk {
-            position: absolute;
-            bottom: -30%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 600px;
-            height: 400px;
-            background: linear-gradient(135deg, rgba(128, 0, 128, 0.6), rgba(255, 0, 255, 0.5), rgba(100, 0, 255, 0.6), rgba(0, 255, 255, 0.4), rgba(200, 0, 200, 0.6));
-            border-radius: 50%;
-            filter: blur(100px);
-            box-shadow: 0 0 120px rgba(255, 0, 255, 0.5);
-        }
-        .coolBlobIdk::before {
-            content: '';
-            position: absolute;
-            top: 10%;
-            left: 30%;
-            width: 300px;
-            height: 300px;
-            background: linear-gradient(135deg, rgba(200, 0, 255, 0.5), rgba(150, 0, 150, 0.4), rgba(0, 0, 255, 0.3));
-            border-radius: 50%;
-            filter: blur(100px);
-            z-index: -1;
-        }
-
-        /* Particle Background */
-        #particles-js {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-
         .title {
-            margin-top: 100px;
             font-size: 48px;
             font-weight: bold;
             text-transform: lowercase;
             color: white;
             text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
             text-align: center;
+            transition: transform 0.3s ease-in-out;
+            margin-top: 20px;
         }
         .title:hover {
             transform: scale(1.2);
         }
-
+        .header {
+            position: relative;
+            top: 20px;
+            width: 65%; /* More than halfway long */
+            display: flex;
+            align-items: center;
+            background: black;
+            border: 2px solid white;
+            border-radius: 20px;
+            padding: 10px;
+            transform-origin: left;
+            transition: transform 0.3s ease-in-out;
+        }
+        .header:hover {
+            transform: scale(1.05);
+        }
+        .search-bar {
+            flex: 1;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: white;
+            font-size: 18px;
+            padding-left: 10px;
+        }
+        .icons {
+            display: flex;
+            gap: 10px;
+        }
+        .icons img {
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+        }
+        .icons img:hover {
+            transform: scale(1.2);
+        }
     </style>
     
     <script>
@@ -143,47 +96,19 @@
     </script>
 </head>
 <body>
-    <!-- Particle Background -->
-    <div id="particles-js"></div>
-    
-    <!-- Floating Shape Effect -->
-    <div class="coolBlobIdk"></div>
-
-    <!-- Search Bar & Icons Container -->
-    <div class="header-container">
-        <div class="header">
-            <input type="text" class="search-bar" placeholder="search..." onkeydown="handleSearch(event)">
-        </div>
-        
-        <!-- Small Icons -->
-        <div class="icons">
-            <img src="https://via.placeholder.com/40" alt="icon1" class="icon">
-            <img src="https://via.placeholder.com/40" alt="icon2" class="icon">
-            <img src="https://via.placeholder.com/40" alt="icon3" class="icon">
-            <img src="https://via.placeholder.com/40" alt="icon4" class="icon">
-            <img src="https://via.placeholder.com/40" alt="icon5" class="icon">
-        </div>
-    </div>
-
     <!-- Title -->
     <div class="title">games</div>
 
-    <!-- Particle.js Library -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        particlesJS("particles-js", {
-            "particles": {
-                "number": { "value": 100, "density": { "enable": false } },
-                "color": { "value": "#aaa" },
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.5, "random": true },
-                "size": { "value": 4, "random": true },
-                "move": { "enable": true, "speed": 8, "direction": "random" }
-            },
-            "interactivity": {
-                "events": { "onhover": { "enable": true, "mode": "repulse" } }
-            }
-        });
-    </script>
+    <!-- Search Bar -->
+    <div class="header">
+        <input type="text" class="search-bar" placeholder="search..." onkeydown="handleSearch(event)">
+        <div class="icons">
+            <img src="icon1.png" alt="Icon 1">
+            <img src="icon2.png" alt="Icon 2">
+            <img src="icon3.png" alt="Icon 3">
+            <img src="icon4.png" alt="Icon 4">
+            <img src="icon5.png" alt="Icon 5">
+        </div>
+    </div>
 </body>
 </html>
