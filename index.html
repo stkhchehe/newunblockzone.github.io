@@ -33,7 +33,7 @@
         }
         .title {
             position: absolute;
-            top: 15%; /* Adjusted position */
+            top: 20%; /* Adjusted to move closer to the icons */
             font-size: 48px;
             font-weight: bold;
             text-transform: lowercase;
@@ -47,7 +47,7 @@
         }
         .header {
             position: absolute;
-            top: 70%; /* Adjusted position to move the search bar below the icons */
+            top: 70%; /* Keeps the search bar below the icons */
             left: 50%;
             transform: translateX(-50%); /* Center the search bar */
             width: 80%;
@@ -69,7 +69,7 @@
         }
         .icons-container {
             position: absolute;
-            top: 40%; /* Adjusted to position the icons below the title */
+            top: 40%; /* Positioned below the title */
             display: flex;
             justify-content: center; /* Center the icons */
             gap: 25px;
@@ -101,18 +101,6 @@
             font-size: 14px;
             color: white;
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-        }
-
-        /* New version text */
-        .version-text {
-            font-size: 18px;
-            font-weight: bold;
-            text-transform: lowercase;
-            color: white;
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
-            position: absolute;
-            top: 75%; /* Adjusted position to be directly below the search bar */
-            text-align: center;
         }
 
         /* Glowy Support Text */
@@ -217,9 +205,6 @@
     <div class="header">
         <input type="text" class="search-bar" placeholder="search..." onkeydown="handleSearch(event)">
     </div>
-
-    <!-- Version Text -->
-    <div class="version-text">version 3 // release</div>
 
     <!-- Glowy Support Text -->
     <div class="support-text" onclick="openSupportPage()">support</div>
