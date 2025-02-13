@@ -21,23 +21,29 @@
             color: white;
             font-family: Arial, sans-serif;
             flex-direction: column;
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         .title {
             position: absolute;
-            top: 30%;
-            font-size: 48px; /* Increased size */
+            top: 25%; /* Moved up */
+            font-size: 48px;
             font-weight: bold;
             text-transform: lowercase;
             transition: transform 0.3s ease-in-out;
             color: white;
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.9); /* Stronger glow */
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
         }
         .title:hover {
-            transform: scale(1.2); /* Zoom in effect */
+            transform: scale(1.2);
         }
         .header {
             position: absolute;
-            top: 48px;  
+            top: 48px;
             left: 12%;
             width: 80%;
             height: 60px;
@@ -56,35 +62,38 @@
             color: white;
             font-size: 18px;
         }
-        .search-bar::placeholder {
-            color: white;
-            opacity: 0.7;
-        }
         .icons-container {
             position: absolute;
             top: 40%;
             display: flex;
-            gap: 25px; /* More spacing between icons */
+            gap: 25px;
         }
         .icon-container {
-            width: 100px; /* Adjusted for better layout */
-            height: 100px;
-            background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
-            border: 3px solid white; /* White border */
-            border-radius: 20px; /* Rounded square */
+            width: 100px;
+            height: 120px;
+            background: black;
+            border: 3px solid white;
+            border-radius: 20px;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
         }
         .icon-container:hover {
-            transform: scale(1.2); /* Zoom in effect */
-            background: rgba(255, 255, 255, 0.3); /* Slightly brighter on hover */
+            transform: scale(1.2);
+            background: rgba(255, 255, 255, 0.2);
         }
         .icon {
-            width: 60px; /* Icon size inside container */
+            width: 60px;
             height: 60px;
             cursor: pointer;
+        }
+        .icon-label {
+            margin-top: 5px;
+            font-size: 14px;
+            color: white;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
         }
     </style>
     <script>
@@ -108,18 +117,23 @@
     <div class="icons-container">
         <div class="icon-container">
             <img class="icon" src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" onclick="window.open('https://customurl1.com', '_blank')">
+            <div class="icon-label">Games</div>
         </div>
         <div class="icon-container">
             <img class="icon" src="https://img.icons8.com/ios7/600/FFFFFF/apple-app-store--v2.png" onclick="window.open('https://customurl2.com', '_blank')">
+            <div class="icon-label">Apps</div>
         </div>
         <div class="icon-container">
             <img class="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" onclick="window.open('https://customurl3.com', '_blank')">
+            <div class="icon-label">Videos</div>
         </div>
         <div class="icon-container">
             <img class="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRclWJCEIPuuU-0DeRx9HfoSWM4y8Ei59lGhQ&s" onclick="window.open('https://customurl4.com', '_blank')">
+            <div class="icon-label">Music</div>
         </div>
         <div class="icon-container">
             <img class="icon" src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" onclick="window.open('https://customurl5.com', '_blank')">
+            <div class="icon-label">Settings</div>
         </div>
     </div>
 </body>
