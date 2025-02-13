@@ -127,7 +127,7 @@
         .aboutblank-text {
             position: absolute;
             bottom: 20px;
-            left: 140px; /* Slightly adjusted to place it next to "support" */
+            left: 140px; /* Closer to "support" text */
             font-size: 20px;
             font-weight: bold;
             color: white;
@@ -188,7 +188,7 @@
         }
 
         function openAboutBlank() {
-            window.open('about:blank', '_blank').location = 'https://unblockzone.github.io/ubzv3.github.io/';
+            window.location.href = 'about:blank'; // Opens about:blank in the same tab
         }
     </script>
 </head>
