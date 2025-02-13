@@ -46,7 +46,7 @@
         }
         .header {
             position: absolute;
-            top: 48px;
+            top: 65%; /* Adjusted to move below the icons */
             left: 12%;
             width: 80%;
             height: 60px;
@@ -67,7 +67,7 @@
         }
         .icons-container {
             position: absolute;
-            top: 40%;
+            top: 30%; /* Adjusted to position the icons above the search bar */
             display: flex;
             gap: 25px;
         }
@@ -184,10 +184,6 @@
 
     <div class="title">unblockzone v3</div>
 
-    <div class="header">
-        <input type="text" class="search-bar" placeholder="search..." onkeydown="handleSearch(event)">
-    </div>
-
     <div class="icons-container">
         <div class="icon-container">
             <img class="icon" src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" onclick="window.open('https://customurl1.com', '_blank')">
@@ -209,6 +205,11 @@
             <img class="icon" src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" onclick="window.open('https://customurl5.com', '_blank')">
             <div class="icon-label">settings</div>
         </div>
+    </div>
+
+    <!-- Search Bar moved below -->
+    <div class="header">
+        <input type="text" class="search-bar" placeholder="search..." onkeydown="handleSearch(event)">
     </div>
 
     <!-- Version Text - Adjusted to be below the icons -->
