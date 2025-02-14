@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,18 +64,6 @@
             filter: blur(100px);
             box-shadow: 0 0 120px rgba(255, 0, 255, 0.5);
         }
-        .coolBlobIdk::before {
-            content: '';
-            position: absolute;
-            top: 10%;
-            left: 30%;
-            width: 300px;
-            height: 300px;
-            background: linear-gradient(135deg, rgba(200, 0, 255, 0.5), rgba(150, 0, 150, 0.4), rgba(0, 0, 255, 0.3));
-            border-radius: 50%;
-            filter: blur(100px);
-            z-index: -1;
-        }
 
         /* Particle Background */
         #particles-js {
@@ -108,25 +95,18 @@
             justify-content: center;
             gap: 20px;
             margin-top: 20px;
+            flex-wrap: wrap;
         }
 
         .game-icon {
             width: 200px;
             height: 120px;
-            background: rgba(255, 255, 255, 0.1);
+            background-size: cover;
+            background-position: center;
             border: 3px solid rgba(255, 255, 255, 0.8);
             border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            font-weight: bold;
-            text-transform: uppercase;
-            color: white;
-            text-decoration: none;
             position: relative;
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            text-align: center;
         }
 
         .game-icon:hover {
@@ -134,19 +114,43 @@
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
         }
 
-        /* "NEW!" Tag */
-        .new-tag {
+        /* "Popular" Tag */
+        .popular-tag {
             position: absolute;
             top: -10px;
             right: -10px;
-            background: limegreen;
+            background: orange;
             color: white;
             font-size: 14px;
             font-weight: bold;
             padding: 5px 10px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+            box-shadow: 0 0 10px rgba(255, 165, 0, 0.8);
             font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+
+        /* Big Game Icons */
+        .big-game-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .big-game-icon {
+            width: 300px;
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            border: 4px solid rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            position: relative;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .big-game-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
         }
     </style>
 </head>
@@ -165,33 +169,35 @@
         <a href="https://example.com/game1" target="_blank"><img src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" alt="icon1" class="icon"></a>
         <a href="https://example.com/game2" target="_blank"><img src="https://img.icons8.com/ios7/600/FFFFFF/apple-app-store--v2.png" alt="icon2" class="icon"></a>
         <a href="https://example.com/game3" target="_blank"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" alt="icon3" class="icon"></a>
-        <a href="https://example.com/game4" target="_blank"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRclWJCEIPuuU-0DeRx9HfoSWM4y8Ei59lGhQ&s" alt="icon4" class="icon"></a>
-        <a href="https://example.com/settings" target="_blank"><img src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" alt="icon5" class="icon"></a>
     </div>
 
     <!-- Game Icons -->
     <div class="game-icons">
-        <a href="https://example.com/gameA" class="game-icon" target="_blank">Game A <span class="new-tag">NEW!</span></a>
-        <a href="https://example.com/gameB" class="game-icon" target="_blank">Game B <span class="new-tag">NEW!</span></a>
-        <a href="https://example.com/gameC" class="game-icon" target="_blank">Game C <span class="new-tag">NEW!</span></a>
+        <a href="https://example.com/gameA" class="game-icon" target="_blank" style="background-image: url('https://example.com/gameA-image.jpg');">
+            <span class="popular-tag">🔥</span>
+        </a>
+        <a href="https://example.com/gameB" class="game-icon" target="_blank" style="background-image: url('https://example.com/gameB-image.jpg');">
+            <span class="popular-tag">🔥</span>
+        </a>
+        <a href="https://example.com/gameC" class="game-icon" target="_blank" style="background-image: url('https://example.com/gameC-image.jpg');">
+            <span class="popular-tag">🔥</span>
+        </a>
+    </div>
+
+    <!-- Big Game Icons -->
+    <div class="big-game-icons">
+        <a href="https://example.com/popular1" class="big-game-icon" target="_blank" style="background-image: url('https://example.com/popular1.jpg');">
+            <span class="popular-tag">🔥</span>
+        </a>
+        <a href="https://example.com/popular2" class="big-game-icon" target="_blank" style="background-image: url('https://example.com/popular2.jpg');">
+            <span class="popular-tag">🔥</span>
+        </a>
+        <a href="https://example.com/popular3" class="big-game-icon" target="_blank" style="background-image: url('https://example.com/popular3.jpg');">
+            <span class="popular-tag">🔥</span>
+        </a>
     </div>
 
     <!-- Particle.js Library -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        particlesJS("particles-js", {
-            "particles": {
-                "number": { "value": 100, "density": { "enable": false } },
-                "color": { "value": "#aaa" },
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.5, "random": true },
-                "size": { "value": 4, "random": true },
-                "move": { "enable": true, "speed": 8, "direction": "random" }
-            },
-            "interactivity": {
-                "events": { "onhover": { "enable": true, "mode": "repulse" } }
-            }
-        });
-    </script>
 </body>
 </html>
