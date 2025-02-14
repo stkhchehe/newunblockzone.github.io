@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,40 +32,11 @@
             to { opacity: 1; }
         }
 
-        /* Search Bar Container */
-        .header-container {
-            position: absolute;
-            top: 5%;
-            left: 2%; /* Positioned to the left but not touching the edge */
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .header {
-            width: 300px;
-            height: 50px;
-            background: black;
-            border: 2px solid white;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            padding: 0 15px;
-        }
-
-        .search-bar {
-            width: 75%;
-            background: transparent;
-            border: none;
-            outline: none;
-            color: white;
-            font-size: 18px;
-        }
-
         /* Small Icons */
         .icons {
             display: flex;
             gap: 10px;
+            margin-top: 10px;
         }
 
         .icon {
@@ -129,19 +99,7 @@
         .title:hover {
             transform: scale(1.2);
         }
-
     </style>
-    
-    <script>
-        function handleSearch(event) {
-            if (event.key === "Enter") {
-                let query = event.target.value.trim();
-                if (query) {
-                    window.location.href = https://yourcustomsearchurl.com/search?q=${encodeURIComponent(query)};
-                }
-            }
-        }
-    </script>
 </head>
 <body>
     <!-- Particle Background -->
@@ -150,24 +108,17 @@
     <!-- Floating Shape Effect -->
     <div class="coolBlobIdk"></div>
 
-    <!-- Search Bar & Icons Container -->
-    <div class="header-container">
-        <div class="header">
-            <input type="text" class="search-bar" placeholder="search..." onkeydown="handleSearch(event)">
-        </div>
-        
-        <!-- Small Icons -->
-        <div class="icons">
-            <img src="https://via.placeholder.com/40" alt="icon1" class="icon">
-            <img src="https://via.placeholder.com/40" alt="icon2" class="icon">
-            <img src="https://via.placeholder.com/40" alt="icon3" class="icon">
-            <img src="https://via.placeholder.com/40" alt="icon4" class="icon">
-            <img src="https://via.placeholder.com/40" alt="icon5" class="icon">
-        </div>
-    </div>
-
     <!-- Title -->
     <div class="title">games</div>
+    
+    <!-- Icons Below Title -->
+    <div class="icons">
+        <img src="https://via.placeholder.com/40" alt="icon1" class="icon">
+        <img src="https://via.placeholder.com/40" alt="icon2" class="icon">
+        <img src="https://via.placeholder.com/40" alt="icon3" class="icon">
+        <img src="https://via.placeholder.com/40" alt="icon4" class="icon">
+        <img src="https://via.placeholder.com/40" alt="icon5" class="icon">
+    </div>
 
     <!-- Particle.js Library -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
