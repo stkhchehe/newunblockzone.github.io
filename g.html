@@ -24,29 +24,26 @@
             opacity: 0;
             animation: fadeIn 1s ease-in forwards;
             position: relative;
-            overflow-x: hidden;
-            overflow-y: auto;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+            overflow-y: auto; /* Allow vertical scrolling */
         }
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
 
+        /* Search Bar Container */
         .header-container {
             position: absolute;
             top: 5%;
-            left: 0;
-            right: 2%;
+            left: 2%; /* Positioned to the left but not touching the edge */
             display: flex;
             align-items: center;
             gap: 10px;
-            width: 100%;
-            padding-left: 30px;
         }
 
         .header {
-            flex-grow: 1;
-            max-width: 75%;
+            width: 300px;
             height: 50px;
             background: black;
             border: 2px solid white;
@@ -57,7 +54,7 @@
         }
 
         .search-bar {
-            width: 100%;
+            width: 75%;
             background: transparent;
             border: none;
             outline: none;
@@ -65,6 +62,7 @@
             font-size: 18px;
         }
 
+        /* Small Icons */
         .icons {
             display: flex;
             gap: 10px;
@@ -82,6 +80,42 @@
             transform: scale(1.2);
         }
 
+        /* Floating Shapes */
+        .coolBlobIdk {
+            position: absolute;
+            bottom: -30%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(128, 0, 128, 0.6), rgba(255, 0, 255, 0.5), rgba(100, 0, 255, 0.6), rgba(0, 255, 255, 0.4), rgba(200, 0, 200, 0.6));
+            border-radius: 50%;
+            filter: blur(100px);
+            box-shadow: 0 0 120px rgba(255, 0, 255, 0.5);
+        }
+        .coolBlobIdk::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: 30%;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(200, 0, 255, 0.5), rgba(150, 0, 150, 0.4), rgba(0, 0, 255, 0.3));
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: -1;
+        }
+
+        /* Particle Background */
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
         .title {
             margin-top: 100px;
             font-size: 48px;
@@ -90,11 +124,11 @@
             color: white;
             text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
             text-align: center;
-            transition: transform 0.3s ease-in-out;
         }
         .title:hover {
             transform: scale(1.2);
         }
+
     </style>
     
     <script>
@@ -102,17 +136,26 @@
             if (event.key === "Enter") {
                 let query = event.target.value.trim();
                 if (query) {
-                    window.location.href = `https://yourcustomsearchurl.com/search?q=${encodeURIComponent(query)}`;
+                    window.location.href = https://yourcustomsearchurl.com/search?q=${encodeURIComponent(query)};
                 }
             }
         }
     </script>
 </head>
 <body>
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+    
+    <!-- Floating Shape Effect -->
+    <div class="coolBlobIdk"></div>
+
+    <!-- Search Bar & Icons Container -->
     <div class="header-container">
         <div class="header">
             <input type="text" class="search-bar" placeholder="search..." onkeydown="handleSearch(event)">
         </div>
+        
+        <!-- Small Icons -->
         <div class="icons">
             <img src="https://via.placeholder.com/40" alt="icon1" class="icon">
             <img src="https://via.placeholder.com/40" alt="icon2" class="icon">
@@ -121,6 +164,26 @@
             <img src="https://via.placeholder.com/40" alt="icon5" class="icon">
         </div>
     </div>
+
+    <!-- Title -->
     <div class="title">games</div>
+
+    <!-- Particle.js Library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 100, "density": { "enable": false } },
+                "color": { "value": "#aaa" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5, "random": true },
+                "size": { "value": 4, "random": true },
+                "move": { "enable": true, "speed": 8, "direction": "random" }
+            },
+            "interactivity": {
+                "events": { "onhover": { "enable": true, "mode": "repulse" } }
+            }
+        });
+    </script>
 </body>
 </html>
