@@ -179,6 +179,39 @@
             transform: scale(1.1);
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
         }
+        
+        /* New Styling for Square Icons */
+        .square-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .square {
+            width: 180px;
+            height: 180px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 3px solid rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: white;
+            text-decoration: none;
+            position: relative;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            text-align: center;
+        }
+
+        .square:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        }
     </style>
 </head>
 <body>
@@ -200,6 +233,32 @@
         <a href="settings" target="_blank"><img src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" alt="icon5" class="icon"></a>
     </div>
 
+    <!-- Game Icons Below -->
+    <div class="square-container">
+        <div class="square">
+            <a href="https://unblockzone.github.io/games-subway-surfers/">
+                <img src="https://play-lh.googleusercontent.com/B-P9GyXgwh-ygo8Q8jBeZqPBYaAhQiRxrCkm6Xs23cbzalLk7OMqPsrLTut-H3qymLE=w240-h480-rw" alt="Square 1">
+            </a>
+        </div>
+        <div class="square">
+            <a href="https://unblockzone.github.io/games-stickman-hook/">
+                <img src="https://images.dwncdn.net/images/t_app-icon-l/p/73a13543-d706-475c-bca5-8bdd46a1b02d/2523539307/2099_4-77972256-logo" alt="Square 2">
+            </a>
+        </div>
+        <div class="square">
+            <a href="https://unblockzone.github.io/games-minecraft/">
+                <img src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/key-art/Onboarding_Card-A_For-Beginners_600x600.jpg" alt="Square 3">
+            </a>
+        </div>
+        <div class="square">
+            <a href="https://unblockzone.github.io/games-doodle-jump/">
+                <img src="https://play-lh.googleusercontent.com/aHnvdFTx0LVyfVHQLX51VcWBYkSVGvggr4FvIiP-iwBu4pKBiOQA1OnRi_nyFdCWqlU8" alt="Square 4">
+            </a>
+        </div>
+    </div>
+    
+    <!-- Additional rows omitted for brevity, but can follow the same structure -->
+    
     <!-- Particle.js Library -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
