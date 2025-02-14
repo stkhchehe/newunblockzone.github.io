@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -149,6 +147,38 @@
             box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
             font-family: 'Comic Sans MS', cursive, sans-serif;
         }
+
+        /* Larger Game Icons */
+        .large-game-icons {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .large-game-icon {
+            width: 350px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 3px solid rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: white;
+            text-decoration: none;
+            position: relative;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            text-align: center;
+        }
+
+        .large-game-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        }
     </style>
 </head>
 <body>
@@ -170,11 +200,18 @@
         <a href="https://example.com/settings" target="_blank"><img src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" alt="icon5" class="icon"></a>
     </div>
 
-    <!-- Game Icons -->
+    <!-- Game Icons with "NEW!" Tag -->
     <div class="game-icons">
         <a href="https://example.com/gameA" class="game-icon" target="_blank">Game A <span class="new-tag">NEW!</span></a>
         <a href="https://example.com/gameB" class="game-icon" target="_blank">Game B <span class="new-tag">NEW!</span></a>
         <a href="https://example.com/gameC" class="game-icon" target="_blank">Game C <span class="new-tag">NEW!</span></a>
+    </div>
+
+    <!-- Larger Game Icons (No "NEW!" Tag) -->
+    <div class="large-game-icons">
+        <a href="https://example.com/gameX" class="large-game-icon" target="_blank">Game X</a>
+        <a href="https://example.com/gameY" class="large-game-icon" target="_blank">Game Y</a>
+        <a href="https://example.com/gameZ" class="large-game-icon" target="_blank">Game Z</a>
     </div>
 
     <!-- Particle.js Library -->
