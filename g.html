@@ -107,12 +107,14 @@
             justify-content: center;
             gap: 20px;
             margin-top: 20px;
+            flex-wrap: wrap;
         }
 
         .game-icon {
             width: 200px;
             height: 120px;
-            background: rgba(255, 255, 255, 0.1);
+            background-size: cover;
+            background-position: center;
             border: 3px solid rgba(255, 255, 255, 0.8);
             border-radius: 15px;
             display: flex;
@@ -126,6 +128,7 @@
             position: relative;
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
             text-align: center;
+            overflow: hidden;
         }
 
         .game-icon:hover {
@@ -168,29 +171,30 @@
         <a href="https://example.com/settings" target="_blank"><img src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" alt="icon5" class="icon"></a>
     </div>
 
-    <!-- Game Icons -->
+    <!-- Game Icons Row 1 -->
     <div class="game-icons">
-        <a href="https://example.com/gameA" class="game-icon" target="_blank">Game A <span class="new-tag">NEW!</span></a>
-        <a href="https://example.com/gameB" class="game-icon" target="_blank">Game B <span class="new-tag">NEW!</span></a>
-        <a href="https://example.com/gameC" class="game-icon" target="_blank">Game C <span class="new-tag">NEW!</span></a>
+        <a href="https://example.com/gameA" class="game-icon" target="_blank" style="background-image: url('https://example.com/gameA-image.jpg');">
+            <span class="new-tag">NEW!</span>
+        </a>
+        <a href="https://example.com/gameB" class="game-icon" target="_blank" style="background-image: url('https://example.com/gameB-image.jpg');">
+            <span class="new-tag">NEW!</span>
+        </a>
+        <a href="https://example.com/gameC" class="game-icon" target="_blank" style="background-image: url('https://example.com/gameC-image.jpg');">
+            <span class="new-tag">NEW!</span>
+        </a>
     </div>
 
-    <!-- Particle.js Library -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        particlesJS("particles-js", {
-            "particles": {
-                "number": { "value": 100, "density": { "enable": false } },
-                "color": { "value": "#aaa" },
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.5, "random": true },
-                "size": { "value": 4, "random": true },
-                "move": { "enable": true, "speed": 8, "direction": "random" }
-            },
-            "interactivity": {
-                "events": { "onhover": { "enable": true, "mode": "repulse" } }
-            }
-        });
-    </script>
+    <!-- Game Icons Row 2 -->
+    <div class="game-icons">
+        <a href="https://example.com/gameD" class="game-icon" target="_blank" style="background-image: url('https://example.com/gameD-image.jpg');">
+            <span class="new-tag">NEW!</span>
+        </a>
+        <a href="https://example.com/gameE" class="game-icon" target="_blank" style="background-image: url('https://example.com/gameE-image.jpg');">
+            <span class="new-tag">NEW!</span>
+        </a>
+        <a href="https://example.com/gameF" class="game-icon" target="_blank" style="background-image: url('https://example.com/gameF-image.jpg');">
+            <span class="new-tag">NEW!</span>
+        </a>
+    </div>
 </body>
 </html>
