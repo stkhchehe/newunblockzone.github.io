@@ -24,8 +24,8 @@
             opacity: 0;
             animation: fadeIn 1s ease-in forwards;
             position: relative;
-            overflow-x: hidden;  /* Prevent horizontal scrolling */
-            overflow-y: auto;    /* Enable vertical scrolling */
+            overflow-x: hidden;
+            overflow-y: auto;
         }
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -227,6 +227,17 @@
             background: linear-gradient(135deg, rgba(200, 200, 200, 0.5), rgba(150, 150, 150, 0.4), rgba(169, 169, 169, 0.3));
         }
 
+        /* Placeholder Style */
+        .placeholder {
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -248,25 +259,43 @@
         <a href="https://example.com/settings" target="_blank"><img src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" alt="icon5" class="icon"></a>
     </div>
 
-    <!-- Game Icons with "NEW!" Tag and Custom Image URLs -->
+    <!-- Game Icons with "NEW!" Tag and Placeholder for Custom Image URL -->
     <div class="game-icons">
-        <a href="https://example.com/gameA" class="game-icon" target="_blank"><img src="https://example.com/path/to/your/imageA.png" alt="Game A"><span class="new-tag">NEW!</span></a>
-        <a href="https://example.com/gameB" class="game-icon" target="_blank"><img src="https://example.com/path/to/your/imageB.png" alt="Game B"><span class="new-tag">NEW!</span></a>
-        <a href="https://example.com/gameC" class="game-icon" target="_blank"><img src="https://example.com/path/to/your/imageC.png" alt="Game C"><span class="new-tag">NEW!</span></a>
+        <a href="https://example.com/gameA" class="game-icon" target="_blank">
+            <div class="placeholder">Placeholder</div><span class="new-tag">NEW!</span>
+        </a>
+        <a href="https://example.com/gameB" class="game-icon" target="_blank">
+            <div class="placeholder">Placeholder</div><span class="new-tag">NEW!</span>
+        </a>
+        <a href="https://example.com/gameC" class="game-icon" target="_blank">
+            <div class="placeholder">Placeholder</div><span class="new-tag">NEW!</span>
+        </a>
     </div>
 
-    <!-- Larger Game Icons with Custom Image URLs -->
+    <!-- Larger Game Icons with Placeholder for Custom Image URL -->
     <div class="large-game-icons">
-        <a href="https://example.com/gameX" class="large-game-icon" target="_blank"><img src="https://example.com/path/to/your/imageX.png" alt="Game X"><span class="new-tag">NEW!</span></a>
-        <a href="https://example.com/gameY" class="large-game-icon" target="_blank"><img src="https://example.com/path/to/your/imageY.png" alt="Game Y"><span class="new-tag">NEW!</span></a>
-        <a href="https://example.com/gameZ" class="large-game-icon" target="_blank"><img src="https://example.com/path/to/your/imageZ.png" alt="Game Z"><span class="new-tag">NEW!</span></a>
+        <a href="https://example.com/gameX" class="large-game-icon" target="_blank">
+            <div class="placeholder">Placeholder</div>
+        </a>
+        <a href="https://example.com/gameY" class="large-game-icon" target="_blank">
+            <div class="placeholder">Placeholder</div>
+        </a>
+        <a href="https://example.com/gameZ" class="large-game-icon" target="_blank">
+            <div class="placeholder">Placeholder</div>
+        </a>
     </div>
 
-    <!-- Third Row of Game Icons with Custom Image URLs -->
+    <!-- Third Row of Game Icons with Placeholder for Custom Image URL -->
     <div class="third-game-icons">
-        <a href="https://example.com/gameD" class="third-game-icon" target="_blank"><img src="https://example.com/path/to/your/imageD.png" alt="Game D"><span class="new-tag">NEW!</span></a>
-        <a href="https://example.com/gameE" class="third-game-icon" target="_blank"><img src="https://example.com/path/to/your/imageE.png" alt="Game E"><span class="new-tag">NEW!</span></a>
-        <a href="https://example.com/gameF" class="third-game-icon" target="_blank"><img src="https://example.com/path/to/your/imageF.png" alt="Game F"><span class="new-tag">NEW!</span></a>
+        <a href="https://example.com/gameD" class="third-game-icon" target="_blank">
+            <div class="placeholder">Placeholder</div>
+        </a>
+        <a href="https://example.com/gameE" class="third-game-icon" target="_blank">
+            <div class="placeholder">Placeholder</div>
+        </a>
+        <a href="https://example.com/gameF" class="third-game-icon" target="_blank">
+            <div class="placeholder">Placeholder</div>
+        </a>
     </div>
 
     <!-- Additional Content to increase scrolling -->
