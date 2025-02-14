@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -179,39 +181,6 @@
             transform: scale(1.1);
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
         }
-        
-        /* New Styling for Square Icons */
-        .square-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 40px;
-        }
-
-        .square {
-            width: 180px;
-            height: 180px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 3px solid rgba(255, 255, 255, 0.8);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            font-weight: bold;
-            text-transform: uppercase;
-            color: white;
-            text-decoration: none;
-            position: relative;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            text-align: center;
-        }
-
-        .square:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-        }
     </style>
 </head>
 <body>
@@ -233,32 +202,35 @@
         <a href="settings" target="_blank"><img src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" alt="icon5" class="icon"></a>
     </div>
 
-    <!-- Game Icons Below -->
-    <div class="square-container">
-        <div class="square">
-            <a href="https://unblockzone.github.io/games-subway-surfers/">
-                <img src="https://play-lh.googleusercontent.com/B-P9GyXgwh-ygo8Q8jBeZqPBYaAhQiRxrCkm6Xs23cbzalLk7OMqPsrLTut-H3qymLE=w240-h480-rw" alt="Square 1">
-            </a>
-        </div>
-        <div class="square">
-            <a href="https://unblockzone.github.io/games-stickman-hook/">
-                <img src="https://images.dwncdn.net/images/t_app-icon-l/p/73a13543-d706-475c-bca5-8bdd46a1b02d/2523539307/2099_4-77972256-logo" alt="Square 2">
-            </a>
-        </div>
-        <div class="square">
-            <a href="https://unblockzone.github.io/games-minecraft/">
-                <img src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/key-art/Onboarding_Card-A_For-Beginners_600x600.jpg" alt="Square 3">
-            </a>
-        </div>
-        <div class="square">
-            <a href="https://unblockzone.github.io/games-doodle-jump/">
-                <img src="https://play-lh.googleusercontent.com/aHnvdFTx0LVyfVHQLX51VcWBYkSVGvggr4FvIiP-iwBu4pKBiOQA1OnRi_nyFdCWqlU8" alt="Square 4">
-            </a>
-        </div>
+    <!-- Game Icons with "NEW!" Tag -->
+    <div class="game-icons">
+        <a href="https://unblockzone.github.io/subway-surfers/">
+            <img src="https://subwaysurfers.com/media/f2ldlfpi/subwaysurfers_01.png" class="game-icon" target="_blank">
+            <span class="new-tag">NEW!</span>
+        </a>
+        <a href="https://example.com/gameB" class="game-icon" target="_blank">
+            <img src="https://example.com/images/gameB.png" alt="Game B Image">
+            Game B <span class="new-tag">NEW!</span>
+        </a>
+        <a href="https://example.com/gameC" class="game-icon" target="_blank">
+            <img src="https://example.com/images/gameC.png" alt="Game C Image">
+            Game C <span class="new-tag">NEW!</span>
+        </a>
     </div>
-    
-    <!-- Additional rows omitted for brevity, but can follow the same structure -->
-    
+
+    <!-- Larger Game Icons (No "NEW!" Tag) -->
+    <div class="large-game-icons">
+        <a href="https://example.com/gameX" class="large-game-icon" target="_blank">
+            <img src="https://example.com/images/gameX.png" alt="Game X Image"> Game X
+        </a>
+        <a href="https://example.com/gameY" class="large-game-icon" target="_blank">
+            <img src="https://example.com/images/gameY.png" alt="Game Y Image"> Game Y
+        </a>
+        <a href="https://example.com/gameZ" class="large-game-icon" target="_blank">
+            <img src="https://example.com/images/gameZ.png" alt="Game Z Image"> Game Z
+        </a>
+    </div>
+
     <!-- Particle.js Library -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
