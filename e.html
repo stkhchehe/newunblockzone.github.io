@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>exploits</title>
-    <link rel="icon" href="https://rizz.kyleconstance.com/79fb3dc7b6424e38a3910ebe11ebc629/_rhsnD~Ur://DjjTm.zcvTACc~MN.Nu0/wh-AOSkf-FF/6lVdLzjT1DUzb75q7rw/4w95s99AaMOaNf0h-33/UzHTl-zfx14_a5_fO2XRiaXiH0e-KQ2B6gWV_T.n62?2D=sOPAOsZl&dq=YkxaDek~&qs=B55wp9RAvQQvZlKyVlE6xhzkLX1BTcztFDcrRwwIGZZ6MONnylejYdedh8z3i--i&=&9SYSu-=WNCX&iJfB-Ho=FQPGQW6n&j2pjP=5wq&K6LVm7=yfN" type="image/png">
     <style>
         * {
             margin: 0;
@@ -30,96 +29,133 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
-        .long-section {
-            width: 80%;
-            background-color: #333;
-            border-radius: 15px;
-            box-shadow: 0 0 15px white;
-            margin: 20px 0;
-            padding: 20px;
+        .title {
+            margin-top: 50px;
+            font-size: 48px;
+            font-weight: bold;
+            text-transform: lowercase;
+            color: white;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
             text-align: center;
         }
-        .section-title {
-            font-size: 32px;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-        .button-container {
+        .icons {
             display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
         }
-        .custom-button {
-            background-color: #888;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 10px;
-            font-size: 18px;
-            color: white;
-            cursor: pointer;
+        .icon-container {
+            width: 60px;
+            height: 60px;
+            background-color: black;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
             box-shadow: 0 0 10px white;
         }
-        .custom-button:hover {
-            transform: scale(1.1);
+        .icon-container:hover {
+            transform: scale(1.2);
             box-shadow: 0 0 20px white;
+        }
+        .icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .long-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 40px;
+            width: 80%;
+        }
+        .long-box {
+            width: 100%;
+            height: 120px;
+            background-color: darkgray;
+            border-radius: 15px;
+            box-shadow: 0 0 20px white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            position: relative;
+        }
+        .button-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .button {
+            width: 120px;
+            height: 40px;
+            background-color: lightgray;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px white;
+        }
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
         }
     </style>
 </head>
 <body>
     <div id="particles-js"></div>
-    <div class="coolBlobIdk"></div>
     <div class="title">exploits</div>
-    
-    <div class="long-section">
-        <div class="section-title">Bookmarks</div>
-        <div class="button-container">
-            <button class="custom-button" onclick="window.open('#', '_blank')">Placeholder</button>
-            <button class="custom-button" onclick="window.open('#', '_blank')">Placeholder</button>
-            <button class="custom-button" onclick="window.open('#', '_blank')">Placeholder</button>
-            <button class="custom-button" onclick="window.open('#', '_blank')">Placeholder</button>
-            <button class="custom-button" onclick="window.open('#', '_blank')">Placeholder</button>
+    <div class="icons">
+        <a href="https://example.com/games" target="_blank" class="icon-container"><img src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" alt="Games" class="icon"></a>
+        <a href="https://example.com/apps" target="_blank" class="icon-container"><img src="https://img.icons8.com/ios7/600/FFFFFF/apple-app-store--v2.png" alt="Apps" class="icon"></a>
+        <a href="https://example.com/exploits" target="_blank" class="icon-container"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" alt="Exploits" class="icon"></a>
+        <a href="https://example.com/extras" target="_blank" class="icon-container"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRclWJCEIPuuU-0DeRx9HfoSWM4y8Ei59lGhQ&s" alt="Extras" class="icon"></a>
+        <a href="https://example.com/settings" target="_blank" class="icon-container"><img src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" alt="Settings" class="icon"></a>
+    </div>
+    <div class="long-container">
+        <div class="long-box">Bookmarks
+            <div class="button-container">
+                <div class="button" onclick="window.open('#', '_blank')">Placeholder</div>
+                <div class="button" onclick="window.open('#', '_blank')">Placeholder</div>
+                <div class="button" onclick="window.open('#', '_blank')">Placeholder</div>
+                <div class="button" onclick="window.open('#', '_blank')">Placeholder</div>
+                <div class="button" onclick="window.open('#', '_blank')">Placeholder</div>
+            </div>
+        </div>
+        <div class="long-box">AI Websites
+            <div class="button-container">
+                <div class="button" onclick="window.open('#', '_blank')">Placeholder</div>
+                <div class="button" onclick="window.open('#', '_blank')">Placeholder</div>
+                <div class="button" onclick="window.open('#', '_blank')">Placeholder</div>
+                <div class="button" onclick="window.open('#', '_blank')">Placeholder</div>
+                <div class="button" onclick="window.open('#', '_blank')">Placeholder</div>
+            </div>
+        </div>
+        <div class="long-box">Bypass
+            <div class="button-container">
+                <div class="button" onclick="window.open('#', '_blank')">Placeholder</div>
+                <div class="button" onclick="window.open('#', '_blank')">Placeholder</div>
+                <div class="button" onclick="window.open('#', '_blank')">Placeholder</div>
+                <div class="button" onclick="window.open('#', '_blank')">Placeholder</div>
+                <div class="button" onclick="window.open('#', '_blank')">Placeholder</div>
+            </div>
         </div>
     </div>
-
-    <div class="long-section">
-        <div class="section-title">AI Websites</div>
-        <div class="button-container">
-            <button class="custom-button" onclick="window.open('#', '_blank')">Placeholder</button>
-            <button class="custom-button" onclick="window.open('#', '_blank')">Placeholder</button>
-            <button class="custom-button" onclick="window.open('#', '_blank')">Placeholder</button>
-            <button class="custom-button" onclick="window.open('#', '_blank')">Placeholder</button>
-            <button class="custom-button" onclick="window.open('#', '_blank')">Placeholder</button>
-        </div>
-    </div>
-
-    <div class="long-section">
-        <div class="section-title">Bypass</div>
-        <div class="button-container">
-            <button class="custom-button" onclick="window.open('#', '_blank')">Placeholder</button>
-            <button class="custom-button" onclick="window.open('#', '_blank')">Placeholder</button>
-            <button class="custom-button" onclick="window.open('#', '_blank')">Placeholder</button>
-            <button class="custom-button" onclick="window.open('#', '_blank')">Placeholder</button>
-            <button class="custom-button" onclick="window.open('#', '_blank')">Placeholder</button>
-        </div>
-    </div>
-    
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        particlesJS("particles-js", {
-            "particles": {
-                "number": { "value": 100, "density": { "enable": false } },
-                "color": { "value": "#aaa" },
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.5, "random": true },
-                "size": { "value": 4, "random": true },
-                "move": { "enable": true, "speed": 8, "direction": "random" }
-            },
-            "interactivity": {
-                "events": { "onhover": { "enable": true, "mode": "repulse" } }
-            }
-        });
-    </script>
 </body>
 </html>
