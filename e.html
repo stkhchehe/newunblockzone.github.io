@@ -1,9 +1,13 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>exploits</title>
+    <link rel="icon" href="https://rizz.kyleconstance.com/79fb3dc7b6424e38a3910ebe11ebc629/_rhsnD~Ur://DjjTm.zcvTACc~MN.Nu0/wh-AOSkf-FF/6lVdLzjT1DUzb75q7rw/4w95s99AaMOaNf0h-33/UzHTl-zfx14_a5_fO2XRiaXiH0e-KQ2B6gWV_T.n62?2D=sOPAOsZl&dq=YkxaDek~&qs=B55wp9RAvQQvZlKyVlE6xhzkLX1BTcztFDcrRwwIGZZ6MONnylejYdedh8z3i--i&=&9SYSu-=WNCX&iJfB-Ho=FQPGQW6n&j2pjP=5wq&K6LVm7=yfN" type="image/png">
+    
     <style>
         * {
             margin: 0;
@@ -28,15 +32,6 @@
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
-        }
-        .title {
-            margin-top: 50px;
-            font-size: 48px;
-            font-weight: bold;
-            text-transform: lowercase;
-            color: white;
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
-            text-align: center;
         }
         .icons {
             display: flex;
@@ -64,48 +59,17 @@
             border-radius: 10px;
             cursor: pointer;
         }
-        .long-container {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            margin-top: 40px;
-            width: 80%;
-        }
-        .long-box {
-            width: 100%;
-            height: 120px;
-            background-color: darkgray;
-            border-radius: 15px;
-            box-shadow: 0 0 20px white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            font-weight: bold;
-            color: white;
-            position: relative;
-        }
-        .button-container {
-            display: flex;
-            gap: 10px;
-            margin-top: 10px;
-        }
-        .button {
-            width: 120px;
-            height: 40px;
-            background-color: lightgray;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            cursor: pointer;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-        .button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 15px white;
+        .coolBlobIdk {
+            position: fixed;
+            bottom: -30%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(50, 50, 50, 0.8), rgba(200, 200, 200, 0.6));
+            border-radius: 50%;
+            filter: blur(100px);
+            box-shadow: 0 0 120px rgba(200, 200, 200, 0.5);
         }
         #particles-js {
             position: fixed;
@@ -115,17 +79,65 @@
             height: 100%;
             z-index: -1;
         }
-        .coolBlobIdk {
+        .title {
+            margin-top: 100px;
+            font-size: 48px;
+            font-weight: bold;
+            text-transform: lowercase;
+            color: white;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+        .title:hover {
+            transform: scale(1.2);
+        }
+        .rectangle-container {
+            display: flex;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .rectangle {
+            width: 400px;
+            height: 250px;
+            background-color: black;
+            border-radius: 15px;
+            box-shadow: 0 0 20px white;
+            position: relative;
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+        }
+        .rectangle:hover {
+            transform: scale(1.05);
+        }
+        .rectangle img {
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+            object-fit: cover;
+        }
+        .new-badge {
             position: absolute;
-            bottom: -30%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 600px;
-            height: 400px;
-            background: linear-gradient(135deg, rgba(169, 169, 169, 0.6), rgba(255, 255, 255, 0.5), rgba(169, 169, 169, 0.6), rgba(255, 255, 255, 0.4));
-            border-radius: 50%;
-            filter: blur(100px);
-            box-shadow: 0 0 120px rgba(255, 255, 255, 0.5);
+            top: 10px;
+            right: 10px;
+            width: 60px;
+            height: 30px;
+            background-color: #28a745;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            font-size: 14px;
+            color: white;
+            font-weight: bold;
+            text-shadow: 0 0 10px white;
+            box-shadow: 0 0 10px #28a745;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .new-badge:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px #28a745;
         }
     </style>
 </head>
@@ -134,13 +146,56 @@
     <div class="coolBlobIdk"></div>
     <div class="title">exploits</div>
     <div class="icons">
-        <a href="#" class="icon-container"><img src="#" alt="Icon" class="icon"></a>
+        <a href="https://example.com/games" target="_blank" class="icon-container"><img src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" alt="Games" class="icon"></a>
+        <a href="https://example.com/apps" target="_blank" class="icon-container"><img src="https://img.icons8.com/ios7/600/FFFFFF/apple-app-store--v2.png" alt="Apps" class="icon"></a>
+        <a href="https://example.com/exploits" target="_blank" class="icon-container"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" alt="Exploits" class="icon"></a>
+        <a href="https://example.com/extras" target="_blank" class="icon-container"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRclWJCEIPuuU-0DeRx9HfoSWM4y8Ei59lGhQ&s" alt="Extras" class="icon"></a>
+        <a href="https://example.com/settings" target="_blank" class="icon-container"><img src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" alt="Settings" class="icon"></a>
     </div>
-    <div class="long-container">
-        <div class="long-box">Bookmarks</div>
-        <div class="long-box">AI Websites</div>
-        <div class="long-box">Bypass</div>
+    <div class="rectangle-container">
+        <div class="rectangle" onclick="window.open('https://unblockzone.github.io/subway-surfers/', '_blank')">
+            <img src="https://rizz.kyleconstance.com/0dbf04c1f9794c1c92ff3d5e7a2fac2d/_rhsrqeXa://q88pI.o-Fpi4-eTO.OVZ/uQJiG1PLJHH/hDEgmo8pyqXo7bl3bau/nuNlGGKLFzL~O~KL~Jz/qnTqad3_uQZifBKZZA.6Jw?wM=8yZ88eXg&5r=b32-jNMl&r8=rC4G4wEPwLfyZAQQYHbJ95S5tddsW5jFMRC1xEwyDvI8XJeeAoSHat-bM7ulRTR4&=&mebeEV=GXgN&FKqiVfB=T1ZP1GJ6&HwLHZ=Ev8&AJSUtc=pqX" alt="Image 2">
+            <div class="new-badge">NEW!</div>
+        </div>
+        <div class="rectangle" onclick="window.open('https://unblockzone.github.io/minecraft/', '_blank')">
+            <img src="https://rizz.kyleconstance.com/0dbf04c1f9794c1c92ff3d5e7a2fac2d/_rhsrqeXa://q88pI.o-Fpi4-eTO.OVZ/uQJiG1PLJHH/hDEgmo8pyqXo7bl3bau/nuNlGGLiLG4TfzB1Bww/qnTqad3_uQZifBKZZA_W.YAZ?ZR=yoByy--t&jD=3u5bMF3x&Dy=C4TCvmfoZwApJQPQQbbt0j3Wj9jssssWcOmDI~D~oJpvegXoeUn-79N0nuNWiRFd&=&8-3-Ii=TqXd&41aFiwJ=KzBQzTAY&9Zf9B=Igy&UAHt2r=eaq" alt="Image 2">
+            <div class="new-badge">NEW!</div>
+        </div>
+        <div class="rectangle" onclick="window.open('https://unblockzone.github.io/block-blast/', '_blank')">
+            <img src="https://rizz.kyleconstance.com/0dbf04c1f9794c1c92ff3d5e7a2fac2d/_rhsrqeXa://q88pI.o-Fpi4-eTO.OVZ/uQJiG1PLJHH/hDEgmo8pyqXo7bl3bau/nuNlGGLG41wfOfLLPPZ/qnTqad3_uQZifBKZZA_s.YAZ?ZR=yoByy-Yt&jD=3u5bMFNx&Dy=GmEEK~IZfQzgJPaUA99S005lF2sGMMxORsDwr~EgPZgYJpYp77ntl-Nd3GNcOVCi&=&8-3-Ii=TqXd&41aFiwJ=KzBQzTAY&9Zf9B=Igy&UAHt2r=eaq" alt="Image 2">
+            <div class="new-badge">NEW!</div>
+        </div>
     </div>
+     <div class="rectangle-container">
+        <div class="rectangle" onclick="window.open('https://unblockzone.github.io/fruit-ninja/', '_blank')">
+            <img src="https://rizz.kyleconstance.com/0dbf04c1f9794c1c92ff3d5e7a2fac2d/_rhsrqeXa://q88pI.o-Fpi4-eTO.OVZ/uQJiG1PLJHH/hDEgmo8pyqXo7bl3bau/nuNlGGL4TKG4TKZQBBZ/qnTqad3_uQZifBKZZA_R.YAZ?ZR=yoByy-S-&jD=3u5bMFdG&Dy=OfEz1PPIP~PJZpJqA-SnnVV2FF4dsFGxWEzEfZ8QBomXovtA7eee3ui0uRRccGFd&=&8-3-Ii=TqXd&41aFiwJ=KzBQzTAY&9Zf9B=Igy&UAHt2r=eaq" alt="Image 2">
+            <div class="new-badge">NEW!</div>
+        </div>
+        <div class="rectangle" onclick="window.open('https://unblockzone.github.io/crossy-road/', '_blank')">
+            <img src="https://rizz.kyleconstance.com/0dbf04c1f9794c1c92ff3d5e7a2fac2d/_rhsrqeXa://q88pI.o-Fpi4-eTO.OVZ/uQJiG1PLJHH/hDEgmo8pyqXo7bl3bau/nuNlGGLO4fOTZPZZ~66/qnTqad3_uQZifBKZZA_x.YAZ?ZR=yoByyJga&jD=3u5bMF4F&Dy=CGzIIzfwQP~oP-QeaA69HS9HHF9c0rWCR1wcmEvPmmv8QqgSUXb9-9kjnuGxRNxL&=&8-3-Ii=TqXd&41aFiwJ=KzBQzTAY&9Zf9B=Igy&UAHt2r=eaq" alt="Image 2">
+            <div class="new-badge">NEW!</div>
+        </div>
+        <div class="rectangle" onclick="window.open('https://unblockzone.github.io/monkey-mart/', '_blank')">
+            <img src="https://rizz.kyleconstance.com/0dbf04c1f9794c1c92ff3d5e7a2fac2d/_rhsrqeXa://q88pI.o-Fpi4-eTO.OVZ/uQJiG1PLJHH/hDEgmo8pyqXo7bl3bau/nuNlGGL1FGLTfZffwwz/qnTqad3_uQZifBKZZA_c.YAZ?ZR=yoByyJq-&jD=3u5bMFRG&Dy=GKC4IvyL1~w~6Uqt22blUUl52M0kGWKTWEEwIZmwvIm6QXSHaS2b3nbWFG3WNx41&=&8-3-Ii=TqXd&41aFiwJ=KzBQzTAY&9Zf9B=Igy&UAHt2r=eaq" alt="Image 2">
+            <div class="new-badge">NEW!</div>
+        </div>
+    </div>
+   
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 100, "density": { "enable": false } },
+                "color": { "value": "#aaa" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5, "random": true },
+                "size": { "value": 4, "random": true },
+                "move": { "enable": true, "speed": 8, "direction": "random" }
+            },
+            "interactivity": {
+                "events": { "onhover": { "enable": true, "mode": "repulse" } }
+            }
+        });
+    </script>
 </body>
 </html>
