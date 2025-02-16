@@ -29,4 +29,4 @@
 * [Discord](https://discord.gg/s9gtBJ8cYm)
 
 ### Your Spot Here
-* Contact me on discord: BRAY PUT YOUR DISCORD HERE
+* Contact me on discord: https://discord.gg/XRkQyY2Hhy
