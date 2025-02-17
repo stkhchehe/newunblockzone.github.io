@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -151,119 +152,7 @@
             height: 100%;
             z-index: -1;
         }
-    
-	 
-   #widgetbot-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 300px;
-      height: 200px;
-      border: 2px solid #e63946;
-      background: #000;
-      display: flex;
-      flex-direction: column;
-      transition: opacity 0.3s, transform 0.3s;
-    }
-    /* Drag handle styling */
-    .drag-handle {
-      width: 100%;
-      height: 20px;
-      background: #e63946;
-      cursor: move;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 10px;
-      color: white;
-      font-weight: bold;
-    }
-    /* Minimize button styling */
-    .minimize-btn {
-      cursor: pointer;
-      background: white;
-      color: black;
-      padding: 2px 5px;
-      border-radius: 3px;
-    }
-    /* Reopen button styling */
-    #reopen-widget {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 50px;
-      height: 50px;
-      background: red;
-      color: white;
-      font-size: 12px;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      cursor: pointer;
-      font-weight: bold;
-      user-select: none;
-    }
-  </style>
-</head>
-<body>
-  <!-- Widget Container -->
-  <div id="widgetbot-container">
-    <div class="drag-handle" id="drag-handle">
-      Drag
-      <span class="minimize-btn" onclick="minimizeWidget()">–</span>
-    </div>
-    <!-- Replace this section with your actual widget content -->
-    <div style="color:white; padding: 10px;">
-      Widget Content
-    </div>
-  </div>
-  <!-- Reopen Button -->
-  <div id="reopen-widget" onclick="reopenWidget()">Reopen</div>
-
-  <script>
-    // Get the widget container and drag handle elements
-    const widgetContainer = document.getElementById("widgetbot-container");
-    const dragHandle = document.getElementById("drag-handle");
-    const reopenWidgetBtn = document.getElementById("reopen-widget");
-
-    // Drag functionality: when mouse is pressed on the drag handle, calculate offset and move widgetContainer
-    dragHandle.addEventListener("mousedown", function(e) {
-      e.preventDefault();
-      const rect = widgetContainer.getBoundingClientRect();
-      const offsetX = e.clientX - rect.left;
-      const offsetY = e.clientY - rect.top;
-
-      function onMouseMove(e) {
-        widgetContainer.style.left = (e.clientX - offsetX) + "px";
-        widgetContainer.style.top = (e.clientY - offsetY) + "px";
-      }
-
-      function onMouseUp() {
-        document.removeEventListener("mousemove", onMouseMove);
-        document.removeEventListener("mouseup", onMouseUp);
-      }
-
-      document.addEventListener("mousemove", onMouseMove);
-      document.addEventListener("mouseup", onMouseUp);
-    });
-
-    // Minimize widget: hide the widget container and show the reopen button
-    function minimizeWidget() {
-      widgetContainer.style.display = "none";
-      reopenWidgetBtn.style.display = "flex";
-    }
-
-    // Reopen widget: show the widget container and hide the reopen button
-    function reopenWidget() {
-      widgetContainer.style.display = "flex";
-      reopenWidgetBtn.style.display = "none";
-    }
-  </script>
-</body>
-</html>
-  </style>
-	
+    </style>
     
     <script>
         function handleSearch(event) {
@@ -278,45 +167,7 @@
         function openSupportPage() {
             window.open('https://docs.google.com/forms/d/e/1FAIpQLScAjuO9s-lwojOfEMwf-_jtQOjWCzkrkz4NKGPCIpbED3k2rA/viewform', '_blank');
         }
- </script>
- <script>  
-let widgetContainer=document.getElementById("widgetbot-container");
-let reopenWidgetBtn=document.getElementById("reopen-widget");
-function minimizeWidget(){
-  widgetContainer.style.display="none";
-  reopenWidgetBtn.style.display="flex";
-}
-function reopenWidget(){
-  widgetContainer.style.display="flex";
-  widgetContainer.style.top="0";
-  widgetContainer.style.left="0";
-  reopenWidgetBtn.style.display="none";
-}
-function startDrag(e){
-  let elem=reopenWidgetBtn;
-  let shiftX=e.clientX-elem.getBoundingClientRect().left;
-  let shiftY=e.clientY-elem.getBoundingClientRect().top;
-  function moveAt(pageX,pageY){
-    elem.style.left=pageX-shiftX+"px";
-    elem.style.top=pageY-shiftY+"px";
-  }
-  function onMouseMove(e){
-    moveAt(e.pageX,e.pageY);
-  }
-  document.addEventListener("mousemove",onMouseMove);
-  elem.onmouseup=function(){
-    document.removeEventListener("mousemove",onMouseMove);
-    elem.onmouseup=null;
-  }
-}
-reopenWidgetBtn.ondragstart=function(){
-  return false;
-}
-</script>
-
-
-
-   </script>
+    </script>
 </head>
 <body>
     <!-- Particle Background -->
@@ -326,17 +177,7 @@ reopenWidgetBtn.ondragstart=function(){
     <div class="coolBlobIdk"></div>
 
     <div class="title">unblockzone v3</div>
-<script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>
-</head>
-<body>
-<div id="widgetbot-container">
-  <div class="drag-handle">
-    Drag
-    <span class="minimize-btn" onclick="minimizeWidget()">–</span>
-  </div>
-  <widgetbot server="1332392560097890314" channel="1334588205416185907"></widgetbot>
-</div>
-<div id="reopen-widget" onmousedown="startDrag(event)" onclick="reopenWidget()">Reopen</div>
+
     <!-- Icons Container -->
     <div class="icons-container">
         <div class="icon-container">
