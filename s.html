@@ -1,186 +1,415 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>settings</title>
-    <link rel="icon" href="https://files.catbox.moe/ao6qv3.png" type="image/png">
-    
+    <link
+      rel="icon"
+      href="https://files.catbox.moe/ao6qv3.png"
+      type="image/png"
+    />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROdNIejFmjeKC5u6Xq2yqOCa5y-uJseTCTfA&s")
+          no-repeat center center fixed;
+        background-size: cover;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+        font-family: Arial, sans-serif;
+        opacity: 0;
+        animation: fadeIn 1s ease-in forwards;
+        position: relative;
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
         }
-        body {
-            background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROdNIejFmjeKC5u6Xq2yqOCa5y-uJseTCTfA&s') no-repeat center center fixed;
-            background-size: cover;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: white;
-            font-family: Arial, sans-serif;
-            opacity: 0;
-            animation: fadeIn 1s ease-in forwards;
-            position: relative;
-            overflow-x: hidden;
-            overflow-y: auto;
+        to {
+          opacity: 1;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        .icons {
-            display: flex;
-            gap: 10px;
-            margin-top: 10px;
-        }
-        .icon-container {
-            width: 60px;
-            height: 60px;
-            background-color: black;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            box-shadow: 0 0 10px white;
-        }
-        .icon-container:hover {
-            transform: scale(1.2);
-            box-shadow: 0 0 20px white;
-        }
-        .icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-        .coolBlobIdk {
-            position: fixed;
-            bottom: -30%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 600px;
-            height: 400px;
-            background: linear-gradient(135deg, rgba(50, 50, 50, 0.8), rgba(200, 200, 200, 0.6));
-            border-radius: 50%;
-            filter: blur(100px);
-            box-shadow: 0 0 120px rgba(200, 200, 200, 0.5);
-        }
-        #particles-js {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-        .title {
-            margin-top: 100px;
-            font-size: 48px;
-            font-weight: bold;
-            text-transform: lowercase;
-            color: white;
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
-            text-align: center;
-            transition: transform 0.3s ease-in-out;
-        }
-        .title:hover {
-            transform: scale(1.2);
-        }
-        .rectangle-container {
-            display: flex;
-            gap: 20px;
-            margin-top: 40px;
-        }
-        .rectangle {
-            width: 400px;
-            height: 250px;
-            background-color: black;
-            border-radius: 15px;
-            box-shadow: 0 0 20px white;
-            position: relative;
-            transition: transform 0.3s ease-in-out;
-            cursor: pointer;
-        }
-        .rectangle:hover {
-            transform: scale(1.05);
-        }
-        .rectangle img {
-            width: 100%;
-            height: 100%;
-            border-radius: 15px;
-            object-fit: cover;
-        }
-        .new-badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            width: 60px;
-            height: 30px;
-            background-color: #28a745;
-            border-radius: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            font-size: 14px;
-            color: white;
-            font-weight: bold;
-            text-shadow: 0 0 10px white;
-            box-shadow: 0 0 10px #28a745;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-        .new-badge:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 20px #28a745;
-        }
+      }
+      .icons {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+      }
+      .icon-container {
+        width: 60px;
+        height: 60px;
+        background-color: black;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        box-shadow: 0 0 10px white;
+      }
+      .icon-container:hover {
+        transform: scale(1.2);
+        box-shadow: 0 0 20px white;
+      }
+      .icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+      .coolBlobIdk {
+        position: fixed;
+        bottom: -30%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 600px;
+        height: 400px;
+        background: linear-gradient(
+          135deg,
+          rgba(50, 50, 50, 0.8),
+          rgba(200, 200, 200, 0.6)
+        );
+        border-radius: 50%;
+        filter: blur(100px);
+        box-shadow: 0 0 120px rgba(200, 200, 200, 0.5);
+      }
+      #particles-js {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
+      .title {
+        margin-top: 100px;
+        font-size: 48px;
+        font-weight: bold;
+        text-transform: lowercase;
+        color: white;
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+        text-align: center;
+        transition: transform 0.3s ease-in-out;
+      }
+      .title:hover {
+        transform: scale(1.2);
+      }
+      .rectangle-container {
+        display: flex;
+        gap: 20px;
+        margin-top: 40px;
+      }
+      .rectangle {
+        width: 400px;
+        height: 250px;
+        background-color: black;
+        border-radius: 15px;
+        box-shadow: 0 0 20px white;
+        position: relative;
+        transition: transform 0.3s ease-in-out;
+        cursor: pointer;
+      }
+      .rectangle:hover {
+        transform: scale(1.05);
+      }
+      .rectangle img {
+        width: 100%;
+        height: 100%;
+        border-radius: 15px;
+        object-fit: cover;
+      }
+      .new-badge {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 60px;
+        height: 30px;
+        background-color: #28a745;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Comic Sans MS", cursive, sans-serif;
+        font-size: 14px;
+        color: white;
+        font-weight: bold;
+        text-shadow: 0 0 10px white;
+        box-shadow: 0 0 10px #28a745;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      }
+      .new-badge:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 20px #28a745;
+      }
+      [data-tc-popup] {
+        overflow: auto;
+        margin: 0 !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(5px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: opacity 0.5s;
+      }
+
+      [data-tc-popup-main] {
+        overflow: auto;
+        margin: 0 !important;
+        position: fixed; /* Keep this as fixed */
+        top: 50%;
+        left: 50%;
+        z-index: 1000;
+        width: 75vh;
+        height: 75vh;
+        background: rgba(0, 0, 0, 0.7);
+        transform: translate(-50%, -50%); /* This centers the modal */
+        transition: opacity 0.5s;
+        text-align: center;
+        align-items: center;
+        border-radius: 3.5vh;
+        outline: 1vh;
+        outline-style: solid;
+      }
+
+      [data-tc-title] {
+        font-size: 8vh;
+        margin-top: 3vh;
+      }
+
+      [data-tc-option] {
+        width: 10vh;
+        height: 10vh;
+        border-radius: 100%;
+        color: white;
+        margin: 2vh;
+        outline: 0.5vh;
+        outline-style: solid;
+        transition: 500ms;
+      }
+
+      [data-tc-option]:hover {
+        width: 12vh;
+        height: 12vh;
+        transition: 500ms;
+      }
+
+      [data-tc-value="1"] {
+        background: linear-gradient(90deg, Peru, SandyBrown) !important;
+      }
+
+      [data-tc-value="2"] {
+        background: linear-gradient(90deg, SaddleBrown, Chocolate) !important;
+      }
+
+      [data-tc-value="3"] {
+        background: linear-gradient(90deg, Silver, Gainsboro) !important;
+      }
+
+      [data-tc-value="4"] {
+        background: linear-gradient(90deg, DarkOrange, Orange) !important;
+      }
+
+      [data-tc-options] {
+        overflow: auto;
+        margin: 0 !important;
+        position: fixed; /* Keep this as fixed */
+        display: inline-block;
+        width: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* This centers the modal */
+        transition: opacity 0.5s;
+        text-align: center;
+        align-items: center;
+        border-radius: 3.5vh;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div id="particles-js"></div>
     <div class="coolBlobIdk"></div>
     <div class="title">settings</div>
     <div class="icons">
-        <a href="https://example.com/games" target="_blank" class="icon-container"><img src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" alt="Games" class="icon"></a>
-        <a href="https://example.com/apps" target="_blank" class="icon-container"><img src="https://img.icons8.com/ios7/600/FFFFFF/apple-app-store--v2.png" alt="Apps" class="icon"></a>
-        <a href="https://example.com/exploits" target="_blank" class="icon-container"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" alt="Exploits" class="icon"></a>
-        <a href="https://example.com/extras" target="_blank" class="icon-container"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRclWJCEIPuuU-0DeRx9HfoSWM4y8Ei59lGhQ&s" alt="Extras" class="icon"></a>
-        <a href="https://example.com/settings" target="_blank" class="icon-container"><img src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" alt="Settings" class="icon"></a>
+      <a href="https://example.com/games" target="_blank" class="icon-container"
+        ><img
+          src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png"
+          alt="Games"
+          class="icon"
+      /></a>
+      <a href="https://example.com/apps" target="_blank" class="icon-container"
+        ><img
+          src="https://img.icons8.com/ios7/600/FFFFFF/apple-app-store--v2.png"
+          alt="Apps"
+          class="icon"
+      /></a>
+      <a
+        href="https://example.com/exploits"
+        target="_blank"
+        class="icon-container"
+        ><img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s"
+          alt="Exploits"
+          class="icon"
+      /></a>
+      <a
+        href="https://example.com/extras"
+        target="_blank"
+        class="icon-container"
+        ><img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRclWJCEIPuuU-0DeRx9HfoSWM4y8Ei59lGhQ&s"
+          alt="Extras"
+          class="icon"
+      /></a>
+      <a
+        href="https://example.com/settings"
+        target="_blank"
+        class="icon-container"
+        ><img
+          src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png"
+          alt="Settings"
+          class="icon"
+      /></a>
     </div>
     <div class="rectangle-container">
-        <div class="rectangle" onclick="window.open('https://example.com/game2', '_blank')">
-            <img src="https://files.catbox.moe/fslyfo.png" alt="Image 2">
-            <div class="new-badge">NEW!</div>
+      <div class="rectangle" data-tc>
+        <img src="https://files.catbox.moe/fslyfo.png" alt="Image 2" />
+        <div class="new-badge">NEW!</div>
+      </div>
+      <div
+        class="rectangle"
+        onclick="window.open('https://example.com/game2', '_blank')"
+      >
+        <img src="https://files.catbox.moe/f8je98.png" alt="Image 2" />
+        <div class="new-badge">NEW!</div>
+      </div>
+      <div
+        class="rectangle"
+        onclick="window.open('https://example.com/game2', '_blank')"
+      >
+        <img src="https://files.catbox.moe/4440je.png" alt="Image 2" />
+        <div class="new-badge">NEW!</div>
+      </div>
+    </div>
+    <div data-tc-popup style="display: none">
+      <div data-tc-popup-main>
+        <h1 data-tc-title>Theme Changer</h1>
+        <div data-tc-options>
+          <button data-tc-option data-tc-value="1"></button>
+          <button data-tc-option data-tc-value="2"></button>
+          <button data-tc-option data-tc-value="3"></button>
+          <button data-tc-option data-tc-value="4"></button>
         </div>
-        <div class="rectangle" onclick="window.open('https://example.com/game2', '_blank')">
-            <img src="https://files.catbox.moe/f8je98.png" alt="Image 2">
-            <div class="new-badge">NEW!</div>
-        </div>
-        <div class="rectangle" onclick="window.open('https://example.com/game2', '_blank')">
-            <img src="https://files.catbox.moe/4440je.png" alt="Image 2">
-            <div class="new-badge">NEW!</div>
-        </div>
-  
+        <p data-tc-info>To exit this menu, click out.</p>
+      </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        particlesJS("particles-js", {
-            "particles": {
-                "number": { "value": 100, "density": { "enable": false } },
-                "color": { "value": "#aaa" },
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.5, "random": true },
-                "size": { "value": 4, "random": true },
-                "move": { "enable": true, "speed": 8, "direction": "random" }
-            },
-            "interactivity": {
-                "events": { "onhover": { "enable": true, "mode": "repulse" } }
-            }
+    <script defer>
+      document.addEventListener("DOMContentLoaded", function () {
+        var $tcstatus = true; // Set the initial state of the popup (visible or hidden)
+
+        // Table of color values for each data-tc-value
+        var $tctable = {
+          1: ["#CD853F", "#F4A460"],
+          2: ["#8B4513", "#D2691E"],
+          3: ["#C0C0C0", "#DCDCDC"],
+          4: ["#FF8C00", "#FFA500"],
+        };
+
+        // Get the popup and the container
+        var $popup = document.querySelector("[data-tc-popup]");
+        var $blob = document.querySelector(".coolBlobIdk");
+
+        // Set the initial visibility of the popup
+        $popup.setAttribute(
+          "style",
+          $tcstatus ? "display:flex;" : "display:none;"
+        );
+
+        // Toggle popup visibility on clicking the data-tc element
+        document
+          .querySelector("[data-tc]")
+          .addEventListener("click", function () {
+            $tcstatus = !$tcstatus;
+            $popup.setAttribute(
+              "style",
+              $tcstatus ? "display:flex;" : "display:none;"
+            );
+          });
+
+        // Close the popup if clicking outside the modal
+        $popup.addEventListener("click", function (e) {
+          if (
+            !document.querySelector("[data-tc-popup-main]").contains(e.target)
+          ) {
+            $tcstatus = !$tcstatus;
+            $popup.setAttribute(
+              "style",
+              $tcstatus ? "display:flex;" : "display:none;"
+            );
+          }
         });
+
+        // Button click event listener for changing the theme
+        document.querySelectorAll("[data-tc-option]").forEach((element) => {
+          element.addEventListener("click", function () {
+            var value = element.getAttribute("data-tc-value");
+
+            // Change particle color based on selected value
+            particlesJS("particles-js", {
+              particles: {
+                number: { value: 100, density: { enable: false } },
+                color: { value: $tctable[value][1] }, // Particle color
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: true },
+                size: { value: 4, random: true },
+                move: { enable: true, speed: 8, direction: "random" },
+                line_linked: {
+                  enable: true,
+                  distance: 150,
+                  color: $tctable[value][1], // Line color
+                  opacity: 0.4,
+                  width: 1,
+                },
+              },
+              interactivity: {
+                events: { onhover: { enable: true, mode: "repulse" } },
+              },
+            });
+
+            // Change the background gradient of .coolBlobIdk
+            $blob.style.background = `linear-gradient(135deg, ${$tctable[value][0]}, ${$tctable[value][1]})`;
+          });
+        });
+      });
     </script>
-</body>
+    <script>
+      particlesJS("particles-js", {
+        particles: {
+          number: { value: 100, density: { enable: false } },
+          color: { value: "#aaa" },
+          shape: { type: "circle" },
+          opacity: { value: 0.5, random: true },
+          size: { value: 4, random: true },
+          move: { enable: true, speed: 8, direction: "random" },
+        },
+        interactivity: {
+          events: { onhover: { enable: true, mode: "repulse" } },
+        },
+      });
+    </script>
+  </body>
 </html>
