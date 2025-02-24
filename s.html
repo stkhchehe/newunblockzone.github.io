@@ -27,6 +27,9 @@
         font-family: Arial, sans-serif;
         opacity: 0;
         animation: fadeIn 1s ease-in forwards;
+        position: relative;
+        overflow-x: hidden;
+        overflow-y: auto;
       }
       @keyframes fadeIn {
         from {
@@ -35,32 +38,6 @@
         to {
           opacity: 1;
         }
-      }
-      .icons {
-        display: flex;
-        gap: 10px;
-        margin-top: 10px;
-      }
-      .icon-container {
-        width: 60px;
-        height: 60px;
-        background-color: black;
-        border-radius: 15px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 0 10px white;
-        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-      }
-      .icon-container:hover {
-        transform: scale(1.2);
-        box-shadow: 0 0 20px white;
-      }
-      .icon {
-        width: 40px;
-        height: 40px;
-        border-radius: 10px;
-        cursor: pointer;
       }
       .rectangle-container {
         display: flex;
@@ -87,21 +64,18 @@
         border-radius: 15px;
         object-fit: cover;
       }
+      #particles-js {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
     </style>
   </head>
   <body>
-    <div class="title">settings</div>
-    <div class="icons">
-      <div class="icon-container">
-        <img src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" alt="Settings" class="icon" />
-      </div>
-      <div class="icon-container">
-        <img src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" alt="Settings" class="icon" />
-      </div>
-      <div class="icon-container">
-        <img src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" alt="Settings" class="icon" />
-      </div>
-    </div>
+    <div id="particles-js"></div>
     <div class="rectangle-container">
       <div class="rectangle">
         <img src="https://files.catbox.moe/fslyfo.png" alt="Image 1" />
@@ -113,5 +87,21 @@
         <img src="https://files.catbox.moe/4440je.png" alt="Image 3" />
       </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+      particlesJS("particles-js", {
+        particles: {
+          number: { value: 100, density: { enable: false } },
+          color: { value: "#aaa" },
+          shape: { type: "circle" },
+          opacity: { value: 0.5, random: true },
+          size: { value: 4, random: true },
+          move: { enable: true, speed: 8, direction: "random" },
+        },
+        interactivity: {
+          events: { onhover: { enable: true, mode: "repulse" } },
+        },
+      });
+    </script>
   </body>
 </html>
