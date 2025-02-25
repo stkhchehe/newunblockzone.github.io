@@ -158,21 +158,6 @@
         .color-circle:hover:before {
             opacity: 1;
         }
-        .new-circle-1 {
-            background-image: url('https://example.com/image1.jpg');
-        }
-        .new-circle-2 {
-            background-image: url('https://example.com/image2.jpg');
-        }
-        .new-circle-3 {
-            background-image: url('https://example.com/image3.jpg');
-        }
-        .new-circle-4 {
-            background-image: url('https://example.com/image4.jpg');
-        }
-        .new-circle-5 {
-            background-image: url('https://example.com/image5.jpg');
-        }
     </style>
 </head>
 <body>
@@ -198,16 +183,16 @@
         </div>
     </div>
 
-    <!-- New Tab Cloaker Section with Image URLs -->
+    <!-- New Tab Cloaker Section with Custom Image URLs -->
     <div class="long-rectangle" style="margin-top: 40px;">
         <div class="long-rectangle-title">tab cloaker</div>
         <div class="line"></div>
         <div class="color-options">
-            <div class="color-circle new-circle-1"></div>
-            <div class="color-circle new-circle-2"></div>
-            <div class="color-circle new-circle-3"></div>
-            <div class="color-circle new-circle-4"></div>
-            <div class="color-circle new-circle-5"></div>
+            <div class="color-circle" id="new-circle-1"></div>
+            <div class="color-circle" id="new-circle-2"></div>
+            <div class="color-circle" id="new-circle-3"></div>
+            <div class="color-circle" id="new-circle-4"></div>
+            <div class="color-circle" id="new-circle-5"></div>
         </div>
     </div>
     
@@ -226,6 +211,19 @@
                 "events": { "onhover": { "enable": true, "mode": "repulse" } }
             }
         });
+
+        // Custom Image URLs for the circles
+        const imageUrls = [
+            'https://example.com/image1.jpg', 
+            'https://example.com/image2.jpg', 
+            'https://example.com/image3.jpg',
+            'https://example.com/image4.jpg',
+            'https://example.com/image5.jpg'
+        ];
+
+        for (let i = 0; i < imageUrls.length; i++) {
+            document.getElementById(`new-circle-${i+1}`).style.backgroundImage = `url(${imageUrls[i]})`;
+        }
     </script>
 </body>
 </html>
