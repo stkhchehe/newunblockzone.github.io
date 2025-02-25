@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -120,108 +119,21 @@
             text-transform: lowercase;
         }
         .line {
-            width: 36%; /* Shortened line to match "theme changer" text */
+            width: 36%;
             height: 2px;
             background-color: white;
             margin: 10px 0;
             position: relative;
         }
-        .color-options {
-            display: flex;
-            gap: 20px;
-        }
-        .color-circle {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            border: 2px solid white;
-            cursor: pointer;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            position: relative;
-            background-size: cover;
-            background-position: center;
-        }
-        .color-circle:hover {
-            transform: scale(1.2);
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-        }
-        .color-circle:before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 60%);
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-        }
-        .color-circle:hover:before {
-            opacity: 1;
-        }
-        .light-brown { background-color: #d8b085; }
-        .light-orange { background-color: #ff9f6f; }
-        .cream { background-color: #f2f2b3; }
-        .lighter-brown { background-color: #a37f56; }
-        .dark-grey { background-color: #4d4d4d; }
-        .new-circle-1 { background-image: url('https://img.icons8.com/?size=512&id=oECahFP3ibID&format=png'); }
-        .new-circle-2 { background-image: url('https://cdn.jim-nielsen.com/ios/512/duolingo-language-lessons-2023-06-22.png?rf=1024'); }
-        .new-circle-3 { background-image: url('https://static-00.iconduck.com/assets.00/google-drive-icon-2048x2048-j5sa1hcp.png'); }
-        .new-circle-4 { background-image: url('https://mywakeid.wcpss.net/img/mobile-app.png'); }
-        .new-circle-5 { background-image: url('https://files.catbox.moe/ao6qv3.png'); }
     </style>
 </head>
 <body>
     <div id="particles-js"></div>
     <div class="coolBlobIdk"></div>
     <div class="title">settings</div>
-    <div class="icons">
-        <a href="https://example.com/games" target="_blank" class="icon-container"><img src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" alt="Games" class="icon"></a>
-        <a href="https://example.com/apps" target="_blank" class="icon-container"><img src="https://img.icons8.com/ios7/600/FFFFFF/apple-app-store--v2.png" alt="Apps" class="icon"></a>
-        <a href="https://example.com/exploits" target="_blank" class="icon-container"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" alt="Exploits" class="icon"></a>
-        <a href="https://example.com/extras" target="_blank" class="icon-container"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRclWJCEIPuuU-0DeRx9HfoSWM4y8Ei59lGhQ&s" alt="Extras" class="icon"></a>
-        <a href="https://example.com/settings" target="_blank" class="icon-container"><img src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" alt="Settings" class="icon"></a>
-    </div>
     <div class="long-rectangle">
-        <div class="long-rectangle-title">theme changer</div>
+        <div class="long-rectangle-title">panic key</div>
         <div class="line"></div>
-        <div class="color-options">
-            <div class="color-circle light-brown"></div>
-            <div class="color-circle light-orange"></div>
-            <div class="color-circle cream"></div>
-            <div class="color-circle lighter-brown"></div>
-            <div class="color-circle dark-grey"></div>
-        </div>
     </div>
-
-    <!-- New Tab Cloaker Section -->
-    <div class="long-rectangle" style="margin-top: 40px; z-index: 1;">
-        <div class="long-rectangle-title">tab cloaker</div>
-        <div class="line"></div>
-        <div class="color-options">
-            <div class="color-circle new-circle-1"></div>
-            <div class="color-circle new-circle-2"></div>
-            <div class="color-circle new-circle-3"></div>
-            <div class="color-circle new-circle-4"></div>
-            <div class="color-circle new-circle-5"></div>
-        </div>
-    </div>
-    
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        particlesJS("particles-js", {
-            "particles": {
-                "number": { "value": 100, "density": { "enable": false } },
-                "color": { "value": "#aaa" },
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.5, "random": true },
-                "size": { "value": 4, "random": true },
-                "move": { "enable": true, "speed": 8, "direction": "random" }
-            },
-            "interactivity": {
-                "events": { "onhover": { "enable": true, "mode": "repulse" } }
-            }
-        });
-    </script>
 </body>
 </html>
