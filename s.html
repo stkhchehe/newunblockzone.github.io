@@ -91,24 +91,57 @@
             transform: scale(1.2);
         }
         .long-rectangle {
-            width: 80%; /* Increased width for more room */
-            height: 100px;
+            width: 85%; /* Increased width */
+            height: 200px; /* Increased height */
             background-color: black;
             border-radius: 50px;
-            margin-top: 40px;
+            margin-top: 60px; /* Moved up */
             box-shadow: 0 0 20px white;
             transition: transform 0.3s ease-in-out;
             cursor: pointer;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
-            font-size: 20px;
+            font-size: 30px;
+            padding: 20px;
         }
         .long-rectangle:hover {
             transform: scale(1.05);
         }
+        .long-rectangle-title {
+            font-size: 36px;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+            margin-bottom: 10px;
+        }
+        .line {
+            width: 80%;
+            height: 2px;
+            background-color: white;
+            margin: 10px 0;
+        }
+        .color-options {
+            display: flex;
+            gap: 15px;
+        }
+        .color-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid white;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+        .color-circle:hover {
+            transform: scale(1.2);
+        }
+        .light-brown { background-color: #D2B48C; }
+        .light-orange { background-color: #FFA07A; }
+        .cream { background-color: #FFF5E1; }
+        .lighter-brown { background-color: #A52A2A; }
+        .brownish-black { background-color: #3E1F1A; }
     </style>
 </head>
 <body>
@@ -122,7 +155,17 @@
         <a href="https://example.com/extras" target="_blank" class="icon-container"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRclWJCEIPuuU-0DeRx9HfoSWM4y8Ei59lGhQ&s" alt="Extras" class="icon"></a>
         <a href="https://example.com/settings" target="_blank" class="icon-container"><img src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" alt="Settings" class="icon"></a>
     </div>
-    <div class="long-rectangle">Your Text Here</div>
+    <div class="long-rectangle">
+        <div class="long-rectangle-title">Theme Changer</div>
+        <div class="line"></div>
+        <div class="color-options">
+            <div class="color-circle light-brown"></div>
+            <div class="color-circle light-orange"></div>
+            <div class="color-circle cream"></div>
+            <div class="color-circle lighter-brown"></div>
+            <div class="color-circle brownish-black"></div>
+        </div>
+    </div>
     
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
