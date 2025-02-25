@@ -91,11 +91,11 @@
             transform: scale(1.2);
         }
         .long-rectangle {
-            width: 85%; /* Increased width */
-            height: 200px; /* Increased height */
+            width: 85%;
+            height: 200px;
             background-color: black;
             border-radius: 50px;
-            margin-top: 60px; /* Moved up */
+            margin-top: 60px;
             box-shadow: 0 0 20px white;
             transition: transform 0.3s ease-in-out;
             cursor: pointer;
@@ -119,31 +119,47 @@
             text-transform: lowercase;
         }
         .line {
-            width: 60%; /* Shortened line */
+            width: 36%; /* Shortened line to match "theme changer" text */
             height: 2px;
             background-color: white;
             margin: 10px 0;
+            position: relative;
         }
         .color-options {
             display: flex;
             gap: 20px;
         }
         .color-circle {
-            width: 60px; /* Increased size */
-            height: 60px; /* Increased size */
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             border: 2px solid white;
             cursor: pointer;
-            transition: transform 0.3s ease-in-out;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
         .color-circle:hover {
             transform: scale(1.2);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
         }
-        .light-brown { background-color: #D2B48C; }
-        .light-orange { background-color: #FFA07A; }
-        .cream { background-color: #FFF5E1; }
-        .lighter-brown { background-color: #A52A2A; }
-        .brownish-black { background-color: #3E1F1A; }
+        .color-circle:before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 60%);
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .color-circle:hover:before {
+            opacity: 1;
+        }
+        .light-brown { background-color: #D2B48C; position: relative; }
+        .light-orange { background-color: #FFA07A; position: relative; }
+        .cream { background-color: #FFF5E1; position: relative; }
+        .lighter-brown { background-color: #A52A2A; position: relative; }
+        .brownish-black { background-color: #3E1F1A; position: relative; }
     </style>
 </head>
 <body>
