@@ -137,8 +137,6 @@
             cursor: pointer;
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
             position: relative;
-            background-size: cover;
-            background-position: center;
         }
         .color-circle:hover {
             transform: scale(1.2);
@@ -158,6 +156,16 @@
         .color-circle:hover:before {
             opacity: 1;
         }
+        .light-brown { background-color: #8B4513; }
+        .light-orange { background-color: #FFA07A; }
+        .cream { background-color: #FFF5E1; }
+        .lighter-brown { background-color: #A52A2A; }
+        .dark-grey { background-color: #4B4B4B; }
+        .new-circle-1 { background-color: #FFD700; }
+        .new-circle-2 { background-color: #ADD8E6; }
+        .new-circle-3 { background-color: #800080; }
+        .new-circle-4 { background-color: #32CD32; }
+        .new-circle-5 { background-color: #00008B; }
     </style>
 </head>
 <body>
@@ -183,16 +191,16 @@
         </div>
     </div>
 
-    <!-- New Tab Cloaker Section with Custom Image URLs -->
+    <!-- New Tab Cloaker Section -->
     <div class="long-rectangle" style="margin-top: 40px;">
         <div class="long-rectangle-title">tab cloaker</div>
         <div class="line"></div>
         <div class="color-options">
-            <div class="color-circle" id="new-circle-1"></div>
-            <div class="color-circle" id="new-circle-2"></div>
-            <div class="color-circle" id="new-circle-3"></div>
-            <div class="color-circle" id="new-circle-4"></div>
-            <div class="color-circle" id="new-circle-5"></div>
+            <div class="color-circle new-circle-1"></div>
+            <div class="color-circle new-circle-2"></div>
+            <div class="color-circle new-circle-3"></div>
+            <div class="color-circle new-circle-4"></div>
+            <div class="color-circle new-circle-5"></div>
         </div>
     </div>
     
@@ -211,19 +219,6 @@
                 "events": { "onhover": { "enable": true, "mode": "repulse" } }
             }
         });
-
-        // Custom Image URLs for the circles
-        const imageUrls = [
-            'https://example.com/image1.jpg', 
-            'https://example.com/image2.jpg', 
-            'https://example.com/image3.jpg',
-            'https://example.com/image4.jpg',
-            'https://example.com/image5.jpg'
-        ];
-
-        for (let i = 0; i < imageUrls.length; i++) {
-            document.getElementById(`new-circle-${i+1}`).style.backgroundImage = `url(${imageUrls[i]})`;
-        }
     </script>
 </body>
 </html>
