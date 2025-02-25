@@ -57,26 +57,25 @@
             border-radius: 10px;
             cursor: pointer;
         }
-        .long-rectangle {
-            width: 80%;
-            height: 100px;
-            background-color: black;
-            border-radius: 50px;
-            box-shadow: 0 0 20px white;
-            margin-top: 20px;
+        .coolBlobIdk {
+            position: fixed;
+            bottom: -30%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(50, 50, 50, 0.8), rgba(200, 200, 200, 0.6));
+            border-radius: 50%;
+            filter: blur(100px);
+            box-shadow: 0 0 120px rgba(200, 200, 200, 0.5);
         }
-        .round-rectangle-container {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            margin-top: 20px;
-        }
-        .round-rectangle {
-            width: 80%;
-            height: 80px;
-            background-color: black;
-            border-radius: 40px;
-            box-shadow: 0 0 20px white;
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
         }
         .title {
             margin-top: 100px;
@@ -91,10 +90,30 @@
         .title:hover {
             transform: scale(1.2);
         }
+        .rectangle-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .rectangle {
+            width: 80%;
+            height: 100px;
+            background-color: black;
+            border-radius: 50px;
+            box-shadow: 0 0 20px white;
+            position: relative;
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+        }
+        .rectangle:hover {
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
     <div id="particles-js"></div>
+    <div class="coolBlobIdk"></div>
     <div class="title">settings</div>
     
     <div class="main-icons">
@@ -105,11 +124,10 @@
         <a href="#" class="icon-container"><img src="settings-icon.png" alt="Settings" class="icon"></a>
     </div>
     
-    <div class="long-rectangle"></div>
-    
-    <div class="round-rectangle-container">
-        <div class="round-rectangle"></div>
-        <div class="round-rectangle"></div>
+    <div class="rectangle-container">
+        <div class="rectangle"></div>
+        <div class="rectangle"></div>
+        <div class="rectangle"></div>
     </div>
     
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
