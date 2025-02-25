@@ -181,6 +181,25 @@
             background-image: url('https://example.com/image5.jpg');
             background-size: cover;
         }
+        .panic-key-rectangle {
+            width: 80%;
+            height: 100px;
+            background-color: grey;
+            border-radius: 50px;
+            border: 2px solid white;
+            margin-top: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .panic-key-rectangle input {
+            width: 100%;
+            height: 40px;
+            border: none;
+            padding: 5px;
+            font-size: 16px;
+            border-radius: 20px;
+        }
     </style>
 </head>
 <body>
@@ -218,20 +237,86 @@
             <div class="color-circle new-circle-5"></div>
         </div>
     </div>
+
+    <!-- Panic Key Section -->
+    <div class="panic-key-rectangle">
+        <input type="text" id="tabCloakerURL" placeholder="Enter custom image URL for Tab Cloaker" oninput="updateTabCloakerCircles()">
+    </div>
+
+    <script>
+        function updateTabCloakerCircles() {
+            const url = document.getElementById('tabCloakerURL').value;
+            const circles = document.querySelectorAll('.new-circle-1, .new-circle-2, .new-circle-3, .new-circle-4, .new-circle-5');
+            circles.forEach(circle => {
+                circle.style.backgroundImage = `url(${url})`;
+                circle.style.backgroundSize = 'cover';
+            });
+        }
+    </script>
     
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         particlesJS("particles-js", {
             "particles": {
-                "number": { "value": 100, "density": { "enable": false } },
-                "color": { "value": "#aaa" },
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.5, "random": true },
-                "size": { "value": 4, "random": true },
-                "move": { "enable": true, "speed": 8, "direction": "random" }
-            },
-            "interactivity": {
-                "events": { "onhover": { "enable": true, "mode": "repulse" } }
+                "number": {
+                    "value": 50,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": true,
+                    "anim": {
+                        "enable": true,
+                        "speed": 1,
+                        "opacity_min": 0.1
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": true,
+                        "speed": 40,
+                        "size_min": 0.1
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
             }
         });
     </script>
