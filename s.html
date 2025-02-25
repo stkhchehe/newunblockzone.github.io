@@ -31,7 +31,7 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
-        .icons {
+        .icons, .main-icons {
             display: flex;
             gap: 10px;
             margin-top: 10px;
@@ -90,59 +90,27 @@
         .title:hover {
             transform: scale(1.2);
         }
-        .rectangle-container {
-            display: flex;
-            gap: 20px;
-            margin-top: 40px;
-        }
-        .rectangle {
-            width: 400px;
-            height: 250px;
-            background-color: black;
-            border-radius: 15px;
-            box-shadow: 0 0 20px white;
-            position: relative;
-            transition: transform 0.3s ease-in-out;
-            cursor: pointer;
-        }
-        .rectangle:hover {
-            transform: scale(1.05);
-        }
-        .rectangle img {
-            width: 100%;
-            height: 100%;
-            border-radius: 15px;
-            object-fit: cover;
-        }
-        .new-badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            width: 60px;
-            height: 30px;
-            background-color: #28a745;
-            border-radius: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            font-size: 14px;
-            color: white;
-            font-weight: bold;
-            text-shadow: 0 0 10px white;
-            box-shadow: 0 0 10px #28a745;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-        .new-badge:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 20px #28a745;
-        }
     </style>
 </head>
 <body>
     <div id="particles-js"></div>
     <div class="coolBlobIdk"></div>
     <div class="title">settings</div>
+    
+    <div class="main-icons">
+        <a href="#" class="icon-container"><img src="games-icon.png" alt="Games" class="icon"></a>
+        <a href="#" class="icon-container"><img src="apps-icon.png" alt="Apps" class="icon"></a>
+        <a href="#" class="icon-container"><img src="exploits-icon.png" alt="Exploits" class="icon"></a>
+        <a href="#" class="icon-container"><img src="extras-icon.png" alt="Extras" class="icon"></a>
+        <a href="#" class="icon-container"><img src="settings-icon.png" alt="Settings" class="icon"></a>
+    </div>
+    
+    <div class="icons">
+        <a href="#" class="icon-container"><img src="theme-icon.png" alt="Theme Changer" class="icon"></a>
+        <a href="#" class="icon-container"><img src="tab-cloak-icon.png" alt="Tab Cloaker" class="icon"></a>
+        <a href="#" class="icon-container"><img src="panic-key-icon.png" alt="Panic Key" class="icon"></a>
+    </div>
+    
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         particlesJS("particles-js", {
