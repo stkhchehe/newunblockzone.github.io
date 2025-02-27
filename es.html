@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -137,48 +140,6 @@
             transform: scale(1.1);
             box-shadow: 0 0 20px #28a745;
         }
-        /* Popup styles */
-        .popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 500px;
-            height: 300px;
-            background-color: rgba(0, 0, 0, 0.8);
-            border-radius: 15px;
-            padding: 20px;
-            color: white;
-            z-index: 1000;
-        }
-        .popup.active {
-            display: block;
-        }
-        .popup .close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 20px;
-            cursor: pointer;
-        }
-        .popup-content {
-            margin-top: 40px;
-            text-align: center;
-        }
-        .popup-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 500;
-            display: none;
-        }
-        .popup-background.active {
-            display: block;
-        }
     </style>
 </head>
 <body>
@@ -186,15 +147,11 @@
     <div class="coolBlobIdk"></div>
     <div class="title">extra stuff</div>
     <div class="icons">
+        <a href="https://example.com/games" target="_blank" class="icon-container"><img src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" alt="Games" class="icon"></a>
         <a href="https://example.com/apps" target="_blank" class="icon-container"><img src="https://img.icons8.com/ios7/600/FFFFFF/apple-app-store--v2.png" alt="Apps" class="icon"></a>
         <a href="https://example.com/exploits" target="_blank" class="icon-container"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" alt="Exploits" class="icon"></a>
         <a href="https://example.com/extras" target="_blank" class="icon-container"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRclWJCEIPuuU-0DeRx9HfoSWM4y8Ei59lGhQ&s" alt="Extras" class="icon"></a>
         <a href="https://example.com/settings" target="_blank" class="icon-container"><img src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" alt="Settings" class="icon"></a>
-        <a href="https://example.com/some-other-link" target="_blank" class="icon-container"><img src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" alt="Games" class="icon"></a>
-        <!-- 6th icon to trigger the popup -->
-        <div class="icon-container" id="popup-icon">
-            <img src="https://img.icons8.com/ios/50/FFFFFF/leaderboard.png" alt="Leaderboard" class="icon">
-        </div>
     </div>
     <div class="rectangle-container">
         <div class="rectangle" onclick="window.open('https://unblockzone.github.io/subway-surfers/', '_blank')">
@@ -210,19 +167,23 @@
             <div class="new-badge">NEW!</div>
         </div>
     </div>
-    <!-- Popup HTML -->
-    <div class="popup-background" id="popup-background"></div>
-    <div class="popup" id="popup">
-        <div class="close" id="popup-close">X</div>
-        <div class="popup-content">
-            <h2>Leaderboard</h2>
-            <p>Leaderboard content will go here.</p>
+     <div class="rectangle-container">
+        <div class="rectangle" onclick="window.open('https://unblockzone.github.io/fruit-ninja/', '_blank')">
+            <img src="https://files.catbox.moe/0pw778.png" alt="Image 2">
+            <div class="new-badge">NEW!</div>
+        </div>
+        <div class="rectangle" onclick="window.open('https://unblockzone.github.io/crossy-road/', '_blank')">
+            <img src="https://files.catbox.moe/mi9k8s.png" alt="Image 2">
+            <div class="new-badge">NEW!</div>
+        </div>
+        <div class="rectangle" onclick="window.open('https://unblockzone.github.io/monkey-mart/', '_blank')">
+            <img src="https://files.catbox.moe/urkbcn.png" alt="Image 2">
+            <div class="new-badge">NEW!</div>
         </div>
     </div>
-
+   
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        // Initialize particles.js
         particlesJS("particles-js", {
             "particles": {
                 "number": { "value": 100, "density": { "enable": false } },
@@ -235,19 +196,6 @@
             "interactivity": {
                 "events": { "onhover": { "enable": true, "mode": "repulse" } }
             }
-        });
-
-        // Open leaderboard popup when the 6th icon is clicked
-        document.getElementById('popup-icon').addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent default action (opening a new URL)
-            document.getElementById('popup').classList.add('active');
-            document.getElementById('popup-background').classList.add('active');
-        });
-
-        // Close popup
-        document.getElementById('popup-close').addEventListener('click', function() {
-            document.getElementById('popup').classList.remove('active');
-            document.getElementById('popup-background').classList.remove('active');
         });
     </script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8PERVFVWRG"></script>
