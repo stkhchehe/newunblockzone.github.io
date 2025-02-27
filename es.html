@@ -186,11 +186,15 @@
     <div class="coolBlobIdk"></div>
     <div class="title">extra stuff</div>
     <div class="icons">
-        <a class="icon-container" id="first-big-icon"><img src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" alt="Games" class="icon"></a>
         <a href="https://example.com/apps" target="_blank" class="icon-container"><img src="https://img.icons8.com/ios7/600/FFFFFF/apple-app-store--v2.png" alt="Apps" class="icon"></a>
         <a href="https://example.com/exploits" target="_blank" class="icon-container"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" alt="Exploits" class="icon"></a>
         <a href="https://example.com/extras" target="_blank" class="icon-container"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRclWJCEIPuuU-0DeRx9HfoSWM4y8Ei59lGhQ&s" alt="Extras" class="icon"></a>
         <a href="https://example.com/settings" target="_blank" class="icon-container"><img src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" alt="Settings" class="icon"></a>
+        <a href="https://example.com/some-other-link" target="_blank" class="icon-container"><img src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" alt="Games" class="icon"></a>
+        <!-- 6th icon to trigger the popup -->
+        <div class="icon-container" id="popup-icon">
+            <img src="https://img.icons8.com/ios/50/FFFFFF/leaderboard.png" alt="Leaderboard" class="icon">
+        </div>
     </div>
     <div class="rectangle-container">
         <div class="rectangle" onclick="window.open('https://unblockzone.github.io/subway-surfers/', '_blank')">
@@ -203,20 +207,6 @@
         </div>
         <div class="rectangle" onclick="window.open('https://unblockzone.github.io/block-blast/', '_blank')">
             <img src="https://files.catbox.moe/hfnsxh.png" alt="Image 2">
-            <div class="new-badge">NEW!</div>
-        </div>
-    </div>
-    <div class="rectangle-container">
-        <div class="rectangle" onclick="window.open('https://unblockzone.github.io/fruit-ninja/', '_blank')">
-            <img src="https://files.catbox.moe/0pw778.png" alt="Image 2">
-            <div class="new-badge">NEW!</div>
-        </div>
-        <div class="rectangle" onclick="window.open('https://unblockzone.github.io/crossy-road/', '_blank')">
-            <img src="https://files.catbox.moe/mi9k8s.png" alt="Image 2">
-            <div class="new-badge">NEW!</div>
-        </div>
-        <div class="rectangle" onclick="window.open('https://unblockzone.github.io/monkey-mart/', '_blank')">
-            <img src="https://files.catbox.moe/urkbcn.png" alt="Image 2">
             <div class="new-badge">NEW!</div>
         </div>
     </div>
@@ -247,8 +237,8 @@
             }
         });
 
-        // Open leaderboard popup when the first big icon is clicked
-        document.getElementById('first-big-icon').addEventListener('click', function(event) {
+        // Open leaderboard popup when the 6th icon is clicked
+        document.getElementById('popup-icon').addEventListener('click', function(event) {
             event.preventDefault(); // Prevent default action (opening a new URL)
             document.getElementById('popup').classList.add('active');
             document.getElementById('popup-background').classList.add('active');
