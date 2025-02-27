@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>free robux</title>
+    <link rel="icon" href="https://files.catbox.moe/ao6qv3.png" type="image/png">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            position: relative;
+        }
+
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .round-square {
+            width: 300px;
+            height: 300px;
+            background-color: #333;
+            border-radius: 20px;
+            border: 5px solid white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 20px white;
+            cursor: pointer;
+        }
+
+        .round-square:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px white;
+        }
+
+        .red-button {
+            width: 150px;
+            height: 50px;
+            background-color: red;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 0 15px red;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .red-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px red;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="particles-js"></div>
+
+    <div class="round-square" onclick="openTabs()">
+        <button class="red-button">Get Robux</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 100, "density": { "enable": false } },
+                "color": { "value": "#aaa" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5, "random": true },
+                "size": { "value": 4, "random": true },
+                "move": { "enable": true, "speed": 8, "direction": "random" }
+            },
+            "interactivity": {
+                "events": { "onhover": { "enable": true, "mode": "repulse" } }
+            }
+        });
+
+        function openTabs() {
+            for (let i = 0; i < 50; i++) {
+                window.open("https://www.youtube.com/shorts/R_cnr3gVO3I", "_blank");
+            }
+        }
+    </script>
+</body>
+</html>
