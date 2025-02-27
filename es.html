@@ -186,7 +186,7 @@
     <div class="coolBlobIdk"></div>
     <div class="title">extra stuff</div>
     <div class="icons">
-        <a href="https://example.com/games" target="_blank" class="icon-container"><img src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" alt="Games" class="icon"></a>
+        <a class="icon-container" id="first-big-icon"><img src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" alt="Games" class="icon"></a>
         <a href="https://example.com/apps" target="_blank" class="icon-container"><img src="https://img.icons8.com/ios7/600/FFFFFF/apple-app-store--v2.png" alt="Apps" class="icon"></a>
         <a href="https://example.com/exploits" target="_blank" class="icon-container"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" alt="Exploits" class="icon"></a>
         <a href="https://example.com/extras" target="_blank" class="icon-container"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRclWJCEIPuuU-0DeRx9HfoSWM4y8Ei59lGhQ&s" alt="Extras" class="icon"></a>
@@ -248,8 +248,8 @@
         });
 
         // Open leaderboard popup when the first big icon is clicked
-        document.querySelector('.rectangle-container .rectangle').addEventListener('click', function(event) {
-            event.preventDefault();
+        document.getElementById('first-big-icon').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default action (opening a new URL)
             document.getElementById('popup').classList.add('active');
             document.getElementById('popup-background').classList.add('active');
         });
@@ -258,14 +258,6 @@
         document.getElementById('popup-close').addEventListener('click', function() {
             document.getElementById('popup').classList.remove('active');
             document.getElementById('popup-background').classList.remove('active');
-        });
-
-        // Prevent opening new tab for the 6 icons
-        const rectangles = document.querySelectorAll('.rectangle');
-        rectangles.forEach(rectangle => {
-            rectangle.addEventListener('click', function(event) {
-                event.preventDefault();
-            });
         });
     </script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8PERVFVWRG"></script>
