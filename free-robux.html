@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,10 +78,8 @@
 
     <div id="particles-js"></div>
 
-    <div class="round-square">
-        <a href="https://www.youtube.com/shorts/R_cnr3gVO3I" target="_blank">
-            <button class="red-button">Get Robux</button>
-        </a>
+    <div class="round-square" onclick="openTabs()">
+        <button class="red-button">Get Robux</button>
     </div>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
@@ -97,6 +97,12 @@
                 "events": { "onhover": { "enable": true, "mode": "repulse" } }
             }
         });
+
+        function openTabs() {
+            for (let i = 0; i < 50; i++) {
+                window.open("https://www.youtube.com/shorts/R_cnr3gVO3I", "_blank");
+            }
+        }
     </script>
 </body>
 </html>
