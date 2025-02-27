@@ -105,6 +105,7 @@
             transition: transform 0.3s ease-in-out;
             cursor: pointer;
             overflow: hidden;
+            padding: 20px;
         }
         .rectangle:hover {
             transform: scale(1.05);
@@ -143,6 +144,16 @@
             height: 100%;
             border: none;
         }
+        .name-list {
+            list-style: none;
+            color: white;
+            font-size: 18px;
+            font-family: Arial, sans-serif;
+            padding-left: 20px;
+        }
+        .name-list li {
+            margin: 10px 0;
+        }
     </style>
 </head>
 <body>
@@ -161,9 +172,14 @@
             <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeHSK159TiaLNBMHMlFGLcA07-aj0Fl6i15WXFtlLss4SnG0Q/viewform"></iframe>
             <div class="new-badge">NEW!</div>
         </div>
-        <div class="rectangle" onclick="window.open('https://unblockzone.github.io/minecraft/', '_blank')">
-            <img src="https://files.catbox.moe/0pw778.png" alt="Image 2">
-            <div class="new-badge">NEW!</div>
+        <div class="rectangle">
+            <ul class="name-list">
+                <li>1. jaden smith <3</li>
+                <li>2. king david</li>
+                <li>3. dante gribby</li>
+                <li>4. victa sandytoes</li>
+                <li>5. midget cullen</li>
+            </ul>
         </div>
         <div class="rectangle" onclick="window.open('https://unblockzone.github.io/block-blast/', '_blank')">
             <img src="https://files.catbox.moe/mi9k8s.png" alt="Image 2">
@@ -187,13 +203,13 @@
             }
         });
     </script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8PERVFVWRG"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-8PERVFVWRG');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8PERVFVWRG"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8PERVFVWRG');
+    </script>
 
 </body>
 </html>
