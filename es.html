@@ -138,33 +138,30 @@
             box-shadow: 0 0 20px #28a745;
         }
 
-        /* Popup Styling */
-        #leaderboard-popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 30px;
-            border-radius: 15px;
-            width: 600px;
-            height: 300px;
-            text-align: center;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
-            z-index: 10;
-        }
-
-        #leaderboard-overlay {
-            display: none;
+        /* Popup styles */
+        .popup-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: 5;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .popup {
+            background-color: black;
+            border-radius: 20px;
+            width: 500px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            text-align: center;
         }
     </style>
 </head>
@@ -173,9 +170,7 @@
     <div class="coolBlobIdk"></div>
     <div class="title">extra stuff</div>
     <div class="icons">
-        <div class="icon-container" id="leaderboard-icon">
-            <img src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" alt="Games" class="icon">
-        </div>
+        <a href="https://example.com/games" target="_blank" class="icon-container"><img src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" alt="Games" class="icon"></a>
         <a href="https://example.com/apps" target="_blank" class="icon-container"><img src="https://img.icons8.com/ios7/600/FFFFFF/apple-app-store--v2.png" alt="Apps" class="icon"></a>
         <a href="https://example.com/exploits" target="_blank" class="icon-container"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" alt="Exploits" class="icon"></a>
         <a href="https://example.com/extras" target="_blank" class="icon-container"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRclWJCEIPuuU-0DeRx9HfoSWM4y8Ei59lGhQ&s" alt="Extras" class="icon"></a>
@@ -195,42 +190,43 @@
             <div class="new-badge">NEW!</div>
         </div>
     </div>
-    <div id="leaderboard-overlay"></div>
-    <div id="leaderboard-popup">
-        <h2>Leaderboard</h2>
-        <p>Here are the top scores:</p>
-        <!-- List of top scores here -->
-        <button onclick="closeLeaderboard()">Close</button>
+     <div class="rectangle-container">
+        <div class="rectangle" onclick="window.open('https://unblockzone.github.io/fruit-ninja/', '_blank')">
+            <img src="https://files.catbox.moe/0pw778.png" alt="Image 2">
+            <div class="new-badge">NEW!</div>
+        </div>
+        <div class="rectangle" onclick="window.open('https://unblockzone.github.io/crossy-road/', '_blank')">
+            <img src="https://files.catbox.moe/mi9k8s.png" alt="Image 2">
+            <div class="new-badge">NEW!</div>
+        </div>
+        <div class="rectangle" onclick="window.open('https://unblockzone.github.io/monkey-mart/', '_blank')">
+            <img src="https://files.catbox.moe/urkbcn.png" alt="Image 2">
+            <div class="new-badge">NEW!</div>
+        </div>
     </div>
-   
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <!-- Popup for leaderboard -->
+    <div id="leaderboard-popup" class="popup-overlay">
+        <div class="popup">
+            <p>Leaderboard Content Here</p>
+        </div>
+    </div>
+
     <script>
-        particlesJS("particles-js", {
-            "particles": {
-                "number": { "value": 100, "density": { "enable": false } },
-                "color": { "value": "#aaa" },
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.5, "random": true },
-                "size": { "value": 4, "random": true },
-                "move": { "enable": true, "speed": 8, "direction": "random" }
-            },
-            "interactivity": {
-                "events": { "onhover": { "enable": true, "mode": "repulse" } }
+        // Open leaderboard popup when the first icon is clicked
+        document.querySelectorAll('.icon-container')[0].addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent the default behavior of the link
+            document.getElementById('leaderboard-popup').style.display = 'flex'; // Show the popup
+        });
+
+        // Close the leaderboard popup when clicking outside the popup
+        document.getElementById('leaderboard-popup').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.style.display = 'none'; // Hide the popup
             }
         });
-
-        // Open Leaderboard Popup
-        document.getElementById('leaderboard-icon').addEventListener('click', function() {
-            document.getElementById('leaderboard-popup').style.display = 'block';
-            document.getElementById('leaderboard-overlay').style.display = 'block';
-        });
-
-        // Close Leaderboard Popup
-        function closeLeaderboard() {
-            document.getElementById('leaderboard-popup').style.display = 'none';
-            document.getElementById('leaderboard-overlay').style.display = 'none';
-        }
     </script>
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8PERVFVWRG"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
