@@ -1,4 +1,4 @@
-importScripts("/ubzv3.github.io/active/uv/uv.sw.js");
+importScripts("/unblockzone.github.io/active/uv/uv.sw.js");
 
 const sw = new UVServiceWorker();
 
