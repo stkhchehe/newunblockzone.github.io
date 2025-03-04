@@ -1,5 +1,5 @@
 "use strict";
-let destination = "";
+let destination = "/uv/uv.sw.js";
 
 try {
   destination = new URL(location.hash.slice(1)).toString();
