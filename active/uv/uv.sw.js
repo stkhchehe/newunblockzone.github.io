@@ -1,5 +1,5 @@
-importScripts('/ubzv3.github.io/active/uv/uv.bundle.js');
-importScripts('/ubzv3.github.io/active/uv/uv.config.js');
+importScripts('/unblockzone.github.io/active/uv/uv.bundle.js');
+importScripts('/unblockzone.github.io/active/uv/uv.config.js');
 
 class UVServiceWorker extends EventEmitter {     
     constructor(config = __uv$config) {
