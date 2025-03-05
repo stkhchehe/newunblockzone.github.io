@@ -2,7 +2,7 @@
 /**
  * Distributed with Ultraviolet and compatible with most configurations.
  */
-const stockSW = "/active/uv/uv.sw.js";
+const stockSW = "/active/uv-sw.js";
 
 /**
  * List of hostnames that are allowed to run serviceworkers on http:
@@ -24,5 +24,7 @@ async function registerSW() {
     throw new Error("Your browser doesn't support service workers.");
 
   // Ultraviolet has a stock `sw.js` script.
-  await navigator.serviceWorker.register(stockSW,{scope:"/active/uv/"});
+  await navigator.serviceWorker.register(stockSW, {
+    scope: __uv$config.prefix,
+  });
 }
