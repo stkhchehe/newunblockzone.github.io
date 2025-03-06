@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -154,6 +156,62 @@
             height: 100%;
             border: none;
         }
+        .name-list {
+            list-style: none;
+            color: white;
+            font-size: 18px;
+            font-family: Arial, sans-serif;
+            padding-left: 20px;
+            margin-top: 40px; /* Added margin to move the list down */
+        }
+        .name-list li {
+            margin: 10px 0;
+            font-weight: bold; /* Make text bold */
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.9); /* Glowing effect */
+        }
+        .hall-of-fame-header {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 30px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+            text-align: center;
+        }
+        .updates-header {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 30px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+            text-align: center;
+        }
+        .version-text {
+            font-size: 30px;
+            color: white;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+            text-align: center;
+            margin-top: 40px; /* Increased margin to move it down */
+        }
+        .update-line {
+            width: 80%;
+            border-top: 3px solid white;
+            margin: 20px auto;
+        }
+        .update-details {
+            font-size: 18px;
+            color: white;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+            text-align: center;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -163,6 +221,9 @@
     <div class="icons">
         <a href="https://unblockzone.github.io/g.html" target="_blank" class="icon-container"><img src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" alt="Games" class="icon"></a>
         <a href="https://unblockzone.github.io/a.html" target="_blank" class="icon-container"><img src="https://img.icons8.com/ios7/600/FFFFFF/apple-app-store--v2.png" alt="Apps" class="icon"></a>
+        <a href="https://unblockzone.github.io/e.html" target="_blank" class="icon-container"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" alt="Exploits" class="icon"></a>
+        <a href="https://unblockzone.github.io/es.html" target="_blank" class="icon-container"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRclWJCEIPuuU-0DeRx9HfoSWM4y8Ei59lGhQ&s" alt="Extras" class="icon"></a>
+        <a href="https://unblockzone.github.io/s.html" target="_blank" class="icon-container"><img src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" alt="Settings" class="icon"></a>
     </div>
     <div class="rectangle-container">
         <div class="rectangle">
@@ -177,12 +238,16 @@
                 <li>3. dante gribby 🤓</li>
                 <li>4. victa sandytoes 🦶</li>
                 <li>5. midget cullen 🧌</li>
-                <li>6. placeholder</li>
             </ul>
         </div>
         <div class="rectangle">
-            <iframe src="https://example.com"></iframe>
-            <div class="new-badge">NEW!</div>
+            <div class="updates-header">updates</div>
+            <div class="version-text">version 3</div>
+            <div class="update-line"></div>
+            <div class="update-details">
+                - welcome to version 3!<br>
+                added 8 games, 6 apps, and more!
+            </div>
         </div>
     </div>
    
@@ -201,6 +266,13 @@
                 "events": { "onhover": { "enable": true, "mode": "repulse" } }
             }
         });
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8PERVFVWRG"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8PERVFVWRG');
     </script>
 </body>
 </html>
