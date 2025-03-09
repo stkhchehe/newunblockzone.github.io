@@ -31,8 +31,8 @@
         }
 
         .movie-box {
-            width: 960px; /* Slightly smaller width */
-            height: 500px; /* Slightly shorter height */
+            width: 1100px; /* Bigger movie box */
+            height: 600px; /* Taller movie box */
             background: rgba(255, 255, 255, 0.1);
             border-radius: 20px;
             backdrop-filter: blur(10px);
@@ -49,21 +49,23 @@
         }
 
         .small-box {
-            width: 85%;
-            height: 80px;
+            width: 1100px; /* Same width as movie box */
+            height: 100px; /* Increased height to fit icons */
             background: rgba(255, 255, 255, 0.1);
             border-radius: 20px;
-            margin-top: 40px;
+            margin-top: 20px;
             box-shadow: 0 0 4px 2px white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .icon-container {
             display: flex;
-            flex-direction: row; /* Icons in a row */
+            flex-direction: row;
             justify-content: center;
             align-items: center;
-            gap: 15px;
-            margin-top: 30px;
+            gap: 20px;
         }
 
         .icon {
@@ -97,14 +99,14 @@
         <iframe src="https://example.com"></iframe>
     </div>
 
-    <div class="small-box"></div>
-
-    <div class="icon-container">
-        <div class="icon"><img src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" alt="Icon 1"></div>
-        <div class="icon"><img src="https://img.icons8.com/ios7/600/FFFFFF/apple-app-store--v2.png" alt="Icon 2"></div>
-        <div class="icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" alt="Icon 3"></div>
-        <div class="icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRclWJCEIPuuU-0DeRx9HfoSWM4y8Ei59lGhQ&s" alt="Icon 4"></div>
-        <div class="icon"><img src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" alt="Icon 5"></div>
+    <div class="small-box">
+        <div class="icon-container">
+            <div class="icon"><img src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" alt="Icon 1"></div>
+            <div class="icon"><img src="https://img.icons8.com/ios7/600/FFFFFF/apple-app-store--v2.png" alt="Icon 2"></div>
+            <div class="icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" alt="Icon 3"></div>
+            <div class="icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRclWJCEIPuuU-0DeRx9HfoSWM4y8Ei59lGhQ&s" alt="Icon 4"></div>
+            <div class="icon"><img src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" alt="Icon 5"></div>
+        </div>
     </div>
 
     <script>
