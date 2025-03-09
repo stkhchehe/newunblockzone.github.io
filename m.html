@@ -1,115 +1,194 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sonic 3</title>
-    <link rel="icon" href="https://files.catbox.moe/ao6qv3.png">
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <title>movies</title>
+    <link rel="icon" href="https://files.catbox.moe/ao6qv3.png" type="image/png">
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SZN69N4SEF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SZN69N4SEF');
+</script>
+    
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
-            background: black;
-            overflow: hidden;
+            background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROdNIejFmjeKC5u6Xq2yqOCa5y-uJseTCTfA&s') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-
-        #particles-js {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-
-        .movie-box {
-            width: 85%; /* Slightly smaller */
-            height: 70vh; /* Adjusted height */
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 30px;
-            backdrop-filter: blur(10px);
-            overflow: hidden;
+            color: white;
+            font-family: Arial, sans-serif;
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
             position: relative;
-            top: 2vh; /* Moved down */
-            box-shadow: 0 0 8px 2px white; /* Softer glow */
+            overflow-x: hidden;
+            overflow-y: auto;
         }
-
-        .movie-box iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
-
-        .small-box {
-            width: 85%; /* Matches movie box */
-            height: 80px; /* Adjusted size */
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            margin-top: 40px; /* Adjusted spacing */
-            box-shadow: 0 0 4px 2px white; /* Softer glow */
-        }
-
-        .round-square-container {
+        .icons {
             display: flex;
-            justify-content: space-around;
-            width: 85%; /* Same width as movie box */
-            margin-top: 20px; /* Space above the squares */
+            gap: 10px;
+            margin-top: 10px;
         }
-
-        .round-square {
+        .icon-container {
             width: 60px;
             height: 60px;
             background-color: black;
             border-radius: 15px;
             display: flex;
-            justify-content: center;
             align-items: center;
-            box-shadow: 0 0 5px 2px white;
+            justify-content: center;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            box-shadow: 0 0 10px white;
         }
-
-        .round-square img {
-            width: 50px;
-            height: 50px;
-            object-fit: contain;
+        .icon-container:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 20px white;
+        }
+        .icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .coolBlobIdk {
+            position: fixed;
+            bottom: -30%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(50, 50, 50, 0.8), rgba(200, 200, 200, 0.6));
+            border-radius: 50%;
+            filter: blur(100px);
+            box-shadow: 0 0 120px rgba(200, 200, 200, 0.5);
+        }
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .title {
+            margin-top: 100px;
+            font-size: 48px;
+            font-weight: bold;
+            text-transform: lowercase;
+            color: white;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+        .title:hover {
+            transform: scale(1.2);
+        }
+        .rectangle-container {
+            display: flex;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .rectangle {
+            width: 400px;
+            height: 250px;
+            background-color: black;
+            border-radius: 15px;
+            box-shadow: 0 0 20px white;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+        .rectangle:hover {
+            transform: scale(1.05);
+        }
+        .rectangle img {
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+            object-fit: cover;
+            transition: filter 0.3s ease-in-out;
+        }
+        .rectangle:hover img {
+            filter: blur(5px) brightness(0.5);
+        }
+        .game-name {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            color: white;
+            text-align: left;
+            font-weight: bold;
+            letter-spacing: -0.5px;
+            text-transform: lowercase;
+        }
+        .rectangle:hover .game-name {
+            opacity: 1;
         }
     </style>
 </head>
 <body>
     <div id="particles-js"></div>
-
-    <div class="movie-box">
-        <!-- Embed a website here -->
-        <iframe src="https://example.com"></iframe>
+    <div class="coolBlobIdk"></div>
+    <div class="title">movies</div>
+    <div class="icons">
+        <a href="/g.html" target="_blank" class="icon-container"><img src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" alt="Games" class="icon"></a>
+        <a href="/a.html" target="_blank" class="icon-container"><img src="https://img.icons8.com/ios7/600/FFFFFF/apple-app-store--v2.png" alt="Apps" class="icon"></a>
+        <a href="/e.html" target="_blank" class="icon-container"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" alt="Exploits" class="icon"></a>
+        <a href="/es.html" target="_blank" class="icon-container"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRclWJCEIPuuU-0DeRx9HfoSWM4y8Ei59lGhQ&s" alt="Extras" class="icon"></a>
+        <a href="/s.html" target="_blank" class="icon-container"><img src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" alt="Settings" class="icon"></a>
     </div>
-
-    <div class="small-box"></div>
-
-    <div class="round-square-container">
-        <div class="round-square">
-            <img src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" alt="Controller">
+    <div class="rectangle-container">
+        <div class="rectangle" onclick="window.open('/m/sonic-3', '_blank')">
+            <img src="https://thecollision.org/wp-content/uploads/2024/12/sonic3.png" alt="Image 2">
+            <div class="game-name">sonic 3</div>
         </div>
-        <div class="round-square">
-            <img src="https://img.icons8.com/ios7/600/FFFFFF/apple-app-store--v2.png" alt="App Store">
+        <div class="rectangle" onclick="window.open('/m/mufasa.html', '_blank')">
+            <img src="https://imageio.forbes.com/specials-images/imageserve/6761147587d60cfb84d67f9a/0x0.jpg?format=jpg&crop=1067,600,x428,y32,safe&height=900&width=1600&fit=bounds" alt="Image 2">
+            <div class="game-name">mufasa</div>
         </div>
-        <div class="round-square">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" alt="Image 3">
-        </div>
-        <div class="round-square">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRclWJCEIPuuU-0DeRx9HfoSWM4y8Ei59lGhQ&s" alt="Image 4">
-        </div>
-        <div class="round-square">
-            <img src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" alt="Settings">
+        <div class="rectangle" onclick="window.open('/m/dog-man.html', '_blank')">
+            <img src="https://i.ytimg.com/vi/Q-WfNyWD0G4/maxresdefault.jpg" alt="Image 2">
+            <div class="game-name">dog man</div>
         </div>
     </div>
-
+     <div class="rectangle-container">
+        <div class="rectangle" onclick="window.open('/m/red-one.html', '_blank')">
+            <img src="https://imageio.forbes.com/specials-images/imageserve/672c2af2bda2257051870763/-Red-One--partial-poster-/0x0.jpg?format=jpg&crop=700,393,x28,y1,safe&width=960" alt="Image 2">
+            <div class="game-name">red one</div>
+        </div>
+        <div class="rectangle" onclick="window.open('/m/minions.html', '_blank')">
+            <img src="https://beam-images.warnermediacdn.com/BEAM_LWM_DELIVERABLES/fbfbab30-db58-4d1b-9a42-1c9cf1dc9714/a7605f6de6861606ff71dc427baed019ba464943.jpg?host=wbd-images.prod-vod.h264.io&partner=beamcom" alt="Image 2">
+            <div class="game-name">minions</div>
+        </div>
+        <div class="rectangle" onclick="window.open('/m/moana-2.html', '_blank')">
+            <img src="https://barronperspective.org/wp-content/uploads/2024/12/moana2.jpg" alt="Image 2">
+            <div class="game-name">moana 2</div>
+        </div>
+     </div>
+   
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         particlesJS("particles-js", {
             "particles": {
@@ -125,5 +204,8 @@
             }
         });
     </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8PERVFVWRG"></script>
+    
+</script>
 </body>
 </html>
