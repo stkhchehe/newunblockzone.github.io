@@ -56,9 +56,10 @@
             margin-top: 40px;
             box-shadow: 0 0 4px 2px white;
             display: flex;
-            justify-content: space-around;
+            justify-content: flex-start;
             align-items: center;
             padding: 10px;
+            gap: 10px;
         }
 
         .icon {
@@ -70,6 +71,12 @@
             justify-content: center;
             align-items: center;
             box-shadow: 0 0 4px 1px white;
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .icon:hover {
+            transform: scale(1.2);
         }
 
         .icon img {
@@ -86,11 +93,11 @@
     </div>
 
     <div class="small-box">
-        <div class="icon"><img src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" alt="Icon 1"></div>
-        <div class="icon"><img src="https://img.icons8.com/ios7/600/FFFFFF/apple-app-store--v2.png" alt="Icon 2"></div>
-        <div class="icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" alt="Icon 3"></div>
-        <div class="icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRclWJCEIPuuU-0DeRx9HfoSWM4y8Ei59lGhQ&s" alt="Icon 4"></div>
-        <div class="icon"><img src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" alt="Icon 5"></div>
+        <a href="https://example1.com" target="_blank" class="icon"><img src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" alt="Icon 1"></a>
+        <a href="https://example2.com" target="_blank" class="icon"><img src="https://img.icons8.com/ios7/600/FFFFFF/apple-app-store--v2.png" alt="Icon 2"></a>
+        <a href="https://example3.com" target="_blank" class="icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" alt="Icon 3"></a>
+        <a href="https://example4.com" target="_blank" class="icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRclWJCEIPuuU-0DeRx9HfoSWM4y8Ei59lGhQ&s" alt="Icon 4"></a>
+        <a href="https://example5.com" target="_blank" class="icon"><img src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" alt="Icon 5"></a>
     </div>
 
     <script>
