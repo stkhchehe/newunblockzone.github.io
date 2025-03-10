@@ -168,16 +168,24 @@
         // Mute functionality for the 6th icon (mute-icon)
         let isMuted = false;
         const muteIcon = document.getElementById('mute-icon');
+        const muteIconImage = muteIcon.querySelector('img');
 
         muteIcon.addEventListener('click', () => {
             isMuted = !isMuted;
+
             if (isMuted) {
+                // Change icon to muted version
+                muteIconImage.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2A0_oSe4co7qk8Ps88FqVqR8kKyMK0HCV5A&s";
+
                 // Mute all audio elements on the page
                 const audioElements = document.querySelectorAll('audio');
                 audioElements.forEach(audio => {
                     audio.muted = true;
                 });
             } else {
+                // Change icon to unmuted version
+                muteIconImage.src = "https://img.icons8.com/m_rounded/512/FFFFFF/settings.png";
+
                 // Unmute all audio elements on the page
                 const audioElements = document.querySelectorAll('audio');
                 audioElements.forEach(audio => {
