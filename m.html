@@ -147,22 +147,24 @@
         }
 
         /* Hidden 3rd row */
-        .third-row {
+        .secret-row {
             display: none;
-            margin-top: 40px;
         }
 
-        /* Secret button */
+        /* Secret button (black circle) */
         .secret-button {
             position: fixed;
-            bottom: 10px;
-            left: 10px;
-            width: 20px;
-            height: 20px;
+            bottom: 20px;
+            left: 20px;
+            width: 30px;
+            height: 30px;
             background-color: black;
             border-radius: 50%;
+            box-shadow: 0 0 10px white;
             cursor: pointer;
-            z-index: 1000;
+        }
+        .secret-button:hover {
+            box-shadow: 0 0 20px white;
         }
     </style>
 </head>
@@ -206,24 +208,24 @@
         </div>
      </div>
 
-    <!-- Hidden third row -->
-    <div class="third-row rectangle-container">
+    <!-- Secret 3rd Row -->
+    <div class="rectangle-container secret-row" id="secretRow">
         <div class="rectangle" onclick="window.open('/m/secret-movie-1.html', '_blank')">
             <img src="https://via.placeholder.com/400x250" alt="Secret Movie 1">
-            <div class="game-name">secret movie 1</div>
+            <div class="game-name">Secret Movie 1</div>
         </div>
         <div class="rectangle" onclick="window.open('/m/secret-movie-2.html', '_blank')">
             <img src="https://via.placeholder.com/400x250" alt="Secret Movie 2">
-            <div class="game-name">secret movie 2</div>
+            <div class="game-name">Secret Movie 2</div>
         </div>
         <div class="rectangle" onclick="window.open('/m/secret-movie-3.html', '_blank')">
             <img src="https://via.placeholder.com/400x250" alt="Secret Movie 3">
-            <div class="game-name">secret movie 3</div>
+            <div class="game-name">Secret Movie 3</div>
         </div>
     </div>
 
-    <!-- Secret button to reveal the 3rd row -->
-    <div class="secret-button" onclick="document.querySelector('.third-row').style.display = 'flex';"></div>
+    <!-- Secret Button -->
+    <div class="secret-button" onclick="toggleSecretRow()"></div>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
@@ -240,6 +242,11 @@
                 "events": { "onhover": { "enable": true, "mode": "repulse" } }
             }
         });
+
+        function toggleSecretRow() {
+            var secretRow = document.getElementById("secretRow");
+            secretRow.style.display = secretRow.style.display === "flex" ? "none" : "flex";
+        }
     </script>
 </body>
 </html>
