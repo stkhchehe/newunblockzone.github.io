@@ -31,8 +31,8 @@
         }
 
         .movie-box {
-            width: 700px; /* Smaller width */
-            height: 350px; /* Smaller height */
+            width: 700px;
+            height: 350px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 30px;
             backdrop-filter: blur(10px);
@@ -49,15 +49,15 @@
         }
 
         .small-box {
-            width: 850px; /* A little smaller */
-            height: 140px; /* A little smaller */
+            width: 850px;
+            height: 140px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 30px;
             margin-top: 0px;
             box-shadow: 0 0 4px 2px white;
             display: flex;
             align-items: center;
-            justify-content: space-between; /* Align icons on both sides */
+            justify-content: space-between;
             padding-left: 10px;
             padding-right: 10px;
         }
@@ -84,7 +84,7 @@
 
         .icon:hover {
             box-shadow: 0 0 8px 2px white;
-            transform: scale(1.2); /* Zoom in on hover */
+            transform: scale(1.2);
         }
 
         .icon img {
@@ -96,7 +96,7 @@
         .extra-icons {
             display: flex;
             flex-direction: row;
-            justify-content: flex-end; /* Align extra icons to the right */
+            justify-content: flex-end;
             align-items: center;
             gap: 8px;
         }
@@ -115,7 +115,7 @@
 
         .extra-icons .icon:hover {
             box-shadow: 0 0 8px 2px white;
-            transform: scale(1.2); /* Zoom in on hover */
+            transform: scale(1.2);
         }
     </style>
 </head>
@@ -132,7 +132,9 @@
             <div class="icon"><img src="https://img.icons8.com/ios7/600/FFFFFF/apple-app-store--v2.png" alt="Icon 2"></div>
             <div class="icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" alt="Icon 3"></div>
             <div class="icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRclWJCEIPuuU-0DeRx9HfoSWM4y8Ei59lGhQ&s" alt="Icon 4"></div>
-            <div class="icon"><img src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" alt="Icon 5"></div>
+            <div class="icon" id="mute-icon">
+                <img src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" alt="Mute Icon">
+            </div>
         </div>
 
         <div class="extra-icons">
@@ -153,15 +155,36 @@
             },
             "interactivity": {
                 "events": { 
-                    "onhover": { 
-                        "enable": true, 
-                        "mode": "repulse" 
-                    },
-                    "onmousemove": { 
-                        "enable": true, 
-                        "mode": "grab"
-                    }
+                    "onhover": { "enable": true, "mode": "repulse" },
+                    "onmousemove": { "enable": true, "mode": "grab" }
                 }
+            }
+        });
+
+        // Mute functionality
+        let isMuted = false;
+        const muteIcon = document.getElementById('mute-icon');
+        const muteIconImage = muteIcon.querySelector('img');
+
+        muteIcon.addEventListener('click', () => {
+            isMuted = !isMuted;
+
+            if (isMuted) {
+                // Change icon to muted version
+                muteIconImage.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2A0_oSe4co7qk8Ps88FqVqR8kKyMK0HCV5A&s";
+
+                // Mute all audio elements on the page
+                document.querySelectorAll("audio, video").forEach(media => {
+                    media.muted = true;
+                });
+            } else {
+                // Change icon to unmuted version
+                muteIconImage.src = "https://img.icons8.com/m_rounded/512/FFFFFF/settings.png";
+
+                // Unmute all audio elements on the page
+                document.querySelectorAll("audio, video").forEach(media => {
+                    media.muted = false;
+                });
             }
         });
     </script>
