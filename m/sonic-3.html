@@ -132,8 +132,9 @@
             <div class="icon"><img src="https://img.icons8.com/ios7/600/FFFFFF/apple-app-store--v2.png" alt="Icon 2"></div>
             <div class="icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" alt="Icon 3"></div>
             <div class="icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRclWJCEIPuuU-0DeRx9HfoSWM4y8Ei59lGhQ&s" alt="Icon 4"></div>
+            <div class="icon"><img src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" alt="Icon 5"></div>
             <div class="icon" id="mute-icon">
-                <img src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" alt="Mute Icon">
+                <img src="https://img.icons8.com/m_rounded/512/FFFFFF/volume-up.png" alt="Mute Icon">
             </div>
         </div>
 
@@ -178,8 +179,8 @@
                     media.muted = true;
                 });
             } else {
-                // Change icon to unmuted version
-                muteIconImage.src = "https://img.icons8.com/m_rounded/512/FFFFFF/settings.png";
+                // Change icon back to unmuted version
+                muteIconImage.src = "https://img.icons8.com/m_rounded/512/FFFFFF/volume-up.png";
 
                 // Unmute all audio elements on the page
                 document.querySelectorAll("audio, video").forEach(media => {
