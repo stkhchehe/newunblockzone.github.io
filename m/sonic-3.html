@@ -122,17 +122,17 @@
 <body>
     <div id="particles-js"></div>
 
-    <div class="movie-box" id="movie-box">
-        <iframe src="https://example.com" id="movie-iframe"></iframe>
+    <div class="movie-box">
+        <iframe src="https://example.com"></iframe>
     </div>
 
     <div class="small-box">
         <div class="icon-container">
-            <div class="icon" id="icon-1"><img src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" alt="Icon 1"></div>
-            <div class="icon" id="icon-2"><img src="https://img.icons8.com/ios7/600/FFFFFF/apple-app-store--v2.png" alt="Icon 2"></div>
-            <div class="icon" id="icon-3"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" alt="Icon 3"></div>
-            <div class="icon" id="icon-4"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRclWJCEIPuuU-0DeRx9HfoSWM4y8Ei59lGhQ&s" alt="Icon 4"></div>
-            <div class="icon" id="mute-icon"><img src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" alt="Icon 5"></div>
+            <div class="icon"><img src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" alt="Icon 1"></div>
+            <div class="icon"><img src="https://img.icons8.com/ios7/600/FFFFFF/apple-app-store--v2.png" alt="Icon 2"></div>
+            <div class="icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" alt="Icon 3"></div>
+            <div class="icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRclWJCEIPuuU-0DeRx9HfoSWM4y8Ei59lGhQ&s" alt="Icon 4"></div>
+            <div class="icon"><img src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" alt="Icon 5"></div>
         </div>
 
         <div class="extra-icons">
@@ -163,56 +163,6 @@
                     }
                 }
             }
-        });
-
-        // Mute functionality for the 6th icon (mute-icon)
-        let isMuted = false;
-        const muteIcon = document.getElementById('mute-icon');
-        const muteIconImage = muteIcon.querySelector('img');
-
-        muteIcon.addEventListener('click', () => {
-            isMuted = !isMuted;
-
-            if (isMuted) {
-                // Change icon to muted version
-                muteIconImage.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2A0_oSe4co7qk8Ps88FqVqR8kKyMK0HCV5A&s";
-
-                // Mute all audio elements on the page
-                const audioElements = document.querySelectorAll('audio');
-                audioElements.forEach(audio => {
-                    audio.muted = true;
-                });
-            } else {
-                // Change icon to unmuted version
-                muteIconImage.src = "https://img.icons8.com/m_rounded/512/FFFFFF/settings.png";
-
-                // Unmute all audio elements on the page
-                const audioElements = document.querySelectorAll('audio');
-                audioElements.forEach(audio => {
-                    audio.muted = false;
-                });
-            }
-        });
-
-        // Adding links to the first 5 icons
-        document.getElementById('icon-1').addEventListener('click', () => {
-            window.location.href = 'https://www.example.com/link1'; // Add your link here
-        });
-
-        document.getElementById('icon-2').addEventListener('click', () => {
-            window.location.href = 'https://www.example.com/link2'; // Add your link here
-        });
-
-        document.getElementById('icon-3').addEventListener('click', () => {
-            window.location.href = 'https://www.example.com/link3'; // Add your link here
-        });
-
-        document.getElementById('icon-4').addEventListener('click', () => {
-            window.location.href = 'https://www.example.com/link4'; // Add your link here
-        });
-
-        document.getElementById('mute-icon').addEventListener('click', () => {
-            window.location.href = 'https://www.example.com/link5'; // Add your link here
         });
     </script>
 </body>
