@@ -49,39 +49,40 @@
         }
 
         .small-box {
-            width: 900px; /* Smaller width */
-            height: 150px; /* Smaller height */
+            width: 850px; /* A little smaller */
+            height: 140px; /* A little smaller */
             background: rgba(255, 255, 255, 0.1);
             border-radius: 30px;
             margin-top: 0px;
             box-shadow: 0 0 4px 2px white;
             display: flex;
             align-items: center;
-            padding-left: 10px; /* Less padding to move icons closer */
+            padding-left: 10px;
         }
 
         .icon-container {
             display: flex;
             flex-direction: row;
-            justify-content: flex-start; /* Align icons to the left */
+            justify-content: flex-start;
             align-items: center;
-            gap: 8px; /* Closer gap between icons */
+            gap: 8px;
         }
 
         .icon {
-            width: 90px; /* Smaller icon size */
-            height: 90px; 
+            width: 90px;
+            height: 90px;
             background: black;
             border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
             box-shadow: 0 0 4px 1px white;
-            transition: 0.3s ease-in-out;
+            transition: transform 0.3s ease-in-out;
         }
 
         .icon:hover {
             box-shadow: 0 0 8px 2px white;
+            transform: scale(1.2); /* Zoom in on hover */
         }
 
         .icon img {
@@ -119,7 +120,16 @@
                 "move": { "enable": true, "speed": 8, "direction": "random" }
             },
             "interactivity": {
-                "events": { "onhover": { "enable": true, "mode": "repulse" } }
+                "events": { 
+                    "onhover": { 
+                        "enable": true, 
+                        "mode": "repulse" 
+                    },
+                    "onmousemove": { 
+                        "enable": true, 
+                        "mode": "grab"
+                    }
+                }
             }
         });
     </script>
