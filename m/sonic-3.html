@@ -128,17 +128,16 @@
 
     <div class="small-box">
         <div class="icon-container">
-            <div class="icon"><img src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" alt="Icon 1"></div>
-            <div class="icon"><img src="https://img.icons8.com/ios7/600/FFFFFF/apple-app-store--v2.png" alt="Icon 2"></div>
-            <div class="icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" alt="Icon 3"></div>
-            <div class="icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRclWJCEIPuuU-0DeRx9HfoSWM4y8Ei59lGhQ&s" alt="Icon 4"></div>
+            <div class="icon" id="icon-1"><img src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" alt="Icon 1"></div>
+            <div class="icon" id="icon-2"><img src="https://img.icons8.com/ios7/600/FFFFFF/apple-app-store--v2.png" alt="Icon 2"></div>
+            <div class="icon" id="icon-3"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" alt="Icon 3"></div>
+            <div class="icon" id="icon-4"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRclWJCEIPuuU-0DeRx9HfoSWM4y8Ei59lGhQ&s" alt="Icon 4"></div>
             <div class="icon" id="mute-icon"><img src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" alt="Icon 5"></div>
         </div>
 
         <div class="extra-icons">
             <div class="icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsi175KrN0VbjpvjxLMdU5ry8uaIuFiAuzxQ&s" alt="Extra Icon 1"></div>
             <div class="icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmKFdCO9S9ltMXgR7ZhqcnrFO_WapCmLyVyQ&s" alt="Extra Icon 2"></div>
-            <!-- Removed 8th Icon -->
         </div>
     </div>
 
@@ -195,20 +194,25 @@
             }
         });
 
-        // Fullscreen functionality for the 7th icon (fullscreen-icon)
-        const fullscreenIcon = document.getElementById('fullscreen-icon');
-        const movieBox = document.getElementById('movie-box');
+        // Adding links to the first 5 icons
+        document.getElementById('icon-1').addEventListener('click', () => {
+            window.location.href = 'https://www.example.com/link1'; // Add your link here
+        });
 
-        fullscreenIcon.addEventListener('click', () => {
-            if (movieBox.requestFullscreen) {
-                movieBox.requestFullscreen();
-            } else if (movieBox.mozRequestFullScreen) { // Firefox
-                movieBox.mozRequestFullScreen();
-            } else if (movieBox.webkitRequestFullscreen) { // Chrome, Safari, Opera
-                movieBox.webkitRequestFullscreen();
-            } else if (movieBox.msRequestFullscreen) { // IE/Edge
-                movieBox.msRequestFullscreen();
-            }
+        document.getElementById('icon-2').addEventListener('click', () => {
+            window.location.href = 'https://www.example.com/link2'; // Add your link here
+        });
+
+        document.getElementById('icon-3').addEventListener('click', () => {
+            window.location.href = 'https://www.example.com/link3'; // Add your link here
+        });
+
+        document.getElementById('icon-4').addEventListener('click', () => {
+            window.location.href = 'https://www.example.com/link4'; // Add your link here
+        });
+
+        document.getElementById('mute-icon').addEventListener('click', () => {
+            window.location.href = 'https://www.example.com/link5'; // Add your link here
         });
     </script>
 </body>
