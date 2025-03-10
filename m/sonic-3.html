@@ -57,7 +57,9 @@
             box-shadow: 0 0 4px 2px white;
             display: flex;
             align-items: center;
+            justify-content: space-between; /* Align icons on both sides */
             padding-left: 10px;
+            padding-right: 10px;
         }
 
         .icon-container {
@@ -90,6 +92,31 @@
             height: 80%;
             object-fit: contain;
         }
+
+        .extra-icons {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end; /* Align extra icons to the right */
+            align-items: center;
+            gap: 8px;
+        }
+
+        .extra-icons .icon {
+            width: 90px;
+            height: 90px;
+            background: black;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 4px 1px white;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .extra-icons .icon:hover {
+            box-shadow: 0 0 8px 2px white;
+            transform: scale(1.2); /* Zoom in on hover */
+        }
     </style>
 </head>
 <body>
@@ -106,6 +133,11 @@
             <div class="icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" alt="Icon 3"></div>
             <div class="icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRclWJCEIPuuU-0DeRx9HfoSWM4y8Ei59lGhQ&s" alt="Icon 4"></div>
             <div class="icon"><img src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" alt="Icon 5"></div>
+        </div>
+
+        <div class="extra-icons">
+            <div class="icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsi175KrN0VbjpvjxLMdU5ry8uaIuFiAuzxQ&s" alt="Extra Icon 1"></div>
+            <div class="icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmKFdCO9S9ltMXgR7ZhqcnrFO_WapCmLyVyQ&s" alt="Extra Icon 2"></div>
         </div>
     </div>
 
