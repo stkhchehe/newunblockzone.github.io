@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shreks hotel</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://files.catbox.moe/ao6qv3.png" type="image/x-icon">
+
+    <style>
+        /* Style for full-page embedding */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #unity-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        canvas {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            cursor: default;
+        }
+
+        #unity-warning {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: red;
+            padding: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div id="unity-container">
+    <canvas id="unity-canvas"></canvas>
+    <div id="unity-loading-bar">
+        <div id="unity-progress-bar-empty">
+            <div id="unity-progress-bar-full"></div>
+        </div>
+    </div>
+</div>
+
+<script src="Build/SREK.loader.js"></script>
+<script>
+    const canvas = document.querySelector("#unity-canvas");
+    const loadingBar = document.querySelector("#unity-loading-bar");
+    const progressBarFull = document.querySelector("#unity-progress-bar-full");
+    const buildUrl = "Build";
+    const config = {
+        dataUrl: buildUrl + "/SREK.data.unityweb",
+        frameworkUrl: buildUrl + "/SREK.framework.js.unityweb",
+        codeUrl: buildUrl + "/SREK.wasm.unityweb",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "Evony Games",
+        productName: "Five Nights at Shrek's Hotel",
+        productVersion: "1.0",
+    };
+    loadingBar.style.display = "block";
+
+    createUnityInstance(canvas, config, (progress) => {
+        progressBarFull.style.width = (progress * 100) + "%";
+    }).then(() => {
+        loadingBar.style.display = "none";
+    }).catch((message) => {
+        alert("Failed to load game: " + message);
+    });
+    canvas.addEventListener('contextmenu', (e) => e.preventDefault());
+</script>
+
+</body>
+</html>
