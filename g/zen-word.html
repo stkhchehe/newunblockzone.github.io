@@ -1,58 +1,41 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="full-screen" content="yes"/>
+    <base href="https://cdn.jsdelivr.net/gh/genizy/braybray/zen-word/">
+    <meta name="screen-orientation" content="portrait"/>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width viewport-fit=cover">
+    
     <title>zen word</title>
 
     <!-- Favicon -->
     <link rel="icon" href="https://files.catbox.moe/ao6qv3.png" type="image/x-icon">
 
     <style>
-        /* Style for full-page embedding */
+        @font-face {
+            font-family: 'jose';
+            src: url('font/JosefinSans-Bold.ttf');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        /* Ensures full-page coverage */
         html, body {
             margin: 0;
             padding: 0;
-            height: 100%;
             overflow: hidden;
-        }
-
-        #unity-container {
-            position: absolute;
             width: 100%;
             height: 100%;
-        }
-
-        canvas {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            cursor: default;
-        }
-
-        #unity-warning {
-            position: absolute;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: red;
-            padding: 10px;
-            display: none;
         }
     </style>
 </head>
+<body>
+    <div id="ga_game"></div>
 
-<body style="margin:0; padding:0; overflow:hidden">
-	<div id="ga_game">
-
-    <!--<script type="text/javascript" src="cordova.js"></script>-->
-    <!--<script src="https://sdk.crazygames.com/crazygames-sdk-v1.js"></script>-->
-    <!--<script src="https://connect.facebook.net/en_US/fbinstant.6.2.js"></script>-->
-	
-	
-</style>
+    <!-- Load game scripts -->
+    <script src="js/phaser.js"></script>
+    <script src="js/myfile.min.js"></script>
 </body>
-<script src="js/phaser.js"></script>
-<script src="js/myfile.min.js"></script>
 </html>
