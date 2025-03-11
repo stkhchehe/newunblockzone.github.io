@@ -1,46 +1,15 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <base href="https://rawcdn.githack.com/genizy/braybray/2fca5187ab8cf3646bcfa5fc8bf90fbf9bd04df1/fnas-hotel2/">
     <title>shreks hotel</title>
 
     <!-- Favicon -->
     <link rel="icon" href="https://files.catbox.moe/ao6qv3.png" type="image/x-icon">
 
-    <style>
-        /* Style for full-page embedding */
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        #unity-container {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-        }
-
-        canvas {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            cursor: default;
-        }
-
-        #unity-warning {
-            position: absolute;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: red;
-            padding: 10px;
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" href="TemplateData/style.css">
 </head>
 <body>
 
@@ -59,6 +28,7 @@
     const loadingBar = document.querySelector("#unity-loading-bar");
     const progressBarFull = document.querySelector("#unity-progress-bar-full");
     const buildUrl = "Build";
+
     const config = {
         dataUrl: buildUrl + "/SREK.data.unityweb",
         frameworkUrl: buildUrl + "/SREK.framework.js.unityweb",
@@ -68,6 +38,7 @@
         productName: "Five Nights at Shrek's Hotel",
         productVersion: "1.0",
     };
+
     loadingBar.style.display = "block";
 
     createUnityInstance(canvas, config, (progress) => {
@@ -77,6 +48,8 @@
     }).catch((message) => {
         alert("Failed to load game: " + message);
     });
+
+    // Prevent right-click context menu
     canvas.addEventListener('contextmenu', (e) => e.preventDefault());
 </script>
 
