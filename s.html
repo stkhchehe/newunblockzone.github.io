@@ -119,7 +119,7 @@
             text-transform: lowercase;
         }
         .line {
-            width: 36%;
+            width: 36%; /* Shortened line to match "theme changer" text */
             height: 2px;
             background-color: white;
             margin: 10px 0;
@@ -144,20 +144,6 @@
             transform: scale(1.2);
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
         }
-        .color-circle:before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 60%);
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-        }
-        .color-circle:hover:before {
-            opacity: 1;
-        }
         .new-circle-1 { background-image: url('https://img.icons8.com/?size=512&id=oECahFP3ibID&format=png'); }
         .new-circle-2 { background-image: url('https://cdn.jim-nielsen.com/ios/512/duolingo-language-lessons-2023-06-22.png?rf=1024'); }
         .new-circle-3 { background-image: url('https://static-00.iconduck.com/assets.00/google-drive-icon-2048x2048-j5sa1hcp.png'); }
@@ -177,19 +163,26 @@
         <a href="https://unblockzone.github.io/s" target="_blank" class="icon-container"><img src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" alt="Settings" class="icon"></a>
     </div>
 
-    <!-- New Tab Cloaker Section -->
-    <div class="long-rectangle" style="margin-top: 40px; z-index: 1;">
+    <!-- Tab Cloaker Section -->
+    <div class="long-rectangle">
         <div class="long-rectangle-title">tab cloaker</div>
         <div class="line"></div>
         <div class="color-options">
-            <div class="color-circle new-circle-1"></div>
-            <div class="color-circle new-circle-2"></div>
-            <div class="color-circle new-circle-3"></div>
-            <div class="color-circle new-circle-4"></div>
-            <div class="color-circle new-circle-5"></div>
+            <div class="color-circle new-circle-1" onclick="cloakTab('Google Classroom', 'https://classroom.google.com')"></div>
+            <div class="color-circle new-circle-2" onclick="cloakTab('Duolingo', 'https://www.duolingo.com')"></div>
+            <div class="color-circle new-circle-3" onclick="cloakTab('Google Drive', 'https://drive.google.com')"></div>
+            <div class="color-circle new-circle-4" onclick="cloakTab('School Portal', 'https://mywakeid.wcpss.net')"></div>
+            <div class="color-circle new-circle-5" onclick="cloakTab('Homework', 'https://files.catbox.moe/ao6qv3.png')"></div>
         </div>
     </div>
     
+    <script>
+        function cloakTab(newTitle, newUrl) {
+            document.title = newTitle;
+            history.pushState({}, newTitle, newUrl);
+        }
+    </script>
+
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         particlesJS("particles-js", {
