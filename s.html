@@ -151,26 +151,39 @@
     <div class="coolBlobIdk"></div>
     <div class="title">settings</div>
 
-    <!-- New Tab Cloaker Section -->
-    <div class="long-rectangle" style="margin-top: 40px; z-index: 1;">
-        <div class="long-rectangle-title">tab cloaker</div>
-        <div class="line"></div>
-        <div class="color-options">
-            <div class="color-circle new-circle-1"></div>
-            <div class="color-circle new-circle-2"></div>
-            <div class="color-circle new-circle-3"></div>
-            <div class="color-circle new-circle-4"></div>
-            <div class="color-circle new-circle-5"></div>
-        </div>
+<!-- New Tab Cloaker Section -->
+<div class="long-rectangle" style="margin-top: 40px; z-index: 1;">
+    <div class="long-rectangle-title">tab cloaker</div>
+    <div class="line"></div>
+    <div class="color-options">
+        <div class="color-circle new-circle-1"></div>
+        <div class="color-circle new-circle-2"></div>
+        <div class="color-circle new-circle-3"></div>
+        <div class="color-circle new-circle-4"></div>
+        <div class="color-circle new-circle-5"></div>
     </div>
+</div>
+
+<script>
+    const tabNames = [
+        "Google", "YouTube", "Netflix", "Discord", "Spotify"
+    ];
     
-    <script>
-        document.querySelectorAll('.color-circle').forEach((circle, index) => {
-            circle.addEventListener('click', () => {
-                document.title = `Cloaked Tab ${index + 1}`;
-                document.querySelector("link[rel='icon']").href = `https://via.placeholder.com/32?text=${index + 1}`;
-            });
+    const tabIcons = [
+        "https://www.google.com/favicon.ico",
+        "https://www.youtube.com/s/desktop/7d7f2c5f/img/favicon.ico",
+        "https://assets.nflxext.com/us/ffe/siteui/common/icons/nficon2016.ico",
+        "https://discord.com/assets/847541504914fd33810e70a0ea73177e.ico",
+        "https://www.scdn.co/i/_global/favicon.ico"
+    ];
+    
+    document.querySelectorAll('.color-circle').forEach((circle, index) => {
+        circle.addEventListener('click', () => {
+            document.title = tabNames[index] || "Cloaked Tab";
+            document.querySelector("link[rel='icon']").href = tabIcons[index] || "https://via.placeholder.com/32";
         });
-    </script>
+    });
+</script>
+
 </body>
 </html>
