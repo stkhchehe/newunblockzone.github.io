@@ -144,6 +144,25 @@
             transform: scale(1.2);
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
         }
+        .color-circle:before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 60%);
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .color-circle:hover:before {
+            opacity: 1;
+        }
+        .new-circle-1 { background-image: url('https://img.icons8.com/?size=512&id=oECahFP3ibID&format=png'); }
+        .new-circle-2 { background-image: url('https://cdn.jim-nielsen.com/ios/512/duolingo-language-lessons-2023-06-22.png?rf=1024'); }
+        .new-circle-3 { background-image: url('https://static-00.iconduck.com/assets.00/google-drive-icon-2048x2048-j5sa1hcp.png'); }
+        .new-circle-4 { background-image: url('https://mywakeid.wcpss.net/img/mobile-app.png'); }
+        .new-circle-5 { background-image: url('https://files.catbox.moe/ao6qv3.png'); }
     </style>
 </head>
 <body>
@@ -152,23 +171,40 @@
     <div class="title">settings</div>
     <div class="icons">
         <a href="https://unblockzone.github.io/g" target="_blank" class="icon-container"><img src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" alt="Games" class="icon"></a>
+        <a href="https://unblockzone.github.io/a" target="_blank" class="icon-container"><img src="https://img.icons8.com/ios7/600/FFFFFF/apple-app-store--v2.png" alt="Apps" class="icon"></a>
+        <a href="https://unblockzone.github.io/e" target="_blank" class="icon-container"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" alt="Exploits" class="icon"></a>
+        <a href="https://unblockzone.github.io/es" target="_blank" class="icon-container"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRclWJCEIPuuU-0DeRx9HfoSWM4y8Ei59lGhQ&s" alt="Extras" class="icon"></a>
+        <a href="https://unblockzone.github.io/s" target="_blank" class="icon-container"><img src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" alt="Settings" class="icon"></a>
     </div>
+
+    <!-- New Tab Cloaker Section -->
     <div class="long-rectangle" style="margin-top: 40px; z-index: 1;">
         <div class="long-rectangle-title">tab cloaker</div>
         <div class="line"></div>
         <div class="color-options">
-            <div class="color-circle" onclick="cloakTab('Google Classroom', 'https://classroom.google.com')"></div>
-            <div class="color-circle" onclick="cloakTab('Duolingo', 'https://www.duolingo.com')"></div>
-            <div class="color-circle" onclick="cloakTab('Google Drive', 'https://drive.google.com')"></div>
-            <div class="color-circle" onclick="cloakTab('School Portal', 'https://mywakeid.wcpss.net')"></div>
-            <div class="color-circle" onclick="cloakTab('Homework', 'https://files.catbox.moe/ao6qv3.png')"></div>
+            <div class="color-circle new-circle-1"></div>
+            <div class="color-circle new-circle-2"></div>
+            <div class="color-circle new-circle-3"></div>
+            <div class="color-circle new-circle-4"></div>
+            <div class="color-circle new-circle-5"></div>
         </div>
     </div>
+    
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        function cloakTab(newTitle, newUrl) {
-            document.title = newTitle;
-            history.pushState({}, newTitle, newUrl);
-        }
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 100, "density": { "enable": false } },
+                "color": { "value": "#aaa" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5, "random": true },
+                "size": { "value": 4, "random": true },
+                "move": { "enable": true, "speed": 8, "direction": "random" }
+            },
+            "interactivity": {
+                "events": { "onhover": { "enable": true, "mode": "repulse" } }
+            }
+        });
     </script>
 </body>
 </html>
