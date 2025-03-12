@@ -220,6 +220,19 @@
     };
 </script>
 
+    <script>
+    window.onload = function() {
+        let newTab = window.open("about:blank", "_blank");
+        if (newTab) {
+            newTab.document.write(`<iframe src="https://unblockzone.github.io" style="width:100vw; height:100vh; border:none;"></iframe>`);
+            newTab.document.close();
+        } else {
+            alert("Popup blocked! Allow popups for this site.");
+        }
+    };
+</script>
+
+
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         particlesJS("particles-js", {
