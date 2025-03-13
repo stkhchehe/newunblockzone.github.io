@@ -221,7 +221,7 @@
 
 
     <!-- Secret 3rd Row -->
-    <div class="rectangle-container secret-row" id="secretRow">
+    <div class="rectangle-container secret-row" id="secretRow1">
         <div class="rectangle" onclick="window.open('/m/jaws.html', '_blank')">
             <img src="https://prod1.agileticketing.net/images/user/henrico_14154/Jaws%20Title%20Card%20No%20Dates.png" alt="Secret Movie 1">
             <div class="game-name">jaws</div>
@@ -235,8 +235,9 @@
             <div class="game-name">child play 3</div>
         </div>
     </div>
-    
-<div class="rectangle-container secret-row" id="secretRow">
+
+    <!-- Secret 4th Row -->
+    <div class="rectangle-container secret-row" id="secretRow2">
         <div class="rectangle" onclick="window.open('/m/it.html', '_blank')">
             <img src="https://media.vanityfair.com/photos/59b00a448f880b1dd8acba4a/16:9/w_1280,c_limit/IT-Movie-Review.jpg" alt="Secret Movie 1">
             <div class="game-name">it</div>
@@ -253,6 +254,18 @@
 
     <!-- Secret Button -->
     <div class="secret-button" onclick="toggleSecretRow()"></div>
+
+    <script>
+        function toggleSecretRow() {
+            var secretRow1 = document.getElementById("secretRow1");
+            var secretRow2 = document.getElementById("secretRow2");
+
+            var isVisible = secretRow1.style.display === "flex";
+            secretRow1.style.display = isVisible ? "none" : "flex";
+            secretRow2.style.display = isVisible ? "none" : "flex";
+        }
+    </script>
+
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
