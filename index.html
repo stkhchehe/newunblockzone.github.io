@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,14 +9,15 @@
     <title>unblockzone</title>
     <link rel="icon" href="https://files.catbox.moe/ao6qv3.png" type="image/png">
 
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SZN69N4SEF"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-SZN69N4SEF');
-    </script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SZN69N4SEF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SZN69N4SEF');
+</script>
     
     <style>
         * {
@@ -75,12 +79,7 @@
             outline: none;
             color: white;
             font-size: 18px;
-            transition: opacity 0.5s ease-in-out;
         }
-        .search-bar::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
         .icons-container {
             position: absolute;
             top: 40%;
@@ -89,7 +88,6 @@
             gap: 25px;
             width: 100%;
         }
-
         .icon-container {
             width: 100px;
             height: 120px;
@@ -101,31 +99,11 @@
             justify-content: center;
             align-items: center;
             transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
-            position: relative;
-            overflow: hidden;
         }
         .icon-container:hover {
             transform: scale(1.2);
             background: black;
         }
-
-        /* Shine effect */
-        .icon-container::before {
-            content: '';
-            position: absolute;
-            top: -100%;
-            left: -100%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(120deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.1));
-            transform: rotate(25deg);
-            transition: all 0.5s ease-in-out;
-        }
-        .icon-container:hover::before {
-            top: 100%;
-            left: 100%;
-        }
-
         .icon {
             width: 60px;
             height: 60px;
@@ -148,6 +126,31 @@
             text-transform: lowercase;
             text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
             cursor: pointer;
+        }
+
+        .coolBlobIdk {
+            position: absolute;
+            bottom: -30%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(169, 169, 169, 0.6), rgba(255, 255, 255, 0.5), rgba(169, 169, 169, 0.6), rgba(255, 255, 255, 0.4));
+            border-radius: 50%;
+            filter: blur(100px);
+            box-shadow: 0 0 120px rgba(255, 255, 255, 0.5);
+        }
+        .coolBlobIdk::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: 30%;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(169, 169, 169, 0.5), rgba(169, 169, 169, 0.4), rgba(255, 255, 255, 0.3));
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: -1;
         }
 
         #particles-js {
@@ -174,35 +177,11 @@
         function openSupportPage() {
             window.open('https://docs.google.com/forms/d/e/1FAIpQLScAjuO9s-lwojOfEMwf-_jtQOjWCzkrkz4NKGPCIpbED3k2rA/viewform', '_blank');
         }
-
-        // Search bar hover effect
-        const searchPhrases = [
-            "Search for anything...",
-            "Looking for games?",
-            "Try searching 'proxy sites'",
-            "Find something cool!",
-            "Type and press Enter..."
-        ];
-        
-        let phraseIndex = 0;
-        function cycleSearchPlaceholder() {
-            const searchBar = document.querySelector(".search-bar");
-            searchBar.setAttribute("placeholder", searchPhrases[phraseIndex]);
-            phraseIndex = (phraseIndex + 1) % searchPhrases.length;
-        }
-
-        document.addEventListener("DOMContentLoaded", () => {
-            const searchBar = document.querySelector(".search-bar");
-            searchBar.addEventListener("mouseenter", () => {
-                cycleSearchPlaceholder();
-                setInterval(cycleSearchPlaceholder, 2000);
-            });
-        });
-
     </script>
 </head>
 <body>
     <div id="particles-js"></div>
+    <div class="coolBlobIdk"></div>
 
     <div class="title">unblockzone v3</div>
 
@@ -210,6 +189,22 @@
         <div class="icon-container">
             <img class="icon" src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" onclick="window.open('/g.html', '_blank')">
             <div class="icon-label">games</div>
+        </div>
+        <div class="icon-container">
+            <img class="icon" src="https://img.icons8.com/ios7/600/FFFFFF/apple-app-store--v2.png" onclick="window.open('/a.html', '_blank')">
+            <div class="icon-label">apps</div>
+        </div>
+        <div class="icon-container">
+            <img class="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" onclick="window.open('/e.html', '_blank')">
+            <div class="icon-label">exploits</div>
+        </div>
+        <div class="icon-container">
+            <img class="icon" src="https://i.pinimg.com/736x/ea/8d/11/ea8d11f1ffc6355b8a440106ce61d0f3.jpg" onclick="window.open('/m.html', '_blank')">
+            <div class="icon-label">movies</div>
+        </div>
+        <div class="icon-container">
+            <img class="icon" src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" onclick="window.open('/s.html', '_blank')">
+            <div class="icon-label">settings</div>
         </div>
     </div>
 
@@ -219,7 +214,12 @@
 
     <div class="support-text" onclick="openSupportPage()">support</div>
 
-    <!-- Particles.js -->
+        <script>
+    window.onload = function() {
+        alert("welcome to unblockzone v3! we hope you have fun <3");
+    };
+</script>
+
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         particlesJS("particles-js", {
