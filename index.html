@@ -162,43 +162,6 @@
             z-index: -1;
         }
     </style>
-
-    <script>
-    // Search bar hover effect
-    const searchPhrases = [
-        "Search for anything...",
-        "Looking for games?",
-        "Try searching 'proxy sites'",
-        "Find something cool!",
-        "Type and press Enter..."
-    ];
-    
-    let phraseIndex = 0;
-    let intervalId = null;
-
-    function cycleSearchPlaceholder() {
-        const searchBar = document.querySelector(".search-bar");
-        searchBar.setAttribute("placeholder", searchPhrases[phraseIndex]);
-        phraseIndex = (phraseIndex + 1) % searchPhrases.length;
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-        const searchBar = document.querySelector(".search-bar");
-        
-        searchBar.addEventListener("mouseenter", () => {
-            cycleSearchPlaceholder();
-            if (!intervalId) {
-                intervalId = setInterval(cycleSearchPlaceholder, 2000);
-            }
-        });
-
-        searchBar.addEventListener("mouseleave", () => {
-            clearInterval(intervalId);
-            intervalId = null;
-            searchBar.setAttribute("placeholder", "search..."); // Reset placeholder when not hovered
-        });
-    });
-</script>
     
     <script>
         function handleSearch(event) {
