@@ -189,22 +189,78 @@
             history.pushState({}, newTitle, newUrl);
         }
     </script>
+// Cookie functions
+  function getCookie(name) {
+    let nameEQ = name + "=";
+    let ca = document.cookie.split(';');
+    for(let i=0;i < ca.length;i++) {
+      let c = ca[i].trim();
+      if(c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+  }
 
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        particlesJS("particles-js", {
-            "particles": {
-                "number": { "value": 100, "density": { "enable": false } },
-                "color": { "value": "#aaa" },
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.5, "random": true },
-                "size": { "value": 4, "random": true },
-                "move": { "enable": true, "speed": 8, "direction": "random" }
-            },
-            "interactivity": {
-                "events": { "onhover": { "enable": true, "mode": "repulse" } }
-            }
-        });
+  // Apply settings
+  document.addEventListener("DOMContentLoaded", function() {
+    // Apply theme
+    const themeConfig = {
+      1: ["#CD853F", "#F4A460"],
+      2: ["#8B4513", "#D2691E"],
+      3: ["#C0C0C0", "#DCDCDC"],
+      4: ["#FF8C00", "#FFA500"]
+    };
+    
+    const savedTheme = getCookie("selectedTheme");
+    if(savedTheme && themeConfig[savedTheme]) {
+      particlesJS("particles-js", {
+        particles: {
+          number: { value: 100, density: { enable: false } },
+          color: { value: themeConfig[savedTheme][1] },
+          shape: { type: "circle" },
+          opacity: { value: 0.5, random: true },
+          size: { value: 4, random: true },
+          move: { enable: true, speed: 8, direction: "random" },
+          line_linked: {
+            enable: true,
+            distance: 150,
+            color: themeConfig[savedTheme][0],
+            opacity: 0.4,
+            width: 1
+          }
+        },
+        interactivity: {
+          events: { onhover: { enable: true, mode: "repulse" } }
+        }
+      });
+      
+      document.querySelector(".coolBlobIdk").style.background = 
+        `linear-gradient(135deg, ${themeConfig[savedTheme][0]}, ${themeConfig[savedTheme][1]})`;
+    }
+
+    // Apply tab cloak
+    const tabCloakTypes = [
+      ["https://canvas.instructure.com/", "Dashboard"],
+      ["https://outlook.live.com/mail/", "Mail"],
+      ["https://drive.google.com/", "Home - Google Drive"],
+      ["https://classroom.google.com/", "Home"]
+    ];
+    
+    const cloakType = getCookie("tabCloakType");
+    if(cloakType) {
+      const link = document.querySelector("link[rel~='icon']");
+      link.href = `https://www.google.com/s2/favicons?sz=64&domain=${tabCloakTypes[cloakType-1][0]}`;
+      document.title = tabCloakTypes[cloakType-1][1];
+    }
+
+    // Panic key system
+    const panicKey = getCookie("panicKey");
+    const panicUrl = getCookie("panicUrl") || "about:blank";
+    if(panicKey) {
+      document.addEventListener("keydown", (e) => {
+        if(e.key === panicKey) window.location.href = panicUrl;
+      });
+    }
+  });
     </script>
 </body>
 </html>
