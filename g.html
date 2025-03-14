@@ -164,6 +164,32 @@
             transform: scale(1.1);
             box-shadow: 0 0 20px #28a745;
         }
+
+                }
+        .broken-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 80px;
+            height: 30px;
+            background-color: #A020F0;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            font-size: 14px;
+            color: white;
+            font-weight: bold;
+            text-shadow: 0 0 10px white;
+            box-shadow: 0 0 10px ##A020F0;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .broken-badge:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px #A020F0;
+        }
+        
         .popular-badge {
             position: absolute;
             top: 10px;
@@ -209,10 +235,12 @@
      <div class="rectangle" onclick="window.open('/g/minecraft.html', '_blank')">
         <img src="https://gaming-cdn.com/images/news/articles/7191/cover/minecraft-gets-a-new-artwork-cover66856ea7d02ad.jpg" alt="minecraft">
         <div class="game-name">minecraft</div>
+                     <div class="popular-badge">POPULAR 🔥</div> <!-- Added POPULAR badge -->
     </div>
     <div class="rectangle" onclick="window.open('/g/block-blast.html', '_blank')">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDbz7CYwoe4wulDfOJ5Z5sUZOCiX0QfzRhqQ&s" alt="block blast">
         <div class="game-name">block blast</div>
+                    <div class="popular-badge">POPULAR 🔥</div> <!-- Added POPULAR badge -->
     </div>
 </div>
 <div class="rectangle-container">
@@ -227,6 +255,7 @@
     <div class="rectangle" onclick="window.open('/g/monkey-mart.html', '_blank')">
         <img src="https://defold.com/images/games/monkeymart-half.png" alt="Monkey Mart">
         <div class="game-name">Monkey Mart</div>
+                            <div class="broken-badge">BROKEN</div> <!-- Added BROKEN badge -->
     </div>
 </div>
 <div class="rectangle-container">
@@ -247,6 +276,7 @@
     <div class="rectangle" onclick="window.open('/g/granny-offline.html', '_blank')">
         <img src="https://m.media-amazon.com/images/M/MV5BOGI1ZTI2NmQtZWRkOS00OWE5LThiZjItMjA2MzYzNzNlMzMyXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Granny Offline">
         <div class="game-name">Granny Offline</div>
+                    <div class="popular-badge">POPULAR 🔥</div> <!-- Added POPULAR badge -->
     </div>
     <div class="rectangle" onclick="window.open('/g/granny-2.html', '_blank')">
         <img src="https://i.ytimg.com/vi/M2oAjzvjljw/maxresdefault.jpg" alt="Granny 2">
@@ -261,6 +291,7 @@
     <div class="rectangle" onclick="window.open('/g/1v1-lol.html', '_blank')">
         <img src="https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs2/200042732/original/024f8a22e06d58c1eed316a539687253e49625c1/ill-edit-your-1v1-lol-videos-and-give-you-thumbnails.jpg" alt="1v1 LOL">
         <div class="game-name">1v1 LOL</div>
+                    <div class="popular-badge">POPULAR 🔥</div> <!-- Added POPULAR badge -->
     </div>
     <div class="rectangle" onclick="window.open('/g/paper-io-2.html', '_blank')">
         <img src="https://tcf.admeen.org/game/17500/17069/400x246/paper-io-2.webp" alt="Paper Io 2">
@@ -269,6 +300,7 @@
     <div class="rectangle" onclick="window.open('/g/super-hot.html', '_blank')">
         <img src="https://i.ytimg.com/vi/bkzwi0Y-mWk/maxresdefault.jpg" alt="Super Hot">
         <div class="game-name">Super Hot</div>
+                    <div class="popular-badge">POPULAR 🔥</div> <!-- Added POPULAR badge -->
     </div>
 </div>
 <div class="rectangle-container">
@@ -289,20 +321,24 @@
     <div class="rectangle" onclick="window.open('/g/roblox-only-up.html', '_blank')">
         <img src="https://i.ytimg.com/vi/iWQTsM7fbkg/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCHSqTpwti_EaS_Aj1PQJc84C5qqA" alt="Roblox Only Up">
         <div class="game-name">Roblox Only Up</div>
+                    <div class="popular-badge">POPULAR 🔥</div> <!-- Added POPULAR badge -->
     </div>
     <div class="rectangle" onclick="window.open('/g/minecraft-parkour.html', '_blank')">
         <img src="https://i.ytimg.com/vi/zuyYcuDpCxs/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBH8p_cirtAcNNcst20Om5JkP2o6w" alt="Minecraft Parkour">
         <div class="game-name">Minecraft Parkour</div>
+                    <div class="popular-badge">POPULAR 🔥</div> <!-- Added POPULAR badge -->
     </div>
     <div class="rectangle" onclick="window.open('/g/drive-mad.html', '_blank')">
         <img src="https://i.ytimg.com/vi/Bx3bt6HnOSs/hq720.jpg?sqp=-oaymwExCK4FEIIDSFryq4qpAyMIARUAAIhCGAHwAQH4Ab4HgALQBYoCDAgAEAEYMiBnKHIwDw==&rs=AOn4CLBvQgoYjUrnam3ck28CT-S_vlX_mQ" alt="Drive Mad">
         <div class="game-name">Drive Mad</div>
+                    <div class="popular-badge">POPULAR 🔥</div> <!-- Added POPULAR badge -->
     </div>
 </div>
 <div class="rectangle-container">
     <div class="rectangle" onclick="window.open('/g/shell-shockers.html', '_blank')">
         <img src="https://staticg.sportskeeda.com/editor/2024/10/783ff-17280361172197-1920.jpg?w=640" alt="Shell Shockers">
         <div class="game-name">Shell Shockers</div>
+                    <div class="broken-badge">BROKEN</div> <!-- Added BROKEN badge -->
     </div>
     <div class="rectangle" onclick="window.open('/g/ultimate-driving-simulator.html', '_blank')">
         <img src="https://m.media-amazon.com/images/I/91hUahJchWL.jpg" alt="Ultimate Driving Simulator">
@@ -317,6 +353,7 @@
     <div class="rectangle" onclick="window.open('/g/geometry-dash.html', '_blank')">
         <img src="https://images3.alphacoders.com/120/thumb-1920-1202615.jpg" alt="Geometry Dash">
         <div class="game-name">Geometry Dash</div>
+                    <div class="popular-badge">POPULAR 🔥</div> <!-- Added POPULAR badge -->
     </div>
     <div class="rectangle" onclick="window.open('/g/basketball-stars.html', '_blank')">
         <img src="https://play-lh.googleusercontent.com/WReGOclxXI481lMXvvAP8VGxSywci4vy-KmrZLKDeVO0ewmCZPzRzbAIVls-qwFzEw=w526-h296-rw" alt="Basketball Stars">
@@ -335,10 +372,12 @@
     <div class="rectangle" onclick="window.open('/g/retro-bowl.html', '_blank')">
         <img src="https://files.catbox.moe/0k3fg4.png" alt="Retro Bowl">
         <div class="game-name">Retro Bowl</div>
+                    <div class="popular-badge">POPULAR 🔥</div> <!-- Added POPULAR badge -->
     </div>
     <div class="rectangle" onclick="window.open('/g/just-fall-lol.html', '_blank')">
         <img src="https://files.catbox.moe/6ia04y.png" alt="Just Fall lol">
         <div class="game-name">Just Fall lol</div>
+                    <div class="popular-badge">POPULAR 🔥</div> <!-- Added POPULAR badge -->
     </div>
 </div>
 <div class="rectangle-container">
@@ -367,6 +406,7 @@
     <div class="rectangle" onclick="window.open('/g/minecraft-shooter.html', '_blank')">
         <img src="https://i.ytimg.com/vi/k_wBPps8fMA/maxresdefault.jpg" alt="Minecraft Shooter">
         <div class="game-name">Minecraft Shooter</div>
+                    <div class="popular-badge">POPULAR 🔥</div> <!-- Added POPULAR badge -->
     </div>
 </div>
 <div class="rectangle-container">
@@ -401,6 +441,7 @@
     <div class="rectangle" onclick="window.open('/g/rocket-soccer.html', '_blank')">
         <img src="https://us-west-2-epicgames.graphassets.com/A0Gpf4ZpfQzaTePr3NRc1z/resize=fit:clip,height:1080,width:1920/output=format:webp/2FE6uJltT6WKtdIEG2rc" alt="Rocket Soccer">
         <div class="game-name">Rocket Soccer</div>
+                    <div class="popular-badge">POPULAR 🔥</div> <!-- Added POPULAR badge -->
     </div>
     <div class="rectangle" onclick="window.open('/g/ovo.html', '_blank')">
         <img src="https://games.kidzsearch.com/computer/thumbs/kidzsearch9fg-ovoio-ks121714-224955-img.png" alt="Ovo">
@@ -419,20 +460,24 @@
     <div class="rectangle" onclick="window.open('/g/slope.html', '_blank')">
         <img src="https://files.catbox.moe/kod1r6.png" alt="Slope">
         <div class="game-name">Slope</div>
+                    <div class="popular-badge">POPULAR 🔥</div> <!-- Added POPULAR badge -->
     </div>
     <div class="rectangle" onclick="window.open('/g/poly-track.html', '_blank')">
         <img src="https://files.catbox.moe/2ho4bb.png" alt="poly track">
         <div class="game-name">poly track</div>
+                    <div class="popular-badge">POPULAR 🔥</div> <!-- Added POPULAR badge -->
     </div>
 </div>
 <div class="rectangle-container">
     <div class="rectangle" onclick="window.open('/g/2048-cupcakes.html', '_blank')">
         <img src="https://files.catbox.moe/vpbswx.png" alt="2048 cupcakes">
         <div class="game-name">2048 cupcakes</div>
+                    <div class="popular-badge">POPULAR 🔥</div> <!-- Added POPULAR badge -->
     </div>
     <div class="rectangle" onclick="window.open('/g/bitlife.html', '_blank')">
         <img src="https://files.catbox.moe/azbv0s.png" alt="bitlife">
         <div class="game-name">bitlife</div>
+                    <div class="popular-badge">POPULAR 🔥</div> <!-- Added POPULAR badge -->
     </div>
     <div class="rectangle" onclick="window.open('/g/tetris.html', '_blank')">
         <img src="https://www.designyourway.net/blog/wp-content/uploads/2024/11/Tetris-Logo-featured.jpg" alt="tetris">
@@ -461,6 +506,7 @@
     <div class="rectangle" onclick="window.open('/g/cluster-rush.html', '_blank')">
         <img src="https://files.catbox.moe/7pxgt7.png" alt="cluster rush">
         <div class="game-name">cluster rush</div>
+                    <div class="popular-badge">POPULAR 🔥</div> <!-- Added POPULAR badge -->
     </div>
     <div class="rectangle" onclick="window.open('/g/slide-in-the-woods.html', '_blank')">
         <img src="https://i.ytimg.com/vi/j3MAs3ps3A4/maxresdefault.jpg" alt="slide in the woods">
