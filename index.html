@@ -1,7 +1,4 @@
-
-
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -18,6 +15,12 @@
 
   gtag('config', 'G-SZN69N4SEF');
 </script>
+
+<!-- Tab Cloaking and Emergency Escape Scripts -->
+<script src="scripts/utilities/tab-cloak.js"></script>
+<script src="scripts/utilities/emergency-escape.js"></script>
+<script src="scripts/utilities/theme.js"></script>
+<script src="scripts/utilities/message-system.js"></script>
     
     <style>
         * {
@@ -98,11 +101,13 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+            transform: translateZ(0);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            will-change: transform;
         }
         .icon-container:hover {
-            transform: scale(1.2);
-            background: black;
+            transform: scale(1.1) translateZ(0);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
         }
         .icon {
             width: 60px;
@@ -129,28 +134,17 @@
         }
 
         .coolBlobIdk {
-            position: absolute;
+            position: fixed;
             bottom: -30%;
             left: 50%;
             transform: translateX(-50%);
             width: 600px;
             height: 400px;
-            background: linear-gradient(135deg, rgba(169, 169, 169, 0.6), rgba(255, 255, 255, 0.5), rgba(169, 169, 169, 0.6), rgba(255, 255, 255, 0.4));
+            background: linear-gradient(135deg, rgba(169, 169, 169, 0.5), rgba(255, 255, 255, 0.4));
             border-radius: 50%;
-            filter: blur(100px);
-            box-shadow: 0 0 120px rgba(255, 255, 255, 0.5);
-        }
-        .coolBlobIdk::before {
-            content: '';
-            position: absolute;
-            top: 10%;
-            left: 30%;
-            width: 300px;
-            height: 300px;
-            background: linear-gradient(135deg, rgba(169, 169, 169, 0.5), rgba(169, 169, 169, 0.4), rgba(255, 255, 255, 0.3));
-            border-radius: 50%;
-            filter: blur(100px);
-            z-index: -1;
+            filter: blur(80px);
+            opacity: 0.8;
+            will-change: transform;
         }
 
         #particles-js {
@@ -168,7 +162,7 @@
             if (event.key === "Enter") {
                 let query = event.target.value.trim();
                 if (query) {
-                    let proxyUrl = `https://unblockzone.github.io/active/iframe.html#https://bing.com/search?q=${encodeURIComponent(query)}`;
+                    let proxyUrl = `active/iframe.html#https://bing.com/search?q=${encodeURIComponent(query)}`;
                     window.location.href = proxyUrl;
                 }
             }
@@ -187,23 +181,23 @@
 
     <div class="icons-container">
         <div class="icon-container">
-            <img class="icon" src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" onclick="window.open('/g.html', '_blank')">
+            <img class="icon" src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" onclick="window.location.href='g.html'">
             <div class="icon-label">games</div>
         </div>
         <div class="icon-container">
-            <img class="icon" src="https://img.icons8.com/ios7/600/FFFFFF/apple-app-store--v2.png" onclick="window.open('/a.html', '_blank')">
+            <img class="icon" src="https://img.icons8.com/ios7/600/FFFFFF/apple-app-store--v2.png" onclick="window.location.href='a.html'">
             <div class="icon-label">apps</div>
         </div>
         <div class="icon-container">
-            <img class="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" onclick="window.open('/e.html', '_blank')">
+            <img class="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" onclick="window.location.href='e.html'">
             <div class="icon-label">exploits</div>
         </div>
         <div class="icon-container">
-            <img class="icon" src="https://i.pinimg.com/736x/ea/8d/11/ea8d11f1ffc6355b8a440106ce61d0f3.jpg" onclick="window.open('/m.html', '_blank')">
+            <img class="icon" src="https://i.pinimg.com/736x/ea/8d/11/ea8d11f1ffc6355b8a440106ce61d0f3.jpg" onclick="window.location.href='m.html'">
             <div class="icon-label">movies</div>
         </div>
         <div class="icon-container">
-            <img class="icon" src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" onclick="window.open('/s.html', '_blank')">
+            <img class="icon" src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" onclick="window.location.href='s.html'">
             <div class="icon-label">settings</div>
         </div>
     </div>
@@ -214,27 +208,36 @@
 
     <div class="support-text" onclick="openSupportPage()">support</div>
 
-        <script>
-    window.onload = function() {
-        alert("welcome to unblockzone! we hope you have fun <3");
-    };
-</script>
+    <!-- Discord Widget -->
+    
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         particlesJS("particles-js", {
             "particles": {
-                "number": { "value": 100, "density": { "enable": false } },
+                "number": { "value": 30, "density": { "enable": false } },
                 "color": { "value": "#aaa" },
                 "shape": { "type": "circle" },
                 "opacity": { "value": 0.5, "random": true },
-                "size": { "value": 4, "random": true },
-                "move": { "enable": true, "speed": 8, "direction": "random" }
+                "size": { "value": 3, "random": true },
+                "move": { "enable": true, "speed": 3, "direction": "random" }
             },
             "interactivity": {
-                "events": { "onhover": { "enable": true, "mode": "repulse" } }
+                "events": { "onhover": { "enable": false } }
             }
         });
     </script>
+    
+    <!-- Include shared.js for Discord widget -->
+    <script src="scripts/utilities/shared.js"></script>
+    
+    <script>
+        // Show a welcome message on homepage
+        setTimeout(function() {
+            showGlowingMessage('Welcome to UnblockZone! Check out our new themes in the settings page.');
+        }, 1500);
+    </script>
 </body>
 </html>
+
+
