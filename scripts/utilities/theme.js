@@ -11,28 +11,28 @@ const themes = {
         lightColor: "255, 255, 255"
     },
     vanilla: {
-        background: "linear-gradient(135deg, #e8e1c6 0%, #d6cdb0 100%)",
+        background: "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROdNIejFmjeKC5u6Xq2yqOCa5y-uJseTCTfA&s') no-repeat center center fixed",
         boxShadowColor: "232, 225, 198",
         particleColor: "#e8e1c6",
         particleLinks: "#d6cdb0",
         lightColor: "232, 225, 198"
     },
     caramel: {
-        background: "linear-gradient(135deg, #cc9544 0%, #a3742d 100%)",
+        background: "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROdNIejFmjeKC5u6Xq2yqOCa5y-uJseTCTfA&s') no-repeat center center fixed",
         boxShadowColor: "204, 149, 68",
         particleColor: "#cc9544",
         particleLinks: "#a3742d",
         lightColor: "204, 149, 68"
     },
     chocolate: {
-        background: "linear-gradient(135deg, #5a3925 0%, #3b2516 100%)",
+        background: "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROdNIejFmjeKC5u6Xq2yqOCa5y-uJseTCTfA&s') no-repeat center center fixed",
         boxShadowColor: "90, 57, 37",
         particleColor: "#8c6248",
         particleLinks: "#5a3925",
         lightColor: "140, 98, 72"
     },
     strawberry: {
-        background: "linear-gradient(135deg, #d8a7d8 0%, #b987b9 100%)",
+        background: "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROdNIejFmjeKC5u6Xq2yqOCa5y-uJseTCTfA&s') no-repeat center center fixed",
         boxShadowColor: "216, 167, 216",
         particleColor: "#d8a7d8",
         particleLinks: "#b987b9",
@@ -60,9 +60,9 @@ function applyTheme(themeName) {
     
     const theme = themes[themeName];
     
-    // Update background
-    document.body.style.background = theme.background;
-    document.body.style.backgroundSize = 'cover';
+    // IMPORTANT: Keep default background for all themes
+    // We don't want to change the background anymore
+    // Instead, we only update particles and light effects
     
     // Update particles if they exist
     updateParticles(theme);
