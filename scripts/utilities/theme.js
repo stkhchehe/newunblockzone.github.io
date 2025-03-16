@@ -7,31 +7,36 @@ const themes = {
         background: "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROdNIejFmjeKC5u6Xq2yqOCa5y-uJseTCTfA&s') no-repeat center center fixed",
         boxShadowColor: "255, 255, 255",
         particleColor: "#ffffff",
-        particleLinks: "#ffffff"
+        particleLinks: "#ffffff",
+        lightColor: "255, 255, 255"
     },
     vanilla: {
         background: "linear-gradient(135deg, #e8e1c6 0%, #d6cdb0 100%)",
         boxShadowColor: "232, 225, 198",
         particleColor: "#e8e1c6",
-        particleLinks: "#d6cdb0"
+        particleLinks: "#d6cdb0",
+        lightColor: "232, 225, 198"
     },
     caramel: {
         background: "linear-gradient(135deg, #cc9544 0%, #a3742d 100%)",
         boxShadowColor: "204, 149, 68",
         particleColor: "#cc9544",
-        particleLinks: "#a3742d"
+        particleLinks: "#a3742d",
+        lightColor: "204, 149, 68"
     },
     chocolate: {
         background: "linear-gradient(135deg, #5a3925 0%, #3b2516 100%)",
         boxShadowColor: "90, 57, 37",
-        particleColor: "#5a3925",
-        particleLinks: "#3b2516"
+        particleColor: "#8c6248",
+        particleLinks: "#5a3925",
+        lightColor: "140, 98, 72"
     },
     strawberry: {
         background: "linear-gradient(135deg, #d8a7d8 0%, #b987b9 100%)",
         boxShadowColor: "216, 167, 216",
         particleColor: "#d8a7d8",
-        particleLinks: "#b987b9"
+        particleLinks: "#b987b9",
+        lightColor: "216, 167, 216"
     }
 };
 
@@ -60,21 +65,10 @@ function applyTheme(themeName) {
     document.body.style.backgroundSize = 'cover';
     
     // Update particles if they exist
-    try {
-        if (window.pJS && window.pJS.particles && window.pJS.particles.color) {
-            window.pJS.particles.color.value = theme.particleColor;
-            window.pJS.particles.line_linked.color = theme.particleLinks;
-            window.pJS.fn.particlesRefresh();
-        } else if (window.particlesJS) {
-            // If pJS isn't initialized but particlesJS is available, reinitialize
-            initializeParticles(theme);
-        }
-    } catch (e) {
-        console.error('Error updating particles colors:', e);
-    }
+    updateParticles(theme);
     
-    // Update box shadows
-    updateBoxShadows(theme.boxShadowColor);
+    // Update box shadows and light effects
+    updateLightEffects(theme);
     
     // If a page has particlesJS, but it hasn't been initialized yet, set up an observer
     if (typeof particlesJS !== 'undefined') {
@@ -82,10 +76,39 @@ function applyTheme(themeName) {
     }
 }
 
-// Update all box shadows with the theme color
-function updateBoxShadows(colorRGB) {
+// Function to update particles
+function updateParticles(theme) {
+    try {
+        // Try to update existing particles
+        if (window.pJS && window.pJS.particles && window.pJS.particles.color) {
+            console.log('Updating existing particles with colors:', theme.particleColor, theme.particleLinks);
+            window.pJS.particles.color.value = theme.particleColor;
+            window.pJS.particles.line_linked.color = theme.particleLinks;
+            window.pJS.fn.particlesRefresh();
+        } 
+        // If pJS isn't initialized but particlesJS is available, reinitialize
+        else if (window.particlesJS && document.getElementById('particles-js')) {
+            console.log('Reinitializing particles with theme colors');
+            initializeParticles(theme);
+        }
+    } catch (e) {
+        console.error('Error updating particles colors:', e);
+    }
+}
+
+// Function to update light effects (coolBlobIdk and box shadows)
+function updateLightEffects(theme) {
     // Update CSS variable for box shadows
-    document.documentElement.style.setProperty('--theme-box-shadow-color', colorRGB);
+    document.documentElement.style.setProperty('--theme-box-shadow-color', theme.boxShadowColor);
+    document.documentElement.style.setProperty('--theme-light-color', theme.lightColor);
+    
+    // Update the blob light effect if it exists
+    const blobElement = document.querySelector('.coolBlobIdk');
+    if (blobElement) {
+        console.log('Updating blob light with color:', theme.lightColor);
+        blobElement.style.background = `linear-gradient(135deg, rgba(${theme.lightColor}, 0.8), rgba(${theme.lightColor}, 0.6))`;
+        blobElement.style.boxShadow = `0 0 120px rgba(${theme.lightColor}, 0.5)`;
+    }
     
     // Create or update a style tag for elements that need the theme color
     let styleEl = document.getElementById('theme-box-shadow-styles');
@@ -99,20 +122,28 @@ function updateBoxShadows(colorRGB) {
     styleEl.textContent = `
     .icon-container, .icon-container-homepage, .app-box, .game-box, 
     .long-rectangle, .emergency-card, .tab-cloak-card {
-        box-shadow: 0 0 10px rgba(${colorRGB}, 0.7);
+        box-shadow: 0 0 10px rgba(${theme.lightColor}, 0.7);
     }
     
     .theme-circle {
-        box-shadow: 0 0 5px rgba(${colorRGB}, 0.7);
+        box-shadow: 0 0 5px rgba(${theme.lightColor}, 0.7);
     }
     
     .theme-circle:hover, .icon-container:hover, .icon-container-homepage:hover,
     .app-box:hover, .game-box:hover {
-        box-shadow: 0 0 20px rgba(${colorRGB}, 0.9);
+        box-shadow: 0 0 20px rgba(${theme.lightColor}, 0.9);
     }
     
     .coolBlobIdk {
-        box-shadow: 0 0 120px rgba(${colorRGB}, 0.5);
+        box-shadow: 0 0 120px rgba(${theme.lightColor}, 0.5);
+    }
+    
+    .rectangle {
+        box-shadow: 0 0 20px rgba(${theme.lightColor}, 0.7);
+    }
+    
+    .title {
+        text-shadow: 0 0 15px rgba(${theme.lightColor}, 0.9);
     }
     `;
 }
@@ -121,18 +152,20 @@ function updateBoxShadows(colorRGB) {
 function initializeParticles(theme) {
     if (typeof particlesJS === 'undefined' || !document.getElementById('particles-js')) return;
     
+    console.log('Initializing particles with colors:', theme.particleColor, theme.particleLinks);
+    
     particlesJS("particles-js", {
         "particles": {
             "number": { "value": 20, "density": { "enable": false } },
             "color": { "value": theme.particleColor },
             "shape": { "type": "circle" },
-            "opacity": { "value": 0.5, "random": true },
+            "opacity": { "value": 0.7, "random": true },
             "size": { "value": 3, "random": true },
             "line_linked": {
                 "enable": true,
                 "distance": 150,
                 "color": theme.particleLinks,
-                "opacity": 0.4,
+                "opacity": 0.6,
                 "width": 1
             },
             "move": { 
@@ -150,7 +183,7 @@ function initializeParticles(theme) {
             "events": { 
                 "onhover": { "enable": false },
                 "onclick": { "enable": false },
-                "resize": true
+                "resize": true 
             }
         },
         "retina_detect": false
@@ -168,40 +201,8 @@ function setupParticlesObserver(theme) {
             mutation.addedNodes.forEach(function(node) {
                 if (node.nodeType === 1 && node.id === 'particles-js') {
                     // Initialize particles with theme colors
-                    particlesJS("particles-js", {
-                        "particles": {
-                            "number": { "value": 20, "density": { "enable": false } },
-                            "color": { "value": theme.particleColor },
-                            "shape": { "type": "circle" },
-                            "opacity": { "value": 0.5, "random": true },
-                            "size": { "value": 3, "random": true },
-                            "line_linked": {
-                                "enable": true,
-                                "distance": 150,
-                                "color": theme.particleLinks,
-                                "opacity": 0.4,
-                                "width": 1
-                            },
-                            "move": { 
-                                "enable": true, 
-                                "speed": 2, 
-                                "direction": "none",
-                                "random": true,
-                                "straight": false,
-                                "out_mode": "out",
-                                "bounce": false
-                            }
-                        },
-                        "interactivity": {
-                            "detect_on": "canvas",
-                            "events": { 
-                                "onhover": { "enable": false },
-                                "onclick": { "enable": false },
-                                "resize": true
-                            }
-                        },
-                        "retina_detect": false
-                    });
+                    console.log('Particle container added to DOM, initializing with theme colors');
+                    initializeParticles(theme);
                 }
             });
         });
