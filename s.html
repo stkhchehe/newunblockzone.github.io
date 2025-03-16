@@ -444,10 +444,8 @@
         <div style="background-color: rgba(0, 0, 0, 0.6); padding: 12px; border-radius: 10px; margin-bottom: 20px; border: 1px solid rgba(128, 255, 128, 0.5); box-shadow: 0 0 10px rgba(128, 255, 128, 0.3);">
             <div style="font-size: 18px; color: #fff; text-align: center; margin-bottom: 8px; text-shadow: 0 0 5px rgba(128, 255, 128, 0.7);">
                 <strong>current page</strong>
-                <strong>current page</strong>
             </div>
             <div class="color-circle" style="background: linear-gradient(135deg, rgba(40, 167, 69, 0.8), rgba(0, 0, 0, 0.8)); margin: 10px auto; box-shadow: 0 0 15px rgba(128, 255, 128, 0.5);" onclick="cloakTabWithCurrentPage('https://files.catbox.moe/ao6qv3.png')">
-                <div class="cloak-label">current page</div>
                 <div class="cloak-label">current page</div>
             </div>
             <div style="font-size: 14px; color: #aaa; text-align: center;">
@@ -582,7 +580,6 @@
     <!-- Open in about:blank section -->
     <div class="long-rectangle">
         <div class="long-rectangle-title">open in about:blank</div>
-        <div class="long-rectangle-title">open in about:blank</div>
         <div class="line"></div>
         
         <div class="escape-row" style="flex-direction: column; align-items: center;">
@@ -634,7 +631,6 @@
     
     <!-- Game Display Settings -->
     <div class="long-rectangle">
-        <div class="long-rectangle-title">game display settings</div>
         <div class="long-rectangle-title">game display settings</div>
         <div class="line"></div>
         
@@ -704,7 +700,7 @@
             // Load saved escape site
             const savedSiteOption = localStorage.getItem('escapeSiteOption');
             if (savedSiteOption) {
-                document.getElementById('escapeSite').value = savedSiteOption;
+                document.getElementById('escapeSiteInput').value = savedSiteOption;
                 updateSiteSelection();
             }
             
@@ -749,9 +745,6 @@
         }
 
         // Settings page specific code
-        let globalLastKeyTime = 0;
-        let globalEscapeKeyHandler = null;
-        
         // Setup global key listener for emergency escape
         function setupGlobalKeyListener(keySeq, site) {
             // Remove any existing listener
@@ -907,8 +900,8 @@
         }
         
         function saveEscapeKey() {
-            const siteSelect = document.getElementById('escapeSite');
-            let site = siteSelect.value;
+            const siteSelect = document.getElementById('escapeSiteInput');
+            let site = siteSelect.value.trim();
             
             if (site === 'custom') {
                 const customUrl = document.getElementById('customSiteUrl').value.trim();
@@ -1019,34 +1012,34 @@
                     const currentUrl = window.location.href;
                     
                     // Create the HTML content with a full-page iframe
-                    const html = `
-                    <!DOCTYPE html>
-                    <html lang="en">
-                    <head>
-                        <meta charset="UTF-8">
-                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                        <title>UnblockZone</title>
-                        <style>
-                            body, html {
-                                margin: 0;
-                                padding: 0;
-                                height: 100%;
-                                width: 100%;
-                                overflow: hidden;
-                                background: #222;
-                            }
-                            iframe {
-                                display: block;
-                                width: 100%;
-                                height: 100%;
-                                border: none;
-                            }
-                        </style>
-                    </head>
-                    <body>
-                        <iframe src="${currentUrl}" allowfullscreen></iframe>
-                    </body>
-                    </html>`;
+                    const html = 
+                    '<!DOCTYPE html>' +
+                    '<html lang="en">' +
+                    '<head>' +
+                        '<meta charset="UTF-8">' +
+                        '<meta name="viewport" content="width=device-width, initial-scale=1.0">' +
+                        '<title>UnblockZone</title>' +
+                        '<style>' +
+                            'body, html {' +
+                                'margin: 0;' +
+                                'padding: 0;' +
+                                'height: 100%;' +
+                                'width: 100%;' +
+                                'overflow: hidden;' +
+                                'background: #222;' +
+                            '}' +
+                            'iframe {' +
+                                'display: block;' +
+                                'width: 100%;' +
+                                'height: 100%;' +
+                                'border: none;' +
+                            '}' +
+                        '</style>' +
+                    '</head>' +
+                    '<body>' +
+                        '<iframe src="' + currentUrl + '" allowfullscreen></iframe>' +
+                    '</body>' +
+                    '</html>';
                     
                     // First, focus the new window to ensure we have access
                     newWindow.focus();
@@ -1088,9 +1081,9 @@
                         // Simple redirect approach as fallback
                         const pageUrl = window.location.href;
                         const encodedUrl = encodeURIComponent(pageUrl);
-                        const html = `<html><head><title>Loading...</title></head><body><script>window.location.href="${pageUrl}";</script></body></html>`;
+                        const fallbackHTML = '<html><head><title>Redirecting...</title></head><body><' + 'script>window.location.href="' + pageUrl + '";</' + 'script></body></html>';
                         
-                        newWindow.document.write(html);
+                        newWindow.document.write(fallbackHTML);
                         newWindow.document.close();
                     } catch (fallbackError) {
                         console.error('Fallback approach also failed:', fallbackError);
@@ -1146,7 +1139,7 @@
             }
             
             if (savedSiteOption) {
-                document.getElementById('escapeSite').value = savedSiteOption;
+                document.getElementById('escapeSiteInput').value = savedSiteOption;
                 
                 if (savedSiteOption === 'custom') {
                     document.getElementById('customSiteUrl').style.display = 'block';
@@ -1154,7 +1147,7 @@
                 }
             } else if (savedSite) {
                 // Set to custom if not matching any predefined options
-                const select = document.getElementById('escapeSite');
+                const select = document.getElementById('escapeSiteInput');
                 let found = false;
                 
                 for (let i = 0; i < select.options.length; i++) {
@@ -1313,39 +1306,39 @@
                 particleLinks: "#aaa"
             };
             
-        particlesJS("particles-js", {
-            "particles": {
-                    "number": { "value": 20, "density": { "enable": false } },
-                    "color": { "value": theme.particleColor },
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.5, "random": true },
-                    "size": { "value": 3, "random": true },
-                    "line_linked": {
-                        "enable": true,
-                        "distance": 150,
-                        "color": theme.particleLinks,
-                        "opacity": 0.4,
-                        "width": 1
+            particlesJS("particles-js", {
+                particles: {
+                    number: { value: 20, density: { enable: false } },
+                    color: { value: theme.particleColor },
+                    shape: { type: "circle" },
+                    opacity: { value: 0.5, random: true },
+                    size: { value: 3, random: true },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: theme.particleLinks,
+                        opacity: 0.4,
+                        width: 1
                     },
-                    "move": { 
-                        "enable": true, 
-                        "speed": 2, 
-                        "direction": "none",
-                        "random": true,
-                        "straight": false,
-                        "out_mode": "out",
-                        "bounce": false
+                    move: { 
+                        enable: true, 
+                        speed: 2, 
+                        direction: "none",
+                        random: true,
+                        straight: false,
+                        out_mode: "out",
+                        bounce: false
                     }
-            },
-            "interactivity": {
-                    "detect_on": "canvas",
-                    "events": { 
-                        "onhover": { "enable": false },
-                        "onclick": { "enable": false },
-                        "resize": true 
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: { 
+                        onhover: { enable: false },
+                        onclick: { enable: false },
+                        resize: true 
                     }
-            },
-            "retina_detect": false
+                },
+                retina_detect: false
             });
         });
     </script>
@@ -1561,26 +1554,23 @@
             
             // Set active state on the current theme
             const currentTheme = localStorage.getItem('selectedTheme') || 'default';
-            const activeTheme = document.querySelector(`.theme-circle[data-theme="${currentTheme}"]`);
+            const activeTheme = document.querySelector('.theme-circle[data-theme="' + currentTheme + '"]');
             if (activeTheme) {
                 activeTheme.style.transform = 'scale(1.2)';
                 activeTheme.style.boxShadow = '0 0 20px rgba(255,255,255,1)';
             }
             
             // Function to show theme status
-            function showThemeStatus(message) {
-                const statusBox = document.getElementById('themeStatusBox');
-                const statusElement = document.getElementById('themeStatus');
-                
-                statusBox.style.display = 'block';
-                statusBox.style.backgroundColor = 'rgba(40, 167, 69, 0.2)';
-                
-                statusElement.textContent = message;
-                statusElement.style.color = '#28a745';
-                
-                setTimeout(() => {
-                    statusBox.style.display = 'none';
-                }, 3000);
+            function showThemeStatus(message, color) {
+                const statusElement = document.getElementById('theme-status');
+                if (statusElement) {
+                    statusElement.textContent = message;
+                    statusElement.style.backgroundColor = color;
+                    statusElement.style.display = 'block';
+                    setTimeout(function() {
+                        statusElement.style.display = 'none';
+                    }, 3000);
+                }
             }
         });
     </script>
@@ -1591,5 +1581,3 @@
     </script>
 </body>
 </html>
-
-
