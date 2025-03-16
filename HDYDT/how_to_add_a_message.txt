@@ -205,4 +205,26 @@ The message system works in all modern browsers. Some notes:
 - Movies page: "Check out our movie collection! New titles are added regularly."
 - Settings page: "Customize your experience with tab cloaking, themes, and safety features!"
 
-These messages are shown once per session to avoid annoying users with repeated notifications. 
+These messages are shown only once per user (stored in localStorage) to avoid annoying users with repeated notifications.
+
+== PERSISTENCE AND RESETTING ==
+
+Messages are now persistent across the entire site using localStorage. This means:
+
+1. Once a user sees a message, they won't see it again even if they:
+   - Close and reopen the browser
+   - Navigate to different pages
+   - Return to the site later
+
+2. For testing or showing messages again to all users, you can reset the message history:
+   ```javascript
+   // Run this in the browser console or add to your code
+   resetShownMessages();
+   ```
+
+3. To make a message appear every time regardless of persistence:
+   ```javascript
+   showGlowingMessage("This message will show every time", "all", false);
+   ```
+
+These messages are shown only once per user (stored in localStorage) to avoid annoying users with repeated notifications. 

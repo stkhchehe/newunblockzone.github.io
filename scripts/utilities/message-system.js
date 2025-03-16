@@ -1,8 +1,26 @@
 // Message System Script
 // Handles displaying messages across the site
 
-// Store shown messages to avoid repeats in a session
+// Initialize the shown messages from localStorage or create empty object
 let shownMessages = {};
+try {
+    const savedMessages = localStorage.getItem('unblockzone_shown_messages');
+    if (savedMessages) {
+        shownMessages = JSON.parse(savedMessages);
+    }
+} catch (e) {
+    console.error('Error loading shown messages from localStorage:', e);
+    shownMessages = {};
+}
+
+// Function to save shown messages to localStorage
+function saveShownMessages() {
+    try {
+        localStorage.setItem('unblockzone_shown_messages', JSON.stringify(shownMessages));
+    } catch (e) {
+        console.error('Error saving shown messages to localStorage:', e);
+    }
+}
 
 // Show a message with custom text, where to show it, and if it should only be shown once
 function showGlowingMessage(messageText, screenId = 'all', showOnce = true) {
@@ -15,6 +33,7 @@ function showGlowingMessage(messageText, screenId = 'all', showOnce = true) {
     // Mark as shown if needed
     if (showOnce) {
         shownMessages[messageKey] = true;
+        saveShownMessages(); // Save to localStorage
     }
     
     // Check if we're on the right screen
@@ -77,6 +96,13 @@ function removeGlowingMessage() {
             }
         }, 300);
     }
+}
+
+// Add function to reset all shown messages (for testing)
+function resetShownMessages() {
+    shownMessages = {};
+    saveShownMessages();
+    console.log('All message history has been reset');
 }
 
 // Add CSS to the page
