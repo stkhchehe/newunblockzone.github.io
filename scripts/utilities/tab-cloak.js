@@ -75,6 +75,31 @@ function cloakTab(title, favicon) {
     }
 }
 
+// Function to cloak tab with current page name
+function cloakTabWithCurrentPage(favicon) {
+    // Get the current page name from URL
+    let pageName = 'Unblockzone';
+    
+    // Extract page name from URL
+    const path = window.location.pathname;
+    if (path.includes('/g.html')) {
+        pageName = 'Games';
+    } else if (path.includes('/a.html')) {
+        pageName = 'Apps';
+    } else if (path.includes('/m.html')) {
+        pageName = 'Movies';
+    } else if (path.includes('/e.html')) {
+        pageName = 'Exploits';
+    } else if (path.includes('/s.html')) {
+        pageName = 'Settings';
+    } else if (path === '/' || path.includes('/index.html')) {
+        pageName = 'Home';
+    }
+    
+    // Apply the cloak with current page name
+    cloakTab(pageName, favicon);
+}
+
 // Apply saved cloak when the DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     applySavedCloak();
@@ -85,5 +110,6 @@ if (document.readyState === 'complete' || document.readyState === 'interactive')
     applySavedCloak();
 }
 
-// Make cloakTab function globally available
-window.cloakTab = cloakTab; 
+// Make functions globally available
+window.cloakTab = cloakTab;
+window.cloakTabWithCurrentPage = cloakTabWithCurrentPage; 

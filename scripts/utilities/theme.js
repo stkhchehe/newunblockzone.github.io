@@ -4,44 +4,34 @@
 // Define themes
 const themes = {
     default: {
-        name: "Default",
-        background: "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROdNIejFmjeKC5u6Xq2yqOCa5y-uJseTCTfA&s')",
-        particleColor: "#ffffff",
-        particleLinks: "#ffffff",
+        background: "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROdNIejFmjeKC5u6Xq2yqOCa5y-uJseTCTfA&s') no-repeat center center fixed",
         boxShadowColor: "255, 255, 255",
-        lightColor: "#ffffff"
+        particleColor: "#ffffff",
+        particleLinks: "#ffffff"
     },
     vanilla: {
-        name: "Vanilla Iced Coffee",
         background: "linear-gradient(135deg, #e8e1c6 0%, #d6cdb0 100%)",
-        particleColor: "#d6cdb0",
-        particleLinks: "#c7bd97",
-        boxShadowColor: "214, 205, 176",
-        lightColor: "#e8e1c6"
+        boxShadowColor: "232, 225, 198",
+        particleColor: "#e8e1c6",
+        particleLinks: "#d6cdb0"
     },
     caramel: {
-        name: "Caramel Iced Coffee",
         background: "linear-gradient(135deg, #cc9544 0%, #a3742d 100%)",
-        particleColor: "#cc9544",
-        particleLinks: "#a3742d",
         boxShadowColor: "204, 149, 68",
-        lightColor: "#cc9544"
+        particleColor: "#cc9544",
+        particleLinks: "#a3742d"
     },
     chocolate: {
-        name: "Chocolate Mocha",
         background: "linear-gradient(135deg, #5a3925 0%, #3b2516 100%)",
-        particleColor: "#8c6248",
-        particleLinks: "#5a3925",
-        boxShadowColor: "140, 98, 72",
-        lightColor: "#8c6248"
+        boxShadowColor: "90, 57, 37",
+        particleColor: "#5a3925",
+        particleLinks: "#3b2516"
     },
     strawberry: {
-        name: "Strawberry Fun",
         background: "linear-gradient(135deg, #d8a7d8 0%, #b987b9 100%)",
-        particleColor: "#d8a7d8",
-        particleLinks: "#b987b9",
         boxShadowColor: "216, 167, 216",
-        lightColor: "#d8a7d8"
+        particleColor: "#d8a7d8",
+        particleLinks: "#b987b9"
     }
 };
 
@@ -60,48 +50,44 @@ function applyTheme(themeName) {
     
     console.log('Applying theme:', themeName);
     
-    // Save to localStorage
+    // Save the selected theme
     localStorage.setItem('selectedTheme', themeName);
     
     const theme = themes[themeName];
     
-    // Apply background
+    // Update background
     document.body.style.background = theme.background;
     document.body.style.backgroundSize = 'cover';
-    document.body.style.backgroundAttachment = 'fixed';
-    document.body.style.backgroundPosition = 'center center';
     
-    // Apply to particles if they exist
-    if (window.pJSDom && window.pJSDom.length > 0) {
-        try {
-            const pJS = window.pJSDom[0].pJS;
-            if (pJS && pJS.particles && pJS.particles.color) {
-                pJS.particles.color.value = theme.particleColor;
-                pJS.particles.line_linked.color = theme.particleLinks;
-                pJS.fn.particlesRefresh();
-            }
-        } catch (e) {
-            console.error('Error updating particles colors:', e);
+    // Update particles if they exist
+    try {
+        if (window.pJS && window.pJS.particles && window.pJS.particles.color) {
+            window.pJS.particles.color.value = theme.particleColor;
+            window.pJS.particles.line_linked.color = theme.particleLinks;
+            window.pJS.fn.particlesRefresh();
+        } else if (window.particlesJS) {
+            // If pJS isn't initialized but particlesJS is available, reinitialize
+            initializeParticles(theme);
         }
+    } catch (e) {
+        console.error('Error updating particles colors:', e);
     }
     
-    // Apply to all elements with box-shadow
+    // Update box shadows
     updateBoxShadows(theme.boxShadowColor);
     
     // If a page has particlesJS, but it hasn't been initialized yet, set up an observer
-    if (!window.pJSDom || window.pJSDom.length === 0) {
+    if (typeof particlesJS !== 'undefined') {
         setupParticlesObserver(theme);
     }
 }
 
-// Update box shadows across the site
+// Update all box shadows with the theme color
 function updateBoxShadows(colorRGB) {
-    // Update CSS variable if supported
-    if (document.documentElement.style.setProperty) {
-        document.documentElement.style.setProperty('--theme-box-shadow-color', colorRGB);
-    }
+    // Update CSS variable for box shadows
+    document.documentElement.style.setProperty('--theme-box-shadow-color', colorRGB);
     
-    // Create and apply a style element with updated box-shadow values
+    // Create or update a style tag for elements that need the theme color
     let styleEl = document.getElementById('theme-box-shadow-styles');
     if (!styleEl) {
         styleEl = document.createElement('style');
@@ -109,44 +95,52 @@ function updateBoxShadows(colorRGB) {
         document.head.appendChild(styleEl);
     }
     
+    // Update the box shadow styles
     styleEl.textContent = `
-        .icon-container:hover {
-            box-shadow: 0 0 20px rgba(${colorRGB}, 0.8) !important;
-        }
-        .icon:hover {
-            box-shadow: 0 0 20px rgba(${colorRGB}, 0.5) !important;
-        }
-        .rectangle:hover {
-            box-shadow: 0 0 20px rgba(${colorRGB}, 0.7) !important;
-        }
-        .long-rectangle, .emergency-card, .tab-cloak-card {
-            box-shadow: 0 0 15px rgba(${colorRGB}, 0.8) !important;
-        }
-        .theme-circle {
-            box-shadow: 0 0 5px rgba(${colorRGB}, 0.7) !important;
-        }
-        .theme-circle:hover {
-            box-shadow: 0 0 15px rgba(${colorRGB}, 1) !important;
-        }
-        .back-button, .nav-icon {
-            box-shadow: 0 0 10px rgba(${colorRGB}, 0.5) !important;
-        }
-        .back-button:hover, .nav-icon:hover {
-            box-shadow: 0 0 20px rgba(${colorRGB}, 0.8) !important;
-        }
-        .message-overlay .glowing-message {
-            box-shadow: 0 0 20px rgba(${colorRGB}, 0.5) !important;
-        }
-        .message-close {
-            box-shadow: 0 0 10px rgba(${colorRGB}, 0.7) !important;
-        }
-        .message-close:hover {
-            box-shadow: 0 0 15px rgba(${colorRGB}, 1) !important;
-        }
-        .coolBlobIdk {
-            box-shadow: 0 0 120px rgba(${colorRGB}, 0.5) !important;
-        }
+    .icon-container, .icon-container-homepage, .app-box, .game-box, 
+    .long-rectangle, .emergency-card, .tab-cloak-card {
+        box-shadow: 0 0 10px rgba(${colorRGB}, 0.7);
+    }
+    
+    .theme-circle {
+        box-shadow: 0 0 5px rgba(${colorRGB}, 0.7);
+    }
+    
+    .theme-circle:hover, .icon-container:hover, .icon-container-homepage:hover,
+    .app-box:hover, .game-box:hover {
+        box-shadow: 0 0 20px rgba(${colorRGB}, 0.9);
+    }
+    
+    .coolBlobIdk {
+        box-shadow: 0 0 120px rgba(${colorRGB}, 0.5);
+    }
     `;
+}
+
+// Initialize particles with theme colors
+function initializeParticles(theme) {
+    if (typeof particlesJS === 'undefined' || !document.getElementById('particles-js')) return;
+    
+    particlesJS("particles-js", {
+        "particles": {
+            "number": { "value": 30, "density": { "enable": false } },
+            "color": { "value": theme.particleColor },
+            "shape": { "type": "circle" },
+            "opacity": { "value": 0.5, "random": true },
+            "size": { "value": 3, "random": true },
+            "line_linked": {
+                "enable": true,
+                "distance": 150,
+                "color": theme.particleLinks,
+                "opacity": 0.4,
+                "width": 1
+            },
+            "move": { "enable": true, "speed": 4, "direction": "random" }
+        },
+        "interactivity": {
+            "events": { "onhover": { "enable": false } }
+        }
+    });
 }
 
 // Set up an observer to reinitialize particles when they're added to the DOM
@@ -157,37 +151,31 @@ function setupParticlesObserver(theme) {
     // Use MutationObserver to detect when particles container is added
     const observer = new MutationObserver(function(mutations) {
         mutations.forEach(function(mutation) {
-            if (mutation.type === 'childList' && mutation.addedNodes.length) {
-                for (let i = 0; i < mutation.addedNodes.length; i++) {
-                    const node = mutation.addedNodes[i];
-                    if (node.id === 'particles-js') {
-                        // Initialize particles with theme colors
-                        particlesJS("particles-js", {
-                            "particles": {
-                                "number": { "value": 30, "density": { "enable": false } },
-                                "color": { "value": theme.particleColor },
-                                "shape": { "type": "circle" },
-                                "opacity": { "value": 0.5, "random": true },
-                                "size": { "value": 3, "random": true },
-                                "line_linked": {
-                                    "enable": true,
-                                    "distance": 150,
-                                    "color": theme.particleLinks,
-                                    "opacity": 0.4,
-                                    "width": 1
-                                },
-                                "move": { "enable": true, "speed": 4, "direction": "random" }
+            mutation.addedNodes.forEach(function(node) {
+                if (node.nodeType === 1 && node.id === 'particles-js') {
+                    // Initialize particles with theme colors
+                    particlesJS("particles-js", {
+                        "particles": {
+                            "number": { "value": 30, "density": { "enable": false } },
+                            "color": { "value": theme.particleColor },
+                            "shape": { "type": "circle" },
+                            "opacity": { "value": 0.5, "random": true },
+                            "size": { "value": 3, "random": true },
+                            "line_linked": {
+                                "enable": true,
+                                "distance": 150,
+                                "color": theme.particleLinks,
+                                "opacity": 0.4,
+                                "width": 1
                             },
-                            "interactivity": {
-                                "events": { "onhover": { "enable": false } }
-                            }
-                        });
-                        
-                        observer.disconnect();
-                        break;
-                    }
+                            "move": { "enable": true, "speed": 4, "direction": "random" }
+                        },
+                        "interactivity": {
+                            "events": { "onhover": { "enable": false } }
+                        }
+                    });
                 }
-            }
+            });
         });
     });
     
@@ -202,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Also try to apply immediately in case DOMContentLoaded already fired
+// Try to apply immediately in case DOMContentLoaded already fired
 if (document.readyState === 'complete' || document.readyState === 'interactive') {
     const savedTheme = localStorage.getItem('selectedTheme') || 'default';
     if (savedTheme && themes[savedTheme]) {
@@ -210,7 +198,7 @@ if (document.readyState === 'complete' || document.readyState === 'interactive')
     }
 }
 
-// Make functions globally available
+// Make theme functions globally available
 window.applyTheme = applyTheme;
 window.getCurrentTheme = getCurrentTheme;
 window.themesList = themes; 
