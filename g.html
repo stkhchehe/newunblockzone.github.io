@@ -734,25 +734,26 @@
                 particleLinks: "#ffffff"
             };
             
+            // Initialize particles
             particlesJS("particles-js", {
                 "particles": {
-                    "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-                    "color": { "value": theme.particleColor },
+                    "number": { "value": 20, "density": { "enable": false } },
+                    "color": { "value": theme.particleColor || "#ffffff" },
                     "shape": { "type": "circle" },
-                    "opacity": { "value": 0.5, "random": true },
+                    "opacity": { "value": 0.7, "random": true },
                     "size": { "value": 3, "random": true },
                     "line_linked": {
                         "enable": true,
                         "distance": 150,
-                        "color": theme.particleLinks,
-                        "opacity": 0.4,
+                        "color": theme.particleLinks || "#ffffff",
+                        "opacity": 0.6,
                         "width": 1
                     },
-                    "move": {
-                        "enable": true,
-                        "speed": 6,
+                    "move": { 
+                        "enable": true, 
+                        "speed": 2, 
                         "direction": "none",
-                        "random": false,
+                        "random": true,
                         "straight": false,
                         "out_mode": "out",
                         "bounce": false
@@ -760,13 +761,13 @@
                 },
                 "interactivity": {
                     "detect_on": "canvas",
-                    "events": {
-                        "onhover": { "enable": true, "mode": "repulse" },
-                        "onclick": { "enable": true, "mode": "push" },
-                        "resize": true
+                    "events": { 
+                        "onhover": { "enable": false },
+                        "onclick": { "enable": false },
+                        "resize": true 
                     }
                 },
-                "retina_detect": true
+                "retina_detect": false
             });
         });
     </script>
