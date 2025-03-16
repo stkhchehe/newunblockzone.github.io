@@ -75,44 +75,6 @@ function applyTheme(themeName) {
         }
     }
     
-    // Show a temporary notification
-    showThemeNotification(theme.name);
-}
-
-// Show notification
-function showThemeNotification(themeName) {
-    // Check if a notification already exists and remove it
-    const existingNotification = document.getElementById('theme-notification');
-    if (existingNotification) {
-        existingNotification.remove();
-    }
-    
-    const notification = document.createElement('div');
-    notification.id = 'theme-notification';
-    notification.style.position = 'fixed';
-    notification.style.bottom = '20px';
-    notification.style.left = '50%';
-    notification.style.transform = 'translateX(-50%)';
-    notification.style.backgroundColor = 'rgba(40, 167, 69, 0.9)';
-    notification.style.color = 'white';
-    notification.style.padding = '10px 20px';
-    notification.style.borderRadius = '5px';
-    notification.style.zIndex = '9999';
-    notification.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
-    notification.textContent = `Theme changed to "${themeName}"`;
-    
-    document.body.appendChild(notification);
-    
-    setTimeout(() => {
-        notification.style.opacity = '0';
-        notification.style.transition = 'opacity 0.5s';
-        setTimeout(() => {
-            if (notification.parentNode) {
-                notification.parentNode.removeChild(notification);
-            }
-        }, 500);
-    }, 2000);
-}
 
 // Apply theme on page load
 document.addEventListener('DOMContentLoaded', function() {
