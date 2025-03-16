@@ -1279,42 +1279,42 @@
             
             // Test tab cloaker
             if (typeof cloakTab === 'function') {
-                console.log('✅ Tab Cloaker: Available');
+                console.log('✅ tab cloaker: available');
                 
                 const savedTitle = localStorage.getItem('cloakedTitle');
                 const savedFavicon = localStorage.getItem('cloakedFavicon');
                 console.log('  - Saved cloak:', savedTitle ? 'Yes' : 'No');
                 if (savedTitle) console.log('  - Title:', savedTitle);
             } else {
-                console.error('❌ Tab Cloaker: Not available');
+                console.error('❌ tab cloaker: not available');
             }
             
             // Test emergency escape
             if (typeof setupGlobalKeyListener === 'function') {
-                console.log('✅ Emergency Escape: Available');
+                console.log('✅ emergency escape: available');
                 const savedSequence = localStorage.getItem('escapeKeySequence');
                 const savedSite = localStorage.getItem('escapeSite');
                 console.log('  - Configured:', savedSequence && savedSite ? 'Yes' : 'No');
                 if (savedSite) console.log('  - Target site:', savedSite);
             } else {
-                console.error('❌ Emergency Escape: Not available');
+                console.error('❌ emergency escape: not available');
             }
             
             // Test anti-close
             if (typeof applyAntiCloseProtection === 'function') {
-                console.log('✅ Anti-Close: Available');
+                console.log('✅ anti-close: available');
                 const isEnabled = localStorage.getItem('antiCloseEnabled') === 'true' || 
                                  sessionStorage.getItem('antiCloseEnabled') === 'true';
                 console.log('  - Enabled:', isEnabled ? 'Yes' : 'No');
             } else {
-                console.error('❌ Anti-Close: Not available');
+                console.error('❌ anti-close: not available');
             }
             
             // Test about:blank
             if (typeof openInAboutBlank === 'function') {
-                console.log('✅ About:Blank: Available');
+                console.log('✅ about:blank: available');
             } else {
-                console.error('❌ About:Blank: Not available');
+                console.error('❌ about:blank: not available');
             }
             
             console.log('DIAGNOSTICS COMPLETE');
@@ -1393,7 +1393,7 @@
                     const sequence = JSON.parse(savedSequence);
                     updateSequenceDisplay(sequence);
                 } catch (e) {
-                    console.error('Error parsing saved key sequence', e);
+                    console.error('error parsing saved key sequence', e);
                 }
             }
             
@@ -1419,7 +1419,7 @@
                     recordSequenceButton.textContent = 'Press keys... (Click to stop)';
                     recordSequenceButton.style.backgroundColor = '#dc3545';
                     
-                    showStatus('Recording key sequence... Press keys now!', 'info');
+                    showStatus('recording key sequence... press keys now!', 'info');
                 }
             });
             
@@ -1447,7 +1447,7 @@
                         recordSequenceButton.textContent = 'Record Keys';
                         recordSequenceButton.style.backgroundColor = '';
                         
-                        showStatus('Key sequence recorded!', 'success');
+                        showStatus('key sequence recorded!', 'success');
                     }
                 }
             });
@@ -1455,7 +1455,7 @@
             // Function to update the sequence display
             function updateSequenceDisplay(sequence) {
                 if (!sequence || sequence.length === 0) {
-                    currentEscapeSequence.textContent = 'No sequence set';
+                    currentEscapeSequence.textContent = 'no sequence set';
                     return;
                 }
                 
@@ -1504,7 +1504,7 @@
                 const site = escapeSiteInput.value.trim();
                 
                 if (!site) {
-                    showStatus('Please enter a valid URL', 'error');
+                    showStatus('please enter a valid URL', 'error');
                     return;
                 }
                 
@@ -1514,7 +1514,7 @@
                 }
                 
                 if (recordedKeys.length === 0) {
-                    showStatus('Please record a key sequence first', 'error');
+                    showStatus('please record a key sequence first', 'error');
                     return;
                 }
                 
@@ -1527,7 +1527,7 @@
                     updateEmergencyEscape(recordedKeys, site);
                 }
                 
-                showStatus('Emergency escape settings saved!', 'success');
+                showStatus('emergency escape settings saved!', 'success');
             };
         });
     </script>
