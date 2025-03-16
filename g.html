@@ -364,13 +364,10 @@
         <img src="https://static1.squarespace.com/static/5e3bb512203ccf3516032e33/t/616f889f61fabc726422fa0c/1634699424702/CR_AndroidTV_01.png" alt="Crossy Road">
         <div class="game-name">Crossy Road</div>
     </div>
-    <div class="rectangle" onclick="window.location.href='/g/monkey-mart.html'">
+    <div class="rectangle" onclick="window.location.href='g/monkey-mart.html'">
         <img src="https://defold.com/images/games/monkeymart-half.png" alt="Monkey Mart">
         <div class="game-name">Monkey Mart</div>
-<<<<<<< HEAD
-=======
-                            <div class="popular-badge">POPULAR 🔥</div> <!-- Added POPULAR badge -->
->>>>>>> e5f71126cd7818555d1eae62e2bd91ff24b9b62e
+        <div class="popular-badge">POPULAR 🔥</div>
     </div>
 </div>
 <div class="rectangle-container">
@@ -730,18 +727,47 @@
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        particlesJS("particles-js", {
-            "particles": {
-                "number": { "value": 30, "density": { "enable": false } },
-                "color": { "value": "#aaa" },
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.5, "random": true },
-                "size": { "value": 3, "random": true },
-                "move": { "enable": true, "speed": 3, "direction": "random" }
-            },
-            "interactivity": {
-                "events": { "onhover": { "enable": false } }
-            }
+        // Initialize particles with theme colors
+        document.addEventListener('DOMContentLoaded', function() {
+            const theme = window.getCurrentTheme ? window.getCurrentTheme() : {
+                particleColor: "#ffffff",
+                particleLinks: "#ffffff"
+            };
+            
+            particlesJS("particles-js", {
+                "particles": {
+                    "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                    "color": { "value": theme.particleColor },
+                    "shape": { "type": "circle" },
+                    "opacity": { "value": 0.5, "random": true },
+                    "size": { "value": 3, "random": true },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": theme.particleLinks,
+                        "opacity": 0.4,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 6,
+                        "direction": "none",
+                        "random": false,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": { "enable": true, "mode": "repulse" },
+                        "onclick": { "enable": true, "mode": "push" },
+                        "resize": true
+                    }
+                },
+                "retina_detect": true
+            });
         });
     </script>
     <script src="scripts/utilities/shared.js"></script>
