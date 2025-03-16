@@ -21,6 +21,9 @@ function applySavedCloak() {
             newFavicon.id = 'favicon';
             document.head.appendChild(newFavicon);
         }
+    } else {
+        // If no cloak is set, apply current page name by default
+        cloakTabWithCurrentPage('https://files.catbox.moe/ao6qv3.png');
     }
 }
 
@@ -82,22 +85,32 @@ function cloakTabWithCurrentPage(favicon) {
     
     // Extract page name from URL
     const path = window.location.pathname;
-    if (path.includes('/g.html')) {
+    
+    // Check for main pages and their subdirectories
+    if (path.includes('/g.html') || path.includes('/g/')) {
         pageName = 'Games';
-    } else if (path.includes('/a.html')) {
+    } else if (path.includes('/a.html') || path.includes('/a/')) {
         pageName = 'Apps';
-    } else if (path.includes('/m.html')) {
+    } else if (path.includes('/m.html') || path.includes('/m/')) {
         pageName = 'Movies';
-    } else if (path.includes('/e.html')) {
+    } else if (path.includes('/e.html') || path.includes('/e/')) {
         pageName = 'Exploits';
     } else if (path.includes('/s.html')) {
         pageName = 'Settings';
     } else if (path === '/' || path.includes('/index.html')) {
         pageName = 'Home';
+    } else if (path.includes('/es.html')) {
+        pageName = 'Games (Español)';
+    } else if (path.includes('/chat.html')) {
+        pageName = 'Chat';
+    } else if (path.includes('/ai.html')) {
+        pageName = 'AI Tools';
     }
     
+    console.log('Cloaking tab with current page name:', pageName);
+    
     // Apply the cloak with current page name
-    cloakTab(pageName, favicon);
+    cloakTab(pageName, favicon || 'https://files.catbox.moe/ao6qv3.png');
 }
 
 // Apply saved cloak when the DOM is loaded

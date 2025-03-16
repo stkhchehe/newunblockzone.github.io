@@ -441,6 +441,18 @@
         <div class="long-rectangle-title">tab cloaker</div>
         <div class="line"></div>
         
+        <div style="background-color: rgba(0, 0, 0, 0.6); padding: 12px; border-radius: 10px; margin-bottom: 20px; border: 1px solid rgba(128, 255, 128, 0.5); box-shadow: 0 0 10px rgba(128, 255, 128, 0.3);">
+            <div style="font-size: 18px; color: #fff; text-align: center; margin-bottom: 8px; text-shadow: 0 0 5px rgba(128, 255, 128, 0.7);">
+                <strong>Current Page</strong>
+            </div>
+            <div class="color-circle" style="background: linear-gradient(135deg, rgba(40, 167, 69, 0.8), rgba(0, 0, 0, 0.8)); margin: 10px auto; box-shadow: 0 0 15px rgba(128, 255, 128, 0.5);" onclick="cloakTabWithCurrentPage('https://files.catbox.moe/ao6qv3.png')">
+                <div class="cloak-label">Current Page</div>
+            </div>
+            <div style="font-size: 14px; color: #aaa; text-align: center;">
+                This will automatically show the name of the current page (e.g., Games, Apps, Movies) instead of "Unblockzone"
+            </div>
+        </div>
+        
         <div class="cloak-category">educational</div>
         <div class="color-options">
             <div class="color-circle new-circle-1" onclick="cloakTab('Google Classroom', 'https://upload.wikimedia.org/wikipedia/commons/5/59/Google_Classroom_Logo.png')">
@@ -518,9 +530,14 @@
             <div class="color-circle new-circle-14" onclick="cloakTab('New Tab', 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Google_Chrome_icon_%28February_2022%29.svg/800px-Google_Chrome_icon_%28February_2022%29.svg.png')">
                 <div class="cloak-label">Chrome</div>
             </div>
-            <div class="color-circle new-circle-5" onclick="cloakTabWithCurrentPage('https://files.catbox.moe/ao6qv3.png')">
+            <div class="color-circle new-circle-5" onclick="cloakTabWithCurrentPage('https://files.catbox.moe/ao6qv3.png')" style="border: 3px solid rgba(255,255,255,0.8); box-shadow: 0 0 10px rgba(255,255,255,0.9);">
                 <div class="cloak-label">Current Page</div>
             </div>
+        </div>
+        
+        <div style="margin-top: 15px; font-size: 16px; color: #ddd; text-align: center;">
+            The default "Current Page" option will automatically show the name of your current page<br>
+            (Games, Apps, Movies, etc.) rather than "Unblockzone"
         </div>
     </div>
     
@@ -670,52 +687,57 @@
     
     <script src="scripts/utilities/shared.js"></script>
     <script>
-        // Direct implementation of tab cloaker function
-        function cloakTab(title, favicon) {
-            console.log('Cloaking tab with:', title, favicon);
-            // Change page title
-            document.title = title || 'Google';
+        // Initialize key sequence for emergency escape
+        let keySequence = [];
+        let recording = false;
+        let keyListener = null;
+        const KEY_TIMEOUT = 2000; // 2 seconds timeout for key sequence
+        let globalLastKeyTime = 0;
+        let globalEscapeKeyHandler = null;
+        
+        // Load saved key sequence on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            // Initialize theme buttons
+            document.querySelectorAll('.theme-circle').forEach(button => {
+                button.addEventListener('click', function() {
+                    const themeName = this.getAttribute('data-theme');
+                    changeTheme(themeName);
+                });
+            });
             
-            // Change favicon
-            const faviconElement = document.getElementById('favicon') || document.querySelector('link[rel="icon"]');
-            if (faviconElement) {
-                faviconElement.href = favicon || 'https://www.google.com/favicon.ico';
-            } else {
-                const newFavicon = document.createElement('link');
-                newFavicon.rel = 'icon';
-                newFavicon.href = favicon || 'https://www.google.com/favicon.ico';
-                newFavicon.id = 'favicon';
-                document.head.appendChild(newFavicon);
+            // Apply anti-close toggle state from localStorage
+            const antiCloseEnabled = localStorage.getItem('antiCloseEnabled') === 'true';
+            document.getElementById('antiCloseToggle').checked = antiCloseEnabled;
+            
+            if (antiCloseEnabled) {
+                applyAntiCloseProtection();
             }
             
-            // Store the cloak settings in localStorage for persistence
-            localStorage.setItem('cloakedTitle', title);
-            localStorage.setItem('cloakedFavicon', favicon);
+            // Load and display saved key sequence
+            const savedKeySequence = JSON.parse(localStorage.getItem('escapeKeySequence') || '[]');
+            keySequence = savedKeySequence;
+            displayKeySequence();
             
-            // Show a temporary confirmation
-            const notification = document.createElement('div');
-            notification.style.position = 'fixed';
-            notification.style.bottom = '20px';
-            notification.style.left = '50%';
-            notification.style.transform = 'translateX(-50%)';
-            notification.style.backgroundColor = 'rgba(40, 167, 69, 0.9)';
-            notification.style.color = 'white';
-            notification.style.padding = '10px 20px';
-            notification.style.borderRadius = '5px';
-            notification.style.zIndex = '9999';
-            notification.textContent = `Tab cloaked as "${title}"`;
+            // Load saved escape site
+            const savedSiteOption = localStorage.getItem('escapeSiteOption');
+            if (savedSiteOption) {
+                document.getElementById('escapeSite').value = savedSiteOption;
+                updateSiteSelection();
+            }
             
-            document.body.appendChild(notification);
+            // Load saved game display settings
+            const savedAspectRatio = localStorage.getItem('gameAspectRatio');
+            if (savedAspectRatio) {
+                document.getElementById('gameAspectRatio').value = savedAspectRatio;
+            }
             
-            setTimeout(() => {
-                notification.style.opacity = '0';
-                notification.style.transition = 'opacity 0.5s';
-                setTimeout(() => {
-                    document.body.removeChild(notification);
-                }, 500);
-            }, 2000);
-        }
-
+            const savedWidth = localStorage.getItem('gameContainerWidth');
+            if (savedWidth) {
+                document.getElementById('gameWidth').value = savedWidth;
+                document.getElementById('widthValue').textContent = savedWidth + '%';
+            }
+        });
+        
         // Function to cloak tab with current page name
         function cloakTabWithCurrentPage(favicon) {
             // Get the current page name from URL
@@ -723,13 +745,13 @@
             
             // Extract page name from URL
             const path = window.location.pathname;
-            if (path.includes('/g.html')) {
+            if (path.includes('/g.html') || path.includes('/g/')) {
                 pageName = 'Games';
-            } else if (path.includes('/a.html')) {
+            } else if (path.includes('/a.html') || path.includes('/a/')) {
                 pageName = 'Apps';
-            } else if (path.includes('/m.html')) {
+            } else if (path.includes('/m.html') || path.includes('/m/')) {
                 pageName = 'Movies';
-            } else if (path.includes('/e.html')) {
+            } else if (path.includes('/e.html') || path.includes('/e/')) {
                 pageName = 'Exploits';
             } else if (path.includes('/s.html')) {
                 pageName = 'Settings';
@@ -744,10 +766,6 @@
         }
 
         // Settings page specific code
-        let keySequence = [];
-        let isListening = false;
-        let keyListener = null;
-        const KEY_TIMEOUT = 2000; // 2 seconds timeout for key sequence
         let globalLastKeyTime = 0;
         let globalEscapeKeyHandler = null;
         
@@ -811,7 +829,7 @@
             const keyCaptureButton = document.getElementById('keyCaptureButton');
             keyCaptureButton.textContent = 'Recording... Click to stop';
             keyCaptureButton.classList.add('listening');
-            isListening = true;
+            recording = true;
             
             keySequence = [];
             document.getElementById('keySequence').innerHTML = '';
@@ -866,7 +884,7 @@
             const keyCaptureButton = document.getElementById('keyCaptureButton');
             keyCaptureButton.textContent = 'Click to record keys';
             keyCaptureButton.classList.remove('listening');
-            isListening = false;
+            recording = false;
             
             if (keyListener) {
                 window.removeEventListener('keydown', keyListener);
@@ -1004,63 +1022,100 @@
             
             try {
                 // Create a new about:blank window
-                var newWindow = window.open('about:blank', '_blank');
+                const newWindow = window.open('about:blank', '_blank');
                 
                 if (!newWindow) {
                     alert('Pop-up blocked. Please allow pop-ups for this site to use this feature.');
                     return;
                 }
                 
-                // Wait for the window to load
-                setTimeout(function() {
+                // Better approach: Set up the window properly
+                try {
+                    // Prepare content with proper DOCTYPE and escaped content
+                    const pageUrl = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/');
+                    const currentUrl = window.location.href;
+                    
+                    // Create the HTML content with a full-page iframe
+                    const html = `
+                    <!DOCTYPE html>
+                    <html lang="en">
+                    <head>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <title>UnblockZone</title>
+                        <style>
+                            body, html {
+                                margin: 0;
+                                padding: 0;
+                                height: 100%;
+                                width: 100%;
+                                overflow: hidden;
+                                background: #222;
+                            }
+                            iframe {
+                                display: block;
+                                width: 100%;
+                                height: 100%;
+                                border: none;
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <iframe src="${currentUrl}" allowfullscreen></iframe>
+                    </body>
+                    </html>`;
+                    
+                    // First, focus the new window to ensure we have access
+                    newWindow.focus();
+                    
+                    // Now write the content to the document
+                    newWindow.document.open();
+                    newWindow.document.write(html);
+                    newWindow.document.close();
+                    
+                    // Show confirmation
+                    const notification = document.createElement('div');
+                    notification.style.position = 'fixed';
+                    notification.style.bottom = '20px';
+                    notification.style.left = '50%';
+                    notification.style.transform = 'translateX(-50%)';
+                    notification.style.backgroundColor = 'rgba(40, 167, 69, 0.9)';
+                    notification.style.color = 'white';
+                    notification.style.padding = '10px 20px';
+                    notification.style.borderRadius = '5px';
+                    notification.style.zIndex = '9999';
+                    notification.textContent = 'Site opened in about:blank mode';
+                    
+                    document.body.appendChild(notification);
+                    
+                    setTimeout(() => {
+                        notification.style.opacity = '0';
+                        notification.style.transition = 'opacity 0.5s';
+                        setTimeout(() => {
+                            document.body.removeChild(notification);
+                        }, 500);
+                    }, 2000);
+                    
+                } catch (e) {
+                    console.error('Error setting up about:blank window:', e);
+                    alert('Failed to load content in about:blank. This might be blocked by your browser or security settings.');
+                    
+                    // Try an alternative approach when the first one fails
                     try {
-                        // Try to access the document to see if we have permissions
-                        if (newWindow.document) {
-                            // Create a basic HTML content with iframe
-                            var html = '<!DOCTYPE html><html><head><title>UnblockZone</title>';
-                            html += '<style>body,html{margin:0;padding:0;height:100%;overflow:hidden;background:#222;}</style>';
-                            html += '</head><body>';
-                            html += '<iframe src="' + window.location.href + '" style="width:100%;height:100%;border:none;"></iframe>';
-                            html += '</body></html>';
-                            
-                            // Write to the new window document
-                            newWindow.document.open();
-                            newWindow.document.write(html);
-                            newWindow.document.close();
-                            
-                            // Show confirmation
-                            var notification = document.createElement('div');
-                            notification.style.position = 'fixed';
-                            notification.style.bottom = '20px';
-                            notification.style.left = '50%';
-                            notification.style.transform = 'translateX(-50%)';
-                            notification.style.backgroundColor = 'rgba(40, 167, 69, 0.9)';
-                            notification.style.color = 'white';
-                            notification.style.padding = '10px 20px';
-                            notification.style.borderRadius = '5px';
-                            notification.style.zIndex = '9999';
-                            notification.textContent = 'Site opened in about:blank mode';
-                            
-                            document.body.appendChild(notification);
-                            
-                            setTimeout(() => {
-                                notification.style.opacity = '0';
-                                notification.style.transition = 'opacity 0.5s';
-                                setTimeout(() => {
-                                    document.body.removeChild(notification);
-                                }, 500);
-                            }, 2000);
-                        } else {
-                            throw new Error("Cannot access document in the new window");
-                        }
-                    } catch (e) {
-                        console.error('Error writing to about:blank window:', e);
-                        alert('Failed to load content in about:blank. This might be blocked by your browser or admin settings.');
+                        // Simple redirect approach as fallback
+                        const pageUrl = window.location.href;
+                        const encodedUrl = encodeURIComponent(pageUrl);
+                        const html = `<html><head><title>Loading...</title></head><body><script>window.location.href="${pageUrl}";</script></body></html>`;
+                        
+                        newWindow.document.write(html);
+                        newWindow.document.close();
+                    } catch (fallbackError) {
+                        console.error('Fallback approach also failed:', fallbackError);
                     }
-                }, 200);
+                }
             } catch (e) {
                 console.error('Error opening about:blank window:', e);
-                alert('Failed to open about:blank. This might be blocked by your browser or admin settings.');
+                alert('Failed to open about:blank. This might be blocked by your browser security settings.');
             }
         }
         
