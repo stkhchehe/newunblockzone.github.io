@@ -81,30 +81,30 @@ function cloakTab(title, favicon) {
 // Function to cloak tab with current page name
 function cloakTabWithCurrentPage(favicon) {
     // Get the current page name from URL
-    let pageName = 'Unblockzone';
+    let pageName = 'unblockzone';
     
     // Extract page name from URL
     const path = window.location.pathname;
     
     // Check for main pages and their subdirectories
     if (path.includes('/g.html') || path.includes('/g/')) {
-        pageName = 'Games';
+        pageName = 'games';
     } else if (path.includes('/a.html') || path.includes('/a/')) {
-        pageName = 'Apps';
+        pageName = 'apps';
     } else if (path.includes('/m.html') || path.includes('/m/')) {
-        pageName = 'Movies';
+        pageName = 'movies';
     } else if (path.includes('/e.html') || path.includes('/e/')) {
-        pageName = 'Exploits';
+        pageName = 'exploits';
     } else if (path.includes('/s.html')) {
-        pageName = 'Settings';
+        pageName = 'settings';
     } else if (path === '/' || path.includes('/index.html')) {
-        pageName = 'Home';
+        pageName = 'home';
     } else if (path.includes('/es.html')) {
-        pageName = 'Games (Español)';
+        pageName = 'games (español)';
     } else if (path.includes('/chat.html')) {
-        pageName = 'Chat';
+        pageName = 'chat';
     } else if (path.includes('/ai.html')) {
-        pageName = 'AI Tools';
+        pageName = 'ai tools';
     }
     
     console.log('Cloaking tab with current page name:', pageName);
