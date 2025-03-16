@@ -385,47 +385,40 @@
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        // Initialize particles with theme colors
-        document.addEventListener('DOMContentLoaded', function() {
-            const theme = window.getCurrentTheme ? window.getCurrentTheme() : {
-                particleColor: "#ffffff",
-                particleLinks: "#ffffff"
-            };
-            
-            particlesJS("particles-js", {
-                "particles": {
-                    "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-                    "color": { "value": theme.particleColor },
-                    "shape": { "type": "circle" },
-                    "opacity": { "value": 0.5, "random": true },
-                    "size": { "value": 3, "random": true },
-                    "line_linked": {
-                        "enable": true,
-                        "distance": 150,
-                        "color": theme.particleLinks,
-                        "opacity": 0.4,
-                        "width": 1
-                    },
-                    "move": {
-                        "enable": true,
-                        "speed": 6,
-                        "direction": "none",
-                        "random": false,
-                        "straight": false,
-                        "out_mode": "out",
-                        "bounce": false
-                    }
+        // Initialize particles
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 20, "density": { "enable": false } },
+                "color": { "value": "#ffffff" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5, "random": true },
+                "size": { "value": 3, "random": true },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
                 },
-                "interactivity": {
-                    "detect_on": "canvas",
-                    "events": {
-                        "onhover": { "enable": true, "mode": "repulse" },
-                        "onclick": { "enable": true, "mode": "push" },
-                        "resize": true
-                    }
-                },
-                "retina_detect": true
-            });
+                "move": { 
+                    "enable": true, 
+                    "speed": 2, 
+                    "direction": "none",
+                    "random": true,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": { 
+                    "onhover": { "enable": false },
+                    "onclick": { "enable": false },
+                    "resize": true 
+                }
+            },
+            "retina_detect": false
         });
 
         function toggleSecretRow() {

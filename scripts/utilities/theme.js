@@ -123,7 +123,7 @@ function initializeParticles(theme) {
     
     particlesJS("particles-js", {
         "particles": {
-            "number": { "value": 30, "density": { "enable": false } },
+            "number": { "value": 20, "density": { "enable": false } },
             "color": { "value": theme.particleColor },
             "shape": { "type": "circle" },
             "opacity": { "value": 0.5, "random": true },
@@ -135,11 +135,25 @@ function initializeParticles(theme) {
                 "opacity": 0.4,
                 "width": 1
             },
-            "move": { "enable": true, "speed": 4, "direction": "random" }
+            "move": { 
+                "enable": true, 
+                "speed": 2, 
+                "direction": "none",
+                "random": true,
+                "straight": false,
+                "out_mode": "out",
+                "bounce": false
+            }
         },
         "interactivity": {
-            "events": { "onhover": { "enable": false } }
-        }
+            "detect_on": "canvas",
+            "events": { 
+                "onhover": { "enable": false },
+                "onclick": { "enable": false },
+                "resize": true
+            }
+        },
+        "retina_detect": false
     });
 }
 
@@ -156,7 +170,7 @@ function setupParticlesObserver(theme) {
                     // Initialize particles with theme colors
                     particlesJS("particles-js", {
                         "particles": {
-                            "number": { "value": 30, "density": { "enable": false } },
+                            "number": { "value": 20, "density": { "enable": false } },
                             "color": { "value": theme.particleColor },
                             "shape": { "type": "circle" },
                             "opacity": { "value": 0.5, "random": true },
@@ -168,11 +182,25 @@ function setupParticlesObserver(theme) {
                                 "opacity": 0.4,
                                 "width": 1
                             },
-                            "move": { "enable": true, "speed": 4, "direction": "random" }
+                            "move": { 
+                                "enable": true, 
+                                "speed": 2, 
+                                "direction": "none",
+                                "random": true,
+                                "straight": false,
+                                "out_mode": "out",
+                                "bounce": false
+                            }
                         },
                         "interactivity": {
-                            "events": { "onhover": { "enable": false } }
-                        }
+                            "detect_on": "canvas",
+                            "events": { 
+                                "onhover": { "enable": false },
+                                "onclick": { "enable": false },
+                                "resize": true
+                            }
+                        },
+                        "retina_detect": false
                     });
                 }
             });

@@ -197,8 +197,9 @@
             color: #ddd;
         }
         
+        /* Tab cloaker - completely hide the labels */
         .cloak-label {
-            display: none;
+            display: none !important;
         }
         
         /* Emergency Escape Key Styles */
@@ -651,8 +652,7 @@
             <div class="escape-label">Container Width:</div>
             <div style="display: flex; align-items: center; gap: 10px;">
                 <input type="range" id="gameWidth" min="50" max="100" step="1" value="90"
-                    style="width: 200px; cursor: pointer; background: rgba(255,255,255,0.1); height: 8px; border-radius: 5px; -webkit-appearance: none; appearance: none; outline: none;"
-                    oninput="document.getElementById('widthValue').textContent = this.value + '%'">
+                    style="width: 200px; cursor: pointer; background: rgba(255,255,255,0.1); height: 8px; border-radius: 5px; -webkit-appearance: none; appearance: none; outline: none;">
                 <span id="widthValue" style="min-width: 45px; text-align: center; font-weight: bold;">90%</span>
             </div>
         </div>
@@ -736,6 +736,8 @@
             } else if (path === '/' || path.includes('/index.html')) {
                 pageName = 'Home';
             }
+            
+            console.log('Cloaking tab with current page name:', pageName);
             
             // Apply the cloak with current page name
             cloakTab(pageName, favicon);
@@ -1012,45 +1014,50 @@
                 // Wait for the window to load
                 setTimeout(function() {
                     try {
-                        // Create a basic HTML content with iframe
-                        var html = '<!DOCTYPE html><html><head><title>UnblockZone</title>';
-                        html += '<style>body,html{margin:0;padding:0;height:100%;overflow:hidden;background:#222;}</style>';
-                        html += '</head><body>';
-                        html += '<iframe src="' + window.location.href + '" style="width:100%;height:100%;border:none;"></iframe>';
-                        html += '</body></html>';
-                        
-                        // Write to the new window document
-                        newWindow.document.open();
-                        newWindow.document.write(html);
-                        newWindow.document.close();
-                        
-                        // Show confirmation
-                        var notification = document.createElement('div');
-                        notification.style.position = 'fixed';
-                        notification.style.bottom = '20px';
-                        notification.style.left = '50%';
-                        notification.style.transform = 'translateX(-50%)';
-                        notification.style.backgroundColor = 'rgba(40, 167, 69, 0.9)';
-                        notification.style.color = 'white';
-                        notification.style.padding = '10px 20px';
-                        notification.style.borderRadius = '5px';
-                        notification.style.zIndex = '9999';
-                        notification.textContent = 'Site opened in about:blank mode';
-                        
-                        document.body.appendChild(notification);
-                        
-                        setTimeout(() => {
-                            notification.style.opacity = '0';
-                            notification.style.transition = 'opacity 0.5s';
+                        // Try to access the document to see if we have permissions
+                        if (newWindow.document) {
+                            // Create a basic HTML content with iframe
+                            var html = '<!DOCTYPE html><html><head><title>UnblockZone</title>';
+                            html += '<style>body,html{margin:0;padding:0;height:100%;overflow:hidden;background:#222;}</style>';
+                            html += '</head><body>';
+                            html += '<iframe src="' + window.location.href + '" style="width:100%;height:100%;border:none;"></iframe>';
+                            html += '</body></html>';
+                            
+                            // Write to the new window document
+                            newWindow.document.open();
+                            newWindow.document.write(html);
+                            newWindow.document.close();
+                            
+                            // Show confirmation
+                            var notification = document.createElement('div');
+                            notification.style.position = 'fixed';
+                            notification.style.bottom = '20px';
+                            notification.style.left = '50%';
+                            notification.style.transform = 'translateX(-50%)';
+                            notification.style.backgroundColor = 'rgba(40, 167, 69, 0.9)';
+                            notification.style.color = 'white';
+                            notification.style.padding = '10px 20px';
+                            notification.style.borderRadius = '5px';
+                            notification.style.zIndex = '9999';
+                            notification.textContent = 'Site opened in about:blank mode';
+                            
+                            document.body.appendChild(notification);
+                            
                             setTimeout(() => {
-                                document.body.removeChild(notification);
-                            }, 500);
-                        }, 2000);
+                                notification.style.opacity = '0';
+                                notification.style.transition = 'opacity 0.5s';
+                                setTimeout(() => {
+                                    document.body.removeChild(notification);
+                                }, 500);
+                            }, 2000);
+                        } else {
+                            throw new Error("Cannot access document in the new window");
+                        }
                     } catch (e) {
                         console.error('Error writing to about:blank window:', e);
                         alert('Failed to load content in about:blank. This might be blocked by your browser or admin settings.');
                     }
-                }, 100);
+                }, 200);
             } catch (e) {
                 console.error('Error opening about:blank window:', e);
                 alert('Failed to open about:blank. This might be blocked by your browser or admin settings.');
@@ -1154,67 +1161,57 @@
                 }, 5000);
             }
             
-            // Initialize game display settings
-            const savedAspectRatio = localStorage.getItem('gameAspectRatio') || '16:9';
-            const savedWidth = localStorage.getItem('gameWidth') || '90%';
-            
-            if (document.getElementById('gameAspectRatio')) {
-                document.getElementById('gameAspectRatio').value = savedAspectRatio;
-            }
-            
-            if (document.getElementById('gameWidth')) {
-                document.getElementById('gameWidth').value = parseInt(savedWidth) || 90;
-            }
-            
-            // Add event listeners for immediate saving
-            document.getElementById('antiCloseToggle').addEventListener('change', function() {
-                console.log('Settings page: Toggle changed to', this.checked);
-                toggleAntiClose();
-            });
-            
-            const keyCaptureButton = document.getElementById('keyCaptureButton');
-            keyCaptureButton.addEventListener('click', function() {
-                if (isListening) {
-                    stopKeyListening();
-                } else {
-                    startKeyListening();
-                }
-            });
-            
-            document.getElementById('escapeSite').addEventListener('change', function() {
-                const customUrlInput = document.getElementById('customSiteUrl');
-                if (this.value === 'custom') {
-                    customUrlInput.style.display = 'block';
-                } else {
-                    customUrlInput.style.display = 'none';
-                }
-            });
-            
-            // Initialize about:blank button
-            document.getElementById('openInAboutBlank').addEventListener('click', function() {
-                openInAboutBlank();
-            });
-            
-            // Initialize game display settings save button
+            // Game display settings initialization
+            const gameWidth = document.getElementById('gameWidth');
+            const widthValue = document.getElementById('widthValue');
             const saveGameDisplayBtn = document.getElementById('saveGameDisplay');
-            if (saveGameDisplayBtn) {
-                saveGameDisplayBtn.addEventListener('click', function() {
-                    saveGameDisplaySettings();
+            const gameDisplayStatus = document.getElementById('gameDisplayStatus');
+            
+            if (gameWidth && widthValue) {
+                // Load saved value
+                const savedWidth = localStorage.getItem('gameWidth') || "90";
+                gameWidth.value = savedWidth;
+                widthValue.textContent = savedWidth + '%';
+                
+                // Set up the input event listener
+                gameWidth.addEventListener('input', function() {
+                    widthValue.textContent = this.value + '%';
                 });
             }
             
-            // Initialize game width slider
-            const slider = document.getElementById('gameWidth');
-            const widthValue = document.getElementById('widthValue');
+            // Load saved aspect ratio
+            const savedAspect = localStorage.getItem('gameAspectRatio') || "16:9";
+            const aspectRatioSelect = document.getElementById('gameAspectRatio');
+            if (aspectRatioSelect && savedAspect) {
+                aspectRatioSelect.value = savedAspect;
+            }
             
-            if (slider && widthValue) {
-                // Make sure the input event is correctly attached
-                slider.oninput = function() {
-                    widthValue.textContent = this.value + '%';
-                };
-                
-                // Set initial value
-                widthValue.textContent = slider.value + '%';
+            // Save button handler
+            if (saveGameDisplayBtn && gameDisplayStatus) {
+                saveGameDisplayBtn.addEventListener('click', function() {
+                    if (gameWidth && aspectRatioSelect) {
+                        const width = gameWidth.value;
+                        const aspectRatio = aspectRatioSelect.value;
+                        
+                        console.log('Saving game settings:', width, aspectRatio);
+                        
+                        localStorage.setItem('gameWidth', width);
+                        localStorage.setItem('gameAspectRatio', aspectRatio);
+                        
+                        gameDisplayStatus.textContent = 'Display settings saved!';
+                        gameDisplayStatus.style.color = '#28a745';
+                        
+                        setTimeout(() => {
+                            gameDisplayStatus.textContent = '';
+                        }, 3000);
+                    }
+                });
+            }
+            
+            // About:blank button
+            const aboutBlankBtn = document.getElementById('openInAboutBlank');
+            if (aboutBlankBtn) {
+                aboutBlankBtn.addEventListener('click', openInAboutBlank);
             }
             
             // Run diagnostics to verify all features are working
@@ -1280,7 +1277,7 @@
             
         particlesJS("particles-js", {
             "particles": {
-                    "number": { "value": 30, "density": { "enable": false } },
+                    "number": { "value": 20, "density": { "enable": false } },
                     "color": { "value": theme.particleColor },
                 "shape": { "type": "circle" },
                 "opacity": { "value": 0.5, "random": true },
@@ -1292,11 +1289,25 @@
                         "opacity": 0.4,
                         "width": 1
                     },
-                    "move": { "enable": true, "speed": 4, "direction": "random" }
+                    "move": { 
+                        "enable": true, 
+                        "speed": 2, 
+                        "direction": "none",
+                        "random": true,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false
+                    }
             },
             "interactivity": {
-                    "events": { "onhover": { "enable": false } }
-            }
+                    "detect_on": "canvas",
+                    "events": { 
+                        "onhover": { "enable": false },
+                        "onclick": { "enable": false },
+                        "resize": true 
+                    }
+            },
+            "retina_detect": false
             });
         });
     </script>

@@ -183,11 +183,14 @@
             const savedAspectRatio = localStorage.getItem('gameAspectRatio');
             const savedWidth = localStorage.getItem('gameWidth');
             
+            console.log('Applying game display settings:', savedAspectRatio, savedWidth);
+            
             // Apply width setting
             if (savedWidth) {
                 const containers = document.querySelectorAll('.game-container');
                 containers.forEach(container => {
                     container.style.width = savedWidth + '%';
+                    console.log('Applied width:', savedWidth + '%');
                 });
             }
             
@@ -196,8 +199,28 @@
                 const frames = document.querySelectorAll('.game-frame');
                 frames.forEach(frame => {
                     frame.style.aspectRatio = savedAspectRatio.replace(':', ' / ');
+                    console.log('Applied aspect ratio:', savedAspectRatio.replace(':', ' / '));
                 });
             }
+        }
+
+        // Event listener for storage changes to update settings in real-time
+        window.addEventListener('storage', function(e) {
+            console.log('Storage event detected:', e.key, e.newValue);
+            if (e.key === 'gameWidth' || e.key === 'gameAspectRatio') {
+                console.log('Updating game display settings in real-time');
+                applyGameDisplaySettings();
+            }
+        });
+        
+        // Apply settings on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            applyGameDisplaySettings();
+        });
+        
+        // Also apply immediately in case DOMContentLoaded already fired
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            applyGameDisplaySettings();
         }
 
         // Function to load the game data
@@ -465,20 +488,6 @@
 
         // Load the game data when the page loads
         window.addEventListener('DOMContentLoaded', loadGameData);
-        
-        // Apply display settings when content is updated
-        const observer = new MutationObserver(function(mutations) {
-            mutations.forEach(function(mutation) {
-                if (mutation.addedNodes.length > 0) {
-                    applyGameDisplaySettings();
-                }
-            });
-        });
-        
-        observer.observe(document.getElementById('content-area'), { childList: true });
-        
-        // Also apply settings on initial load
-        window.addEventListener('DOMContentLoaded', applyGameDisplaySettings);
     </script>
     <script src="../scripts/utilities/shared.js"></script>
 </body>
