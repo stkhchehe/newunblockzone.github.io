@@ -273,7 +273,7 @@ body {
             
             particlesJS("particles-js", {
                 "particles": {
-                    "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                    "number": { "value": 50, "density": { "enable": true, "value_area": 800 } },
                     "color": { "value": theme.particleColor },
                     "shape": { "type": "circle" },
                     "opacity": { "value": 0.5, "random": true },
@@ -287,7 +287,7 @@ body {
                     },
                     "move": {
                         "enable": true,
-                        "speed": 6,
+                        "speed": 3,
                         "direction": "none",
                         "random": false,
                         "straight": false,
@@ -298,12 +298,12 @@ body {
                 "interactivity": {
                     "detect_on": "canvas",
                     "events": {
-                        "onhover": { "enable": true, "mode": "repulse" },
+                        "onhover": { "enable": false, "mode": "repulse" },
                         "onclick": { "enable": true, "mode": "push" },
                         "resize": true
                     }
                 },
-                "retina_detect": true
+                "retina_detect": false
             });
         });
     </script>
