@@ -119,6 +119,8 @@ To change the message box size, modify:
 }
 ```
 
+IMPORTANT: Make sure to fix any CSS errors. For instance, in the `.message-overlay` class, ensure the `top` property is set to `0` (not `P0` or any other incorrect value).
+
 == ADDING THE MESSAGE SYSTEM TO NEW PAGES ==
 
 To add the message system to a new page:
@@ -139,6 +141,55 @@ To add the message system to a new page:
    });
    </script>
    ```
+
+== TROUBLESHOOTING ==
+
+If your messages are not appearing, check these common issues:
+
+1. **Script not loaded**: Make sure the message-system.js file is correctly included in your HTML.
+   ```html
+   <script src="scripts/utilities/message-system.js"></script>
+   ```
+
+2. **Path issues**: If your page is in a subdirectory, adjust the path accordingly:
+   ```html
+   <!-- For pages in the root directory -->
+   <script src="scripts/utilities/message-system.js"></script>
+   
+   <!-- For pages in templates or other directories -->
+   <script src="../scripts/utilities/message-system.js"></script>
+   ```
+
+3. **Timing issues**: If the message shows too quickly or not at all, adjust the setTimeout delay:
+   ```javascript
+   // Increase delay to 3 seconds
+   setTimeout(function() {
+     showGlowingMessage("Your message here");
+   }, 3000);
+   ```
+
+4. **Console errors**: Open your browser's developer tools (F12) and check the console for errors.
+
+5. **CSS conflicts**: If styles don't appear correctly, your page might have CSS that conflicts with the message system. Try adjusting the z-index values in the message-system.js file.
+
+== REMOVING THE MESSAGE SYSTEM ==
+
+If you need to completely remove the message system from a page:
+
+1. Remove the script include:
+   ```html
+   <script src="scripts/utilities/message-system.js"></script>
+   ```
+
+2. Remove any showGlowingMessage calls from your page's JavaScript.
+
+== BROWSER COMPATIBILITY ==
+
+The message system works in all modern browsers. Some notes:
+
+- The blur effect (`backdrop-filter`) may not work in older browsers
+- For IE11 support, you would need to modify the code to avoid modern JavaScript features
+- Mobile devices fully support the message system
 
 == TIPS ==
 
