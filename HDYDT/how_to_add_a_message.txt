@@ -119,8 +119,6 @@ To change the message box size, modify:
 }
 ```
 
-IMPORTANT: Make sure to fix any CSS errors. For instance, in the `.message-overlay` class, ensure the `top` property is set to `0` (not `P0` or any other incorrect value).
-
 == ADDING THE MESSAGE SYSTEM TO NEW PAGES ==
 
 To add the message system to a new page:
