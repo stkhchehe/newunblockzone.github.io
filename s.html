@@ -535,6 +535,8 @@
             <div id="currentEscapeSequence" style="font-weight: bold;">Press ESC key 3 times</div>
         </div>
         
+        <div id="keySequence" class="key-sequence"></div>
+        
         <div class="escape-row" style="margin-top: 15px;">
             <div class="escape-label">Record new sequence:</div>
             <button id="recordSequenceButton" class="cloak-button">Record Keys</button>
@@ -837,6 +839,11 @@
         
         function displayKeySequence() {
             const sequenceElement = document.getElementById('keySequence');
+            if (!sequenceElement) {
+                console.warn('keySequence element not found in DOM');
+                return;
+            }
+            
             sequenceElement.innerHTML = '';
             
             if (keySequence.length === 0) {
@@ -846,11 +853,11 @@
             keySequence.forEach((keyObj, index) => {
                 let keyText = '';
                 
-                if (keyObj.modifiers.length > 0) {
+                if (keyObj.modifiers && keyObj.modifiers.length > 0) {
                     keyText = keyObj.modifiers.join(' + ') + ' + ';
                 }
                 
-                keyText += keyObj.name;
+                keyText += keyObj.name || keyObj.key;
                 
                 const badge = document.createElement('span');
                 badge.className = 'key-badge';
@@ -959,7 +966,7 @@
             }
         }
 
-        // Function to open the site in about:blank
+        // Function to open the site in about:blank - simplified for reliability
         function openAboutBlank() {
             console.log('Opening about:blank window...');
             
@@ -974,78 +981,55 @@
                 
                 console.log('New window opened successfully');
                 
-                try {
-                    // Get the current URL
-                    const currentUrl = window.location.href;
-                    console.log('Current URL:', currentUrl);
-                    
-                    // Create HTML content with iframe
-                    const html = `
-                        <!DOCTYPE html>
-                        <html>
-                        <head>
-                            <title>Google</title>
-                            <style>
-                                body, html {
-                                    margin: 0;
-                                    padding: 0;
-                                    height: 100%;
-                                    width: 100%;
-                                    overflow: hidden;
-                                }
-                                iframe {
-                                    width: 100%;
-                                    height: 100%;
-                                    border: none;
-                                }
-                            </style>
-                        </head>
-                        <body>
-                            <iframe src="${currentUrl}" allowfullscreen></iframe>
-                        </body>
-                        </html>
-                    `;
-                    
-                    // Write content to new window
-                    newWindow.document.open();
-                    newWindow.document.write(html);
-                    newWindow.document.close();
-                    console.log('Content written to about:blank window');
-                    
-                    // Show success notification
-                    const notification = document.createElement('div');
-                    notification.style.position = 'fixed';
-                    notification.style.bottom = '20px';
-                    notification.style.left = '50%';
-                    notification.style.transform = 'translateX(-50%)';
-                    notification.style.backgroundColor = 'rgba(40, 167, 69, 0.9)';
-                    notification.style.color = 'white';
-                    notification.style.padding = '10px 20px';
-                    notification.style.borderRadius = '5px';
-                    notification.style.zIndex = '9999';
-                    notification.textContent = 'Site opened in about:blank mode';
-                    
-                    document.body.appendChild(notification);
-                    setTimeout(() => {
-                        notification.style.opacity = '0';
-                        notification.style.transition = 'opacity 0.5s';
-                        setTimeout(() => document.body.removeChild(notification), 500);
-                    }, 2000);
-                    
-                } catch (innerError) {
-                    console.error('Error writing to about:blank window:', innerError);
-                    
-                    // Direct redirection as fallback
-                    try {
-                        newWindow.location.href = window.location.href;
-                    } catch (redirectError) {
-                        console.error('Redirect also failed:', redirectError);
-                        alert('Failed to set up about:blank. This is likely due to browser security restrictions.');
-                    }
-                }
+                // Get the current URL
+                const currentUrl = window.location.href;
+                console.log('Current URL:', currentUrl);
+                
+                // Create HTML content with iframe - using string concatenation to avoid template literal issues
+                const html = '<!DOCTYPE html>' +
+                    '<html>' +
+                    '<head>' +
+                    '<title>Google</title>' +
+                    '<style>' +
+                    'body, html { margin: 0; padding: 0; height: 100%; width: 100%; overflow: hidden; }' +
+                    'iframe { width: 100%; height: 100%; border: none; }' +
+                    '</style>' +
+                    '</head>' +
+                    '<body>' +
+                    '<iframe src="' + currentUrl + '" allowfullscreen></iframe>' +
+                    '</body>' +
+                    '</html>';
+                
+                // Write content to new window
+                newWindow.document.open();
+                newWindow.document.write(html);
+                newWindow.document.close();
+                
+                // Show success notification
+                const notification = document.createElement('div');
+                notification.style.position = 'fixed';
+                notification.style.bottom = '20px';
+                notification.style.left = '50%';
+                notification.style.transform = 'translateX(-50%)';
+                notification.style.backgroundColor = 'rgba(40, 167, 69, 0.9)';
+                notification.style.color = 'white';
+                notification.style.padding = '10px 20px';
+                notification.style.borderRadius = '5px';
+                notification.style.zIndex = '9999';
+                notification.textContent = 'Site opened in about:blank mode';
+                
+                document.body.appendChild(notification);
+                setTimeout(function() {
+                    notification.style.opacity = '0';
+                    notification.style.transition = 'opacity 0.5s';
+                    setTimeout(function() {
+                        document.body.removeChild(notification);
+                    }, 500);
+                }, 2000);
+                
             } catch (error) {
-                console.error('Fatal error opening about:blank:', error);
-                alert('Failed to open about:blank window. Please check your browser settings.');
+                console.error('Error opening about:blank:', error);
+                alert('Failed to open in about:blank. Please check your browser settings and try again.');
             }
         }
     </script>
