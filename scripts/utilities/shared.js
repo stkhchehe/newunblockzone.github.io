@@ -242,19 +242,46 @@ function setupGlobalKeyListener(sequence, site) {
     window.addEventListener('keydown', globalKeyListener);
 }
 
-// Tab cloaking function
-function cloakTab(newTitle, newUrl) {
+// Tab cloaking function - improved version
+function cloakTab(newTitle, newFaviconUrl) {
+    console.log('Cloaking tab with title:', newTitle, 'favicon:', newFaviconUrl);
+    
     // Change the title
     document.title = newTitle;
     
-    // Change the favicon (tab image)
-    var favicon = document.getElementById('favicon');
-    if (favicon) {
-        favicon.href = newUrl;
+    // Save to localStorage for persistence
+    localStorage.setItem('cloakedTitle', newTitle);
+    localStorage.setItem('cloakedFavicon', newFaviconUrl);
+    
+    // Change the favicon - handle multiple potential favicon elements
+    let favicon = document.querySelector("link[rel='icon']") || 
+                  document.querySelector("link[rel='shortcut icon']") ||
+                  document.getElementById('favicon');
+    
+    // If favicon doesn't exist, create one
+    if (!favicon) {
+        favicon = document.createElement('link');
+        favicon.rel = 'icon';
+        favicon.id = 'favicon';
+        document.head.appendChild(favicon);
     }
     
-    // Update the URL in the browser without reloading
-    history.pushState({}, newTitle, newUrl);
+    // Update the favicon href
+    favicon.href = newFaviconUrl;
+    
+    // Also create/update apple-touch-icon for mobile devices
+    let touchIcon = document.querySelector("link[rel='apple-touch-icon']");
+    if (!touchIcon) {
+        touchIcon = document.createElement('link');
+        touchIcon.rel = 'apple-touch-icon';
+        document.head.appendChild(touchIcon);
+    }
+    touchIcon.href = newFaviconUrl;
+    
+    console.log('Tab cloaking complete');
+    
+    // Note: Intentionally NOT changing the browser URL to avoid navigation issues
+    // and focus only on the visual aspects of cloaking
 }
 
 // Silent error handling function (replacement for alerts)

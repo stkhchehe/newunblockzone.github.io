@@ -148,13 +148,14 @@
         .color-options {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 25px;
             justify-content: center;
-            margin: 15px 0;
+            margin: 20px 0;
+            padding: 10px;
         }
         .color-circle {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             border: 2px solid white;
             cursor: pointer;
@@ -163,6 +164,7 @@
             background-size: cover;
             background-position: center;
             background-color: white;
+            margin: 5px;
         }
         .color-circle:hover {
             transform: scale(1.2);
@@ -441,82 +443,40 @@
         <div class="long-rectangle-title">tab cloaker</div>
         <div class="line"></div>
         
-        <div style="background-color: rgba(0, 0, 0, 0.6); padding: 12px; border-radius: 10px; margin-bottom: 20px; border: 1px solid rgba(128, 255, 128, 0.5); box-shadow: 0 0 10px rgba(128, 255, 128, 0.3);">
-            <div style="font-size: 18px; color: #fff; text-align: center; margin-bottom: 8px; text-shadow: 0 0 5px rgba(128, 255, 128, 0.7);">
-                <strong>current page</strong>
+        <div style="background-color: rgba(0, 0, 0, 0.7); padding: 15px; border-radius: 15px; margin-bottom: 25px; border: 2px solid rgba(128, 255, 128, 0.7); box-shadow: 0 0 20px rgba(128, 255, 128, 0.4);">
+            <div style="font-size: 20px; color: #fff; text-align: center; margin-bottom: 10px; text-shadow: 0 0 8px rgba(128, 255, 128, 0.8);">
+                <strong>▶ CURRENT PAGE ◀</strong>
             </div>
-            <div class="color-circle" style="background: linear-gradient(135deg, rgba(40, 167, 69, 0.8), rgba(0, 0, 0, 0.8)); margin: 10px auto; box-shadow: 0 0 15px rgba(128, 255, 128, 0.5);" onclick="cloakTabWithCurrentPage('https://files.catbox.moe/ao6qv3.png')">
-                <div class="cloak-label">current page</div>
+            <div class="color-circle" style="background: linear-gradient(135deg, rgba(40, 167, 69, 0.9), rgba(0, 0, 0, 0.9)); margin: 15px auto; width: 70px; height: 70px; box-shadow: 0 0 20px rgba(128, 255, 128, 0.7); border: 3px solid white;" onclick="cloakTabWithCurrentPage('https://files.catbox.moe/ao6qv3.png')" title="Current Page">
             </div>
-            <div style="font-size: 14px; color: #aaa; text-align: center;">
-                this will automatically show the name of the current page (e.g., games, apps, movies)
+            <div style="font-size: 15px; color: #bbb; text-align: center; padding: 5px 10px;">
+                automatically displays the current section name<br>
+                <span style="color: #66ff66; font-weight: bold;">(recommended option)</span>
             </div>
         </div>
         
         <div class="color-options">
-            <div class="color-circle new-circle-1" onclick="cloakTab('google classroom', 'https://upload.wikimedia.org/wikipedia/commons/5/59/Google_Classroom_Logo.png')">
-                <div class="cloak-label">google classroom</div>
-            </div>
-            <div class="color-circle new-circle-2" onclick="cloakTab('duolingo - learn', 'https://crystalpng.com/wp-content/uploads/2024/09/duolingo-new-logo.png')">
-                <div class="cloak-label">duolingo</div>
-            </div>
-            <div class="color-circle new-circle-4" onclick="cloakTab('canvas - home', 'https://img.icons8.com/?size=512&id=oECahFP3ibID&format=png')">
-                <div class="cloak-label">canvas</div>
-            </div>
-            <div class="color-circle new-circle-15" onclick="cloakTab('google docs', 'https://img.icons8.com/color/480/google-docs.png')">
-                <div class="cloak-label">google docs</div>
-            </div>
-            <div class="color-circle new-circle-16" onclick="cloakTab('google sheets', 'https://img.icons8.com/color/480/google-sheets.png')">
-                <div class="cloak-label">google sheets</div>
-            </div>
-            <div class="color-circle new-circle-17" onclick="cloakTab('google slides', 'https://img.icons8.com/color/480/google-slides.png')">
-                <div class="cloak-label">google slides</div>
-            </div>
-            <div class="color-circle new-circle-18" onclick="cloakTab('powerschool student', 'https://play-lh.googleusercontent.com/FfHxiXf0AEElwpDtQA-xZ0oViPXFvb9bMvDiLfwicGxDB9DHjwRGXfTPfub-vamgQik')">
-                <div class="cloak-label">powerschool</div>
-            </div>
-            <div class="color-circle new-circle-19" onclick="cloakTab('schoology', 'https://resources.finalsite.net/images/f_auto,q_auto/v1605724037/k12albemarleorg/pxew6ig1yrz0zsgw5qet/schoologyicon.jpg')">
-                <div class="cloak-label">schoology</div>
-            </div>
-            <div class="color-circle new-circle-3" onclick="cloakTab('google drive - my drive', 'https://upload.wikimedia.org/wikipedia/commons/d/da/Google_Drive_logo.png')">
-                <div class="cloak-label">google drive</div>
-            </div>
-            <div class="color-circle new-circle-8" onclick="cloakTab('slack | home', 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Slack_icon_2019.svg/2048px-Slack_icon_2019.svg.png')">
-                <div class="cloak-label">slack</div>
-            </div>
-            <div class="color-circle new-circle-9" onclick="cloakTab('microsoft teams', 'https://img.icons8.com/color/480/microsoft-teams.png')">
-                <div class="cloak-label">teams</div>
-            </div>
-            <div class="color-circle new-circle-20" onclick="cloakTab('zoom meeting', 'https://www.zdnet.com/a/img/resize/92645c42a2dc98257c089c0ee55a0e01fc1dc67b/2023/08/21/e1cb05a6-9737-444a-8220-bb84d5717211/zoom-logo.jpg?width=1200&height=1200&fit=crop&auto=webp')">
-                <div class="cloak-label">zoom</div>
-            </div>
-            <div class="color-circle new-circle-21" onclick="cloakTab('notion - your connected workspace', 'https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png')">
-                <div class="cloak-label">notion</div>
-            </div>
-            <div class="color-circle new-circle-22" onclick="cloakTab('trello', 'https://play-lh.googleusercontent.com/CiGs15N1e1tXrSnVLEY9jOnKi1oNzPQNRjqhR8fXE0pnu0T0aU8Wd5ZxoHxNRF-Fbw')">
-                <div class="cloak-label">trello</div>
-            </div>
-            <div class="color-circle new-circle-23" onclick="cloakTab('asana: work in one place', 'https://cdn.worldvectorlogo.com/logos/asana-logo.svg')">
-                <div class="cloak-label">asana</div>
-            </div>
-            <div class="color-circle new-circle-24" onclick="cloakTab('gmail', 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/2560px-Gmail_icon_%282020%29.svg.png')">
-                <div class="cloak-label">gmail</div>
-            </div>
-            <div class="color-circle new-circle-25" onclick="cloakTab('outlook', 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Microsoft_Office_Outlook_%282018%E2%80%93present%29.svg/1200px-Microsoft_Office_Outlook_%282018%E2%80%93present%29.svg.png')">
-                <div class="cloak-label">outlook</div>
-            </div>
-            <div class="color-circle new-circle-26" onclick="cloakTab('linkedin', 'https://static.vecteezy.com/system/resources/previews/018/930/587/non_2x/linkedin-logo-linkedin-icon-transparent-free-png.png')">
-                <div class="cloak-label">linkedin</div>
-            </div>
-            <div class="color-circle new-circle-27" onclick="cloakTab('netflix', 'https://assets.nflxext.com/us/ffe/siteui/common/icons/nficon2016.ico')">
-                <div class="cloak-label">netflix</div>
-            </div>
-            <div class="color-circle new-circle-6" onclick="cloakTab('google', 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png')">
-                <div class="cloak-label">google</div>
-            </div>
-            <div class="color-circle new-circle-14" onclick="cloakTab('new tab', 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Google_Chrome_icon_%28February_2022%29.svg/800px-Google_Chrome_icon_%28February_2022%29.svg.png')">
-                <div class="cloak-label">chrome</div>
-            </div>
+            <div class="color-circle new-circle-1" onclick="cloakTab('google classroom', 'https://upload.wikimedia.org/wikipedia/commons/5/59/Google_Classroom_Logo.png')" title="Google Classroom"></div>
+            <div class="color-circle new-circle-2" onclick="cloakTab('duolingo - learn', 'https://crystalpng.com/wp-content/uploads/2024/09/duolingo-new-logo.png')" title="Duolingo"></div>
+            <div class="color-circle new-circle-4" onclick="cloakTab('canvas - home', 'https://img.icons8.com/?size=512&id=oECahFP3ibID&format=png')" title="Canvas"></div>
+            <div class="color-circle new-circle-15" onclick="cloakTab('google docs', 'https://img.icons8.com/color/480/google-docs.png')" title="Google Docs"></div>
+            <div class="color-circle new-circle-16" onclick="cloakTab('google sheets', 'https://img.icons8.com/color/480/google-sheets.png')" title="Google Sheets"></div>
+            <div class="color-circle new-circle-17" onclick="cloakTab('google slides', 'https://img.icons8.com/color/480/google-slides.png')" title="Google Slides"></div>
+            <div class="color-circle new-circle-18" onclick="cloakTab('powerschool student', 'https://play-lh.googleusercontent.com/FfHxiXf0AEElwpDtQA-xZ0oViPXFvb9bMvDiLfwicGxDB9DHjwRGXfTPfub-vamgQik')" title="PowerSchool"></div>
+            <div class="color-circle new-circle-19" onclick="cloakTab('schoology', 'https://resources.finalsite.net/images/f_auto,q_auto/v1605724037/k12albemarleorg/pxew6ig1yrz0zsgw5qet/schoologyicon.jpg')" title="Schoology"></div>
+            <div class="color-circle new-circle-3" onclick="cloakTab('google drive - my drive', 'https://upload.wikimedia.org/wikipedia/commons/d/da/Google_Drive_logo.png')" title="Google Drive"></div>
+            <div class="color-circle new-circle-8" onclick="cloakTab('slack | home', 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Slack_icon_2019.svg/2048px-Slack_icon_2019.svg.png')" title="Slack"></div>
+            <div class="color-circle new-circle-9" onclick="cloakTab('microsoft teams', 'https://img.icons8.com/color/480/microsoft-teams.png')" title="Microsoft Teams"></div>
+            <div class="color-circle new-circle-20" onclick="cloakTab('zoom meeting', 'https://www.zdnet.com/a/img/resize/92645c42a2dc98257c089c0ee55a0e01fc1dc67b/2023/08/21/e1cb05a6-9737-444a-8220-bb84d5717211/zoom-logo.jpg?width=1200&height=1200&fit=crop&auto=webp')" title="Zoom"></div>
+            <div class="color-circle new-circle-21" onclick="cloakTab('notion - your connected workspace', 'https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png')" title="Notion"></div>
+            <div class="color-circle new-circle-22" onclick="cloakTab('trello', 'https://play-lh.googleusercontent.com/CiGs15N1e1tXrSnVLEY9jOnKi1oNzPQNRjqhR8fXE0pnu0T0aU8Wd5ZxoHxNRF-Fbw')" title="Trello"></div>
+            <div class="color-circle new-circle-23" onclick="cloakTab('asana: work in one place', 'https://cdn.worldvectorlogo.com/logos/asana-logo.svg')" title="Asana"></div>
+            <div class="color-circle new-circle-24" onclick="cloakTab('gmail', 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/2560px-Gmail_icon_%282020%29.svg.png')" title="Gmail"></div>
+            <div class="color-circle new-circle-25" onclick="cloakTab('outlook', 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Microsoft_Office_Outlook_%282018%E2%80%93present%29.svg/1200px-Microsoft_Office_Outlook_%282018%E2%80%93present%29.svg.png')" title="Outlook"></div>
+            <div class="color-circle new-circle-26" onclick="cloakTab('linkedin', 'https://static.vecteezy.com/system/resources/previews/018/930/587/non_2x/linkedin-logo-linkedin-icon-transparent-free-png.png')" title="LinkedIn"></div>
+            <div class="color-circle new-circle-27" onclick="cloakTab('netflix', 'https://assets.nflxext.com/us/ffe/siteui/common/icons/nficon2016.ico')" title="Netflix"></div>
+            <div class="color-circle new-circle-6" onclick="cloakTab('google', 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png')" title="Google"></div>
+            <div class="color-circle new-circle-14" onclick="cloakTab('new tab', 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Google_Chrome_icon_%28February_2022%29.svg/800px-Google_Chrome_icon_%28February_2022%29.svg.png')" title="Chrome"></div>
         </div>
     </div>
     
@@ -684,9 +644,14 @@
             } else {
                 console.error('About:blank button not found in DOM');
             }
+
+            // Add code to automatically apply the "Current Page" cloaking by default if no cloak is set
+            if (!localStorage.getItem('cloakedTitle') && !localStorage.getItem('cloakedFavicon')) {
+                cloakTabWithCurrentPage('https://files.catbox.moe/ao6qv3.png');
+            }
         });
         
-        // Function to cloak tab with current page name
+        // Enhanced function to cloak tab with current page name
         function cloakTabWithCurrentPage(favicon) {
             // Get the current page name from URL
             let pageName = 'Unblockzone';
@@ -709,8 +674,38 @@
             
             console.log('Cloaking tab with current page name:', pageName);
             
+            // Set default favicon if not provided
+            if (!favicon) {
+                favicon = 'https://files.catbox.moe/ao6qv3.png';
+            }
+            
             // Apply the cloak with current page name
             cloakTab(pageName, favicon);
+            
+            // Show a quick confirmation
+            const notification = document.createElement('div');
+            notification.style.position = 'fixed';
+            notification.style.bottom = '20px';
+            notification.style.left = '50%';
+            notification.style.transform = 'translateX(-50%)';
+            notification.style.backgroundColor = 'rgba(40, 167, 69, 0.8)';
+            notification.style.color = 'white';
+            notification.style.padding = '10px 20px';
+            notification.style.borderRadius = '5px';
+            notification.style.zIndex = '9999';
+            notification.style.fontSize = '14px';
+            notification.textContent = `Tab cloaked as "${pageName}"`;
+            
+            document.body.appendChild(notification);
+            setTimeout(function() {
+                notification.style.opacity = '0';
+                notification.style.transition = 'opacity 0.5s';
+                setTimeout(function() {
+                    if (notification.parentNode) {
+                        document.body.removeChild(notification);
+                    }
+                }, 500);
+            }, 2000);
         }
 
         // Settings page specific code
