@@ -629,38 +629,6 @@
         </div>
     </div>
     
-    <!-- Game Display Settings -->
-    <div class="long-rectangle">
-        <div class="long-rectangle-title">game display settings</div>
-        <div class="line"></div>
-        
-        <div class="escape-row">
-            <div class="escape-label">aspect ratio:</div>
-            <select class="site-select" id="gameAspectRatio">
-                <option value="16:9">widescreen (16:9)</option>
-                <option value="4:3">standard (4:3)</option>
-                <option value="21:9">ultrawide (21:9)</option>
-                <option value="1:1">square (1:1)</option>
-            </select>
-        </div>
-        
-        <div class="escape-row">
-            <div class="escape-label">container width:</div>
-            <div style="display: flex; align-items: center; gap: 10px;">
-                <input type="range" id="gameWidth" min="50" max="100" step="1" value="90"
-                    style="width: 200px; cursor: pointer; background: rgba(255,255,255,0.1); height: 8px; border-radius: 5px; -webkit-appearance: none; appearance: none; outline: none;">
-                <span id="widthValue" style="min-width: 45px; text-align: center; font-weight: bold;">90%</span>
-            </div>
-        </div>
-        
-        <div style="margin-top: 15px; font-size: 16px; color: #ddd; text-align: center;">
-            these settings control how games and apps are displayed across the site.
-        </div>
-        
-        <button class="save-button" id="saveGameDisplay">save display settings</button>
-        <div class="status-message" id="gameDisplayStatus"></div>
-    </div>
-    
     <!-- Discord Widget -->
 
     <script src="scripts/utilities/shared.js"></script>
