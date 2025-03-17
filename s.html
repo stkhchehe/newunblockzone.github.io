@@ -583,7 +583,7 @@
         <div class="line"></div>
         
         <div class="escape-row" style="flex-direction: column; align-items: center;">
-            <button id="openInAboutBlank" class="about-blank-button">launch in about:blank</button>
+            <button id="newAboutBlank" class="about-blank-button">launch in about:blank</button>
             <div style="font-size: 14px; color: #aaa; margin-top: 10px; text-align: center; width: 100%;">
                 opens this site in about:blank to help bypass filters and avoid detection
             </div>
@@ -662,8 +662,7 @@
     </div>
     
     <!-- Discord Widget -->
-    
-    
+
     <script src="scripts/utilities/shared.js"></script>
     <script>
         // Initialize key sequence for emergency escape
@@ -703,17 +702,11 @@
                 document.getElementById('escapeSiteInput').value = savedSiteOption;
                 updateSiteSelection();
             }
-            
-            // Load saved game display settings
-            const savedAspectRatio = localStorage.getItem('gameAspectRatio');
-            if (savedAspectRatio) {
-                document.getElementById('gameAspectRatio').value = savedAspectRatio;
-            }
-            
-            const savedWidth = localStorage.getItem('gameContainerWidth');
-            if (savedWidth) {
-                document.getElementById('gameWidth').value = savedWidth;
-                document.getElementById('widthValue').textContent = savedWidth + '%';
+
+            // About:blank button
+            const aboutBlankBtn = document.getElementById('newAboutBlank');
+            if (aboutBlankBtn) {
+                aboutBlankBtn.addEventListener('click', openAboutBlank);
             }
         });
         
@@ -993,11 +986,9 @@
         }
 
         // Function to open the site in about:blank
-        function openInAboutBlank() {
-            console.log('Opening site in about:blank');
-            
+        function openAboutBlank() {
             try {
-                // Create a new about:blank window
+                // Open a new window with about:blank
                 const newWindow = window.open('about:blank', '_blank');
                 
                 if (!newWindow) {
@@ -1005,295 +996,55 @@
                     return;
                 }
                 
-                // Better approach: Set up the window properly
-                try {
-                    // Prepare content with proper DOCTYPE and escaped content
-                    const pageUrl = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/');
-                    const currentUrl = window.location.href;
-                    
-                    // Create the HTML content with a full-page iframe
-                    const html = 
-                    '<!DOCTYPE html>' +
-                    '<html lang="en">' +
-                    '<head>' +
-                        '<meta charset="UTF-8">' +
-                        '<meta name="viewport" content="width=device-width, initial-scale=1.0">' +
-                        '<title>UnblockZone</title>' +
-                        '<style>' +
-                            'body, html {' +
-                                'margin: 0;' +
-                                'padding: 0;' +
-                                'height: 100%;' +
-                                'width: 100%;' +
-                                'overflow: hidden;' +
-                                'background: #222;' +
-                            '}' +
-                            'iframe {' +
-                                'display: block;' +
-                                'width: 100%;' +
-                                'height: 100%;' +
-                                'border: none;' +
-                            '}' +
-                        '</style>' +
-                    '</head>' +
-                    '<body>' +
-                        '<iframe src="' + currentUrl + '" allowfullscreen></iframe>' +
-                    '</body>' +
-                    '</html>';
-                    
-                    // First, focus the new window to ensure we have access
-                    newWindow.focus();
-                    
-                    // Now write the content to the document
-                    newWindow.document.open();
-                    newWindow.document.write(html);
-                    newWindow.document.close();
-                    
-                    // Show confirmation
-                    const notification = document.createElement('div');
-                    notification.style.position = 'fixed';
-                    notification.style.bottom = '20px';
-                    notification.style.left = '50%';
-                    notification.style.transform = 'translateX(-50%)';
-                    notification.style.backgroundColor = 'rgba(40, 167, 69, 0.9)';
-                    notification.style.color = 'white';
-                    notification.style.padding = '10px 20px';
-                    notification.style.borderRadius = '5px';
-                    notification.style.zIndex = '9999';
-                    notification.textContent = 'Site opened in about:blank mode';
-                    
-                    document.body.appendChild(notification);
-                    
-                    setTimeout(() => {
-                        notification.style.opacity = '0';
-                        notification.style.transition = 'opacity 0.5s';
-                        setTimeout(() => {
-                            document.body.removeChild(notification);
-                        }, 500);
-                    }, 2000);
-                    
-                } catch (e) {
-                    console.error('Error setting up about:blank window:', e);
-                    alert('Failed to load content in about:blank. This might be blocked by your browser or security settings.');
-                    
-                    // Try an alternative approach when the first one fails
-                    try {
-                        // Simple redirect approach as fallback
-                        const pageUrl = window.location.href;
-                        const encodedUrl = encodeURIComponent(pageUrl);
-                        const fallbackHTML = '<html><head><title>Redirecting...</title></head><body><' + 'script>window.location.href="' + pageUrl + '";</' + 'script></body></html>';
-                        
-                        newWindow.document.write(fallbackHTML);
-                        newWindow.document.close();
-                    } catch (fallbackError) {
-                        console.error('Fallback approach also failed:', fallbackError);
-                    }
-                }
-            } catch (e) {
-                console.error('Error opening about:blank window:', e);
-                alert('Failed to open about:blank. This might be blocked by your browser security settings.');
-            }
-        }
-        
-        // Function to save game display settings
-        function saveGameDisplaySettings() {
-            const width = document.getElementById('gameWidth').value;
-            const aspectRatio = document.getElementById('gameAspectRatio').value;
-            
-            localStorage.setItem('gameWidth', width);
-            localStorage.setItem('gameAspectRatio', aspectRatio);
-            
-            const gameDisplayStatus = document.getElementById('gameDisplayStatus');
-            gameDisplayStatus.textContent = 'Display settings saved!';
-            gameDisplayStatus.style.color = '#28a745';
-            
-            setTimeout(() => {
-                gameDisplayStatus.textContent = '';
-            }, 3000);
-        }
-
-        // Initialize settings page
-        document.addEventListener('DOMContentLoaded', function() {
-            // Apply any saved tab cloak
-            const savedTitle = localStorage.getItem('cloakedTitle');
-            const savedFavicon = localStorage.getItem('cloakedFavicon');
-            if (savedTitle && savedFavicon) {
-                cloakTab(savedTitle, savedFavicon);
-            }
-            
-            const savedSequence = localStorage.getItem('escapeKeySequence');
-            const savedSite = localStorage.getItem('escapeSite');
-            const savedSiteOption = localStorage.getItem('escapeSiteOption');
-            
-            if (savedSequence && savedSite) {
-                try {
-                    keySequence = JSON.parse(savedSequence);
-                    displayKeySequence();
-                    
-                    // Set up the emergency escape listener
-                    setupGlobalKeyListener(keySequence, savedSite);
-                } catch (e) {
-                    console.error('Error parsing saved key sequence', e);
-                    keySequence = [];
-                }
-            }
-            
-            if (savedSiteOption) {
-                document.getElementById('escapeSiteInput').value = savedSiteOption;
+                // The current URL we want to display in the iframe
+                const currentUrl = window.location.href;
                 
-                if (savedSiteOption === 'custom') {
-                    document.getElementById('customSiteUrl').style.display = 'block';
-                    document.getElementById('customSiteUrl').value = savedSite;
-                }
-            } else if (savedSite) {
-                // Set to custom if not matching any predefined options
-                const select = document.getElementById('escapeSiteInput');
-                let found = false;
+                // Simple HTML with an iframe pointing to our site
+                const html = [
+                    '<!DOCTYPE html>',
+                    '<html>',
+                    '<head>',
+                    '    <title>Google</title>',
+                    '    <style>',
+                    '        body, html { margin: 0; padding: 0; height: 100%; width: 100%; overflow: hidden; }',
+                    '        iframe { width: 100%; height: 100%; border: none; }',
+                    '    </style>',
+                    '</head>',
+                    '<body>',
+                    '    <iframe src="' + currentUrl + '" allowfullscreen></iframe>',
+                    '</body>',
+                    '</html>'
+                ].join('\n');
                 
-                for (let i = 0; i < select.options.length; i++) {
-                    if (select.options[i].value === savedSite) {
-                        select.value = savedSite;
-                        found = true;
-                        break;
-                    }
-                }
+                // Write to the new window
+                newWindow.document.open();
+                newWindow.document.write(html);
+                newWindow.document.close();
                 
-                if (!found) {
-                    select.value = 'custom';
-                    document.getElementById('customSiteUrl').style.display = 'block';
-                    document.getElementById('customSiteUrl').value = savedSite;
-                }
-            }
-            
-            // Initialize anti-close settings
-            const isEnabled = localStorage.getItem('antiCloseEnabled') === 'true' || 
-                             sessionStorage.getItem('antiCloseEnabled') === 'true';
-            
-            console.log('Settings page: Initializing anti-close settings, enabled:', isEnabled);
-            
-            // Set the toggle state
-            document.getElementById('antiCloseToggle').checked = isEnabled;
-            
-            // Apply anti-close if it's enabled
-            if (isEnabled) {
-                applyAntiCloseProtection();
+                // Show success notification
+                const notification = document.createElement('div');
+                notification.style.position = 'fixed';
+                notification.style.bottom = '20px';
+                notification.style.left = '50%';
+                notification.style.transform = 'translateX(-50%)';
+                notification.style.backgroundColor = 'rgba(40, 167, 69, 0.9)';
+                notification.style.color = 'white';
+                notification.style.padding = '10px 20px';
+                notification.style.borderRadius = '5px';
+                notification.style.zIndex = '9999';
+                notification.textContent = 'Site opened in about:blank mode';
                 
-                const statusBox = document.getElementById('antiCloseStatusBox');
-                const statusElement = document.getElementById('antiCloseStatus');
-                
-                statusBox.style.display = 'block';
-                statusBox.style.backgroundColor = 'rgba(40, 167, 69, 0.2)';
-                
-                statusElement.textContent = '🔒 Anti-close protection enabled!';
-                statusElement.style.color = '#28a745';
-                
+                document.body.appendChild(notification);
                 setTimeout(() => {
-                    statusBox.style.display = 'none';
-                }, 5000);
-            }
-            
-            // Game display settings initialization
-            const gameWidth = document.getElementById('gameWidth');
-            const widthValue = document.getElementById('widthValue');
-            const saveGameDisplayBtn = document.getElementById('saveGameDisplay');
-            const gameDisplayStatus = document.getElementById('gameDisplayStatus');
-            
-            if (gameWidth && widthValue) {
-                // Load saved value
-                const savedWidth = localStorage.getItem('gameWidth') || "90";
-                gameWidth.value = savedWidth;
-                widthValue.textContent = savedWidth + '%';
+                    notification.style.opacity = '0';
+                    notification.style.transition = 'opacity 0.5s';
+                    setTimeout(() => document.body.removeChild(notification), 500);
+                }, 2000);
                 
-                // Set up the input event listener
-                gameWidth.addEventListener('input', function() {
-                    widthValue.textContent = this.value + '%';
-                });
+            } catch (error) {
+                console.error('Error opening about:blank:', error);
+                alert('Failed to open in about:blank. This might be blocked by your browser security settings.');
             }
-            
-            // Load saved aspect ratio
-            const savedAspect = localStorage.getItem('gameAspectRatio') || "16:9";
-            const aspectRatioSelect = document.getElementById('gameAspectRatio');
-            if (aspectRatioSelect && savedAspect) {
-                aspectRatioSelect.value = savedAspect;
-            }
-            
-            // Save button handler
-            if (saveGameDisplayBtn && gameDisplayStatus) {
-                saveGameDisplayBtn.addEventListener('click', function() {
-                    if (gameWidth && aspectRatioSelect) {
-                        const width = gameWidth.value;
-                        const aspectRatio = aspectRatioSelect.value;
-                        
-                        console.log('Saving game settings:', width, aspectRatio);
-                        
-                        localStorage.setItem('gameWidth', width);
-                        localStorage.setItem('gameAspectRatio', aspectRatio);
-                        
-                        gameDisplayStatus.textContent = 'Display settings saved!';
-                        gameDisplayStatus.style.color = '#28a745';
-                        
-                        setTimeout(() => {
-                            gameDisplayStatus.textContent = '';
-                        }, 3000);
-                    }
-                });
-            }
-            
-            // About:blank button
-            const aboutBlankBtn = document.getElementById('openInAboutBlank');
-            if (aboutBlankBtn) {
-                aboutBlankBtn.addEventListener('click', openInAboutBlank);
-            }
-            
-            // Run diagnostics to verify all features are working
-            runDiagnostics();
-        });
-        
-        // Diagnostic function to test all settings features
-        function runDiagnostics() {
-            console.log('SETTINGS DIAGNOSTICS:');
-            
-            // Test tab cloaker
-            if (typeof cloakTab === 'function') {
-                console.log('✅ tab cloaker: available');
-                
-                const savedTitle = localStorage.getItem('cloakedTitle');
-                const savedFavicon = localStorage.getItem('cloakedFavicon');
-                console.log('  - Saved cloak:', savedTitle ? 'Yes' : 'No');
-                if (savedTitle) console.log('  - Title:', savedTitle);
-            } else {
-                console.error('❌ tab cloaker: not available');
-            }
-            
-            // Test emergency escape
-            if (typeof setupGlobalKeyListener === 'function') {
-                console.log('✅ emergency escape: available');
-                const savedSequence = localStorage.getItem('escapeKeySequence');
-                const savedSite = localStorage.getItem('escapeSite');
-                console.log('  - Configured:', savedSequence && savedSite ? 'Yes' : 'No');
-                if (savedSite) console.log('  - Target site:', savedSite);
-            } else {
-                console.error('❌ emergency escape: not available');
-            }
-            
-            // Test anti-close
-            if (typeof applyAntiCloseProtection === 'function') {
-                console.log('✅ anti-close: available');
-                const isEnabled = localStorage.getItem('antiCloseEnabled') === 'true' || 
-                                 sessionStorage.getItem('antiCloseEnabled') === 'true';
-                console.log('  - Enabled:', isEnabled ? 'Yes' : 'No');
-            } else {
-                console.error('❌ anti-close: not available');
-            }
-            
-            // Test about:blank
-            if (typeof openInAboutBlank === 'function') {
-                console.log('✅ about:blank: available');
-            } else {
-                console.error('❌ about:blank: not available');
-            }
-            
-            console.log('DIAGNOSTICS COMPLETE');
         }
     </script>
 
@@ -1579,5 +1330,7 @@
         // Show a settings message
         // Message removed as requested
     </script>
+
+    <script>
 </body>
 </html>
