@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -213,7 +213,7 @@ body {
             if (event.key === "Enter") {
                 let query = event.target.value.trim();
                 if (query) {
-                    let proxyUrl = `/a/bing/search?q=${encodeURIComponent(query)}`;
+                    let proxyUrl = `active/iframe.html#https://bing.com/search?q=${encodeURIComponent(query)}`;
                     window.location.href = proxyUrl;
                 }
             }
@@ -339,5 +339,4 @@ body {
     </script>
 </body>
 </html>
-
 
