@@ -127,9 +127,14 @@ body {
             padding: 0 15px;
         }
 .search-bar {
-    position: relative;
-    padding: 10px;
-    font-size: 16px;
+    transition: opacity 0.5s ease-in-out;
+    background: transparent !important; /* Make the input background transparent */
+    color: white; /* Ensures typed text is visible */
+    border: none; /* Optional: Removes border if unwanted */
+}
+
+.search-bar::placeholder {
+    color: rgba(255, 255, 255, 0.6); /* Makes the placeholder text semi-transparent */
 }
 
 .fade-text {
