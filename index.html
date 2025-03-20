@@ -126,14 +126,31 @@ body {
             align-items: center;
             padding: 0 15px;
         }
-        .search-bar {
-            width: 100%;
-            background: transparent;
-            border: none;
-            outline: none;
-            color: white;
-            font-size: 18px;
-        }
+.search-bar {
+    position: relative;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.fade-text {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #888;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    25% { opacity: 1; }
+    50% { opacity: 0; }
+    75% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
         .icons-container {
             position: absolute;
             top: 40%;
@@ -253,9 +270,33 @@ body {
         </div>
     </div>
 
-    <div class="header">
-        <input type="text" class="search-bar" placeholder="search..." onkeydown="handleSearch(event)">
-    </div>
+<div class="header">
+    <input type="text" class="search-bar" placeholder="search..." onkeydown="handleSearch(event)">
+</div>
+
+<script>
+    const phrases = ["search...", "try making a better site...", "request a game...", "unblockzone is the best..."];
+    let index = 0;
+    const searchBar = document.querySelector(".search-bar");
+
+    function changePlaceholder() {
+        searchBar.style.opacity = 0; // Fade out
+        setTimeout(() => {
+            index = (index + 1) % phrases.length;
+            searchBar.placeholder = phrases[index];
+            searchBar.style.opacity = 1; // Fade in
+        }, 500);
+    }
+
+    setInterval(changePlaceholder, 3000); // Change every 3 seconds
+</script>
+
+<style>
+    .search-bar {
+        transition: opacity 0.5s ease-in-out;
+    }
+</style>
+
 
     <div class="support-text" onclick="openSupportPage()">support</div>
 
