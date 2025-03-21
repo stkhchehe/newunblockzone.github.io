@@ -1001,11 +1001,17 @@
             });
         });
     </script>
-    <script>
-        // Show a games message
+<script>
+    // Show the first games message
+    setTimeout(function() {
+        showGlowingMessage('explore our collection of games! request a game so we can add it!');
+
+        // Show the second message after a delay
         setTimeout(function() {
-            showGlowingMessage('explore our collection of games! remember to use emergency escape (triple ESC) if needed.');
-        }, 1500);
-    </script>
+            showGlowingMessage('updates: we are working on adding the real roblox and online games so hold tight :)');
+        }, 3000); // Adjust delay as needed
+    }, 1500);
+</script>
+
 </body>
 </html>
