@@ -14,15 +14,15 @@
             margin: 0;
             padding: 0;
             height: 100%;
-            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: black; /* Prevents any white flicker */
         }
         iframe {
-            width: 110vw; /* Make it slightly bigger */
-            height: 110vh; /* Make it slightly bigger */
+            width: 100vw;
+            height: 100vh;
             border: none;
-            position: absolute;
-            top: -5%; /* Move it up to cover the white spot */
-            left: -5%; /* Adjust horizontally if needed */
         }
     </style>
 </head>
