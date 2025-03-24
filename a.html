@@ -465,13 +465,17 @@
         });
     </script>
 
-    <!-- Discord Widget -->
-    <script>
-        // Show a welcome message on homepage
+<script>
+    // Show the first games message
+    setTimeout(function() {
+        showGlowingMessage('most apps dont load because of the server issue');
+
+        // Show the second message after a delay
         setTimeout(function() {
-            showGlowingMessage('the reason we dont have a lot of apps is cuz the server that i paid the proxy to be on, doesnt do well with snap or insta so we have to limit the apps. you can always request an app!');
-        }, 1500);
-    </script>
+            showGlowingMessage('we are working on a faster, and better server but we have to pay more money than i already paid sooo youll have to wait 😭');
+        }, 3000); // Adjust delay as needed
+    }, 1500);
+</script>
 </body>
 </html>
 
