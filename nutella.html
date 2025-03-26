@@ -27,9 +27,29 @@
             height: 100px;
             object-fit: cover;
             transition: transform 0.3s ease-in-out;
+            cursor: pointer;
         }
         .gallery img:hover {
             transform: scale(1.5);
+        }
+        /* Pop-up Image */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .popup img {
+            width: 80%;
+            height: auto;
+            max-width: 600px;
+            transition: transform 0.1s ease-in-out;
         }
     </style>
 </head>
@@ -39,12 +59,35 @@
         <img src="https://static.vecteezy.com/system/resources/thumbnails/045/821/312/small/a-cheerful-man-in-a-white-t-shirt-and-jeans-waves-with-a-friendly-smile-png.png" alt="Image 2">
         <img src="https://www.pngkey.com/png/full/369-3697526_hispanic-leaders-hispanic-man-png.png" alt="Image 3">
         <img src="https://purepng.com/public/uploads/large/purepng.com-manmanadult-malemale-childboy-beingmens-1421526920943c4xhn.png" alt="Image 4">
-        <img src="https://static.vecteezy.com/system/resources/thumbnails/036/497/738/small_2x/ai-generated-black-man-in-business-suit-for-a-meeting-isolated-on-transparent-background-png.png" alt="Image 5">
+        <img id="triggerImage" src="https://static.vecteezy.com/system/resources/thumbnails/036/497/738/small_2x/ai-generated-black-man-in-business-suit-for-a-meeting-isolated-on-transparent-background-png.png" alt="Image 5">
         <img src="https://www.pngall.com/wp-content/uploads/14/Gigachad.png" alt="Image 6">
         <img src="https://static.vecteezy.com/system/resources/thumbnails/035/647/746/small/ai-generated-man-athlete-flexing-muscle-isolated-on-transparent-background-free-png.png" alt="Image 7">
         <img src="https://static.vecteezy.com/system/resources/thumbnails/049/574/994/small/cartoon-man-in-blue-shorts-and-pink-tie-png.png" alt="Image 8">
         <img src="https://png.pngtree.com/png-clipart/20241127/original/pngtree-muscular-and-fat-man-png-image_17326249.png" alt="Image 9">
         <img src="https://static.wikia.nocookie.net/the-omega-nextbot-chaos/images/0/0e/QuandaleDingle.png/revision/latest?cb=20221123155720" alt="Image 10">
     </div>
+
+    <!-- Pop-up container -->
+    <div class="popup" id="popup">
+        <img src="https://media.tenor.com/I-8FPsqHr0EAAAAe/goofy-ahh-person.png" alt="Big Image">
+    </div>
+
+    <!-- Correct sound effect -->
+    <audio id="correctSound" src="https://www.myinstants.com/media/sounds/correct.mp3"></audio>
+
+    <script>
+        document.getElementById("triggerImage").addEventListener("click", function() {
+            // Show pop-up
+            document.getElementById("popup").style.display = "flex";
+
+            // Play sound
+            document.getElementById("correctSound").play();
+
+            // Close pop-up on click
+            document.getElementById("popup").addEventListener("click", function() {
+                this.style.display = "none";
+            });
+        });
+    </script>
 </body>
 </html>
