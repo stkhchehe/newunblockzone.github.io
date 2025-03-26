@@ -36,6 +36,7 @@
             position: relative;
             width: 100px;
             height: 100px;
+            cursor: pointer;
         }
 
         .gallery img {
@@ -43,7 +44,6 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.3s ease-in-out;
-            cursor: pointer;
         }
 
         .gallery img:hover {
@@ -89,7 +89,23 @@
             width: 80%;
             height: auto;
             max-width: 600px;
-            transition: transform 0.1s ease-in-out;
+        }
+
+        /* Close icon pop-up */
+        .close-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 999;
+            opacity: 1;
+            transition: opacity 1s ease-out;
+        }
+
+        .close-popup img {
+            width: 150px;
+            height: auto;
         }
     </style>
 </head>
@@ -99,19 +115,19 @@
 
     <div class="gallery">
         <div class="image-container">
-            <img src="https://img.pikbest.com/png-images/20240528/portrait-of-happy-handsome-hispanic-man-smiling-with-arms-crossed_10587808.png!sw800" alt="Image 1">
+            <img src="https://img.pikbest.com/png-images/20240528/portrait-of-happy-handsome-hispanic-man-smiling-with-arms-crossed_10587808.png!sw800" alt="Image 1" onclick="showClosePopup()">
             <div class="hover-text">me??</div>
         </div>
         <div class="image-container">
-            <img src="https://static.vecteezy.com/system/resources/thumbnails/045/821/312/small/a-cheerful-man-in-a-white-t-shirt-and-jeans-waves-with-a-friendly-smile-png.png" alt="Image 2">
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/045/821/312/small/a-cheerful-man-in-a-white-t-shirt-and-jeans-waves-with-a-friendly-smile-png.png" alt="Image 2" onclick="showClosePopup()">
             <div class="hover-text">me??</div>
         </div>
         <div class="image-container">
-            <img src="https://www.pngkey.com/png/full/369-3697526_hispanic-leaders-hispanic-man-png.png" alt="Image 3">
+            <img src="https://www.pngkey.com/png/full/369-3697526_hispanic-leaders-hispanic-man-png.png" alt="Image 3" onclick="showClosePopup()">
             <div class="hover-text">me??</div>
         </div>
         <div class="image-container">
-            <img src="https://purepng.com/public/uploads/large/purepng.com-manmanadult-malemale-childboy-beingmens-1421526920943c4xhn.png" alt="Image 4">
+            <img src="https://purepng.com/public/uploads/large/purepng.com-manmanadult-malemale-childboy-beingmens-1421526920943c4xhn.png" alt="Image 4" onclick="showClosePopup()">
             <div class="hover-text">me??</div>
         </div>
         <div class="image-container">
@@ -119,30 +135,35 @@
             <div class="hover-text">me??</div>
         </div>
         <div class="image-container">
-            <img src="https://www.pngall.com/wp-content/uploads/14/Gigachad.png" alt="Image 6">
+            <img src="https://www.pngall.com/wp-content/uploads/14/Gigachad.png" alt="Image 6" onclick="showClosePopup()">
             <div class="hover-text">me??</div>
         </div>
         <div class="image-container">
-            <img src="https://static.vecteezy.com/system/resources/thumbnails/035/647/746/small/ai-generated-man-athlete-flexing-muscle-isolated-on-transparent-background-free-png.png" alt="Image 7">
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/035/647/746/small/ai-generated-man-athlete-flexing-muscle-isolated-on-transparent-background-free-png.png" alt="Image 7" onclick="showClosePopup()">
             <div class="hover-text">me??</div>
         </div>
         <div class="image-container">
-            <img src="https://static.vecteezy.com/system/resources/thumbnails/049/574/994/small/cartoon-man-in-blue-shorts-and-pink-tie-png.png" alt="Image 8">
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/049/574/994/small/cartoon-man-in-blue-shorts-and-pink-tie-png.png" alt="Image 8" onclick="showClosePopup()">
             <div class="hover-text">me??</div>
         </div>
         <div class="image-container">
-            <img src="https://png.pngtree.com/png-clipart/20241127/original/pngtree-muscular-and-fat-man-png-image_17326249.png" alt="Image 9">
+            <img src="https://png.pngtree.com/png-clipart/20241127/original/pngtree-muscular-and-fat-man-png-image_17326249.png" alt="Image 9" onclick="showClosePopup()">
             <div class="hover-text">me??</div>
         </div>
         <div class="image-container">
-            <img src="https://static.wikia.nocookie.net/the-omega-nextbot-chaos/images/0/0e/QuandaleDingle.png/revision/latest?cb=20221123155720" alt="Image 10">
+            <img src="https://static.wikia.nocookie.net/the-omega-nextbot-chaos/images/0/0e/QuandaleDingle.png/revision/latest?cb=20221123155720" alt="Image 10" onclick="showClosePopup()">
             <div class="hover-text">me??</div>
         </div>
     </div>
 
-    <!-- Pop-up container -->
+    <!-- Pop-up for Image 5 -->
     <div class="popup" id="popup">
         <img src="https://media.tenor.com/I-8FPsqHr0EAAAAe/goofy-ahh-person.png" alt="Big Image">
+    </div>
+
+    <!-- Close icon pop-up -->
+    <div class="close-popup" id="closePopup">
+        <img src="https://cdn3.iconfinder.com/data/icons/flat-actions-icons-9/792/Close_Icon-512.png" alt="Close Icon">
     </div>
 
     <!-- Correct sound effect -->
@@ -161,6 +182,19 @@
                 this.style.display = "none";
             });
         });
+
+        function showClosePopup() {
+            let closePopup = document.getElementById("closePopup");
+            closePopup.style.display = "block";
+            closePopup.style.opacity = "1";
+
+            setTimeout(() => {
+                closePopup.style.opacity = "0";
+                setTimeout(() => {
+                    closePopup.style.display = "none";
+                }, 1000);
+            }, 1000);
+        }
     </script>
 
 </body>
