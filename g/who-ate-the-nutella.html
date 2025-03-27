@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>who ate all the nutella!</title>
     <link rel="icon" href="https://www.pngmart.com/files/23/Nutella-PNG-Picture.png">
+    <!-- Add Bowlby One font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
@@ -16,6 +18,7 @@
             align-items: center;
             height: 100vh;
             flex-direction: column;
+            font-family: 'Bowlby One', sans-serif; /* Apply the Bowlby One font */
         }
 
         h1 {
@@ -111,7 +114,7 @@
 </head>
 <body>
 
-    <h1>Who ate all the Nutella??</h1>
+    <h1>who ate all the nutella??</h1>
 
     <div class="gallery">
         <div class="image-container">
@@ -168,14 +171,17 @@
 
     <!-- Correct sound effect -->
     <audio id="correctSound" src="https://www.myinstants.com/media/sounds/correct.mp3"></audio>
+    
+    <!-- Custom sound effect for image 5 click -->
+    <audio id="triggerSound" src="https://tuna.voicemod.net/sound/f8060c61-4129-4b86-a2d7-c003f0997a00"></audio>
 
     <script>
         document.getElementById("triggerImage").addEventListener("click", function() {
             // Show pop-up
             document.getElementById("popup").style.display = "flex";
 
-            // Play sound
-            document.getElementById("correctSound").play();
+            // Play the custom sound
+            document.getElementById("triggerSound").play();
 
             // Close pop-up on click
             document.getElementById("popup").addEventListener("click", function() {
