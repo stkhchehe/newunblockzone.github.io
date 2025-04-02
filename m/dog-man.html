@@ -289,5 +289,76 @@
             };
         };
     </script>
+
+        <script src="scripts/utilities/shared.js"></script>
+
+     <div class="particles" style->
+
+         <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Initialize particles with theme colors
+        document.addEventListener('DOMContentLoaded', function() {
+            const theme = window.getCurrentTheme ? window.getCurrentTheme() : {
+                particleColor: "#ffffff",
+                particleLinks: "#ffffff",
+                lightColor: "255, 255, 255"
+            };
+            
+            // Update the blob light effect
+            const blobElement = document.querySelector('.coolBlobIdk');
+            if (blobElement) {
+                blobElement.style.background = `linear-gradient(135deg, rgba(${theme.lightColor || "255, 255, 255"}, 0.8), rgba(${theme.lightColor || "255, 255, 255"}, 0.6))`;
+                blobElement.style.boxShadow = `0 0 120px rgba(${theme.lightColor || "255, 255, 255"}, 0.5)`;
+            }
+            
+            // Apply theme to other elements
+            const rectangles = document.querySelectorAll('.rectangle');
+            rectangles.forEach(rectangle => {
+                rectangle.style.boxShadow = `0 0 20px rgba(${theme.lightColor || "255, 255, 255"}, 0.7)`;
+            });
+            
+            const titleElement = document.querySelector('.title');
+            if (titleElement) {
+                titleElement.style.textShadow = `0 0 15px rgba(${theme.lightColor || "255, 255, 255"}, 0.9)`;
+            }
+            
+            // Initialize particles
+            particlesJS("particles-js", {
+                "particles": {
+                    "number": { "value": 20, "density": { "enable": false } },
+                    "color": { "value": theme.particleColor || "#ffffff" },
+                    "shape": { "type": "circle" },
+                    "opacity": { "value": 0.7, "random": true },
+                    "size": { "value": 3, "random": true },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": theme.particleLinks || "#ffffff",
+                        "opacity": 0.6,
+                        "width": 1
+                    },
+                    "move": { 
+                        "enable": true, 
+                        "speed": 2, 
+                        "direction": "none",
+                        "random": true,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": { 
+                        "onhover": { "enable": false },
+                        "onclick": { "enable": false },
+                        "resize": true 
+                    }
+                },
+                "retina_detect": false
+            });
+        });
+    </script>
+    
 </body>
 </html>
