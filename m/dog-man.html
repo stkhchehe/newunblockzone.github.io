@@ -58,164 +58,167 @@
             height: 120px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 25px;
-            margin-top: 0px;
             box-shadow: 0 0 3px 1px white;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding-left: 8px;
-            padding-right: 8px;
+            padding: 8px;
         }
 
-        .icon-container {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: 8px;
-        }
+.icon-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+}
 
-        .icon {
-            width: 75px;
-            height: 75px;
-            background: black;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 3px 1px white;
-            transition: transform 0.3s ease-in-out;
-            cursor: pointer;
-        }
+/* Icon base styling */
+.icon {
+    width: 75px;
+    height: 75px;
+    background: black;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 3px 1px white;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden; /* Ensures shine effect stays inside */
+}
 
-        .icon:hover {
-            box-shadow: 0 0 8px 2px white;
-            transform: scale(1.1);
-        }
+/* Hover effects */
+.icon:hover {
+    box-shadow: 0 0 8px 2px white;
+    transform: scale(1.1);
+}
 
-        .icon img {
-            width: 70%;
-            height: 70%;
-            object-fit: contain;
-        }
+/* Shine effect on icons */
+.icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.1) 100%);
+    filter: blur(8px);
+    transform: skewX(-25deg);
+    transition: left 0.8s ease-in-out;
+}
+
+/* Shine effect moves smoothly on hover */
+.icon:hover::before {
+    left: 100%;
+}
+
+/* Icon image */
+.icon img {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+}
+
     </style>
 </head>
 <body>
     <div id="particles-js"></div>
 
-    <div class="movie-box">
-        <iframe id="movie-frame" src="https://embed.su/embed/movie/774370"></iframe>
+    <div class="movie-box" id="movie-box">
+        <iframe id="movie-frame" src="https://embed.su/embed/movie/774370" allowfullscreen></iframe>
     </div>
 
-    <div class="small-box">
-        <div class="icon-container">
-            <div class="icon" onclick="window.open('/index.html', '_blank')"><img src="https://img.icons8.com/ios-filled/50/FFFFFF/home.png" alt="Icon 1"></div>  
-            <div class="icon" onclick="window.open('/g.html', '_blank')"><img src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" alt="Icon 1"></div>
-            <div class="icon" onclick="window.open('/a.html', '_blank')"><img src="https://img.icons8.com/ios7/600/FFFFFF/apple-app-store--v2.png" alt="Icon 2"></div>
-            <div class="icon" onclick="window.open('/e.html', '_blank')"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" alt="Icon 3"></div>
-            <div class="icon" onclick="window.open('/m.html', '_blank')"><img src="https://static-00.iconduck.com/assets.00/film-spool-icon-2048x2048-uk9kbgtd.png" alt="Icon 4"></div>
-            <div class="icon" onclick="window.open('/s.html', '_blank')"><img src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" alt="Icon 5"></div>
+<div class="small-box">
+    <div class="icon-container">
+        <div class="icon" onclick="window.open('/index.html', '_blank')">
+            <img src="https://img.icons8.com/ios-filled/50/FFFFFF/home.png" alt="Home">
+        </div>  
+        <div class="icon" onclick="window.open('/g.html', '_blank')">
+            <img src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" alt="Games">
         </div>
-
-                <div class="icon-container">
-            <div class="icon" id="mute-toggle">
-                <img id="mute-icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsi175KrN0VbjpvjxLMdU5ry8uaIuFiAuzxQ&s" alt="Mute Toggle">
-            </div>
-            <div class="icon" id="fullscreen-toggle">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmKFdCO9S9ltMXgR7ZhqcnrFO_WapCmLyVyQ&s" alt="Fullscreen">
-            </div>
+        <div class="icon" onclick="window.open('/a.html', '_blank')">
+            <img src="https://img.icons8.com/ios7/600/FFFFFF/apple-app-store--v2.png" alt="Apps">
+        </div>
+        <div class="icon" onclick="window.open('/e.html', '_blank')">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" alt="Entertainment">
+        </div>
+        <div class="icon" onclick="window.open('/m.html', '_blank')">
+            <img src="https://static-00.iconduck.com/assets.00/film-spool-icon-2048x2048-uk9kbgtd.png" alt="Movies">
+        </div>
+        <div class="icon" onclick="window.open('/s.html', '_blank')">
+            <img src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" alt="Settings">
         </div>
     </div>
+
+    <div class="icon-container">
+        <div class="icon" id="refresh-button">
+            <img id="refresh-icon" src="https://img.icons8.com/ios11/512/FFFFFF/refresh.png" alt="Refresh">
+        </div>
+        <div class="icon" id="fullscreen-toggle">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmKFdCO9S9ltMXgR7ZhqcnrFO_WapCmLyVyQ&s" alt="Fullscreen">
+        </div>
+    </div>
+</div>
+
 
         <script>
-        document.getElementById("mute-toggle").addEventListener("click", function () {
-            let muteIcon = document.getElementById("mute-icon");
-            if (!document.muted) {
-                document.muted = true;
-                muteIcon.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2A0_oSe4co7qk8Ps88FqVqR8kKyMK0HCV5A&s";
-            } else {
-                document.muted = false;
-                muteIcon.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsi175KrN0VbjpvjxLMdU5ry8uaIuFiAuzxQ&s";
-            }
-        });
-     <script>
 
-        document.getElementById("fullscreen-toggle").addEventListener("click", function () {
-            let movieBox = document.getElementById("movie-frame");
-            if (!document.fullscreenElement) {
-                movieBox.requestFullscreen();
-            } else {
-                document.exitFullscreen();
-            }
-        });
-                 <script>
+document.getElementById("refresh-button").addEventListener("click", function () {
+    let movieFrame = document.getElementById("movie-frame");
+    movieFrame.src = movieFrame.src; // Reloads the iframe
+});
 
-     <div class="particles" style->
 
-         <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        // Initialize particles with theme colors
+document.getElementById("fullscreen-toggle").addEventListener("click", function () {
+    let movieFrame = document.getElementById("movie-frame");
+    if (!document.fullscreenElement) {
+        if (movieFrame.requestFullscreen) {
+            movieFrame.requestFullscreen();
+        } else if (movieFrame.mozRequestFullScreen) {
+            movieFrame.mozRequestFullScreen();
+        } else if (movieFrame.webkitRequestFullscreen) {
+            movieFrame.webkitRequestFullscreen();
+        } else if (movieFrame.msRequestFullscreen) {
+            movieFrame.msRequestFullscreen();
+        }
+    } else {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+        }
+    }
+});
+
+
+        // Initialize particles.js
         document.addEventListener('DOMContentLoaded', function() {
-            const theme = window.getCurrentTheme ? window.getCurrentTheme() : {
-                particleColor: "#ffffff",
-                particleLinks: "#ffffff",
-                lightColor: "255, 255, 255"
-            };
-            
-            // Update the blob light effect
-            const blobElement = document.querySelector('.coolBlobIdk');
-            if (blobElement) {
-                blobElement.style.background = `linear-gradient(135deg, rgba(${theme.lightColor || "255, 255, 255"}, 0.8), rgba(${theme.lightColor || "255, 255, 255"}, 0.6))`;
-                blobElement.style.boxShadow = `0 0 120px rgba(${theme.lightColor || "255, 255, 255"}, 0.5)`;
-            }
-            
-            // Apply theme to other elements
-            const rectangles = document.querySelectorAll('.rectangle');
-            rectangles.forEach(rectangle => {
-                rectangle.style.boxShadow = `0 0 20px rgba(${theme.lightColor || "255, 255, 255"}, 0.7)`;
-            });
-            
-            const titleElement = document.querySelector('.title');
-            if (titleElement) {
-                titleElement.style.textShadow = `0 0 15px rgba(${theme.lightColor || "255, 255, 255"}, 0.9)`;
-            }
-            
-            // Initialize particles
             particlesJS("particles-js", {
                 "particles": {
                     "number": { "value": 20, "density": { "enable": false } },
-                    "color": { "value": theme.particleColor || "#ffffff" },
+                    "color": { "value": "#ffffff" },
                     "shape": { "type": "circle" },
                     "opacity": { "value": 0.7, "random": true },
                     "size": { "value": 3, "random": true },
                     "line_linked": {
                         "enable": true,
                         "distance": 150,
-                        "color": theme.particleLinks || "#ffffff",
+                        "color": "#ffffff",
                         "opacity": 0.6,
                         "width": 1
                     },
-                    "move": { 
-                        "enable": true, 
-                        "speed": 2, 
-                        "direction": "none",
-                        "random": true,
-                        "straight": false,
-                        "out_mode": "out",
-                        "bounce": false
-                    }
+                    "move": { "enable": true, "speed": 2, "random": true }
                 },
-                "interactivity": {
-                    "detect_on": "canvas",
-                    "events": { 
-                        "onhover": { "enable": false },
-                        "onclick": { "enable": false },
-                        "resize": true 
-                    }
-                },
+                "interactivity": { "detect_on": "canvas", "events": { "resize": true } },
                 "retina_detect": false
             });
         });
     </script>
-         
 </body>
 </html>
