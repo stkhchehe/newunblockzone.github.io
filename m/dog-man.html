@@ -9,7 +9,7 @@
 
     <!-- 100% privacy-first analytics -->
     <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
-    
+
     <style>
         * {
             margin: 0;
@@ -28,6 +28,7 @@
             height: 100vh;
         }
 
+        /* Particles */
         #particles-js {
             position: absolute;
             width: 100%;
@@ -35,6 +36,7 @@
             z-index: -1;
         }
 
+        /* Movie Embed Box */
         .movie-box {
             width: 700px;
             height: 380px;
@@ -42,9 +44,10 @@
             border-radius: 30px;
             backdrop-filter: blur(10px);
             overflow: hidden;
-            position: relative;
-            top: -20px;
             box-shadow: 0 0 12px 3px white;
+            opacity: 1;
+            position: relative;
+            transition: opacity 1s ease-in-out;
         }
 
         .movie-box iframe {
@@ -53,6 +56,67 @@
             border: none;
         }
 
+        /* Loading Screen */
+        .loading-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #8e2de2, #4a00e0);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            opacity: 1;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .loading-screen.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .logo {
+            width: 235px;
+            height: 235px;
+            border-radius: 50%;
+            background: url('https://files.catbox.moe/ao6qv3.png') no-repeat center;
+            background-size: cover;
+            margin-bottom: 30px;
+            animation: pulse 1.5s infinite ease-in-out;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .progress-bar-container {
+            width: 35%;
+            height: 30px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            width: 0;
+            height: 100%;
+            background-color: white;
+            border-radius: 15px;
+            animation: loadProgress 5s linear forwards;
+        }
+
+        @keyframes loadProgress {
+            0% { width: 0; }
+            100% { width: 100%; }
+        }
+
+        /* Icon Section */
         .small-box {
             width: 800px;
             height: 120px;
@@ -63,162 +127,113 @@
             align-items: center;
             justify-content: space-between;
             padding: 8px;
+            position: absolute;
+            bottom: 20px;
+            z-index: 15;
         }
 
-.icon-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 8px;
-    position: relative;
-}
+        .icon-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 8px;
+        }
 
-/* Icon base styling */
-.icon {
-    width: 75px;
-    height: 75px;
-    background: black;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 3px 1px white;
-    transition: transform 0.3s ease-in-out;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden; /* Ensures shine effect stays inside */
-}
+        .icon {
+            width: 75px;
+            height: 75px;
+            background: black;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 3px 1px white;
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+        }
 
-/* Hover effects */
-.icon:hover {
-    box-shadow: 0 0 8px 2px white;
-    transform: scale(1.1);
-}
+        /* Hover effects */
+        .icon:hover {
+            box-shadow: 0 0 8px 2px white;
+            transform: scale(1.1);
+        }
 
-/* Shine effect on icons */
-.icon::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -150%;
-    width: 200%;
-    height: 100%;
-    background: linear-gradient(120deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.1) 100%);
-    filter: blur(8px);
-    transform: skewX(-25deg);
-    transition: left 0.8s ease-in-out;
-}
-
-/* Shine effect moves smoothly on hover */
-.icon:hover::before {
-    left: 100%;
-}
-
-/* Icon image */
-.icon img {
-    width: 70%;
-    height: 70%;
-    object-fit: contain;
-}
-
+        .icon img {
+            width: 70%;
+            height: 70%;
+            object-fit: contain;
+        }
     </style>
 </head>
 <body>
     <div id="particles-js"></div>
 
+    <!-- Movie Embed Box -->
     <div class="movie-box" id="movie-box">
-        <iframe id="movie-frame" src="https://embed.su/embed/movie/774370" allowfullscreen></iframe>
+        <!-- Loading Screen inside the Movie Box -->
+        <div class="loading-screen" id="loading-screen">
+            <div class="logo"></div>
+            <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+
+        <!-- Movie Embed -->
+        <iframe id="movie-frame" allowfullscreen></iframe>
     </div>
 
-<div class="small-box">
-    <div class="icon-container">
-        <div class="icon" onclick="window.open('/index.html', '_blank')">
-            <img src="https://img.icons8.com/ios-filled/50/FFFFFF/home.png" alt="Home">
-        </div>  
-        <div class="icon" onclick="window.open('/g.html', '_blank')">
-            <img src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" alt="Games">
-        </div>
-        <div class="icon" onclick="window.open('/a.html', '_blank')">
-            <img src="https://img.icons8.com/ios7/600/FFFFFF/apple-app-store--v2.png" alt="Apps">
-        </div>
-        <div class="icon" onclick="window.open('/e.html', '_blank')">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" alt="Entertainment">
-        </div>
-        <div class="icon" onclick="window.open('/m.html', '_blank')">
-            <img src="https://static-00.iconduck.com/assets.00/film-spool-icon-2048x2048-uk9kbgtd.png" alt="Movies">
-        </div>
-        <div class="icon" onclick="window.open('/s.html', '_blank')">
-            <img src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" alt="Settings">
-        </div>
-    </div>
-
-    <div class="icon-container">
-        <div class="icon" id="refresh-button">
-            <img id="refresh-icon" src="https://img.icons8.com/ios11/512/FFFFFF/refresh.png" alt="Refresh">
-        </div>
-        <div class="icon" id="fullscreen-toggle">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmKFdCO9S9ltMXgR7ZhqcnrFO_WapCmLyVyQ&s" alt="Fullscreen">
+    <!-- Icon Bar -->
+    <div class="small-box">
+        <div class="icon-container">
+            <div class="icon" onclick="window.open('/index.html', '_blank')">
+                <img src="https://img.icons8.com/ios-filled/50/FFFFFF/home.png" alt="Home">
+            </div>  
+            <div class="icon" onclick="window.open('/g.html', '_blank')">
+                <img src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" alt="Games">
+            </div>
+            <div class="icon" onclick="window.open('/a.html', '_blank')">
+                <img src="https://img.icons8.com/ios7/600/FFFFFF/apple-app-store--v2.png" alt="Apps">
+            </div>
+            <div class="icon" onclick="window.open('/e.html', '_blank')">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" alt="Entertainment">
+            </div>
+            <div class="icon" onclick="window.open('/m.html', '_blank')">
+                <img src="https://static-00.iconduck.com/assets.00/film-spool-icon-2048x2048-uk9kbgtd.png" alt="Movies">
+            </div>
+            <div class="icon" onclick="window.open('/s.html', '_blank')">
+                <img src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" alt="Settings">
+            </div>
         </div>
     </div>
-</div>
 
-
-        <script>
-
-document.getElementById("refresh-button").addEventListener("click", function () {
-    let movieFrame = document.getElementById("movie-frame");
-    movieFrame.src = movieFrame.src; // Reloads the iframe
-});
-
-
-document.getElementById("fullscreen-toggle").addEventListener("click", function () {
-    let movieFrame = document.getElementById("movie-frame");
-    if (!document.fullscreenElement) {
-        if (movieFrame.requestFullscreen) {
-            movieFrame.requestFullscreen();
-        } else if (movieFrame.mozRequestFullScreen) {
-            movieFrame.mozRequestFullScreen();
-        } else if (movieFrame.webkitRequestFullscreen) {
-            movieFrame.webkitRequestFullscreen();
-        } else if (movieFrame.msRequestFullscreen) {
-            movieFrame.msRequestFullscreen();
-        }
-    } else {
-        if (document.exitFullscreen) {
-            document.exitFullscreen();
-        } else if (document.mozCancelFullScreen) {
-            document.mozCancelFullScreen();
-        } else if (document.webkitExitFullscreen) {
-            document.webkitExitFullscreen();
-        } else if (document.msExitFullscreen) {
-            document.msExitFullscreen();
-        }
-    }
-});
-
-
+    <script>
         // Initialize particles.js
-        document.addEventListener('DOMContentLoaded', function() {
-            particlesJS("particles-js", {
-                "particles": {
-                    "number": { "value": 20, "density": { "enable": false } },
-                    "color": { "value": "#ffffff" },
-                    "shape": { "type": "circle" },
-                    "opacity": { "value": 0.7, "random": true },
-                    "size": { "value": 3, "random": true },
-                    "line_linked": {
-                        "enable": true,
-                        "distance": 150,
-                        "color": "#ffffff",
-                        "opacity": 0.6,
-                        "width": 1
-                    },
-                    "move": { "enable": true, "speed": 2, "random": true }
-                },
-                "interactivity": { "detect_on": "canvas", "events": { "resize": true } },
-                "retina_detect": false
-            });
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 15, density: { enable: false } },
+                color: { value: "#ffffff" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                move: { enable: true, speed: 2, direction: "random" }
+            },
+            interactivity: {
+                events: { onhover: { enable: false } }
+            }
         });
+
+        // Show the movie after the loading screen
+        setTimeout(() => {
+            // Fade out the loading screen
+            document.getElementById("loading-screen").classList.add("fade-out");
+
+            // Load the movie
+            let movieFrame = document.getElementById("movie-frame");
+            movieFrame.src = "https://embed.su/embed/movie/774370"; // Update this URL to your desired movie link
+
+            // Show movie box with smooth transition
+            document.getElementById("movie-box").classList.add("visible");
+        }, 5000);
     </script>
 </body>
 </html>
