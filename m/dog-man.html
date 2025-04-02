@@ -37,18 +37,20 @@
         }
 
         /* Movie Embed Box */
-        .movie-box {
-            width: 700px;
-            height: 380px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 30px;
-            backdrop-filter: blur(10px);
-            overflow: hidden;
-            box-shadow: 0 0 12px 3px white;
-            opacity: 1;
-            position: relative;
-            transition: opacity 1s ease-in-out;
-        }
+.movie-box {
+    width: 700px;
+    height: 380px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    box-shadow: 0 0 12px 3px white;
+    opacity: 1;
+    position: relative;
+    transition: opacity 1s ease-in-out;
+    top: -50px; /* Move the box 50px upwards */
+}
+
 
         .movie-box iframe {
             width: 100%;
