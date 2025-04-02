@@ -119,7 +119,7 @@
         /* Icon Section */
         .small-box {
             width: 800px;
-            height: 120px;
+            height: 105px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 25px;
             box-shadow: 0 0 3px 1px white;
@@ -132,37 +132,62 @@
             z-index: 15;
         }
 
-        .icon-container {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: 8px;
-        }
+.icon-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+}
 
-        .icon {
-            width: 75px;
-            height: 75px;
-            background: black;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 3px 1px white;
-            transition: transform 0.3s ease-in-out;
-            cursor: pointer;
-        }
+/* Icon base styling */
+.icon {
+    width: 75px;
+    height: 75px;
+    background: black;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 3px 1px white;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden; /* Ensures shine effect stays inside */
+}
 
-        /* Hover effects */
-        .icon:hover {
-            box-shadow: 0 0 8px 2px white;
-            transform: scale(1.1);
-        }
+/* Hover effects */
+.icon:hover {
+    box-shadow: 0 0 8px 2px white;
+    transform: scale(1.1);
+}
 
-        .icon img {
-            width: 70%;
-            height: 70%;
-            object-fit: contain;
-        }
+/* Shine effect on icons */
+.icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.1) 100%);
+    filter: blur(8px);
+    transform: skewX(-25deg);
+    transition: left 0.8s ease-in-out;
+}
+
+/* Shine effect moves smoothly on hover */
+.icon:hover::before {
+    left: 100%;
+}
+
+/* Icon image */
+.icon img {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+}
+
     </style>
 </head>
 <body>
@@ -202,6 +227,15 @@
             </div>
             <div class="icon" onclick="window.open('/s.html', '_blank')">
                 <img src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" alt="Settings">
+            </div>
+        </div>
+
+                <div class="icon-container">
+            <div class="icon" id="mute-toggle">
+                <img id="mute-icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsi175KrN0VbjpvjxLMdU5ry8uaIuFiAuzxQ&s" alt="Mute Toggle">
+            </div>
+            <div class="icon" id="fullscreen-toggle">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmKFdCO9S9ltMXgR7ZhqcnrFO_WapCmLyVyQ&s" alt="Fullscreen">
             </div>
         </div>
     </div>
