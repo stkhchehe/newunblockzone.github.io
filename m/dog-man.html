@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,8 +7,8 @@
     <link rel="icon" href="https://files.catbox.moe/ao6qv3.png">
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
-        <!-- 100% privacy-first analytics -->
-<script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+    <!-- 100% privacy-first analytics -->
+    <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
     
     <style>
         * {
@@ -18,7 +18,8 @@
         }
 
         body {
-            background: black;
+            background: url('https://img.freepik.com/free-photo/artistic-blurry-colorful-wallpaper-background_58702-8520.jpg?semt=ais_hybrid') no-repeat center center fixed;
+            background-size: cover;
             overflow: hidden;
             display: flex;
             flex-direction: column;
@@ -96,7 +97,6 @@
             height: 70%;
             object-fit: contain;
         }
-            
     </style>
 </head>
 <body>
@@ -108,6 +108,7 @@
 
     <div class="small-box">
         <div class="icon-container">
+            <div class="icon" onclick="window.open('/index.html', '_blank')"><img src="https://img.icons8.com/ios-filled/50/FFFFFF/home.png" alt="Icon 1"></div>  
             <div class="icon" onclick="window.open('/g.html', '_blank')"><img src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" alt="Icon 1"></div>
             <div class="icon" onclick="window.open('/a.html', '_blank')"><img src="https://img.icons8.com/ios7/600/FFFFFF/apple-app-store--v2.png" alt="Icon 2"></div>
             <div class="icon" onclick="window.open('/e.html', '_blank')"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" alt="Icon 3"></div>
@@ -115,7 +116,7 @@
             <div class="icon" onclick="window.open('/s.html', '_blank')"><img src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" alt="Icon 5"></div>
         </div>
 
-        <div class="icon-container">
+                <div class="icon-container">
             <div class="icon" id="mute-toggle">
                 <img id="mute-icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsi175KrN0VbjpvjxLMdU5ry8uaIuFiAuzxQ&s" alt="Mute Toggle">
             </div>
@@ -125,7 +126,7 @@
         </div>
     </div>
 
-    <script>
+        <script>
         document.getElementById("mute-toggle").addEventListener("click", function () {
             let muteIcon = document.getElementById("mute-icon");
             if (!document.muted) {
@@ -136,6 +137,7 @@
                 muteIcon.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsi175KrN0VbjpvjxLMdU5ry8uaIuFiAuzxQ&s";
             }
         });
+     <script>
 
         document.getElementById("fullscreen-toggle").addEventListener("click", function () {
             let movieBox = document.getElementById("movie-frame");
@@ -145,28 +147,75 @@
                 document.exitFullscreen();
             }
         });
+                 <script>
 
-        particlesJS("particles-js", {
-            "particles": {
-                "number": { "value": 100, "density": { "enable": false } },
-                "color": { "value": "#aaa" },
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.5, "random": true },
-                "size": { "value": 4, "random": true },
-                "move": { "enable": true, "speed": 8, "direction": "random" }
-            },
-            "interactivity": {
-                "events": {
-                    "onhover": { "enable": true, "mode": "repulse" }
-                }
+     <div class="particles" style->
+
+         <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Initialize particles with theme colors
+        document.addEventListener('DOMContentLoaded', function() {
+            const theme = window.getCurrentTheme ? window.getCurrentTheme() : {
+                particleColor: "#ffffff",
+                particleLinks: "#ffffff",
+                lightColor: "255, 255, 255"
+            };
+            
+            // Update the blob light effect
+            const blobElement = document.querySelector('.coolBlobIdk');
+            if (blobElement) {
+                blobElement.style.background = `linear-gradient(135deg, rgba(${theme.lightColor || "255, 255, 255"}, 0.8), rgba(${theme.lightColor || "255, 255, 255"}, 0.6))`;
+                blobElement.style.boxShadow = `0 0 120px rgba(${theme.lightColor || "255, 255, 255"}, 0.5)`;
             }
+            
+            // Apply theme to other elements
+            const rectangles = document.querySelectorAll('.rectangle');
+            rectangles.forEach(rectangle => {
+                rectangle.style.boxShadow = `0 0 20px rgba(${theme.lightColor || "255, 255, 255"}, 0.7)`;
+            });
+            
+            const titleElement = document.querySelector('.title');
+            if (titleElement) {
+                titleElement.style.textShadow = `0 0 15px rgba(${theme.lightColor || "255, 255, 255"}, 0.9)`;
+            }
+            
+            // Initialize particles
+            particlesJS("particles-js", {
+                "particles": {
+                    "number": { "value": 20, "density": { "enable": false } },
+                    "color": { "value": theme.particleColor || "#ffffff" },
+                    "shape": { "type": "circle" },
+                    "opacity": { "value": 0.7, "random": true },
+                    "size": { "value": 3, "random": true },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": theme.particleLinks || "#ffffff",
+                        "opacity": 0.6,
+                        "width": 1
+                    },
+                    "move": { 
+                        "enable": true, 
+                        "speed": 2, 
+                        "direction": "none",
+                        "random": true,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": { 
+                        "onhover": { "enable": false },
+                        "onclick": { "enable": false },
+                        "resize": true 
+                    }
+                },
+                "retina_detect": false
+            });
         });
     </script>
-    <!-- Discord Widget -->
+         
 </body>
 </html>
-
-
-
-
-
