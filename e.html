@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -33,7 +34,7 @@
             box-sizing: border-box;
         }
         body {
-            background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROdNIejFmjeKC5u6Xq2yqOCa5y-uJseTCTfA&s') no-repeat center center fixed;
+            background: url('https://img.freepik.com/free-photo/artistic-blurry-colorful-wallpaper-background_58702-8520.jpg?semt=ais_hybrid') no-repeat center center fixed;
             background-size: cover;
             min-height: 100vh;
             display: flex;
@@ -219,6 +220,22 @@
             }
         });
     </script>
+
+        <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Create the cursor element
+            const cursorDot = document.createElement("div");
+            cursorDot.classList.add("cursor-dot");
+            document.body.appendChild(cursorDot);
+
+            // Update position instantly on mousemove
+            document.addEventListener("mousemove", (e) => {
+                cursorDot.style.left = `${e.clientX}px`;
+                cursorDot.style.top = `${e.clientY}px`;
+            });
+        });
+    </script>
+    
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8PERVFVWRG"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -233,6 +250,3 @@ gtag('config', 'G-8PERVFVWRG');
     <!-- Discord Widget -->
 </body>
 </html>
-
-
-
