@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,10 +7,7 @@
     <title>games</title>
     <link rel="icon" href="https://files.catbox.moe/ao6qv3.png" type="image/png">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-SZN69N4SEF"></script>
-
-    <!-- 100% privacy-first analytics -->
-<script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
-
+    <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
     
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -18,7 +16,6 @@
         gtag('config', 'G-SZN69N4SEF');
     </script>
     
-    <!-- Tab Cloaking Script -->
     <script src="scripts/utilities/tab-cloak.js"></script>
     <script src="scripts/utilities/emergency-escape.js"></script>
     <script src="scripts/utilities/theme.js"></script>
@@ -31,7 +28,7 @@
             box-sizing: border-box;
         }
         body {
-            background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROdNIejFmjeKC5u6Xq2yqOCa5y-uJseTCTfA&s') no-repeat center center fixed;
+            background: url('https://img.freepik.com/free-photo/artistic-blurry-colorful-wallpaper-background_58702-8520.jpg?semt=ais_hybrid') no-repeat center center fixed;
             background-size: cover;
             min-height: 100vh;
             display: flex;
@@ -85,7 +82,7 @@
         .icons {
             display: flex;
             gap: 10px;
-            margin-top: 10px;
+            margin-top: 30px;
         }
         .icon-container {
             width: 60px;
@@ -177,7 +174,6 @@
             transform: scale(1.1);
             box-shadow: 0 0 20px #28a745;
         }
-
         .broken-badge {
             position: absolute;
             top: 10px;
@@ -201,7 +197,6 @@
             transform: scale(1.1);
             box-shadow: 0 0 20px #A020F0;
         }
-        
         .popular-badge {
             position: absolute;
             top: 10px;
@@ -225,8 +220,6 @@
             transform: scale(1.1);
             box-shadow: 0 0 20px #FFA500;
         }
-        
-        /* Search Bar Styles */
         .search-container {
             position: relative;
             width: 300px;
@@ -234,54 +227,10 @@
             display: flex;
             justify-content: center;
         }
-        
         .search-wrapper {
             position: relative;
             width: 100%;
         }
-        
-        .search-wrapper::before {
-            content: "";
-            position: absolute;
-            width: calc(100% + 8px);
-            height: calc(100% + 8px);
-            left: -4px;
-            top: -4px;
-            background: linear-gradient(90deg, #000000, #ffffff, #000000, #ffffff, #000000);
-            background-size: 400%;
-            z-index: 1;
-            border-radius: 35px;
-            animation: animate 20s linear infinite;
-        }
-        
-        .search-wrapper::after {
-            content: "";
-            position: absolute;
-            width: calc(100% + 8px);
-            height: calc(100% + 8px);
-            left: -4px;
-            top: -4px;
-            background: linear-gradient(90deg, #000000, #ffffff, #000000, #ffffff, #000000);
-            background-size: 400%;
-            z-index: 1;
-            filter: blur(20px);
-            border-radius: 35px;
-            animation: animate 20s linear infinite;
-            opacity: 0.9;
-        }
-        
-        @keyframes animate {
-            0% {
-                background-position: 0 0;
-            }
-            50% {
-                background-position: 400% 0;
-            }
-            100% {
-                background-position: 0 0;
-            }
-        }
-        
         .rainbow-search {
             width: 100%;
             padding: 12px 20px;
@@ -293,14 +242,17 @@
             font-family: Arial, sans-serif;
             font-size: 16px;
             text-align: center;
-            position: relative;
-            z-index: 2;
+            box-shadow: 0 0 8px white;
+            transition: box-shadow 0.3s ease-in-out;
         }
-        
         .rainbow-search::placeholder {
             color: rgba(255, 255, 255, 0.7);
         }
-        
+        .rainbow-search:hover,
+        .rainbow-search:focus {
+            box-shadow: 0 0 20px white;
+        }
+
     </style>
 </head>
 <body>
@@ -308,7 +260,6 @@
     <div class="coolBlobIdk"></div>
     <div class="title">games</div>
     
-    <!-- Add search bar -->
     <div class="search-container">
         <div class="search-wrapper">
             <input type="text" id="gameSearch" class="rainbow-search" placeholder="search games...">
@@ -323,482 +274,498 @@
         <a href="/m.html" onclick="event.preventDefault(); window.location.href='/m.html';" class="icon-container"><img src="https://static-00.iconduck.com/assets.00/film-spool-icon-2048x2048-uk9kbgtd.png" alt="Movies" class="icon"></a>
         <a href="/s.html" onclick="event.preventDefault(); window.location.href='/s.html';" class="icon-container"><img src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" alt="Settings" class="icon"></a>
     </div>
+
+    <!-- Google Forms section -->
     <div class="rectangle-container">
-        <!-- Google Form embed with NEW badge -->
         <div class="rectangle">
             <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeHSK159TiaLNBMHMlFGLcA07-aj0Fl6i15WXFtlLss4SnG0Q/viewform" style="width:100%; height:100%; border:none;"></iframe>
             <div class="new-badge">NEW!</div>
         </div>
-        <!-- Another Google Form embed with NEW badge -->
         <div class="rectangle">
             <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScAjuO9s-lwojOfEMwf-_jtQOjWCzkrkz4NKGPCIpbED3k2rA/viewform" style="width:100%; height:100%; border:none;"></iframe>
             <div class="new-badge">NEW!</div>
         </div>
-        <!-- Third Google Form embed with NEW badge -->
         <div class="rectangle">
             <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe4xupoMkYMtCjNIoQREBu6wzS8uOzPKkYQN5k_F0UVuhpUrg/viewform" style="width:100%; height:100%; border:none;"></iframe>
             <div class="new-badge">NEW!</div>
         </div>
     </div>
+
+    <!-- Games in alphabetical order -->
     <div class="rectangle-container">
-        <div class="rectangle" onclick="window.location.href='/g/braybrayclicker.html'">
-            <img src="https://i.ibb.co/SGKYNx2/Capture.png" alt="braybray clicker">
-            <div class="game-name">braybray clicker</div>
-            <div class="popular-badge">ON FIRE 🔥</div>
+        <div class="rectangle" onclick="window.location.href='/g/10-minutes-till-dawn.html'">
+            <img src="https://static1.cbrimages.com/wordpress/wp-content/uploads/2022/05/10-Minutes-Till-Dawn-Header.jpg" alt="10 minutes till dawn">
+            <div class="game-name">10 minutes till dawn</div>
+            <div class="new-badge">NEW!</div>
         </div>
-        <!-- Game 1 -->
-        <div class="rectangle" onclick="window.location.href='/g/subway-surfers.html'">
-            <img src="https://subwaysurfers.com/media/f2ldlfpi/subwaysurfers_01.png" alt="subway surfers">
-            <div class="game-name">subway surfers</div>
+        <div class="rectangle" onclick="window.location.href='/g/1v1-lol.html'">
+            <img src="https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs2/200042732/original/024f8a22e06d58c1eed316a539687253e49625c1/ill-edit-your-1v1-lol-videos-and-give-you-thumbnails.jpg" alt="1v1 LOL">
+            <div class="game-name">1v1 LOL</div>
             <div class="popular-badge">POPULAR 🔥</div>
         </div>
-        <!-- Game 2 -->
+        <div class="rectangle" onclick="window.location.href='/g/2048.html'">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6a/d4/1c/6ad41c3a-eb36-329f-513e-08e3912681f8/AppIcon-0-0-1x_U007emarketing-0-4-85-220.png/1200x630wa.png" alt="2048">
+            <div class="game-name">2048</div>
+            <div class="new-badge">NEW!</div>
+        </div>
+    </div>
+
+    <div class="rectangle-container">
+        <div class="rectangle" onclick="window.location.href='/g/2048-cupcakes.html'">
+            <img src="https://files.catbox.moe/vpbswx.png" alt="2048 cupcakes">
+            <div class="game-name">2048 cupcakes</div>
+            <div class="popular-badge">POPULAR 🔥</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/amaze.html'">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/5c/c0/ea/5cc0ead8-9f0f-1420-13af-fd86fb3c251c/AppIcon-1x_U007emarketing-0-7-0-85-220-0.png/1200x630wa.png" alt="amaze">
+            <div class="game-name">amaze</div>
+            <div class="new-badge">NEW!</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/among-us.html'">
+            <img src="https://gaming-cdn.com/images/products/7522/616x353/among-us-pc-game-steam-cover.jpg?v=1715242071" alt="Among Us">
+            <div class="game-name">Among Us</div>
+        </div>
+    </div>
+
+    <div class="rectangle-container">
+        <div class="rectangle" onclick="window.location.href='/g/baldis-basics.html'">
+            <img src="https://i.ytimg.com/vi/EmyYCa_BC9s/maxresdefault.jpg" alt="Baldi's Basics">
+            <div class="game-name">Baldi's Basics</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/basket-random.html'">
+            <img src="https://play-lh.googleusercontent.com/6AN9KKe5M9udzoQA1J00dc6po5dNY9JInI_ewDKcPXocPjEHWTqJV0d2CwSWxYRhTh4=w526-h296-rw" alt="Basket Random">
+            <div class="game-name">Basket Random</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/basketball-stars.html'">
+            <img src="https://play-lh.googleusercontent.com/WReGOclxXI481lMXvvAP8VGxSywci4vy-KmrZLKDeVO0ewmCZPzRzbAIVls-qwFzEw=w526-h296-rw" alt="Basketball Stars">
+            <div class="game-name">Basketball Stars</div>
+        </div>
+    </div>
+
+    <div class="rectangle-container">
+        <div class="rectangle" onclick="window.location.href='/g/bitlife.html'">
+            <img src="https://files.catbox.moe/azbv0s.png" alt="bitlife">
+            <div class="game-name">bitlife</div>
+            <div class="popular-badge">POPULAR 🔥</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/block-blast.html'">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDbz7CYwoe4wulDfOJ5Z5sUZOCiX0QfzRhqQ&s" alt="block blast">
+            <div class="game-name">block blast</div>
+            <div class="popular-badge">POPULAR 🔥</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/bloxd-io.html'">
+            <img src="https://i.ytimg.com/vi/FoqKB4ogm4k/maxresdefault.jpg" alt="bloxd.io">
+            <div class="game-name">bloxd.io</div>
+            <div class="new-badge">NEW!</div>
+        </div>
+    </div>
+
+    <div class="rectangle-container">
+        <div class="rectangle" onclick="window.location.href='/g/bowmasters.html'">
+            <img src="https://i.ytimg.com/vi/VshSBxvT190/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDe9yeb6J5IPQO380OzKTfJ1XsXlw" alt="bowmasters">
+            <div class="game-name">bowmasters</div>
+            <div class="new-badge">NEW!</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/bubble-shooter.html'">
+            <img src="https://i.ytimg.com/vi/npfxxsxj_ho/maxresdefault.jpg" alt="Bubble Shooter">
+            <div class="game-name">Bubble Shooter</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/cluster-rush.html'">
+            <img src="https://files.catbox.moe/7pxgt7.png" alt="cluster rush">
+            <div class="game-name">cluster rush</div>
+            <div class="popular-badge">POPULAR 🔥</div>
+        </div>
+    </div>
+
+    <div class="rectangle-container">
+        <div class="rectangle" onclick="window.location.href='/g/color-water-sort.html'">
+            <img src="https://play-lh.googleusercontent.com/Wu3aksCldVE7thX4v6IxBQbwOtSlUiove_LfSy1cIPSAb1AOOO-WHQAKEX30XcismDo=w526-h296-rw" alt="color water sort">
+            <div class="game-name">color water sort</div>
+            <div class="new-badge">NEW!</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/crossy-road.html'">
+            <img src="https://static1.squarespace.com/static/5e3bb512203ccf3516032e33/t/616f889f61fabc726422fa0c/1634699424702/CR_AndroidTV_01.png" alt="Crossy Road">
+            <div class="game-name">Crossy Road</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/digital-circus-obby.html'">
+            <img src="https://i.ytimg.com/vi/LzkdeujmHnU/maxresdefault.jpg" alt="digital circus obby">
+            <div class="game-name">digital circus obby</div>
+            <div class="new-badge">NEW!</div>
+        </div>
+    </div>
+
+    <div class="rectangle-container">
+        <div class="rectangle" onclick="window.location.href='/g/doors-online.html'">
+            <img src="https://i.ytimg.com/vi/dcPUujoMoPI/maxresdefault.jpg" alt="doors online">
+            <div class="game-name">doors online</div>
+            <div class="new-badge">NEW!</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/drift-boss.html'">
+            <img src="https://pbs.twimg.com/media/EMfeE2oXkAAUTBE.jpg" alt="Drift Boss">
+            <div class="game-name">Drift Boss</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/drift-hunters.html'">
+            <img src="https://i.ytimg.com/vi/xjdLbUxmV_o/maxresdefault.jpg" alt="Drift Hunters">
+            <div class="game-name">Drift Hunters</div>
+        </div>
+    </div>
+
+    <div class="rectangle-container">
+        <div class="rectangle" onclick="window.location.href='/g/drive-mad.html'">
+            <img src="https://i.ytimg.com/vi/1IjGMWz8eNk/maxresdefault.jpg" alt="Drive Mad">
+            <div class="game-name">Drive Mad</div>
+            <div class="popular-badge">POPULAR 🔥</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/dunk-hit.html'">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/12/50/ba/1250ba26-121a-1c8c-76bf-6423ae8fe9c3/AppIcon-1x_U007emarketing-0-7-0-85-220.png/1200x600wa.png" alt="dunk hit">
+            <div class="game-name">dunk hit</div>
+            <div class="new-badge">NEW!</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/elastic-man.html'">
+            <img src="https://i.ytimg.com/vi/Q7DF4gf56Xg/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AH-CIAC0AWKAgwIABABGGUgVChIMA8=&rs=AOn4CLAJF5E-DDsJdKxquOSLjZe-fdjS0A" alt="elastic man">
+            <div class="game-name">elastic man</div>
+            <div class="new-badge">NEW!</div>
+        </div>
+    </div>
+
+    <div class="rectangle-container">
+        <div class="rectangle" onclick="window.location.href='/g/fashion-battle.html'">
+            <img src="https://i.ytimg.com/vi/Leq6QhAJsvg/maxresdefault.jpg" alt="fashion battle">
+            <div class="game-name">fashion battle</div>
+            <div class="new-badge">NEW!</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/flappy-bird.html'">
+            <img src="https://mir-s3-cdn-cf.behance.net/projects/404/c4b80d143006427.Y3JvcCw4NjksNjgwLDI1LDA.png" alt="Flappy Bird">
+            <div class="game-name">Flappy Bird</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/fnaf.html'">
+            <img src="https://i.ytimg.com/vi/JKWVjXeNdM4/maxresdefault.jpg" alt="FNAF">
+            <div class="game-name">FNAF</div>
+        </div>
+    </div>
+
+    <div class="rectangle-container">
+        <div class="rectangle" onclick="window.location.href='/g/fnaf-2.html'">
+            <img src="https://i.ytimg.com/vi/JNNgQKlr77c/maxresdefault.jpg" alt="FNAF 2">
+            <div class="game-name">FNAF 2</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/fnaf-shooter.html'">
+            <img src="https://i.ytimg.com/vi/TYEOX9s5eeU/maxresdefault.jpg" alt="fnaf shooter">
+            <div class="game-name">fnaf shooter</div>
+            <div class="new-badge">NEW!</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/friday-night-funkin.html'">
+            <img src="https://miro.medium.com/v2/resize:fit:3000/1*WoWHts-vB76XBw4XrsoAMQ.png" alt="friday night funkin">
+            <div class="game-name">friday night funkin</div>
+            <div class="new-badge">NEW!</div>
+        </div>
+    </div>
+
+    <div class="rectangle-container">
+        <div class="rectangle" onclick="window.location.href='/g/fruit-ninja.html'">
+            <img src="https://preteen-ministry.net/cdn/shop/products/Fruit_Ninja_-_Cover_1024x.jpg?v=1507262323" alt="Fruit Ninja">
+            <div class="game-name">Fruit Ninja</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/geometry-dash.html'">
+            <img src="https://images3.alphacoders.com/120/thumb-1920-1202615.jpg" alt="Geometry Dash">
+            <div class="game-name">Geometry Dash</div>
+            <div class="popular-badge">POPULAR 🔥</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/gladihoppers.html'">
+            <img src="https://i.ytimg.com/vi/_kuLMGMoGAY/maxresdefault.jpg" alt="Gladihoppers">
+            <div class="game-name">Gladihoppers</div>
+        </div>
+    </div>
+
+    <div class="rectangle-container">
+        <div class="rectangle" onclick="window.location.href='/g/glass-bridge-obby.html'">
+            <img src="https://i.ytimg.com/vi/7I_8zQiwl4A/maxresdefault.jpg" alt="glass bridge obby">
+            <div class="game-name">glass bridge obby</div>
+            <div class="new-badge">NEW!</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/grand-theft-grotto.html'">
+            <img src="https://files.catbox.moe/4tjcw5.png" alt="grand theft grotto">
+            <div class="game-name">grand theft grotto</div>
+            <div class="new-badge">NEW!</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/granny-2.html'">
+            <img src="https://i.ytimg.com/vi/M2oAjzvjljw/maxresdefault.jpg" alt="Granny 2">
+            <div class="game-name">Granny 2</div>
+        </div>
+    </div>
+
+    <div class="rectangle-container">
+        <div class="rectangle" onclick="window.location.href='/g/granny-offline.html'">
+            <img src="https://m.media-amazon.com/images/M/MV5BOGI1ZTI2NmQtZWRkOS00OWE5LThiZjItMjA2MzYzNzNlMzMyXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Granny Offline">
+            <div class="game-name">Granny Offline</div>
+            <div class="popular-badge">POPULAR 🔥</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/helix-jump.html'">
+            <img src="https://files.catbox.moe/64wqaw.png" alt="Helix Jump">
+            <div class="game-name">Helix Jump</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/hide-n-seek.html'">
+            <img src="https://files.catbox.moe/zj1cvo.png" alt="hide n seek">
+            <div class="game-name">hide n seek</div>
+            <div class="new-badge">NEW!</div>
+        </div>
+    </div>
+
+    <div class="rectangle-container">
+        <div class="rectangle" onclick="window.location.href='/g/hole-io.html'">
+            <img src="https://lh3.googleusercontent.com/kdoWsI9fctfXqwInmRRn57jqohctanZvPrGIQIPxh-JPcMlK-U2Q3WgOJV2uHj0io1avUi2UTE_7mfFsjqjgT9xI=s1280-w1280-h800" alt="Hole.io">
+            <div class="game-name">Hole.io</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/infinite-craft.html'">
+            <img src="https://images.immediate.co.uk/production/volatile/sites/3/2024/03/Infinite-Craft-Whole-List-21882d0.jpg" alt="Infinite Craft">
+            <div class="game-name">infinite craft</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/just-fall-lol.html'">
+            <img src="https://files.catbox.moe/6ia04y.png" alt="Just Fall lol">
+            <div class="game-name">Just Fall lol</div>
+            <div class="popular-badge">POPULAR 🔥</div>
+        </div>
+    </div>
+
+    <div class="rectangle-container">
+        <div class="rectangle" onclick="window.location.href='/g/lazy-jump-3d.html'">
+            <img src="https://play-lh.googleusercontent.com/49tmTkafs_EYS--F6LA83IsiTGqjwhfayLuNACFlMM-EDhOJO4ijMa_3jhWl9aee4Q" alt="Lazy Jump 3D">
+            <div class="game-name">Lazy Jump 3D</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/magic-tiles-3.html'">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3e/a8/b2/3ea8b235-fa09-18f0-72ec-e75dfc320248/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/1200x630wa.png" alt="magic tiles 3">
+            <div class="game-name">magic tiles 3</div>
+            <div class="new-badge">NEW!</div>
+        </div>
         <div class="rectangle" onclick="window.location.href='/g/minecraft.html'">
             <img src="https://gaming-cdn.com/images/news/articles/7191/cover/minecraft-gets-a-new-artwork-cover66856ea7d02ad.jpg" alt="minecraft">
             <div class="game-name">minecraft</div>
             <div class="popular-badge">POPULAR 🔥</div>
         </div>
     </div>
-<div class="rectangle-container">
-    <div class="rectangle" onclick="window.location.href='/g/fruit-ninja.html'">
-        <img src="https://preteen-ministry.net/cdn/shop/products/Fruit_Ninja_-_Cover_1024x.jpg?v=1507262323" alt="Fruit Ninja">
-        <div class="game-name">Fruit Ninja</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/crossy-road.html'">
-        <img src="https://static1.squarespace.com/static/5e3bb512203ccf3516032e33/t/616f889f61fabc726422fa0c/1634699424702/CR_AndroidTV_01.png" alt="Crossy Road">
-        <div class="game-name">Crossy Road</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='g/monkey-mart.html'">
-        <img src="https://defold.com/images/games/monkeymart-half.png" alt="Monkey Mart">
-        <div class="game-name">Monkey Mart</div>
-        <div class="popular-badge">POPULAR 🔥</div>
-    </div>
-</div>
-<div class="rectangle-container">
-    <div class="rectangle" onclick="window.location.href='/g/granny-offline.html'">
-        <img src="https://m.media-amazon.com/images/M/MV5BOGI1ZTI2NmQtZWRkOS00OWE5LThiZjItMjA2MzYzNzNlMzMyXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Granny Offline">
-        <div class="game-name">Granny Offline</div>
-                    <div class="popular-badge">POPULAR 🔥</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/granny-2.html'">
-        <img src="https://i.ytimg.com/vi/M2oAjzvjljw/maxresdefault.jpg" alt="Granny 2">
-        <div class="game-name">Granny 2</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/baldis-basics.html'">
-        <img src="https://i.ytimg.com/vi/EmyYCa_BC9s/maxresdefault.jpg" alt="Baldi's Basics">
-        <div class="game-name">Baldi's Basics</div>
-    </div>
-</div>
-<div class="rectangle-container">
-    <div class="rectangle" onclick="window.location.href='/g/1v1-lol.html'">
-        <img src="https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs2/200042732/original/024f8a22e06d58c1eed316a539687253e49625c1/ill-edit-your-1v1-lol-videos-and-give-you-thumbnails.jpg" alt="1v1 LOL">
-        <div class="game-name">1v1 LOL</div>
-                    <div class="popular-badge">POPULAR 🔥</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/paper-io-2.html'">
-        <img src="https://tcf.admeen.org/game/17500/17069/400x246/paper-io-2.webp" alt="Paper Io 2">
-        <div class="game-name">Paper Io 2</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/super-hot.html'">
-        <img src="https://i.ytimg.com/vi/bkzwi0Y-mWk/maxresdefault.jpg" alt="Super Hot">
-        <div class="game-name">Super Hot</div>
-                    <div class="popular-badge">POPULAR 🔥</div>
-    </div>
-</div>
-<div class="rectangle-container">
-    <div class="rectangle" onclick="window.location.href='/g/basket-random.html'">
-        <img src="https://play-lh.googleusercontent.com/6AN9KKe5M9udzoQA1J00dc6po5dNY9JInI_ewDKcPXocPjEHWTqJV0d2CwSWxYRhTh4=w526-h296-rw" alt="Basket Random">
-        <div class="game-name">Basket Random</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/drift-hunters.html'">
-        <img src="https://i.ytimg.com/vi/xjdLbUxmV_o/maxresdefault.jpg" alt="Drift Hunters">
-        <div class="game-name">Drift Hunters</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/drift-boss.html'">
-        <img src="https://pbs.twimg.com/media/EMfeE2oXkAAUTBE.jpg" alt="Drift Boss">
-        <div class="game-name">Drift Boss</div>
-    </div>
-</div>
-<div class="rectangle-container">
-    <div class="rectangle" onclick="window.location.href='/g/roblox-only-up.html'">
-        <img src="https://i.ytimg.com/vi/iWQTsM7fbkg/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCHSqTpwti_EaS_Aj1PQJc84C5qqA" alt="Roblox Only Up">
-        <div class="game-name">Roblox Only Up</div>
-                    <div class="popular-badge">POPULAR 🔥</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/minecraft-parkour.html'">
-        <img src="https://i.ytimg.com/vi/zuyYcuDpCxs/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBH8p_cirtAcNNcst20Om5JkP2o6w" alt="Minecraft Parkour">
-        <div class="game-name">Minecraft Parkour</div>
-                    <div class="popular-badge">POPULAR 🔥</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/drive-mad.html'">
-        <img src="https://i.ytimg.com/vi/1IjGMWz8eNk/maxresdefault.jpg" alt="Drive Mad">
-        <div class="game-name">Drive Mad</div>
-                    <div class="popular-badge">POPULAR 🔥</div>
-    </div>
-</div>
-<div class="rectangle-container">
-    <div class="rectangle" onclick="window.location.href='/g/shell-shockers.html'">
-        <img src="https://staticg.sportskeeda.com/editor/2024/10/783ff-17280361172197-1920.jpg?w=640" alt="Shell Shockers">
-        <div class="game-name">Shell Shockers</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/ultimate-driving-simulator.html'">
-        <img src="https://m.media-amazon.com/images/I/91hUahJchWL.jpg" alt="Ultimate Driving Simulator">
-        <div class="game-name">Ultimate Driving Simulator</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/hole-io.html'">
-        <img src="https://lh3.googleusercontent.com/kdoWsI9fctfXqwInmRRn57jqohctanZvPrGIQIPxh-JPcMlK-U2Q3WgOJV2uHj0io1avUi2UTE_7mfFsjqjgT9xI=s1280-w1280-h800" alt="Hole.io">
-        <div class="game-name">Hole.io</div>
-    </div>
-</div>
-<div class="rectangle-container">
-    <div class="rectangle" onclick="window.location.href='/g/geometry-dash.html'">
-        <img src="https://images3.alphacoders.com/120/thumb-1920-1202615.jpg" alt="Geometry Dash">
-        <div class="game-name">Geometry Dash</div>
-                    <div class="popular-badge">POPULAR 🔥</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/basketball-stars.html'">
-        <img src="https://play-lh.googleusercontent.com/WReGOclxXI481lMXvvAP8VGxSywci4vy-KmrZLKDeVO0ewmCZPzRzbAIVls-qwFzEw=w526-h296-rw" alt="Basketball Stars">
-        <div class="game-name">Basketball Stars</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/slither-io.html'">
-        <img src="https://files.catbox.moe/jz2zkq.png" alt="Slither.io">
-        <div class="game-name">Slither.io</div>
-    </div>
-</div>
-<div class="rectangle-container">
-    <div class="rectangle" onclick="window.location.href='/g/snowball-io.html'">
-        <img src="https://play-lh.googleusercontent.com/bVYC5zsBjJf-ztbarWeOp4-qTlL4h0I3ajJoCYq8xXcG1ovafqZ2steRipRK45dJTA=w526-h296-rw" alt="Snowball.io">
-        <div class="game-name">Snowball.io</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/retro-bowl.html'">
-        <img src="https://files.catbox.moe/0k3fg4.png" alt="Retro Bowl">
-        <div class="game-name">Retro Bowl</div>
-                    <div class="popular-badge">POPULAR 🔥</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/just-fall-lol.html'">
-        <img src="https://files.catbox.moe/6ia04y.png" alt="Just Fall lol">
-        <div class="game-name">Just Fall lol</div>
-                    <div class="popular-badge">POPULAR 🔥</div>
-    </div>
-</div>
-<div class="rectangle-container">
-    <div class="rectangle" onclick="window.location.href='/g/gladihoppers.html'">
-        <img src="https://i.ytimg.com/vi/_kuLMGMoGAY/maxresdefault.jpg" alt="Gladihoppers">
-        <div class="game-name">Gladihoppers</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/ragdoll-io.html'">
-        <img src="https://files.catbox.moe/2vqace.png" alt="Ragdoll.io">
-        <div class="game-name">Ragdoll.io</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/temple-run-2.html'">
-        <img src="https://i.ytimg.com/vi/9aK2zoFBbKY/maxresdefault.jpg" alt="Temple Run 2">
-        <div class="game-name">Temple Run 2</div>
-    </div>
-</div>
-<div class="rectangle-container">
-    <div class="rectangle" onclick="window.location.href='/g/stickman-hook.html'">
-        <img src="https://m.media-amazon.com/images/I/81rlNJmxanL.png" alt="Stickman Hook">
-        <div class="game-name">Stickman Hook</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/flappy-bird.html'">
-        <img src="https://mir-s3-cdn-cf.behance.net/projects/404/c4b80d143006427.Y3JvcCw4NjksNjgwLDI1LDA.png" alt="Flappy Bird">
-        <div class="game-name">Flappy Bird</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/minecraft-shooter.html'">
-        <img src="https://i.ytimg.com/vi/k_wBPps8fMA/maxresdefault.jpg" alt="Minecraft Shooter">
-        <div class="game-name">Minecraft Shooter</div>
-                    <div class="popular-badge">POPULAR 🔥</div>
-    </div>
-</div>
-<div class="rectangle-container">
-    <div class="rectangle" onclick="window.location.href='/g/helix-jump.html'">
-        <img src="https://files.catbox.moe/64wqaw.png" alt="Helix Jump">
-        <div class="game-name">Helix Jump</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/fnaf.html'">
-        <img src="https://i.ytimg.com/vi/JKWVjXeNdM4/maxresdefault.jpg" alt="FNAF">
-        <div class="game-name">FNAF</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/fnaf-2.html'">
-        <img src="https://i.ytimg.com/vi/JNNgQKlr77c/maxresdefault.jpg" alt="FNAF 2">
-        <div class="game-name">FNAF 2</div>
-    </div>
-</div>
-<div class="rectangle-container">
-    <div class="rectangle" onclick="window.location.href='/g/lazy-jump-3d.html'">
-        <img src="https://play-lh.googleusercontent.com/49tmTkafs_EYS--F6LA83IsiTGqjwhfayLuNACFlMM-EDhOJO4ijMa_3jhWl9aee4Q" alt="Lazy Jump 3D">
-        <div class="game-name">Lazy Jump 3D</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/bubble-shooter.html'">
-        <img src="https://i.ytimg.com/vi/npfxxsxj_ho/maxresdefault.jpg" alt="Bubble Shooter">
-        <div class="game-name">Bubble Shooter</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/stair-race-3d.html'">
-        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0jI9UiKYmsYw6malhXwMKmrZLb8lf-ni4WqhhIdXbBXqa3h3hnGeUYiWrIoVIHCWPkkaRcCZxXc__3ULMJwLVy-OeVZEdfjr00AX2Dig3qEKDeDD2huF9w8Bf_ial889CrhLh9fs60_5tnEKRbUyr_AxKytDnUElO9gKFI591cKKigI-t8WP1VY7NCQ/w1280-h720-p-k-no-nu/Stair%20Race%203D%20.jpg" alt="Stair Race 3D">
-        <div class="game-name">Stair Race 3D</div>
-    </div>
-</div>
-<div class="rectangle-container">
-    <div class="rectangle" onclick="window.location.href='/g/moto-x3m-pool.html'">
-        <img src="https://i.ytimg.com/vi/BJytxDAt79w/maxresdefault.jpg" alt="Moto X3M Pool">
-        <div class="game-name">Moto X3M Pool</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/moto-x3m.html'">
-        <img src="https://i.ytimg.com/vi/PkjI_khBNXI/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCcE0ba7q8oZFHzNdGweSnRxxb8Eg" alt="Moto X3M">
-        <div class="game-name">Moto X3M</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/among-us.html'">
-        <img src="https://gaming-cdn.com/images/products/7522/616x353/among-us-pc-game-steam-cover.jpg?v=1715242071" alt="Among Us">
-        <div class="game-name">Among Us</div>
-    </div>
-</div>
-<div class="rectangle-container">
-    <div class="rectangle" onclick="window.location.href='/g/rocket-soccer.html'">
-        <img src="https://us-west-2-epicgames.graphassets.com/A0Gpf4ZpfQzaTePr3NRc1z/resize=fit:clip,height:1080,width:1920/output=format:webp/2FE6uJltT6WKtdIEG2rc" alt="Rocket Soccer">
-        <div class="game-name">Rocket Soccer</div>
-                    <div class="popular-badge">POPULAR 🔥</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/ovo.html'">
-        <img src="https://games.kidzsearch.com/computer/thumbs/kidzsearch9fg-ovoio-ks121714-224955-img.png" alt="Ovo">
-        <div class="game-name">Ovo</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/infinite-craft.html'">
-        <img src="https://images.immediate.co.uk/production/volatile/sites/3/2024/03/Infinite-Craft-Whole-List-21882d0.jpg" alt="Knife Hit">
-        <div class="game-name">infinite craft</div>
-    </div>
-</div>
-<div class="rectangle-container">
-    <div class="rectangle" onclick="window.location.href='/g/sky-race-3d.html'">
-        <img src="https://files.catbox.moe/9efq0t.png" alt="Sky Race 3D">
-        <div class="game-name">Sky Race 3D</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/slope.html'">
-        <img src="https://files.catbox.moe/kod1r6.png" alt="Slope">
-        <div class="game-name">Slope</div>
-                    <div class="popular-badge">POPULAR 🔥</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/poly-track.html'">
-        <img src="https://files.catbox.moe/2ho4bb.png" alt="poly track">
-        <div class="game-name">poly track</div>
-                    <div class="popular-badge">POPULAR 🔥</div>
-    </div>
-</div>
-<div class="rectangle-container">
-    <div class="rectangle" onclick="window.location.href='/g/2048-cupcakes.html'">
-        <img src="https://files.catbox.moe/vpbswx.png" alt="2048 cupcakes">
-        <div class="game-name">2048 cupcakes</div>
-                    <div class="popular-badge">POPULAR 🔥</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/bitlife.html'">
-        <img src="https://files.catbox.moe/azbv0s.png" alt="bitlife">
-        <div class="game-name">bitlife</div>
-                    <div class="popular-badge">POPULAR 🔥</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/tetris.html'">
-        <img src="https://www.designyourway.net/blog/wp-content/uploads/2024/11/Tetris-Logo-featured.jpg" alt="tetris">
-        <div class="game-name">tetris</div>
-    </div>
-</div>
-    <div class="rectangle-container">
-    <div class="rectangle" onclick="window.location.href='/g/only-up.html'">
-        <img src="https://i.kinja-img.com/image/upload/c_fill,h_675,pg_1,q_80,w_1200/f262bf11a24b66fa2ce8f3691f80108a.jpg" alt="only up">
-        <div class="game-name">only up</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/cluster-rush.html'">
-        <img src="https://files.catbox.moe/7pxgt7.png" alt="cluster rush">
-        <div class="game-name">cluster rush</div>
-                    <div class="popular-badge">POPULAR 🔥</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/slide-in-the-woods.html'">
-        <img src="https://i.ytimg.com/vi/j3MAs3ps3A4/maxresdefault.jpg" alt="slide in the woods">
-        <div class="game-name">slide in the woods</div>
-    </div>
-</div>
-    <div class="rectangle-container">
-    <div class="rectangle" onclick="window.location.href='/g/friday-night-funkin.html'">
-        <img src="https://miro.medium.com/v2/resize:fit:3000/1*WoWHts-vB76XBw4XrsoAMQ.png" alt="friday night funkin">
-        <div class="game-name">friday night funkin</div>
-                    <div class="new-badge">NEW!</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/paper-io-3d.html'">
-        <img src="https://files.catbox.moe/x2lvx0.png" alt="paper.io 3d">
-        <div class="game-name">paper.io 3d</div>
-                    <div class="new-badge">NEW!</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/grand-theft-grotto.html'">
-        <img src="https://files.catbox.moe/4tjcw5.png" alt="grand theft grotto">
-        <div class="game-name">grand theft grotto</div>
-                    <div class="new-badge">NEW!</div>
-    </div>
-</div>
-    <div class="rectangle-container">
-    <div class="rectangle" onclick="window.location.href='/g/papas-pizzeria.html'">
-        <img src="https://i.ytimg.com/vi/TWPqPL-8aVE/maxresdefault.jpg" alt="papas pizzera">
-        <div class="game-name">papas pizzeria</div>
-                    <div class="new-badge">NEW!</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/papas-freezeria.html'">
-        <img src="https://i.ytimg.com/vi/dt7xIIJwKIo/maxresdefault.jpg" alt="papas-freezeria">
-        <div class="game-name">papas freezeria</div>
-                    <div class="new-badge">NEW!</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/papas-burgeria.html'">
-        <img src="https://i.ytimg.com/vi/M7h-t_7g8-U/hq720.jpg?sqp=-oaymwEXCK4FEIIDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLByxeS2-SLC9kSnD3aUsbYVHeDKoA" alt="papas burgeria">
-        <div class="game-name">papas burgeria</div>
-                    <div class="new-badge">NEW!</div>
-    </div>
-</div>
-    <div class="rectangle-container">
-    <div class="rectangle" onclick="window.location.href='/g/tall-man-run.html'">
-        <img src="https://tcf.admeen.org/game/18000/17971/400x246/tallman-run.jpg" alt="tall man run">
-        <div class="game-name">tall man run</div>
-                    <div class="new-badge">NEW!</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/magic-tiles-3.html'">
-        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3e/a8/b2/3ea8b235-fa09-18f0-72ec-e75dfc320248/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/1200x630wa.png" alt="magic tiles 3">
-        <div class="game-name">magic tiles 3</div>
-                    <div class="new-badge">NEW!</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/stacky-dash.html'">
-        <img src="https://files.catbox.moe/3u0z5o.png" alt="stacky dash">
-        <div class="game-name">stacky dash</div>
-                    <div class="new-badge">NEW!</div>
-    </div>
-</div>
-    <div class="rectangle-container">
-    <div class="rectangle" onclick="window.location.href='/g/color-water-sort.html'">
-        <img src="https://play-lh.googleusercontent.com/Wu3aksCldVE7thX4v6IxBQbwOtSlUiove_LfSy1cIPSAb1AOOO-WHQAKEX30XcismDo=w526-h296-rw" alt="color water sort">
-        <div class="game-name">color water sort</div>
-                    <div class="new-badge">NEW!</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/bowmasters.html'">
-        <img src="https://i.ytimg.com/vi/VshSBxvT190/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDe9yeb6J5IPQO380OzKTfJ1XsXlw" alt="bowmasters">
-        <div class="game-name">bowmasters</div>
-                    <div class="new-badge">NEW!</div>
-                </div>
-    <div class="rectangle" onclick="window.location.href='/g/hide-n-seek.html'">
-        <img src="https://files.catbox.moe/zj1cvo.png" alt="hide n seek">
-        <div class="game-name">hide n seek</div>
-                    <div class="new-badge">NEW!</div>
-                 </div>
-              </div>
 
-<div class="rectangle-container">
-    <div class="rectangle" onclick="window.location.href='/g/space-waves.html'">
-        <img src="https://i.ytimg.com/vi/3fK7WwA5DSg/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AH-CYAC0AWKAgwIABABGFIgEyh_MA8=&rs=AOn4CLAlZPY80M8M-LQzTPC-PlYsxcIGqQ" alt="space waves">
-        <div class="game-name">space waves</div>
-        <div class="new-badge">NEW!</div>
+    <div class="rectangle-container">
+        <div class="rectangle" onclick="window.location.href='/g/minecraft-parkour.html'">
+            <img src="https://i.ytimg.com/vi/zuyYcuDpCxs/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBH8p_cirtAcNNcst20Om5JkP2o6w" alt="Minecraft Parkour">
+            <div class="game-name">Minecraft Parkour</div>
+            <div class="popular-badge">POPULAR 🔥</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/minecraft-shooter.html'">
+            <img src="https://i.ytimg.com/vi/k_wBPps8fMA/maxresdefault.jpg" alt="Minecraft Shooter">
+            <div class="game-name">Minecraft Shooter</div>
+            <div class="popular-badge">POPULAR 🔥</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/monkey-mart.html'">
+            <img src="https://defold.com/images/games/monkeymart-half.png" alt="Monkey Mart">
+            <div class="game-name">Monkey Mart</div>
+            <div class="popular-badge">POPULAR 🔥</div>
+        </div>
     </div>
-    <div class="rectangle" onclick="window.location.href='/g/slice-master.html'">
-        <img src="https://files.catbox.moe/64dirm.jpeg" alt="slice master">
-        <div class="game-name">slice master</div>
-        <div class="new-badge">NEW!</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/fnaf-shooter.html'">
-        <img src="https://i.ytimg.com/vi/TYEOX9s5eeU/maxresdefault.jpg" alt="fnaf shooter">
-        <div class="game-name">fnaf shooter</div>
-        <div class="new-badge">NEW!</div>
-    </div>
-</div>
 
-<div class="rectangle-container">
-    <div class="rectangle" onclick="window.location.href='/g/fashion-battle.html'">
-        <img src="https://i.ytimg.com/vi/Leq6QhAJsvg/maxresdefault.jpg" alt="fashion battle">
-        <div class="game-name">fashion battle</div>
-        <div class="new-badge">NEW!</div>
+    <div class="rectangle-container">
+        <div class="rectangle" onclick="window.location.href='/g/moto-x3m.html'">
+            <img src="https://i.ytimg.com/vi/PkjI_khBNXI/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCcE0ba7q8oZFHzNdGweSnRxxb8Eg" alt="Moto X3M">
+            <div class="game-name">Moto X3M</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/moto-x3m-pool.html'">
+            <img src="https://i.ytimg.com/vi/BJytxDAt79w/maxresdefault.jpg" alt="Moto X3M Pool">
+            <div class="game-name">Moto X3M Pool</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/mx-offroad-mountain-bike.html'">
+            <img src="https://i.ytimg.com/vi/V7U0qMyCqcw/maxresdefault.jpg" alt="mx offroad mountain bike">
+            <div class="game-name">mx offroad mountain bike</div>
+            <div class="new-badge">NEW!</div>
+        </div>
     </div>
-    <div class="rectangle" onclick="window.location.href='/g/digital-circus-obby.html'">
-        <img src="https://i.ytimg.com/vi/LzkdeujmHnU/maxresdefault.jpg" alt="digital circus obby">
-        <div class="game-name">digital circus obby</div>
-        <div class="new-badge">NEW!</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/doors-online.html'">
-        <img src="https://i.ytimg.com/vi/dcPUujoMoPI/maxresdefault.jpg" alt="doors online">
-        <div class="game-name">doors online</div>
-        <div class="new-badge">NEW!</div>
-    </div>
-</div>
 
-<div class="rectangle-container">
-    <div class="rectangle" onclick="window.location.href='/g/dunk-hit.html'">
-        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/12/50/ba/1250ba26-121a-1c8c-76bf-6423ae8fe9c3/AppIcon-1x_U007emarketing-0-7-0-85-220.png/1200x600wa.png" alt="dunk hit">
-        <div class="game-name">dunk hit</div>
-        <div class="new-badge">NEW!</div>
+    <div class="rectangle-container">
+        <div class="rectangle" onclick="window.location.href='/g/only-up.html'">
+            <img src="https://i.kinja-img.com/image/upload/c_fill,h_675,pg_1,q_80,w_1200/f262bf11a24b66fa2ce8f3691f80108a.jpg" alt="only up">
+            <div class="game-name">only up</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/ovo.html'">
+            <img src="https://games.kidzsearch.com/computer/thumbs/kidzsearch9fg-ovoio-ks121714-224955-img.png" alt="Ovo">
+            <div class="game-name">Ovo</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/paper-io-2.html'">
+            <img src="https://tcf.admeen.org/game/17500/17069/400x246/paper-io-2.webp" alt="Paper Io 2">
+            <div class="game-name">paper.io 2</div>
+        </div>
     </div>
-    <div class="rectangle" onclick="window.location.href='/g/smash-karts-io.html'">
-        <img src="https://i.ytimg.com/vi/BK__rAEEJ-w/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGCsgZSgZMA8=&rs=AOn4CLCTggh82m9HsYmzxjf1xstnOBffcA" alt="smash karts.io">
-        <div class="game-name">smash karts.io</div>
-        <div class="new-badge">NEW!</div>
-    </div>
-    <div class="rectangle" onclick="window.location.href='/g/ragdoll-archers.html'">
-        <img src="https://play-lh.googleusercontent.com/JpM37b8IM7OslxU1LnKuSc_4wEPy26DFsN3tXkmRl3-XiTmOroCxk_kkru2d66IM1g=w526-h296-rw" alt="ragdoll archers">
-        <div class="game-name">ragdoll archers</div>
-        <div class="new-badge">NEW!</div>
-    </div>
-</div>
 
-<div class="rectangle-container">
-    <div class="rectangle" onclick="window.location.href='/g/glass-bridge-obby.html'">
-        <img src="https://i.ytimg.com/vi/7I_8zQiwl4A/maxresdefault.jpg" alt="glass bridge obby">
-        <div class="game-name">glass bridge obby</div>
-        <div class="new-badge">NEW!</div>
+    <div class="rectangle-container">
+        <div class="rectangle" onclick="window.location.href='/g/paper-io-3d.html'">
+            <img src="https://files.catbox.moe/x2lvx0.png" alt="paper.io 3d">
+            <div class="game-name">paper.io 3d</div>
+            <div class="new-badge">NEW!</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/papas-burgeria.html'">
+            <img src="https://i.ytimg.com/vi/M7h-t_7g8-U/hq720.jpg?sqp=-oaymwEXCK4FEIIDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLByxeS2-SLC9kSnD3aUsbYVHeDKoA" alt="papas burgeria">
+            <div class="game-name">papas burgeria</div>
+            <div class="new-badge">NEW!</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/papas-freezeria.html'">
+            <img src="https://i.ytimg.com/vi/dt7xIIJwKIo/maxresdefault.jpg" alt="papas-freezeria">
+            <div class="game-name">papas freezeria</div>
+            <div class="new-badge">NEW!</div>
+        </div>
     </div>
-    <div class="rectangle" onclick="window.location.href='/g/mx-offroad-mountain-bike.html'">
-        <img src="https://i.ytimg.com/vi/V7U0qMyCqcw/maxresdefault.jpg" alt="mx offroad mountain bike">
-        <div class="game-name">mx offroad mountain bike</div>
-        <div class="new-badge">NEW!</div>
+
+    <div class="rectangle-container">
+        <div class="rectangle" onclick="window.location.href='/g/papas-pizzeria.html'">
+            <img src="https://i.ytimg.com/vi/TWPqPL-8aVE/maxresdefault.jpg" alt="papas pizzera">
+            <div class="game-name">papas pizzeria</div>
+            <div class="new-badge">NEW!</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/poly-track.html'">
+            <img src="https://files.catbox.moe/2ho4bb.png" alt="poly track">
+            <div class="game-name">poly track</div>
+            <div class="popular-badge">POPULAR 🔥</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/ragdoll-archers.html'">
+            <img src="https://play-lh.googleusercontent.com/JpM37b8IM7OslxU1LnKuSc_4wEPy26DFsN3tXkmRl3-XiTmOroCxk_kkru2d66IM1g=w526-h296-rw" alt="ragdoll archers">
+            <div class="game-name">ragdoll archers</div>
+            <div class="new-badge">NEW!</div>
+        </div>
     </div>
-    <div class="rectangle" onclick="window.location.href='/g/bloxd-io.html'">
-        <img src="https://i.ytimg.com/vi/FoqKB4ogm4k/maxresdefault.jpg" alt="bloxd.io">
-        <div class="game-name">bloxd.io</div>
-        <div class="new-badge">NEW!</div>
+
+    <div class="rectangle-container">
+        <div class="rectangle" onclick="window.location.href='/g/ragdoll-io.html'">
+            <img src="https://files.catbox.moe/2vqace.png" alt="Ragdoll.io">
+            <div class="game-name">Ragdoll.io</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/retro-bowl.html'">
+            <img src="https://files.catbox.moe/0k3fg4.png" alt="Retro Bowl">
+            <div class="game-name">Retro Bowl</div>
+            <div class="popular-badge">POPULAR 🔥</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/roblox-only-up.html'">
+            <img src="https://i.ytimg.com/vi/iWQTsM7fbkg/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCHSqTpwti_EaS_Aj1PQJc84C5qqA" alt="Roblox Only Up">
+            <div class="game-name">Roblox Only Up</div>
+            <div class="popular-badge">POPULAR 🔥</div>
+        </div>
     </div>
-</div>
-<div class="rectangle-container">
-    <div class="rectangle" onclick="window.location.href='/g/slope-3.html'">
-        <img src="https://lh3.googleusercontent.com/uKr4srM-LWNU9RydAwQcj37MKWd7R6nxX_H_bRlpmmIzBV54urOrmXANt9nNZnt3Qu5ajBo24AgCfeMf8zU7Ygr1ZL4=s1280-w1280-h800" alt="slope 3">
-        <div class="game-name">slope 3</div>
-        <div class="new-badge">NEW!</div>
+
+    <div class="rectangle-container">
+        <div class="rectangle" onclick="window.location.href='/g/rocket-soccer.html'">
+            <img src="https://us-west-2-epicgames.graphassets.com/A0Gpf4ZpfQzaTePr3NRc1z/resize=fit:clip,height:1080,width:1920/output=format:webp/2FE6uJltT6WKtdIEG2rc" alt="Rocket Soccer">
+            <div class="game-name">Rocket Soccer</div>
+            <div class="popular-badge">POPULAR 🔥</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/shell-shockers.html'">
+            <img src="https://staticg.sportskeeda.com/editor/2024/10/783ff-17280361172197-1920.jpg?w=640" alt="Shell Shockers">
+            <div class="game-name">Shell Shockers</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/slice-master.html'">
+            <img src="https://files.catbox.moe/64dirm.jpeg" alt="slice master">
+            <div class="game-name">slice master</div>
+            <div class="new-badge">NEW!</div>
+        </div>
     </div>
-    <div class="rectangle" onclick="window.location.href='/g/elastic-man.html'">
-        <img src="https://i.ytimg.com/vi/Q7DF4gf56Xg/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AH-CIAC0AWKAgwIABABGGUgVChIMA8=&rs=AOn4CLAJF5E-DDsJdKxquOSLjZe-fdjS0A" alt="mx offroad mountain bike">
-        <div class="game-name">elastic man</div>
-        <div class="new-badge">NEW!</div>
+
+    <div class="rectangle-container">
+        <div class="rectangle" onclick="window.location.href='/g/slide-in-the-woods.html'">
+            <img src="https://i.ytimg.com/vi/j3MAs3ps3A4/maxresdefault.jpg" alt="slide in the woods">
+            <div class="game-name">slide in the woods</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/slither-io.html'">
+            <img src="https://files.catbox.moe/jz2zkq.png" alt="Slither.io">
+            <div class="game-name">Slither.io</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/slope.html'">
+            <img src="https://files.catbox.moe/kod1r6.png" alt="Slope">
+            <div class="game-name">Slope</div>
+            <div class="popular-badge">POPULAR 🔥</div>
+        </div>
     </div>
-    <div class="rectangle" onclick="window.location.href='/g/stumble-guys.html'">
-        <img src="https://play-lh.googleusercontent.com/RIhH1Lpqu4MR5h3CwpJLJZwxSNL0liLX_95luztjdj2Hb2NtOb1AlMdDugBLmogZ4w=w526-h296-rw" alt="bloxd.io">
-        <div class="game-name">stumble guys</div>
-        <div class="new-badge">NEW!</div>
+
+    <div class="rectangle-container">
+        <div class="rectangle" onclick="window.location.href='/g/slope-3.html'">
+            <img src="https://lh3.googleusercontent.com/uKr4srM-LWNU9RydAwQcj37MKWd7R6nxX_H_bRlpmmIzBV54urOrmXANt9nNZnt3Qu5ajBo24AgCfeMf8zU7Ygr1ZL4=s1280-w1280-h800" alt="slope 3">
+            <div class="game-name">slope 3</div>
+            <div class="new-badge">NEW!</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/smash-karts-io.html'">
+            <img src="https://i.ytimg.com/vi/BK__rAEEJ-w/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGCsgZSgZMA8=&rs=AOn4CLCTggh82m9HsYmzxjf1xstnOBffcA" alt="smash karts.io">
+            <div class="game-name">smash karts.io</div>
+            <div class="new-badge">NEW!</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/snowball-io.html'">
+            <img src="https://play-lh.googleusercontent.com/bVYC5zsBjJf-ztbarWeOp4-qTlL4h0I3ajJoCYq8xXcG1ovafqZ2steRipRK45dJTA=w526-h296-rw" alt="Snowball.io">
+            <div class="game-name">Snowball.io</div>
+        </div>
     </div>
-</div>
-<div class="rectangle-container">
-    <div class="rectangle" onclick="window.location.href='/g/2048.html'">
-        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6a/d4/1c/6ad41c3a-eb36-329f-513e-08e3912681f8/AppIcon-0-0-1x_U007emarketing-0-4-85-220.png/1200x630wa.png" alt="slope 3">
-        <div class="game-name">2048</div>
-        <div class="new-badge">NEW!</div>
+
+    <div class="rectangle-container">
+        <div class="rectangle" onclick="window.location.href='/g/space-waves.html'">
+            <img src="https://i.ytimg.com/vi/3fK7WwA5DSg/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AH-CYAC0AWKAgwIABABGFIgEyh_MA8=&rs=AOn4CLAlZPY80M8M-LQzTPC-PlYsxcIGqQ" alt="space waves">
+            <div class="game-name">space waves</div>
+            <div class="new-badge">NEW!</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/stacky-dash.html'">
+            <img src="https://files.catbox.moe/3u0z5o.png" alt="stacky dash">
+            <div class="game-name">stacky dash</div>
+            <div class="new-badge">NEW!</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/stair-race-3d.html'">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0jI9UiKYmsYw6malhXwMKmrZLb8lf-ni4WqhhIdXbBXqa3h3hnGeUYiWrIoVIHCWPkkaRcCZxXc__3ULMJwLVy-OeVZEdfjr00AX2Dig3qEKDeDD2huF9w8Bf_ial889CrhLh9fs60_5tnEKRbUyr_AxKytDnUElO9gKFI591cKKigI-t8WP1VY7NCQ/w1280-h720-p-k-no-nu/Stair%20Race%203D%20.jpg" alt="Stair Race 3D">
+            <div class="game-name">Stair Race 3D</div>
+        </div>
     </div>
-    <div class="rectangle" onclick="window.location.href='/g/10-minutes-till-dawn.html'">
-        <img src="https://static1.cbrimages.com/wordpress/wp-content/uploads/2022/05/10-Minutes-Till-Dawn-Header.jpg" alt="10 minutes till dawn">
-        <div class="game-name">10 minutes till dawn</div>
-        <div class="new-badge">NEW!</div>
+
+    <div class="rectangle-container">
+        <div class="rectangle" onclick="window.location.href='/g/stickman-hook.html'">
+            <img src="https://m.media-amazon.com/images/I/81rlNJmxanL.png" alt="Stickman Hook">
+            <div class="game-name">Stickman Hook</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/stumble-guys.html'">
+            <img src="https://play-lh.googleusercontent.com/RIhH1Lpqu4MR5h3CwpJLJZwxSNL0liLX_95luztjdj2Hb2NtOb1AlMdDugBLmogZ4w=w526-h296-rw" alt="stumble guys">
+            <div class="game-name">stumble guys</div>
+            <div class="new-badge">NEW!</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/subway-surfers.html'">
+            <img src="https://subwaysurfers.com/media/f2ldlfpi/subwaysurfers_01.png" alt="subway surfers">
+            <div class="game-name">subway surfers</div>
+            <div class="popular-badge">POPULAR 🔥</div>
+        </div>
     </div>
-    <div class="rectangle" onclick="window.location.href='/g/amaze.html'">
-        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/5c/c0/ea/5cc0ead8-9f0f-1420-13af-fd86fb3c251c/AppIcon-1x_U007emarketing-0-7-0-85-220-0.png/1200x630wa.png" alt="amaze">
-        <div class="game-name">amaze</div>
-        <div class="new-badge">NEW!</div>
+
+    <div class="rectangle-container">
+        <div class="rectangle" onclick="window.location.href='/g/super-hot.html'">
+            <img src="https://i.ytimg.com/vi/bkzwi0Y-mWk/maxresdefault.jpg" alt="Super Hot">
+            <div class="game-name">Super Hot</div>
+            <div class="popular-badge">POPULAR 🔥</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/tall-man-run.html'">
+            <img src="https://tcf.admeen.org/game/18000/17971/400x246/tallman-run.jpg" alt="tall man run">
+            <div class="game-name">tall man run</div>
+            <div class="new-badge">NEW!</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/temple-run-2.html'">
+            <img src="https://i.ytimg.com/vi/9aK2zoFBbKY/maxresdefault.jpg" alt="Temple Run 2">
+            <div class="game-name">Temple Run 2</div>
+        </div>
     </div>
-</div>
+
+    <div class="rectangle-container">
+        <div class="rectangle" onclick="window.location.href='/g/tetris.html'">
+            <img src="https://www.designyourway.net/blog/wp-content/uploads/2024/11/Tetris-Logo-featured.jpg" alt="tetris">
+            <div class="game-name">tetris</div>
+        </div>
+        <div class="rectangle" onclick="window.location.href='/g/ultimate-driving-simulator.html'">
+            <img src="https://m.media-amazon.com/images/I/91hUahJchWL.jpg" alt="Ultimate Driving Simulator">
+            <div class="game-name">Ultimate Driving Simulator</div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        // Initialize particles with theme colors
         document.addEventListener('DOMContentLoaded', function() {
             const theme = window.getCurrentTheme ? window.getCurrentTheme() : {
                 particleColor: "#ffffff",
                 particleLinks: "#ffffff"
             };
             
-            // Initialize particles
             particlesJS("particles-js", {
                 "particles": {
                     "number": { "value": 20, "density": { "enable": false } },
@@ -837,22 +804,18 @@
     </script>
     <script src="scripts/utilities/shared.js"></script>
     <script>
-        // Game search functionality
         document.addEventListener('DOMContentLoaded', function() {
             const searchBar = document.getElementById('gameSearch');
             const gameCards = document.querySelectorAll('.rectangle');
             
-            // Create an index of all games for quick lookup
             const gameIndex = [];
             gameCards.forEach(card => {
-                // Skip iframes
                 if (!card.querySelector('.game-name')) return;
                 
                 const gameName = card.querySelector('.game-name').textContent.toLowerCase().trim();
                 const onclickAttr = card.getAttribute('onclick');
                 let gameUrl = null;
                 
-                // Extract URL from onclick attribute
                 if (onclickAttr && onclickAttr.includes("window.location.href='")) {
                     gameUrl = onclickAttr.split("window.location.href='")[1].split("'")[0];
                     gameIndex.push({
@@ -863,10 +826,8 @@
                 }
             });
             
-            // Function to filter games based on search input
             function filterGames(query) {
                 if (!query) {
-                    // Show all games if query is empty
                     gameCards.forEach(card => card.style.display = '');
                     document.querySelectorAll('.rectangle-container').forEach(container => {
                         container.style.display = 'flex';
@@ -874,16 +835,12 @@
                     return null;
                 }
                 
-                // Filter games by search query
                 const matches = gameIndex.filter(game => game.name.includes(query));
                 
-                // Hide all games first
                 gameCards.forEach(card => card.style.display = 'none');
                 
-                // Show only matching games
                 matches.forEach(match => match.element.style.display = '');
                 
-                // Show/hide containers based on visible cards
                 document.querySelectorAll('.rectangle-container').forEach(container => {
                     const hasVisibleCards = Array.from(container.querySelectorAll('.rectangle')).some(
                         card => card.style.display !== 'none'
@@ -894,12 +851,10 @@
                 return matches.length > 0 ? matches[0] : null;
             }
             
-            // Input event for real-time filtering
             searchBar.addEventListener('input', function() {
                 filterGames(this.value.toLowerCase().trim());
             });
             
-            // Enter key press to navigate to first result
             searchBar.addEventListener('keydown', function(event) {
                 if (event.key === 'Enter') {
                     event.preventDefault();
@@ -908,24 +863,35 @@
                     const match = filterGames(query);
                     
                     if (match && match.url) {
-                        // Use direct window.location assignment for more reliable navigation
                         window.location.href = match.url;
                     }
                 }
             });
         });
     </script>
-<script>
-    // Show the first games message
-    setTimeout(function() {
-        showGlowingMessage('explore our collection of games! request a game so we can add it!');
 
-        // Show the second message after a delay
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const cursorDot = document.createElement("div");
+            cursorDot.classList.add("cursor-dot");
+            document.body.appendChild(cursorDot);
+
+            document.addEventListener("mousemove", (e) => {
+                cursorDot.style.left = `${e.clientX}px`;
+                cursorDot.style.top = `${e.clientY}px`;
+            });
+        });
+    </script>
+    
+    <script>
         setTimeout(function() {
-            showGlowingMessage('updates: we are working on adding the real roblox and online games so hold tight :)');
-        }, 3000); // Adjust delay as needed
-    }, 1500);
-</script>
+            showGlowingMessage('explore our collection of games! request a game so we can add it!');
+
+            setTimeout(function() {
+                showGlowingMessage('updates: we are working on adding the real roblox and online games so hold tight :)');
+            }, 3000);
+        }, 1500);
+    </script>
 
 </body>
 </html>
