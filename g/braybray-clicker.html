@@ -1,1 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>braybray clicker</title>
+  <link rel="icon" href="https://files.catbox.moe/ao6qv3.png" type="image/x-icon">
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #1e1e1e, #2c2c2c);
+      color: white;
+      font-family: 'Fredoka', sans-serif;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .gigachad {
+      width: 400px;
+      transition: transform 0.15s ease;
+      margin-bottom: 40px;
+    }
+
+    .gigachad.pop {
+      transform: scale(1.05);
+    }
+
+    .click-button {
+      font-size: 40px;
+      padding: 20px 50px;
+      border: none;
+      border-radius: 15px;
+      background: linear-gradient(45deg, #ff007f, #ffdb4d, #00ffe0);
+      color: #000;
+      cursor: pointer;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.7);
+      animation: shine 2s infinite linear;
+      position: relative;
+      z-index: 10;
+    }
+
+    @keyframes shine {
+      0% { box-shadow: 0 0 15px rgba(255, 255, 255, 0.3); }
+      50% { box-shadow: 0 0 30px rgba(255, 255, 255, 1); }
+      100% { box-shadow: 0 0 15px rgba(255, 255, 255, 0.3); }
+    }
+
+    .sound-iframe {
+      margin-top: 30px;
+      transform: scale(1.4);
+    }
+  </style>
+</head>
+<body>
+
+  <img id="gigachad" src="https://www.pngmart.com/files/23/Gigachad-PNG-Pic.png" alt="Gigachad" class="gigachad">
+
+  <button class="click-button" onclick="handleClick()">CLICK ME!</button>
+
+  <!-- Audio element for sound effect -->
+  <audio id="click-sound" src="https://raw.githubusercontent.com/blockzone/blockzone.github.io/main/CHICKEN%20JOCKEY-made-with-DubbingAI.mp3"></audio>
+
+  <!-- Optional iframe button sound -->
+  <!--
+  <div class="sound-iframe">
+    <iframe width="110" height="200" src="https://www.myinstants.com/instant/chicken-jockey-68358/embed/" frameborder="0" scrolling="no"></iframe>
+  </div>
+  -->
+
+  <script>
+    const gigachad = document.getElementById('gigachad');
+    const clickSound = document.getElementById('click-sound');
+
+    function handleClick() {
+      gigachad.classList.add('pop');
+      clickSound.currentTime = 0;
+      clickSound.play();
+      setTimeout(() => {
+        gigachad.classList.remove('pop');
+      }, 150);
+    }
+  </script>
+
+</body>
+</html>
 
