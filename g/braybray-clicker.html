@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>braybray clicker</title>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@700&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://www.pngmart.com/files/23/Gigachad-PNG-Pic.png" type="image/png">
   <style>
     body {
       margin: 0;
@@ -24,6 +25,8 @@
       width: 400px;
       transition: transform 0.15s ease;
       margin-bottom: 20px;
+      position: relative;
+      z-index: 10;
     }
 
     .gigachad.pop {
@@ -65,7 +68,6 @@
       text-transform: lowercase;
     }
 
-    /* Floating Gigachad Images */
     .floating-gigachad {
       position: absolute;
       width: 50px;
@@ -102,7 +104,7 @@
       }
     }
 
-    /* Popup styles */
+    /* Popup Styles */
     .popup {
       position: fixed;
       bottom: 20px;
@@ -152,6 +154,55 @@
     .close-btn:hover {
       color: #ddd;
     }
+
+    /* Shop Styles */
+    .shop-container {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 300px;
+      height: 100vh;
+      background-color: #444;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+      z-index: 500;
+      display: block;
+      color: white;
+    }
+
+    .shop-item {
+      padding: 15px;
+      background-color: #666;
+      border-radius: 5px;
+      margin: 10px 0;
+      cursor: pointer;
+      text-transform: lowercase;
+      transition: all 0.3s ease;
+    }
+
+    .shop-item:hover {
+      background-color: #888;
+      transform: scale(1.1);
+      background-color: grey;
+    }
+
+    .shop-item img {
+      width: 30px;
+      margin-right: 10px;
+    }
+
+    .shop-button {
+      font-size: 20px;
+      padding: 20px 50px;
+      border: none;
+      background: #ff007f;
+      color: #fff;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+
   </style>
 </head>
 <body>
@@ -167,41 +218,57 @@
     <p>you got 50 clicks! you get a braybray frenzy!</p>
   </div>
 
-  <!-- Sound Effect -->
-  <audio id="frenzy-sound" src="https://raw.githubusercontent.com/blockzone/blockzone.github.io/main/moannnnnygs727272-made-with-DubbingAI.mp3" loop></audio>
+  <!-- Shop -->
+  <div class="shop-container" id="shopContainer">
+    <h3>shop</h3>
+    <div class="shop-item" onclick="buyItem('speed')">speed boost - 100 clicks</div>
+    <div class="shop-item" onclick="buyItem('double')">double clicks - 200 clicks</div>
+    <div class="shop-item" onclick="buyItem('skin1')">skin 1 - 300 clicks <img src="https://www.pngmart.com/files/23/Gigachad-PNG-Pic.png" alt="skin1"></div>
+    <div class="shop-item" onclick="buyItem('skin2')">skin 2 - 400 clicks <img src="https://www.pngmart.com/files/23/Gigachad-PNG-Pic.png" alt="skin2"></div>
+    <div class="shop-item" onclick="buyItem('skin3')">skin 3 - 500 clicks <img src="https://www.pngmart.com/files/23/Gigachad-PNG-Pic.png" alt="skin3"></div>
+    <button class="shop-button" onclick="buyItem('extra')">extra item - 600 clicks</button>
+  </div>
+
+  <!-- Sound Effects -->
+  <audio id="chickenJockeySound" src="https://raw.githubusercontent.com/blockzone/blockzone.github.io/main/CHICKEN%20JOCKEY-made-with-DubbingAI.mp3" loop></audio>
+  <audio id="gulpSound" src="https://raw.githubusercontent.com/blockzone/blockzone.github.io/main/cupcakke%20gulp-made-with-DubbingAI.mp3" loop></audio>
 
   <script>
     const gigachad = document.getElementById('gigachad');
     const counterEl = document.getElementById('counter');
-    const frenzySound = document.getElementById('frenzy-sound');
-    let clicks = parseInt(localStorage.getItem('clicks')) || 0; // Load clicks from localStorage
-    let frenzyShown = false;
-    let clickMultiplier = 1;
+    const chickenJockeySound = document.getElementById('chickenJockeySound');
+    const gulpSound = document.getElementById('gulpSound');
+    const shopContainer = document.getElementById('shopContainer');
 
-    // Initialize counter display
+    let clicks = localStorage.getItem('clicks') ? parseInt(localStorage.getItem('clicks')) : 0;
+    let clickMultiplier = 1;
+    let speedBoost = false;
+    let doubleClicks = false;
+
+    // Update counter on page load
     counterEl.textContent = `clicks: ${clicks}`;
 
     function handleClick() {
-      gigachad.classList.add('pop');
-      setTimeout(() => gigachad.classList.remove('pop'), 150);
-
       clicks += clickMultiplier;
-      localStorage.setItem('clicks', clicks); // Save clicks to localStorage
+      localStorage.setItem('clicks', clicks);
       counterEl.textContent = `clicks: ${clicks}`;
 
-      if (clicks >= 50 && !frenzyShown) {
+      if (clicks >= 50 && clicks < 100) {
         startBrayBrayFrenzy();
-        frenzyShown = true;
+      } else if (clicks >= 100 && clicks < 200) {
+        startGulpFrenzy();
+      }
+
+      if (clicks >= 200) {
+        shopContainer.style.display = 'block';  // Show the shop after 200 clicks
       }
     }
 
     function startBrayBrayFrenzy() {
-      // Change background to rainbow moving gradient
-      document.body.style.background = 'linear-gradient(45deg, #ff007f, #ffdb4d, #00ffe0, #ff007f, #ffdb4d)';
+      document.body.style.background = 'linear-gradient(45deg, #ff007f, #ffdb4d, #00ffe0)';
       document.body.style.animation = 'backgroundMove 10s linear infinite';
 
-      // Add floating Gigachad images
-      for (let i = 0; i < 50; i++) {
+      for (let i = 0; i < 25; i++) {
         const img = document.createElement('img');
         img.src = 'https://www.pngmart.com/files/23/Gigachad-PNG-Pic.png';
         img.classList.add('floating-gigachad');
@@ -210,37 +277,79 @@
         document.body.appendChild(img);
       }
 
-      // Play sound effect (loop for 10 seconds)
-      frenzySound.play();
-
-      // Double clicks for 10 seconds
+      chickenJockeySound.play();
       clickMultiplier = 2;
-
-      // Stop frenzy after 10 seconds
-      setTimeout(() => {
-        stopBrayBrayFrenzy();
-      }, 10000);
+      setTimeout(() => stopBrayBrayFrenzy(), 10000);
     }
 
     function stopBrayBrayFrenzy() {
       document.body.style.background = 'linear-gradient(135deg, #1e1e1e, #2c2c2c)';
       clickMultiplier = 1;
-      // Remove floating Gigachad images
       const gigachads = document.querySelectorAll('.floating-gigachad');
       gigachads.forEach(img => img.remove());
-      frenzySound.pause();
-      frenzySound.currentTime = 0;
+      chickenJockeySound.pause();
+      chickenJockeySound.currentTime = 0;
     }
 
-    function showPopup() {
-      const popup = document.getElementById("popup");
-      popup.classList.add("show");
-      setTimeout(() => closePopup(), 5000);
+    function startGulpFrenzy() {
+      document.body.style.background = 'linear-gradient(45deg, #4caf50, #8bc34a)';
+      document.body.style.animation = 'backgroundMove 10s linear infinite';
+
+      for (let i = 0; i < 25; i++) {
+        const img = document.createElement('img');
+        img.src = 'https://www.pngmart.com/files/23/Gigachad-PNG-Pic.png';
+        img.classList.add('floating-gigachad');
+        img.style.top = `${Math.random() * 100}vh`;
+        img.style.left = `${Math.random() * 100}vw`;
+        document.body.appendChild(img);
+      }
+
+      gulpSound.play();
+      clickMultiplier = 3;
+      setTimeout(() => stopGulpFrenzy(), 10000);
     }
 
-    function closePopup() {
-      const popup = document.getElementById("popup");
-      popup.classList.remove("show");
+    function stopGulpFrenzy() {
+      document.body.style.background = 'linear-gradient(135deg, #1e1e1e, #2c2c2c)';
+      clickMultiplier = 1;
+      const gigachads = document.querySelectorAll('.floating-gigachad');
+      gigachads.forEach(img => img.remove());
+      gulpSound.pause();
+      gulpSound.currentTime = 0;
+    }
+
+    function buyItem(item) {
+      if (item === 'speed' && clicks >= 100) {
+        speedBoost = true;
+        clicks -= 100;
+        localStorage.setItem('clicks', clicks);
+        counterEl.textContent = `clicks: ${clicks}`;
+      } else if (item === 'double' && clicks >= 200) {
+        doubleClicks = true;
+        clicks -= 200;
+        localStorage.setItem('clicks', clicks);
+        counterEl.textContent = `clicks: ${clicks}`;
+      } else if (item === 'skin1' && clicks >= 300) {
+        alert("Skin 1 purchased!");
+        clicks -= 300;
+        localStorage.setItem('clicks', clicks);
+        counterEl.textContent = `clicks: ${clicks}`;
+      } else if (item === 'skin2' && clicks >= 400) {
+        alert("Skin 2 purchased!");
+        clicks -= 400;
+        localStorage.setItem('clicks', clicks);
+        counterEl.textContent = `clicks: ${clicks}`;
+      } else if (item === 'skin3' && clicks >= 500) {
+        alert("Skin 3 purchased!");
+        clicks -= 500;
+        localStorage.setItem('clicks', clicks);
+        counterEl.textContent = `clicks: ${clicks}`;
+      } else if (item === 'extra' && clicks >= 600) {
+        alert("Extra item purchased!");
+        clicks -= 600;
+        localStorage.setItem('clicks', clicks);
+        counterEl.textContent = `clicks: ${clicks}`;
+      }
     }
   </script>
 
