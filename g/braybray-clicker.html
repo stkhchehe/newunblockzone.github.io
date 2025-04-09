@@ -46,15 +46,9 @@
     }
 
     @keyframes shine {
-      0% {
-        box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-      }
-      50% {
-        box-shadow: 0 0 30px rgba(255, 255, 255, 1);
-      }
-      100% {
-        box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-      }
+      0% { box-shadow: 0 0 15px rgba(255, 255, 255, 0.3); }
+      50% { box-shadow: 0 0 30px rgba(255, 255, 255, 1); }
+      100% { box-shadow: 0 0 15px rgba(255, 255, 255, 0.3); }
     }
 
     .counter {
@@ -65,7 +59,6 @@
       text-transform: lowercase;
     }
 
-    /* Floating Gigachad Images */
     .floating-gigachad {
       position: absolute;
       width: 50px;
@@ -73,36 +66,19 @@
     }
 
     @keyframes floatGigachads {
-      0% {
-        transform: translate(0, 0);
-      }
-      25% {
-        transform: translate(100px, 50px);
-      }
-      50% {
-        transform: translate(200px, 100px);
-      }
-      75% {
-        transform: translate(300px, 50px);
-      }
-      100% {
-        transform: translate(400px, 0);
-      }
+      0% { transform: translate(0, 0); }
+      25% { transform: translate(100px, 50px); }
+      50% { transform: translate(200px, 100px); }
+      75% { transform: translate(300px, 50px); }
+      100% { transform: translate(400px, 0); }
     }
 
     @keyframes bounce {
-      0% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-30px);
-      }
-      100% {
-        transform: translateY(0);
-      }
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-30px); }
+      100% { transform: translateY(0); }
     }
 
-    /* Popup styles */
     .popup {
       position: fixed;
       bottom: 20px;
@@ -152,6 +128,22 @@
     .close-btn:hover {
       color: #ddd;
     }
+
+    /* Jumpscare */
+    .jumpscare {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 70vw;
+      max-width: 700px;
+      z-index: 2000;
+      display: none;
+    }
+
+    .jumpscare.show {
+      display: block;
+    }
   </style>
 </head>
 <body>
@@ -167,18 +159,24 @@
     <p>you got 50 clicks! you get a braybray frenzy!</p>
   </div>
 
-  <!-- Sound Effect -->
+  <!-- Braybray frenzy sound -->
   <audio id="frenzy-sound" src="https://raw.githubusercontent.com/blockzone/blockzone.github.io/main/moannnnnygs727272-made-with-DubbingAI.mp3" loop></audio>
+
+  <!-- Jumpscare Image + Sound -->
+  <img id="jumpscare-img" class="jumpscare" src="https://static.wikia.nocookie.net/b89a3a8c-8699-4d09-8d32-3d8c9eb5c5af/scale-to-width/755" alt="jumpscare">
+  <audio id="jumpscare-sound" src="https://example.com/five-nights-at-freddys-full-scream-sound_2-made-with-DubbingAI%20(1).mp3"></audio>
 
   <script>
     const gigachad = document.getElementById('gigachad');
     const counterEl = document.getElementById('counter');
     const frenzySound = document.getElementById('frenzy-sound');
-    let clicks = parseInt(localStorage.getItem('clicks')) || 0; // Load clicks from localStorage
+    const jumpscareImg = document.getElementById('jumpscare-img');
+    const jumpscareSound = document.getElementById('jumpscare-sound');
+    let clicks = parseInt(localStorage.getItem('clicks')) || 0;
     let frenzyShown = false;
+    let jumpscareShown = false;
     let clickMultiplier = 1;
 
-    // Initialize counter display
     counterEl.textContent = `clicks: ${clicks}`;
 
     function handleClick() {
@@ -186,21 +184,25 @@
       setTimeout(() => gigachad.classList.remove('pop'), 150);
 
       clicks += clickMultiplier;
-      localStorage.setItem('clicks', clicks); // Save clicks to localStorage
+      localStorage.setItem('clicks', clicks);
       counterEl.textContent = `clicks: ${clicks}`;
 
       if (clicks >= 50 && !frenzyShown) {
+        showPopup();
         startBrayBrayFrenzy();
         frenzyShown = true;
+      }
+
+      if (clicks >= 100 && !jumpscareShown) {
+        triggerJumpscare();
+        jumpscareShown = true;
       }
     }
 
     function startBrayBrayFrenzy() {
-      // Change background to rainbow moving gradient
       document.body.style.background = 'linear-gradient(45deg, #ff007f, #ffdb4d, #00ffe0, #ff007f, #ffdb4d)';
       document.body.style.animation = 'backgroundMove 10s linear infinite';
 
-      // Add floating Gigachad images
       for (let i = 0; i < 50; i++) {
         const img = document.createElement('img');
         img.src = 'https://www.pngmart.com/files/23/Gigachad-PNG-Pic.png';
@@ -210,24 +212,16 @@
         document.body.appendChild(img);
       }
 
-      // Play sound effect (loop for 10 seconds)
       frenzySound.play();
-
-      // Double clicks for 10 seconds
       clickMultiplier = 2;
 
-      // Stop frenzy after 10 seconds
-      setTimeout(() => {
-        stopBrayBrayFrenzy();
-      }, 10000);
+      setTimeout(() => stopBrayBrayFrenzy(), 10000);
     }
 
     function stopBrayBrayFrenzy() {
       document.body.style.background = 'linear-gradient(135deg, #1e1e1e, #2c2c2c)';
       clickMultiplier = 1;
-      // Remove floating Gigachad images
-      const gigachads = document.querySelectorAll('.floating-gigachad');
-      gigachads.forEach(img => img.remove());
+      document.querySelectorAll('.floating-gigachad').forEach(img => img.remove());
       frenzySound.pause();
       frenzySound.currentTime = 0;
     }
@@ -242,7 +236,17 @@
       const popup = document.getElementById("popup");
       popup.classList.remove("show");
     }
-  </script>
 
+    function triggerJumpscare() {
+      jumpscareImg.classList.add('show');
+      jumpscareSound.play();
+
+      setTimeout(() => {
+        jumpscareImg.classList.remove('show');
+        jumpscareSound.pause();
+        jumpscareSound.currentTime = 0;
+      }, 2000);
+    }
+  </script>
 </body>
 </html>
