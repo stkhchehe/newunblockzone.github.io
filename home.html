@@ -692,11 +692,11 @@ body {
             const urlPattern = /^(https?:\/\/)?([a-zA-Z0-9\-]+\.)+[a-zA-Z]{2,6}(\/[^\s]*)?$/;
             if (urlPattern.test(query)) {
                 // If it's a valid URL, prepend the new proxy URL
-                let proxyUrl = `https://unblockzone.online/active/iframe.html#https://${encodeURIComponent(query)}`;
+                let proxyUrl = `/active/iframe.html#https://${encodeURIComponent(query)}`;
                 window.location.href = proxyUrl;
             } else if (query) {
                 // If it's not a URL, perform a search using Bing with the new proxy URL
-                let proxyUrl = `https://unblockzone.online/active/iframe.html#https://duckduckgo.com/search?q=${encodeURIComponent(query)}`;
+                let proxyUrl = `/active/iframe.html#https://duckduckgo.com/search?q=${encodeURIComponent(query)}`;
                 window.location.href = proxyUrl;
             }
         }
