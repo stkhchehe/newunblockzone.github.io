@@ -26,7 +26,7 @@ const gamesData = [
   },
   {
     id: "subway-surfers",
-    name: "subway surfers",
+    name: "subway surfer",
     url: "/g/subway-surfers.html",
     iframeUrl: "https://subwaysurfers.com/media/f2ldlfpi/subwaysurfers_01.png",
     imageUrl: "https://subwaysurfers.com/media/f2ldlfpi/subwaysurfers_01.png",
