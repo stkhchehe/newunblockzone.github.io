@@ -702,6 +702,61 @@ body {
             }
         }
     }
+
+/* Add this to your existing CSS */
+.announcement-popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    border: 2px solid white;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    z-index: 1000;
+}
+
+.announcement-popup.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.announcement-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid white;
+}
+
+.announcement-content {
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+.close-announcement {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px;
+    transition: transform 0.3s ease;
+}
+
+.close-announcement:hover {
+    transform: scale(1.1);
+}
+
 </script>
     
     </script>
@@ -801,6 +856,33 @@ body {
         </div>
     </div>
 </div>
+
+    <!-- Add this to your HTML body -->
+<div class="announcement-popup" id="announcementPopup">
+    <button class="close-announcement" onclick="closeAnnouncement()">×</button>
+    <div class="announcement-title">announcements</div>
+    <div class="announcement-content">
+        welcome to unblockzone v4! here is some important news. unblockzone v5 is almost out! and this site was made by brayden in WMMS! we had to switch links because it got blocked in our school so share this link with EVERYONE. the proxy doesnt work, all the apps dont work and some proxied games dont work. i am trying my BEST to fix it all but the best thing is just to wait 2 weeks for v5 to come out...
+    </div>
+</div>
+
+<!-- Add this JavaScript before the closing body tag -->
+<script>
+function showAnnouncement() {
+    const popup = document.getElementById("announcementPopup");
+    popup.classList.add("show");
+}
+
+function closeAnnouncement() {
+    const popup = document.getElementById("announcementPopup");
+    popup.classList.remove("show");
+}
+
+// Show the announcement popup when the page loads
+window.addEventListener('load', () => {
+    setTimeout(showAnnouncement, 1000);
+});
+</script>
 
 
  <div class="particles" style->
