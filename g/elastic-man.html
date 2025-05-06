@@ -1,30 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
     <title>elastic man</title>
+        <link rel="icon" href="https://files.catbox.moe/ao6qv3.png" type="image/x-icon">
+    <base href="https://glcdn.githack.com/3kh0/3kh0-assets/-/raw/main/elasticman/index.html">
+    <link rel="stylesheet" href="face.css" type="text/css" />
+  </head>
+  <body>
+    <script type="text/template" id="loading-template">
+      <div id="loading-bar" class="loading-bar-visible">
+                      <div id="loading-fill"></div>
+                  </div>
+    </script>
+    <script type="text/template" id="no-support-template">
+      <div id="error">Your browser does not support the required features. Try another browser and/or device!</div>
+    </script>
+    <script type="text/template" id="main-template">
+      <div id="quality-container">
+                      <div id="quality-label">Quality</div>
+                      <div class="quality" id="quality-medium">Medium</div>
+                      <div class="quality" id="quality-high">High</div>
+                  </div>
 
-    <!-- Favicon -->
-    <link rel="icon" href="https://files.catbox.moe/ao6qv3.png" type="image/x-icon">
-
-    <style>
-        /* Style for full-page embedding */
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        iframe {
-            border: none;
-            width: 100%;
-            height: 100%;
-        }
-    </style>
-</head>
-<body>
-    <iframe src="https://unblockzone.online/active/iframe.html#https://d21u3ic0kp9e91.cloudfront.net/elasticman/0/index.html " title="elastic man"></iframe>
-</body>
+    </script>
+    <div id="placeholder"></div>
+    <script src="2face.js"></script>
+  </body>
 </html>
